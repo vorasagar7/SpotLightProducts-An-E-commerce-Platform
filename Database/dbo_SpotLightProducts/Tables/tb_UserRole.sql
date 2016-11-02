@@ -1,0 +1,17 @@
+CREATE TABLE tb_UserRole
+(
+
+Id INTEGER,
+User_Id INTEGER,
+Role_Id INTEGER,
+Is_Deleted BOOLEAN,
+Created_On TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+Created_By VARCHAR(100),
+Modified_On TIMESTAMP,
+Modified_By VARCHAR(100),
+Version INTEGER DEFAULT 1,
+CONSTRAINT pk_tb_UserRole_Id PRIMARY KEY(Id),
+CONSTRAINT fk_tb_UserRole_User_Id FOREIGN KEY(User_Id) REFERENCES tb_AppUser(Id),
+CONSTRAINT fk_tb_UserRole_Role_Id FOREIGN KEY(Role_Id) REFERENCES tb_AppRole(Id)
+
+);
