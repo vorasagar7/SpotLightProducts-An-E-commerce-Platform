@@ -11,5 +11,5 @@ CREATE TABLE tb_AppUser
     Modified_On TIMESTAMP,
     Modified_By VARCHAR(100),
     Version INTEGER DEFAULT 1,
-    CONSTRAINT df_tb_AppUser_Id PRIMARY KEY(Id)
+    CONSTRAINT pk_tb_AppUser_Id PRIMARY KEY(Id)
 )
