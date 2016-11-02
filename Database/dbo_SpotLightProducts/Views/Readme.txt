@@ -1,0 +1,1 @@
+This is the directory for all views of the database dbo_SpotLightProducts
