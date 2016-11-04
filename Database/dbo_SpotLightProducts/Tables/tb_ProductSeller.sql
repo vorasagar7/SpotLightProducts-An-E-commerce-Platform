@@ -1,5 +1,5 @@
 CREATE TABLE tb_ProductSeller (
-    Id INTEGER,     
+    Id INTEGER AUTO_INCREMENT,     
     Product_Id INTEGER not null,     
     Seller_Id INTEGER not null,     
     Price FLOAT(10,2) not null,

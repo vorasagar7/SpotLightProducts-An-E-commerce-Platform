@@ -1,5 +1,5 @@
 CREATE TABLE tb_ReferenceListItem (
-    Id INTEGER,     
+    Id INTEGER AUTO_INCREMENT,     
     Name VARCHAR(100),
     List_Id INTEGER,
     SortOrder INTEGER,

@@ -1,5 +1,5 @@
 CREATE TABLE tb_ReferenceList (
-	Id INTEGER,     
+	Id INTEGER AUTO_INCREMENT,     
 	Name VARCHAR(100) not null,     
 	Is_Deleted BOOLEAN DEFAULT 0,   
 	Created_On TIMESTAMP DEFAULT CURRENT_TIMESTAMP,     

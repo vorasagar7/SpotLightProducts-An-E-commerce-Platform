@@ -1,5 +1,5 @@
 CREATE TABLE tb_UserReviews ( 
-    Id INTEGER, 
+    Id INTEGER AUTO_INCREMENT, 
     Product_Id INTEGER, 
     User_Id INTEGER, 
     Comment VARCHAR(1000), 

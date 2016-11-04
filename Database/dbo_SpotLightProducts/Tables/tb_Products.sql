@@ -1,5 +1,5 @@
 CREATE TABLE tb_Products (
-    Id INTEGER,     
+    Id INTEGER AUTO_INCREMENT,     
     Product_Name VARCHAR(50),     
     Model_Id VARCHAR(50),     
     Brand_Id INTEGER, 

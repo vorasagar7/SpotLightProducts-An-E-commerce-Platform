@@ -1,5 +1,5 @@
 CREATE TABLE tb_OrderMapping (
-    Id INTEGER,     
+    Id INTEGER AUTO_INCREMENT,     
     Seller_Id INTEGER not null,     
     Order_Id INTEGER not null,  
     Product_Id INTEGER not null,  

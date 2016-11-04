@@ -1,5 +1,5 @@
 CREATE TABLE tb_ShoppingCart (
-    Id INTEGER,     
+    Id INTEGER AUTO_INCREMENT,     
     Buyer_Id INTEGER not null,
     Product_Id INTEGER not null,
     Seller_Id INTEGER not null,

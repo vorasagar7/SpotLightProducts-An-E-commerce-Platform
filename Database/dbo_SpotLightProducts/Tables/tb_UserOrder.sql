@@ -1,5 +1,5 @@
 CREATE TABLE tb_UserOrder (
-    Id INTEGER,     
+    Id INTEGER AUTO_INCREMENT,     
     Mode_Of_Payment_Id INTEGER not null,     
     Buyer_Id INTEGER not null,     
     Shipping_Address VARCHAR(1000) not null,

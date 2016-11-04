@@ -1,5 +1,5 @@
 CREATE TABLE tb_AppUser (
-	Id INTEGER,
+	Id INTEGER AUTO_INCREMENT,
 	First_Name VARCHAR(50) not null,
 	Last_Name VARCHAR(50) not null,
 	Email VARCHAR(100) not null,
