@@ -26,9 +26,9 @@ BEGIN
 	AND p.Is_Deleted = 0
 	AND p.Is_Approved = 1
 	AND ps.Is_Deleted = 0
-	ORDER BY p.SellerName
+	ORDER BY SellerName;
 
-	SELECT reviews.Id,
+	SELECT review.Id,
 		CONCAT(user.First_Name, user.Last_Name) AS UserName,
 		Comment,
 		Rating
@@ -37,8 +37,8 @@ BEGIN
 	ON review.Product_Id = products.Id
 	INNER JOIN tb_AppUser user
 	ON user.Id = review.User_Id
-	WHERE reviews.Is_Deleted = 0
+	WHERE review.Is_Deleted = 0
 	AND products.Is_Deleted = 0
-	AND user.Is_Active = 1
+	AND user.Is_Active = 1;
 END;
 $$
