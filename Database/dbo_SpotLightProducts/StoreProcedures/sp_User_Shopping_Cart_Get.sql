@@ -3,7 +3,7 @@ CREATE PROCUEDURE sp_User_Shopping_Cart_Get(
 	IN p_userId INTEGER
 )
 BEGIN
-	SELECT Id,
+	SELECT cart.Id,
 		product.Id,
 		product.Product_Name,
 		product.Model_Id,
