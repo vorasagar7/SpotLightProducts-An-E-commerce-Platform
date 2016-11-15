@@ -1,0 +1,11 @@
+drop table tb_shoppingcart;
+drop table tb_ordermapping;
+drop table tb_userorder;
+drop table tb_userreviews;
+drop table tb_productseller;
+drop table tb_products;
+drop table tb_userrole;
+drop table tb_approle;
+drop table tb_appuser;
+drop table tb_referencelistitem;
+drop table tb_referencelist;

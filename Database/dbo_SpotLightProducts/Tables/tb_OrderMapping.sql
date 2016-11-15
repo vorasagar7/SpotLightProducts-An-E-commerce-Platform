@@ -5,7 +5,7 @@ CREATE TABLE tb_OrderMapping (
     Product_Id INTEGER not null,  
     Quantity INTEGER not null,
     Price varchar(100) not null,
-    IsDeleted BOOLEAN DEFAULT 0,
+    Is_Deleted BOOLEAN DEFAULT 0,
     Created_On TIMESTAMP DEFAULT CURRENT_TIMESTAMP,     
     Created_By VARCHAR(100) not null,     
     Modified_On TIMESTAMP not null,     

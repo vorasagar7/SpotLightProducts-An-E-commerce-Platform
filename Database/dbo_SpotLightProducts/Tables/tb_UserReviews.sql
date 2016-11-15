@@ -2,7 +2,7 @@ CREATE TABLE tb_UserReviews (
     Id INTEGER AUTO_INCREMENT, 
     Product_Id INTEGER, 
     User_Id INTEGER, 
-    Comment VARCHAR(1000), 
+    Comments VARCHAR(1000), 
     Rating INTEGER, 
     Is_Deleted BOOLEAN DEFAULT 0, 
     Created_On TIMESTAMP DEFAULT CURRENT_TIMESTAMP, 
