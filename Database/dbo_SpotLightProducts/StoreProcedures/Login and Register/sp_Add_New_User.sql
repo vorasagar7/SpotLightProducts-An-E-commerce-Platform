@@ -40,8 +40,7 @@ BEGIN
 		set @userID = (select LAST_INSERT_ID());
 		INSERT INTO `tb_UserRole` (
 			`User_Id`, 
-			`Role_Id`, 
-			`Is_Deleted`, 
+			`Role_Id`,  
 			`Created_On`, 
 			`Created_By`, 
 			`Modified_On`, 

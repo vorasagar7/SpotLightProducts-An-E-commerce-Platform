@@ -47,7 +47,10 @@ BEGIN
 	AND IS_DELETED = 0;
 	
 	UPDATE tb_shoppingcart 
-		SET IS_DELETED = 1 
+		SET IS_DELETED = 1,
+		ModifiedBy = @UserEmail,
+		ModifiedOn = CURRENT_TIMESTAMP,
+		VERSION = VERSION + 1
 		WHERE IS_DELETED = 0 
 		AND Buyer_Id = p_user_Id;
 	SELECT 1 AS SUCCESS, "" AS ErrMessage;

@@ -24,7 +24,7 @@ BEGIN
 		FROM tb_AppUser
 		WHERE Email = p_userEmail
 		AND Pwd = p_password
-		AND Is_Active = 1;
+		AND Is_DELETED = 0;
 
 	SET @rowCount = (SELECT COUNT(*) FROM UserTable);
 	IF @rowCount > 0 THEN

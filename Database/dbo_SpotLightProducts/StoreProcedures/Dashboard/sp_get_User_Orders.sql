@@ -1,10 +1,22 @@
 DELIMITER $$
 CREATE PROCEDURE sp_get_User_Orders(
-IN p_userEmail VARCHAR(100)
+IN p_user_Id VARCHAR(100)
 )
 BEGIN
-declare userId varchar(100);
-Select Id into userId from tb_AppUser where Email = p_userEmail;
-select uo.Mode_Of_Payment_Id, uo.Buyer_Id, uo.Shipping_Address, om.Order_Id, om.Product_Id, om.Seller_Id, om.Quantity, om.Price from tb_UserOrder uo Inner Join tb_OrderMapping om on uo.id = om.Order_Id where uo.Buyer_Id=userId;
+SELECT
+  uo.Buyer_Id,
+  uo.Shipping_Address,
+  om.Order_Id,
+  om.Product_Id,
+  om.Seller_Id,
+  om.Quantity,
+  om.Price,
+  uo.Mode_Of_Payment_Id
+FROM tb_UserOrder uo
+INNER JOIN tb_OrderMapping om
+  ON uo.id = om.Order_Id
+WHERE uo.Buyer_Id = p_user_Id
+AND uo.Is_Deleted = 0
+AND om.Is_Deleted = 0;
 End;
 $$
