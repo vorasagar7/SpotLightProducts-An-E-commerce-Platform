@@ -28,9 +28,17 @@ BEGIN
 
 	SET @rowCount = (SELECT COUNT(*) FROM UserTable);
 	IF @rowCount > 0 THEN
-		SELECT Id, FirstName, LastName, Email FROM UserTable;
+		SELECT Id, 
+			FirstName, 
+			LastName, 
+			Email 
+		FROM UserTable;
 	ELSE
-		SELECT NULL AS Id, NULL AS FirstName, NULL AS LastName, NULL AS Email;
+		SELECT 
+			NULL AS Id, 
+			NULL AS FirstName, 
+			NULL AS LastName, 
+			NULL AS Email;
 	END IF;
 
 
