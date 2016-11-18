@@ -1,0 +1,27 @@
+/*Login Page*/
+.login-header{
+	text-align: center
+}
+.login-form{
+	margin-top: 5%
+}
+.css-form input.ng-invalid.ng-touched {
+    background-color: #f2dede;
+ }
+
+
+.css-form input.ng-valid.ng-touched {
+    background-color: #dff0d8;
+}
+
+.login-input{
+	margin-top: 3%
+}
+
+.login-icon{
+	margin-right: 5%
+}
+
+.login-button{
+	width: 100%
+}

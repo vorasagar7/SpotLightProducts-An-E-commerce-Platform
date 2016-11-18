@@ -21,7 +21,7 @@ http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 <context:component-scan base-package="com.spotlightproducts"></context:component-scan>
 
 <mvc:annotation-driven />
-<mvc:resources mapping="/resources/**" location="/resources/images/, /resources/scripts/" />
+<mvc:resources mapping="/resources/**" location="/resources/images/, /resources/scripts/, /resources/css/" />
 
 <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix">
