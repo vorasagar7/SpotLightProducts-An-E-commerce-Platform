@@ -29,7 +29,7 @@ public class LoginController {
 	public String handleLoginRequest(@RequestParam String email, @RequestParam String password, ModelMap model) {
 
 		if (!service.validateUser(email, password)) {
-			model.put("errorMessage", "Invlaid Login Credentials");
+			model.put("errorMessage", "Invalid Login Credentials");
 			return "login";
 		}
 		model.put("email", email);
