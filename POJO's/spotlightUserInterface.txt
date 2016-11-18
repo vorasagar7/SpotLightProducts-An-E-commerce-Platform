@@ -1,0 +1,11 @@
+interface spotlightUserInterface
+{
+	void changeSetting();
+	void checkout();
+	void logout();
+	void placeOrder();
+	void search();
+	void viewOrderHistory();
+	void viewStatistics();
+	void writeReview();
+}
