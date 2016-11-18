@@ -9,6 +9,7 @@
     </form>
 </body>
 </html>-->
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html>
 <html>
 
@@ -29,8 +30,12 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-
-
+<spring:url value="/resources/AngularJS/angular.min.js" var="angularJS" />
+<spring:url value="/resources/Login/app.js" var="appJS" />
+<spring:url value="/resources/Login/controller.js" var="controllerJS" />
+<script src="${angularJS}"></script>
+<script src="${appJS}"></script>
+<script src="${controllerJS}"></script>
 </head>
 
 <div class="row">
@@ -41,7 +46,8 @@
 
 <body>
 
-	<div class="row">
+	<div class="row" ng-app="LoginApp" ng-controller="loginController">
+	{{firstName + " " + lastName}}
 		<div class="col-xs-8 col-md-offset-4 col-md-4">
 			<div class="panel panel-default">
 
@@ -98,13 +104,6 @@
 
 			</div>
 		</div>
-	</div>
-
-
-
-
-
-
 	</div>
 
 </body>
