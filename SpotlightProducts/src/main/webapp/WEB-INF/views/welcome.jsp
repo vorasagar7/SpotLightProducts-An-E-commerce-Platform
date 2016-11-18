@@ -20,15 +20,19 @@
 <!-- <script src="scripts/jquery-3.1.1.min.js"></script> -->
 <!-- <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script> -->
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>-->
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script
+	src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <!--   <![endif] -->
 
 
@@ -44,6 +48,11 @@
 
 .borderless li {
 	border-top: none;
+}
+
+.welcomeMessage {
+	margin-top: 15px;
+	color: white;
 }
 </style>
 
@@ -85,6 +94,8 @@
 
 
 		<ul class="nav navbar-nav navbar-right">
+
+			<li><p class="welcomeMessage">Welcome, ${email}</p></li>
 
 			<li><button type="button" class="btn btn-primary navbar-btn">
 					<i class="fa fa-shopping-cart"></i> Shopping Cart
@@ -217,11 +228,12 @@
 						</ol>
 						<div class="carousel-inner">
 							<div class="item active">
-								<img class="slide-image" src="/SpotlightProducts/src/main/webapp/WEB-INF/images/21008-DLSR-Cameras.jpg"
-									alt="">
+								<img class="slide-image"
+									src="/resources/nikon-1.png" />
+
 							</div>
 							<div class="item">
-								<img class="slide-image" src="http://placehold.it/800x300"
+								<img class="slide-image" src="/resources/macbook-1.jpg"
 									alt="">
 							</div>
 							<div class="item">
