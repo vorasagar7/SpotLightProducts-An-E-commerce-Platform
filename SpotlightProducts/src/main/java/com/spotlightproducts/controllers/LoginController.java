@@ -18,19 +18,25 @@ public class LoginController {
 	@Autowired
 	LoginService service;
 
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	@RequestMapping(value = "/Login", method = RequestMethod.GET)
 	// @ResponseBody
-	public String showLoginPage() {
-		return "login";
+	public String showLoginIndexPage() {
+		return "LoginViews/Index";
+	}
+	
+	@RequestMapping(value = "/LoginPage", method = RequestMethod.GET)
+	// @ResponseBody
+	public String showLoginMainPage() {
+		return "LoginViews/Login";
 	}
 
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	@RequestMapping(value = "/Login", method = RequestMethod.POST)
 	// @ResponseBody
 	public String handleLoginRequest(@RequestParam String email, @RequestParam String password, ModelMap model) {
 
 		if (!service.validateUser(email, password)) {
 			model.put("errorMessage", "Invalid Login Credentials");
-			return "login";
+			return "LoginViews/Index";
 		}
 		model.put("email", email);
 		model.put("password", password);
@@ -38,5 +44,16 @@ public class LoginController {
 		return "welcome";
 
 	}
+	
+	@RequestMapping(value = "/NewUserRegister", method = RequestMethod.GET)
+	public String showRegisterPage() {
+		return "LoginViews/NewUserRegister";
+	}
+	
+	@RequestMapping(value = "/ForgotPassword", method = RequestMethod.GET)
+	public String showForgotPasswordPage() {
+		return "LoginViews/ForgotPassword";
+	}
+	
 
 }

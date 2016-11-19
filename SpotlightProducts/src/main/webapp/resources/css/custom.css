@@ -25,3 +25,12 @@
 .login-button{
 	width: 100%
 }
+
+/*Register User Page*/
+.retype-password{
+	background-color: #ffffff !important;
+}
+
+.invalid-input{
+	color: #a94442
+}
