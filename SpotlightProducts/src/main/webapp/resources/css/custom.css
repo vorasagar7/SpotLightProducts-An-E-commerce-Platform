@@ -34,3 +34,15 @@
 .invalid-input{
 	color: #a94442
 }
+
+/*Customer Support Page*/
+.customer-support-container{
+	padding-left:30px;
+}
+.customer-support-label{
+	font-size: 20px;
+}
+.customer-support-indtructions{
+	font-size: 17px;
+	padding-left: 10px;
+}
