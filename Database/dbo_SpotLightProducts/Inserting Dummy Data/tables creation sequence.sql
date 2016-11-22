@@ -11,7 +11,7 @@ CREATE TABLE tb_AppUser (
 	Modified_By VARCHAR(100) not null,
 	Version INTEGER DEFAULT 1,
 	CONSTRAINT pk_tb_AppUser_Id PRIMARY KEY(Id)
-)
+);
 
 CREATE TABLE tb_AppRole (
 	Id INTEGER AUTO_INCREMENT,
@@ -138,7 +138,7 @@ CREATE TABLE tb_OrderMapping (
     CONSTRAINT fk_tb_OrderMapping_Seller_Id FOREIGN KEY(Seller_Id) REFERENCES tb_AppUser(Id),
     CONSTRAINT fk_tb_OrderMapping_Order_Id FOREIGN KEY(Order_Id) REFERENCES tb_UserOrder(Id),
     CONSTRAINT fk_tb_OrderMapping_Product_Id FOREIGN KEY(Product_Id) REFERENCES tb_Products(Id)
-)
+);
 
 CREATE TABLE tb_ShoppingCart (
     Id INTEGER AUTO_INCREMENT,     
