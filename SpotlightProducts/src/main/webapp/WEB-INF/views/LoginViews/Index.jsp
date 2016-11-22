@@ -32,7 +32,7 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<spring:url value="/resources/AngularJS/angular.min.js" var="angularJS" />
+<spring:url value="/resources/AngularJS/angular.js" var="angularJS" />
 <spring:url value="/resources/AngularJS/angular-route.min.js" var="angularRouteJS" />
 <spring:url value="/resources/Login/app.js" var="appJS" />
 <spring:url value="/resources/Login/controller.js" var="controllerJS" />

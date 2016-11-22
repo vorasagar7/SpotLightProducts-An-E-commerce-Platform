@@ -2,8 +2,6 @@ package com.spotlightproducts.businesslibrary;
 
 import java.sql.DriverManager;
 
-import javax.resource.cci.ResultSet;
-
 import com.mysql.jdbc.CallableStatement;
 import com.mysql.jdbc.Connection;
 import com.spotlightproducts.dao.User;

@@ -3,8 +3,12 @@
 			<h1>SpotLightProducts</h1>
 		</div>
 	</div>
-	<div class="row login-form">
+	<div class="row">
 		<div class="col-xs-offset-3 col-xs-6 col-md-offset-4 col-md-4">
+			<div role="alert" class="alert alert-danger" ng-class="{hideElement: !isInvalidCredentials, showElement: isInvalidCredentials}">
+  				<button type="button" class="close" aria-label="Close" ng-click="hideAlert()"><span aria-hidden="true">&times;</span></button>
+  				{{alertMessage}}
+			</div>
 			<div class="panel panel-default">
 
 
@@ -31,7 +35,7 @@
 							</div>
 
 							<div class="form-group col-xs-offset-4 col-xs-4 col-md-offset-2 col-md-8">
-								<button type="signIn" class="btn btn-primary login-button" ng-disabled="userForm.$invalid">
+								<button type="signIn" class="btn btn-primary login-button" ng-disabled="userForm.$invalid" ng-click="signIn()">
 									<!-- <i class="fa fa-sign-in login-icon"></i>  -->Sign in
 								</button>
 							</div>
