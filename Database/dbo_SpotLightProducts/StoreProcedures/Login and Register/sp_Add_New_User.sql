@@ -33,15 +33,14 @@ BEGIN
 			p_Last_Name,
 			p_Email, 
 			p_Password, 
-			CURRENT_USER, 
+			p_Email, 
 			CURRENT_TIMESTAMP, 
-			CURRENT_USER
+			p_Email
 		);
 		set @userID = (select LAST_INSERT_ID());
 		INSERT INTO `tb_UserRole` (
 			`User_Id`, 
-			`Role_Id`,  
-			`Created_On`, 
+			`Role_Id`, 
 			`Created_By`, 
 			`Modified_On`, 
 			`Modified_By`
@@ -49,10 +48,9 @@ BEGIN
 		VALUES (
 			@userID, 
 			p_role_id, 
+			p_Email, 
 			CURRENT_TIMESTAMP, 
-			CURRENT_USER, 
-			CURRENT_TIMESTAMP, 
-			CURRENT_USER
+			p_Email
 		);
 		Select 
 			1 as Success, 
