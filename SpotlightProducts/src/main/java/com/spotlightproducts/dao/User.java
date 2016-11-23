@@ -70,9 +70,9 @@ public class User {
 //		
 //	}
 	
-	public boolean validateUserDao(String email, String password){
+	public boolean validateUserDao(){
 		LoginUser user = new LoginUser();
-		boolean isValidUser = user.validateUser(email, password);
+		boolean isValidUser = user.validateUser(this.email, this.password);
 		return isValidUser;
 	}
 	

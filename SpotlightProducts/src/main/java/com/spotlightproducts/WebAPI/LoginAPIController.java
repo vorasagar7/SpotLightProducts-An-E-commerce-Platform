@@ -16,7 +16,7 @@ public class LoginAPIController{
 	
 	@RequestMapping(value = "/AuthenticateUser", method = RequestMethod.POST)
 	public ResponseEntity<JSONResponse<String>> AuthenticateUser(@RequestBody User user){
-		boolean isValidUser = user.validateUserDao(user.getEmail(), user.getPassword());
+		boolean isValidUser = user.validateUserDao();
 		JSONResponse JsonResponse = new JSONResponse(); 
 		if(isValidUser){
 			JsonResponse.setStatus("Success");
