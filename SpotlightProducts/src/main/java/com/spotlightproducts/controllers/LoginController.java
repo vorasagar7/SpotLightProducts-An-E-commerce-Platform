@@ -55,5 +55,10 @@ public class LoginController {
 		return "LoginViews/ForgotPassword";
 	}
 	
+	@RequestMapping(value = "/homepage", method = RequestMethod.GET)
+	public String showHomePage() {
+		return "welcome";
+	}
+	
 
 }
