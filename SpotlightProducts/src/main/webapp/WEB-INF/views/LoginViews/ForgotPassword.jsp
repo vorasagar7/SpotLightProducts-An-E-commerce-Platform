@@ -7,12 +7,13 @@
 <body>
 
 <div class="row">
-	<div class="col-xs-8 col-md-offset-4 col-md-4">
+	
+	<div class="col-xs-offset-2 col-xs-8 col-md-offset-4 col-md-4">
 		<div class = "panel panel-default">
 
 
 			<div class="row">
-				<div class="col-xs-8 col-md-offset-1 col-md-10">
+				<div class="col-xs-offset-1 col-xs-8 col-md-offset-1 col-md-10">
 
 
  					<form name="forgotPasswordForm" class="css-form" novalidate>
