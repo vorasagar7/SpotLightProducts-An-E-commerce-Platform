@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.spotlightproducts.dao.DatabaseResponse;
 import com.spotlightproducts.dao.JSONResponse;
 import com.spotlightproducts.dao.User;
 
@@ -25,6 +26,15 @@ public class LoginAPIController{
 			JsonResponse.setStatus("Failure");
 		}
 		
+		return new ResponseEntity<JSONResponse<String>>(JsonResponse, HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/PostUserDetails", method = RequestMethod.POST)
+	public ResponseEntity<JSONResponse<String>> RegisterUser(@RequestBody User user){
+		JSONResponse<String> JsonResponse = new JSONResponse<String>();
+		DatabaseResponse dbresponse = user.registerUserDao();
+		JsonResponse.setStatus(dbresponse.getStatus());
+		JsonResponse.setMessage(dbresponse.getMessage());
 		return new ResponseEntity<JSONResponse<String>>(JsonResponse, HttpStatus.OK);
 	}
 	

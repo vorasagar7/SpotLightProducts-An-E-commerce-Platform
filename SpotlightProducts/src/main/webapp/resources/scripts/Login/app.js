@@ -35,11 +35,6 @@ loginApp.controller("loginCtrl", function($scope, $location, $http){
 		$scope.hideAlert();
 		url = $location.absUrl().replace(window.location.pathname + window.location.hash,'/AuthenticateUser');
 		data = $scope.user;
-		var config = {
-                headers : {
-                    'Content-Type': 'application/json'
-                }
-            }
 		$http.post(url, data)
 					.success(function(data, status, headers, config){
 						if(data.status == "Success"){
@@ -56,8 +51,34 @@ loginApp.controller("loginCtrl", function($scope, $location, $http){
 					})
 	}
 });
-loginApp.controller("newUserRegisterCtrl", function($scope){
-
+loginApp.controller("newUserRegisterCtrl", function($scope, $location, $http){
+	$scope.isAlert = false;
+	$scope.showAlert = function(){
+		$scope.isAlert = true;
+	}
+	
+	$scope.hideAlert = function(){
+		$scope.isAlert = false;
+	}
+	$scope.saveUserDetails = function(){
+		$scope.hideAlert();
+		url = $location.absUrl().replace(window.location.pathname + window.location.hash, '/PostUserDetails');
+		data = $scope.registerUser;
+		$http.post(url, data)
+					.success(function(data, status, headers, config){
+						if(data.status == "Success"){
+							console.log(data);
+						}
+						else{
+							$scope.alertMessage = data.message;
+							$scope.showAlert();
+						}
+					})
+					.error(function(data, status, headers, config){
+						$scope.alertMessage = "Technical Error. Please contact the customer service.";
+						$scope.showAlert();
+					})
+	}
 })
 loginApp.controller("forgotPasswordCtrl", function($scope){
 

@@ -59,12 +59,10 @@ public class User {
 		this.userType = userType;
 	}
 	
-	public String registerUserDao(){
+	public DatabaseResponse registerUserDao(){
 		
 		LoginUser newUser = new LoginUser();
-		String message  = newUser.registerUser(this);
-		
-		return message;
+		return newUser.registerUser(this);
 	}
 	
 	public boolean validateUserDao(){

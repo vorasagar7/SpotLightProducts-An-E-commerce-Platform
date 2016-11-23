@@ -2,9 +2,8 @@ package com.spotlightproducts.dao;
 
 import java.util.List;
 
-public class JSONResponse<T>{
+public class DatabaseResponse{
 	private String status;
-	private List<T> data;
 	private String message;
 	
 	public String getStatus(){
@@ -12,12 +11,6 @@ public class JSONResponse<T>{
 	}
 	public void setStatus(String status){
 		this.status = status;
-	}
-	public List<T> getData(){
-		return this.data;
-	}
-	public void setData(List<T> data){
-		this.data = data;
 	}
 	public String getMessage(){
 		return this.message;
