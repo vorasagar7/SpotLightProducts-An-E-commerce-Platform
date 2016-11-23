@@ -1,5 +1,8 @@
 package com.spotlightproducts.WebAPI;
 
+import javax.mail.MessagingException;
+import javax.mail.internet.AddressException;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -36,6 +39,15 @@ public class LoginAPIController{
 		JsonResponse.setStatus(dbresponse.getStatus());
 		JsonResponse.setMessage(dbresponse.getMessage());
 		return new ResponseEntity<JSONResponse<String>>(JsonResponse, HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/GetUserPassword", method = RequestMethod.POST)
+	public JSONResponse<String> SendUserPassword(@RequestBody User user){
+		JSONResponse<String> JsonResponse = new JSONResponse<String>();
+		DatabaseResponse dbresponse = user.forgotPasswordDao();
+		JsonResponse.setStatus(dbresponse.getStatus());
+		JsonResponse.setMessage(dbresponse.getMessage());
+		return JsonResponse;
 	}
 	
 	@RequestMapping(value="/Test", method = RequestMethod.GET)

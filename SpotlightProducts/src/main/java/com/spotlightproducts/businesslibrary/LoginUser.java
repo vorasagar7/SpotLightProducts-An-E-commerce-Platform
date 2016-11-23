@@ -58,14 +58,12 @@ public class LoginUser {
 			while (hadResults) {
 				ResultSet rs = (ResultSet) cStmt.getResultSet();
 				while (rs.next()) {
-					// retrieve values of fields
-					System.out.println(rs.getInt(1) + "\t" + rs.getString(2) + "\t\t" + rs.getString(3));
 					int id = rs.getInt(1);
 					String message = rs.getString(2);
-					if (message.equals("")) {
+					if (id == 1) {
 						int userId = rs.getInt(3);
 						response.setStatus("Success");
-						response.setMessage("User registered successfully");
+						response.setMessage(message);
 						con.close();
 						return response;
 					} else {
@@ -128,7 +126,8 @@ public class LoginUser {
 		return false;
 	}
 
-	public String forgotPassword(User user) throws AddressException, MessagingException {
+	public DatabaseResponse forgotPassword(User user){
+		DatabaseResponse response = new DatabaseResponse();
 		String password = null;
 		String message = null;
 		try {
@@ -148,22 +147,25 @@ public class LoginUser {
 					// retrieve values of fields
 					// System.out.println(rs.getInt(1));
 					password = rs.getString(1);
-
-					message = "You'll receive an email which contains your password, Shortly......";
 					sendEmail(user.getEmail(), password);
 					con.close();
-					return message;
+					response.setMessage("You'll receive an email which contains your password, Shortly......");
+					response.setStatus("Success");
+					return response;
 
 				}
-				// hadResults = cStmt.getMoreResults();
+				hadResults = cStmt.getMoreResults();
 			}
-			message = "User not found";
+			response.setMessage("User not found. Please enter the correct email.");
+			response.setStatus("Failure");
 			con.close();
+			return response;
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-
-		return message;
+		response.setMessage("Technical Error. Please contact the customer service.");
+		response.setStatus("Failure");
+		return response;
 
 	}
 

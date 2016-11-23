@@ -9,6 +9,10 @@
 <div class="row">
 	
 	<div class="col-xs-offset-2 col-xs-8 col-md-offset-4 col-md-4">
+		<div role="alert" class="alert" ng-class="{hideElement: hideElement, 'alert-success showElement': showSuccessAlert, 'alert-danger showElement': showDangerAlert}">
+  				<button type="button" class="close" aria-label="Close" ng-click="hideAlert()"><span aria-hidden="true">&times;</span></button>
+  				{{alertMessage}}
+			</div>
 		<div class = "panel panel-default">
 
 
@@ -24,7 +28,7 @@
       							<p ng-show="forgotPasswordForm.email.$invalid && !forgotPasswordForm.email.$pristine" class="help-block">Enter a valid email.</p>
     						</div>
     						<div class="form-group">
-      							<button type="submit" class="btn btn-primary" ng-disabled="forgotPasswordForm.$invalid"><i class="fa fa-sign-in"></i>  Submit</button>
+      							<button type="submit" class="btn btn-primary" ng-disabled="forgotPasswordForm.$invalid" ng-click="sendUserPassword()"><i class="fa fa-sign-in"></i>  Submit</button>
     						</div>
 					</form>
 				</div>

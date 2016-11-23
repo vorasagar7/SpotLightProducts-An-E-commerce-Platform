@@ -71,11 +71,9 @@ public class User {
 		return isValidUser;
 	}
 	
-	public String forgotPasswordDao() throws AddressException, MessagingException{
-		
+	public DatabaseResponse forgotPasswordDao(){
 		LoginUser user  = new LoginUser();
-		String message  = user.forgotPassword(this);
-		return message;
+		return user.forgotPassword(this);
 	}
 	
 }
