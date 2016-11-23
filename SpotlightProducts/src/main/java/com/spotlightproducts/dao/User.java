@@ -1,5 +1,8 @@
 package com.spotlightproducts.dao;
 
+import javax.mail.MessagingException;
+import javax.mail.internet.AddressException;
+
 import com.spotlightproducts.businesslibrary.LoginUser;
 
 public class User {
@@ -56,24 +59,25 @@ public class User {
 		this.userType = userType;
 	}
 	
-//	public void registerUser(){
-//		
-//		User user = new User();
-//		user.setFirstName(firstName);
-//		user.setLastName(lastName);
-//		user.setEmail(email);
-//		user.setPassword(password);
-//		user.setUserType(userType);
-//		user.setDeleted(false);
-//		
-//	
-//		
-//	}
+	public String registerUserDao(){
+		
+		LoginUser newUser = new LoginUser();
+		String message  = newUser.registerUser(this);
+		
+		return message;
+	}
 	
 	public boolean validateUserDao(){
 		LoginUser user = new LoginUser();
-		boolean isValidUser = user.validateUser(this.email, this.password);
+		boolean isValidUser = user.validateUser(this);
 		return isValidUser;
+	}
+	
+	public String forgotPasswordDao() throws AddressException, MessagingException{
+		
+		LoginUser user  = new LoginUser();
+		String message  = user.forgotPassword(this);
+		return message;
 	}
 	
 }
