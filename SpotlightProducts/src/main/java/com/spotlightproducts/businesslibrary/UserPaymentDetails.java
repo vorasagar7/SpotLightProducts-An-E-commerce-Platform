@@ -32,7 +32,7 @@ public class UserPaymentDetails {
 						"admin", "admin");
 				// ResultSet rs=stmt.executeQuery("call
 				// sp_Check_For_Authentication("+userName+","+password+")");
-				CallableStatement cStmt = (CallableStatement) con.prepareCall("{call sp_getDropDownForStates()}");
+				CallableStatement cStmt = (CallableStatement) con.prepareCall("{call sp_Payment_ReferenceData_Get()}");
 				boolean hadResults = cStmt.execute();
 				System.out.println("hadResults" + hadResults);
 				while (hadResults) {
