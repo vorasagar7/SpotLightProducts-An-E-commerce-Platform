@@ -12,6 +12,7 @@ import com.spotlightproducts.dao.DatabaseResponse;
 import com.spotlightproducts.dao.JSONResponse;
 import com.spotlightproducts.dao.ReferenceData;
 import com.spotlightproducts.dao.User;
+import com.spotlightproducts.dao.UserPaymentDetailsDao;
 
 @RestController
 public class PaymentAPIController{
@@ -28,10 +29,10 @@ public class PaymentAPIController{
 	}
 	
 	
-	@RequestMapping(value = "/SaveAddressDetails", method = RequestMethod.POST)
-	public ResponseEntity<JSONResponse<String>> RegisterUser(@RequestBody User user){
+	@RequestMapping(value = "/SaveUserOrder", method = RequestMethod.POST)
+	public ResponseEntity<JSONResponse<String>> RegisterUser(@RequestBody UserPaymentDetailsDao userPaymentDetails){
 		JSONResponse<String> JsonResponse = new JSONResponse<String>();
-		DatabaseResponse dbresponse = user.registerUserDao();
+		DatabaseResponse dbresponse = userPaymentDetails.saveUserPaymentDetailsDao();
 		JsonResponse.setStatus(dbresponse.getStatus());
 		JsonResponse.setMessage(dbresponse.getMessage());
 		return new ResponseEntity<JSONResponse<String>>(JsonResponse, HttpStatus.OK);
