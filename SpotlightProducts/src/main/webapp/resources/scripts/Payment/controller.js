@@ -1,6 +1,7 @@
 /*Controller for Login page*/
-paymentApp.controller("paymentCtrl", function($scope, $location, $http){
-	//$scope.referenceData = {}
+paymentApp.controller("paymentCtrl", function($scope, $location, $http, $rootScope){
+	$scope.paymentDetails = $rootScope.paymentDetails ? $rootScope.paymentDetails : {};
+	$scope.paymentDetails.country = "United States"
 	$scope.isAlert = false;
 	$scope.hideAlert = function(){
 		$scope.isAlert = false;
@@ -24,6 +25,16 @@ paymentApp.controller("paymentCtrl", function($scope, $location, $http){
 					$scope.alertMessage = "Technical Error. Please contact the customer service.";
 					$scope.showAlert();
 				})
+	
+	$scope.submitPayment = function(){
+		if($scope.paymentDetails.typeOfPayment == 12){
+			
+		}
+		else{
+			$rootScope.paymentDetails = $scope.paymentDetails;
+			$location.path('/PaymentCardPage');
+		}
+	}
 });
 
 

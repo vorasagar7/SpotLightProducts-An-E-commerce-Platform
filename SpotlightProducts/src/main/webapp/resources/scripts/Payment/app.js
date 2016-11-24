@@ -6,7 +6,7 @@ function($routeProvider){
         templateUrl: '/PaymentAddressPage.do',
         controller: "paymentCtrl"
       })
-      .when('/RegisterUser', {
+      .when('/PaymentCardPage.do', {
         templateUrl: '/NewUserRegister.do',
         controller: "newUserRegisterCtrl"
       })
