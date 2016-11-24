@@ -30,21 +30,7 @@ public class LoginController {
 		return "LoginViews/Login";
 	}
 
-	@RequestMapping(value = "/Login", method = RequestMethod.POST)
-	// @ResponseBody
-	public String handleLoginRequest(@RequestParam String email, @RequestParam String password, ModelMap model) {
-
-		if (!service.validateUser(email, password)) {
-			model.put("errorMessage", "Invalid Login Credentials");
-			return "LoginViews/Index";
-		}
-		model.put("email", email);
-		model.put("password", password);
-		// System.out.println(name);
-		return "welcome";
-
-	}
-	
+		
 	@RequestMapping(value = "/NewUserRegister", method = RequestMethod.GET)
 	public String showRegisterPage() {
 		return "LoginViews/NewUserRegister";
