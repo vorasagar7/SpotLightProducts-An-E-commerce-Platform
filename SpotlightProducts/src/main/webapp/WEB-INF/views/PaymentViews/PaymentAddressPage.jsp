@@ -16,7 +16,7 @@
 				<div class="col-xs-8 col-md-offset-1 col-md-10">
 
 
-					<form>
+					<form class="css-form" novalidate>
 						<h3>Personal Information</h3>
 						<div class="form-group">
 							<label for="Full Name" class="control-label">First Name</label>
@@ -65,11 +65,8 @@
 						<label for="Type Of Payment" class="control-label">Type of Payment Option</label>
 						</br>
 						<label class="radio-inline" ng-repeat="typeOfPayment in referenceData | filter:{id:20}">
-							<input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="{{typeOfPayment.objectId}}">{{typeOfPayment.name}}
+							<input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="{{typeOfPayment.objectId}}" ng-model="typeOfPayment">{{typeOfPayment.name}}
 						</label>
-						<!-- <label class="radio-inline">
-							<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="Credit">Credit/Debit Card
-						</label> -->
 						<br> <br>
 
 						<div class="form-group">

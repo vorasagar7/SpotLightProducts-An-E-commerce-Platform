@@ -4,7 +4,7 @@ import com.spotlightproducts.businesslibrary.LoginUser;
 
 public class UserPaymentDetailsDao {
 	
-	private String firstName;
+	private String fullName;
 	private String address1;
 	private String address2;
 	private String city;
@@ -17,11 +17,11 @@ public class UserPaymentDetailsDao {
 	private int cvv;
 	private String couponCode;
 	
-	public String getFirstName() {
-		return firstName;
+	public String getFullName() {
+		return fullName;
 	}
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	public void setfullName(String fullName) {
+		this.fullName = fullName;
 	}
 	public String getAddress1() {
 		return address1;
