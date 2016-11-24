@@ -1,4 +1,4 @@
-/*Controller for Login page*/
+/*Controller for Payment page*/
 paymentApp.controller("paymentCtrl", function($scope, $location, $http){
 	
 });
