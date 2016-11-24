@@ -22,7 +22,7 @@ import com.spotlightproducts.dao.User;
 
 public class UserPaymentDetails {
 
-		public DatabaseResponse getReferenceListItems() {
+		public DatabaseResponse<ReferenceData> getReferenceListItems() {
 			DatabaseResponse response = new DatabaseResponse();
 			List<ReferenceData> referenceList = new ArrayList<ReferenceData>();
 
@@ -38,8 +38,11 @@ public class UserPaymentDetails {
 				while (hadResults) {
 					ResultSet rs = (ResultSet) cStmt.getResultSet();
 					while (rs.next()) {
-							ReferenceData refaData = new ReferenceData(rs.getInt(1), rs.getInt(2), rs.getString(3));
-							referenceList.add(refaData);						
+							ReferenceData refData = new ReferenceData();
+							refData.setId(rs.getInt(1));
+							refData.setObjectId(rs.getInt(2));
+							refData.setName(rs.getString(3));
+							referenceList.add(refData);						
 					}
 					hadResults = cStmt.getMoreResults();
 				}

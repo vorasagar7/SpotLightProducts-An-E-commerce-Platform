@@ -8,17 +8,6 @@ public class ReferenceData {
 	private int objectId;
 	private String name;
 	
-	public ReferenceData() {
-		super();
-	}
-	
-	public ReferenceData(int id, int objectId, String name) {
-		super();
-		this.id = id;
-		this.objectId = objectId;
-		this.name = name;
-	}
-	
 	public int getId() {
 		return id;
 	}
@@ -39,11 +28,10 @@ public class ReferenceData {
 		this.name = name;
 	}
 	
-	public DatabaseResponse getReferenceListItemsDao(){
-		
+	/*public DatabaseResponse<ReferenceData> getReferenceListItemsDao(){
 		UserPaymentDetails userPayment = new UserPaymentDetails();
 		return userPayment.getReferenceListItems();
 		
-	}
+	}*/
 	
 }
