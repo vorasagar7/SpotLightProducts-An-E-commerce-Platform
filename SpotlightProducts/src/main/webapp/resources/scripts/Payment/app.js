@@ -4,15 +4,15 @@ function($routeProvider){
 	$routeProvider
 	.when('/', {
         templateUrl: '/PaymentAddressPage.do',
-        controller: "paymentCtrl"
+        controller: "paymentAddressCtrl"
       })
-      .when('/PaymentCardPage.do', {
-        templateUrl: '/NewUserRegister.do',
-        controller: "newUserRegisterCtrl"
+      .when('/CardDetails', {
+        templateUrl: '/PaymentCardPage.do',
+        controller: "PaymentCardCtrl"
       })
-      .when('/ForgotPassword', {
-        templateUrl: '/ForgotPassword.do',
-        controller: "forgotPasswordCtrl"
+      .when('/Confirmation', {
+        templateUrl: '/ConfirmationPage.do',
+        controller: "ThankYouCtrl"
       })
       .otherwise({redirectTo: '/'});
 }]);

@@ -36,6 +36,7 @@
 <script src="${angularRouteJS}"></script>
 <script src="${appJS}"></script>
 <script src="${controllerJS}"></script>
+<spring:url value="/resources/images/payment_card.png" var="cardImage"/>
 </head>
 
 

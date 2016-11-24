@@ -26,7 +26,7 @@
 							ng-class="{ 'has-error' : paymentDetailsForm.fullName.$invalid && !paymentDetailsForm.fullName.$pristine }">
 							<label for="Full Name" class="control-label">Full Name</label> <input
 								name="fullName" type="text" class="form-control" id="Full Name"
-								placeholder="Full Name" ng-model="paymentDetails.firstName" required>
+								placeholder="Full Name" ng-model="paymentDetails.fullName" required>
 							<p ng-show="paymentDetailsForm.fullName.$invalid && !paymentDetailsForm.fullName.$pristine" class="help-block">Your Full Name is required.</p>
 						</div>
 

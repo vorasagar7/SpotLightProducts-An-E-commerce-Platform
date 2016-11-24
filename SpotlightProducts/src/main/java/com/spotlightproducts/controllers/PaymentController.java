@@ -23,5 +23,16 @@ public class PaymentController {
 		return "PaymentViews/PaymentAddressPage";
 	}
 	
+	@RequestMapping(value = "/PaymentCardPage", method = RequestMethod.GET)
+	// @ResponseBody
+	public String showPaymentCardPage() {
+		return "PaymentViews/CardDetails";
+	}
+	
+	@RequestMapping(value = "/ConfirmationPage", method = RequestMethod.GET)
+	// @ResponseBody
+	public String showConfirmationPage() {
+		return "PaymentViews/ThankYouPage";
+	}
 
 }
