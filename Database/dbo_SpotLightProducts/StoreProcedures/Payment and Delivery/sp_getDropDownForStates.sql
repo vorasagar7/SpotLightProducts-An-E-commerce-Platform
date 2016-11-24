@@ -3,8 +3,9 @@ CREATE PROCEDURE sp_getDropDownForStates(
 )
 BEGIN
 	SELECT 
-		10 as Id, 
-		rli.id, rli.Name 
+		10 as StateId, 
+		rli.id AS StateValueId, 
+        rli.Name AS StateName
 	FROM tb_referencelist rl
 		INNER JOIN
 		tb_referencelistitem rli
