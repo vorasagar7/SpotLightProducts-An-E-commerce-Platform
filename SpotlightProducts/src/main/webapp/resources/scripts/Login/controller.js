@@ -21,7 +21,7 @@ loginApp.controller("loginCtrl", function($scope, $location, $http){
 		$http.post(url, data)
 					.success(function(data, status, headers, config){
 						if(data.status == "Success"){
-							console.log(data);
+							window.location.href = $location.absUrl().replace(window.location.pathname + window.location.hash, '/homepage');
 						}
 						else{
 							$scope.alertMessage = "Invalid Credentials. Please try again.";
@@ -53,7 +53,7 @@ loginApp.controller("newUserRegisterCtrl", function($scope, $location, $http){
 		$http.post(url, data)
 					.success(function(data, status, headers, config){
 						if(data.status == "Success"){
-							console.log(data);
+							$location.path('/');
 						}
 						else{
 							$scope.alertMessage = data.message;
