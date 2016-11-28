@@ -5,8 +5,9 @@ CREATE PROCEDURE sp_Product_Review_Get(
 BEGIN
 SELECT review.Id,
 		CONCAT(user.First_Name, user.Last_Name) AS UserName,
-		Comments,
-		Rating
+		review.Comments,
+		review.Rating,
+		review.Modified_On
 	FROM tb_UserReviews review
 	INNER JOIN tb_Products products
 	ON review.Product_Id = products.Id

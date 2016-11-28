@@ -3,7 +3,9 @@ CREATE PROCEDURE sp_Product_Detail_Get(
 	IN p_productId INTEGER
 )
 BEGIN
-	SELECT p.Id,
+	SELECT 
+		seller.Id,
+		p.Id AS SellerID,
 		p.Product_Name,
 		p.Model_Id,
 		brand.Name AS Brand,
