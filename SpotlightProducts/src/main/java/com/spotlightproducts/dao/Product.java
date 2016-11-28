@@ -150,16 +150,16 @@ public class Product {
 		this.productReviews = productReviews;
 	}
 
-	public DatabaseResponse<Product> getProductDetailsDao() {
+	public DatabaseResponse<Product> getSearchedProductDao() {
 
 		ProductDetails productDetails = new ProductDetails();
-		return productDetails.getProductDetails(this);
+		return productDetails.getSearchedProduct(this);
 
 	}
 	
 	public DatabaseResponse getProductById(){
 		ProductDetails productDetails = new ProductDetails();
-		return productDetails.getProductDetails(this);	
+		return productDetails.getProductById(this);	
 	}
 
 }

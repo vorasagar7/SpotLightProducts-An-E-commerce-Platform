@@ -14,7 +14,7 @@ import com.spotlightproducts.dao.Review;
 
 public class ProductDetails {
 
-	public DatabaseResponse<Product> getProductDetails(Product product) {
+	public DatabaseResponse<Product> getSearchedProduct(Product product) {
 		DatabaseResponse response = new DatabaseResponse();
 		String searchQuery = product.getSearchQuery();
 		List<Product> productList = new ArrayList<Product>();
