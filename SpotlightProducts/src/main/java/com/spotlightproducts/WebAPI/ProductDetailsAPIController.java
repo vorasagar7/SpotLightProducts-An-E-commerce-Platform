@@ -12,6 +12,8 @@ import com.spotlightproducts.businesslibrary.ProductDetails;
 import com.spotlightproducts.dao.DatabaseResponse;
 import com.spotlightproducts.dao.JSONResponse;
 import com.spotlightproducts.dao.Product;
+import com.spotlightproducts.dao.Review;
+import com.spotlightproducts.dao.User;
 
 @RestController
 public class ProductDetailsAPIController{
@@ -25,5 +27,15 @@ public class ProductDetailsAPIController{
 		JsonResponse.setMessage(dbresponse.getMessage());
 		JsonResponse.setData(dbresponse.getData());
 		return new ResponseEntity<JSONResponse<Product>>(JsonResponse, HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/SaveUserReviews", method = RequestMethod.POST)
+	public ResponseEntity<JSONResponse<String>> RegisterUser(@RequestBody Product product){
+		JSONResponse<String> JsonResponse = new JSONResponse<String>();
+		ProductDetails productDetails = new ProductDetails();
+		DatabaseResponse dbresponse = productDetails.storeUserReview(product);
+		JsonResponse.setStatus(dbresponse.getStatus());
+		JsonResponse.setMessage(dbresponse.getMessage());
+		return new ResponseEntity<JSONResponse<String>>(JsonResponse, HttpStatus.OK);
 	}
 }
