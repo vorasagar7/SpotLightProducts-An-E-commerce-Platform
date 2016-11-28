@@ -1,5 +1,7 @@
 package com.spotlightproducts.WebAPI;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -30,10 +32,11 @@ public class ProductDetailsAPIController{
 	}
 	
 	@RequestMapping(value = "/PostUserReview", method = RequestMethod.POST)
-	public ResponseEntity<JSONResponse<String>> RegisterUser(@RequestBody Product product){
+	public ResponseEntity<JSONResponse<String>> RegisterUser(@RequestBody Product product, HttpServletRequest request){
 		JSONResponse<String> JsonResponse = new JSONResponse<String>();
+		System.out.println("Hiiii");
 		ProductDetails productDetails = new ProductDetails();
-		DatabaseResponse dbresponse = productDetails.storeUserReview(product);
+		DatabaseResponse dbresponse = productDetails.storeUserReview(product,request);
 		JsonResponse.setStatus(dbresponse.getStatus());
 		JsonResponse.setMessage(dbresponse.getMessage());
 		return new ResponseEntity<JSONResponse<String>>(JsonResponse, HttpStatus.OK);

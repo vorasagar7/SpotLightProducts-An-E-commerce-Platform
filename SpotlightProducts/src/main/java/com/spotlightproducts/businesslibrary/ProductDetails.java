@@ -5,6 +5,9 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import com.mysql.jdbc.CallableStatement;
 import com.mysql.jdbc.Connection;
 import com.spotlightproducts.dao.DatabaseResponse;
@@ -134,23 +137,25 @@ public class ProductDetails {
 	 * To save the User Review
 	 * 
 	 * */
-	public DatabaseResponse storeUserReview(Product prodObj) {
+	public DatabaseResponse storeUserReview(Product prodObj, HttpServletRequest request) {
 		DatabaseResponse response = new DatabaseResponse();
 		try {
+			
+			HttpSession session = request.getSession();
+			System.out.println("This is my email"+session.getAttribute("email"));
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/spotlightproducts",
 					"admin", "admin");
-			CallableStatement cStmt = (CallableStatement) con.prepareCall("{call sp_User_Review_Store(?,?,?,?,?)}");
+			CallableStatement cStmt = (CallableStatement) con.prepareCall("{call sp_User_Review_Store(?,?,?,?)}");
 			int productId = prodObj.getProductId();
 			Review review = prodObj.getProductReviews().get(0);
 			String comments = review.getComment();
 			int rating = review.getRating();
-			String email = "vorasagar7@gmail.com";
+			String email = (String)session.getAttribute("email");
 			cStmt.setInt(1, productId);
-			cStmt.setInt(2, 1);
-			cStmt.setString(3, comments);
-			cStmt.setInt(4, rating);
-			cStmt.setString(5, email);
+			cStmt.setString(2, comments);
+			cStmt.setInt(3, rating);
+			cStmt.setString(4, email);
 			boolean hadResults = cStmt.execute();
 			System.out.println("hadResults" + hadResults);
 			while (hadResults) {

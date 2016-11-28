@@ -1,12 +1,17 @@
 DELIMITER $$
 Create PROCEDURE sp_User_Review_Store (
 	In p_Product_ID integer,
-	In p_User_Id integer,
 	In p_Comments varchar(100),
 	In p_Rating varchar(100),
 	In p_User_Email varchar(100)
 )
 BEGIN
+	declare userID integer;
+	SELECT
+		id INTO userID
+		FROM tb_AppUser
+		WHERE email = p_User_Email
+		AND Is_DELETED = 0;
 	INSERT INTO tb_userreviews (
 		Product_Id,
 		User_Id,
@@ -18,7 +23,7 @@ BEGIN
 	) 
 		VALUES (
 			p_Product_ID, 
-			p_User_Id,
+			userID,
 			p_Comments, 
 			p_Rating, 
 			p_User_Email, 
