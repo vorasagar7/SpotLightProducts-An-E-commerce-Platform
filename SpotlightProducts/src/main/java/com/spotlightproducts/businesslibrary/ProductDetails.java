@@ -156,21 +156,24 @@ public class ProductDetails {
 			while (hadResults) {
 				ResultSet rs = (ResultSet) cStmt.getResultSet();
 				while (rs.next()) {
-
+					int resultType = rs.getInt(1);
+					if(resultType == 1)
+					{
+						con.close();
+						response.setStatus("Success");
+						response.setMessage("User Review Successfully Saved");
+						return response;
+					}
 				}
 				hadResults = cStmt.getMoreResults();
 			}
-			con.close();
-			response.setStatus("Success");
-			response.setMessage("");
-			//response.setData(productList);
-			return response;
-		} catch (Exception e) {
+		
+		} 
+		catch (Exception e) {
 			System.out.println(e);
 		}
 		response.setStatus("Failure");
 		response.setMessage("Technical Error");
-		//response.setData(productList);
 		return response;
 
 	}
