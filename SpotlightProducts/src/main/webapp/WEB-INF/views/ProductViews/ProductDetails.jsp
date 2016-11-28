@@ -55,24 +55,25 @@ body {
 				<img src="" />
 			</div>
 			<div class="col-md-9 col-xs-9">
-				<div>Product Name</div>
-				<div>Product Rating</div>
+				<div>{{productDetails.productName}}</div>
+				<div>Product Rating: {{productRating}}</div>
 				<hr>
-				<div>In Stock</div>
-				<div>Product Description</div>
+				<div>{{inStock}}</div>
+				<div>{{productDetails.description}}</div>
 				<div>Sellers</div>
-				<div>
-					<span>Seller 1:</span> <span>Price: {{Price}}</span>
-					<button class="btn btn-primary">Add Product</button>
+				<div ng-repeat="seller in productSellers">
+					<span>{{seller.sellerName}}:</span> <span>Price: {{seller.price}}</span>
+					<button class="btn btn-primary">Add to Cart</button>
 				</div>
 			</div>
 		</div>
 		<div class="col-xs-12 col-md-12 row">
 			<div>Customer Reviews</div>
-			<div class="col-md-7 col-xs-9">
-				<div>On {{Date}} by {{Person}}</div>
+			<div class="col-md-7 col-xs-9" ng-repeat="review in productReviews">
+				<div>On {{Date}} by {{review.username}}</div>
+				<div>Rating: {{review.rating}}</div>
+				<div>{{review.comment}}</div>
 				<br>
-				<div>{{Message}}</div>
 			</div>
 		</div>
 	</div>

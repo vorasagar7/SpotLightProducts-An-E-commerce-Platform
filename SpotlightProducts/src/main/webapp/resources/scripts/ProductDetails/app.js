@@ -13,7 +13,21 @@ productDetailsApp.controller("ProductDetailsCtrl", function($scope, $location, $
 	$http.get(url)
 				.success(function(data, status, headers, config){
 					if(data.status == "Success"){
-						console.log(data.data);
+						$scope.productDetails = data.data[0];
+						$scope.productReviews = $scope.productDetails.productReviews;
+						$scope.productSellers = []
+						$scope.productQuantity = 0;
+						for(i = 0; i < data.data.length; i++){
+							$scope.productSellers.push({sellerName: data.data[i].sellerName, price: data.data[i].price, quantity: data.data[i].quantity});
+							$scope.productQuantity += data.data[i].quantity;
+						}
+						$scope.inStock = !$scope.productQuantity ? "Sold Out" : "In Stock";
+						$scope.productRating = 0;
+						for(i = 0; i < $scope.productReviews.length; i++){
+							$scope.productRating+=$scope.productReviews[i].rating;
+						}
+						$scope.productRating = $scope.productRating * (1.0/$scope.productReviews.length)
+						$scope.productRating = Math.round($scope.productRating * 100)/100;
 					}
 					else{
 						$scope.alertMessage = data.message;
