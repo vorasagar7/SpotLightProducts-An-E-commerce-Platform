@@ -21,8 +21,10 @@
 <link href="${customCSS}" rel="stylesheet" />
 
 <spring:url value="/resources/AngularJS/angular.js" var="angularJS" />
-<spring:url value="/resources/Login/app.js" var="appJS" />
+<spring:url value="/resources/AngularJS/angular-route.min.js" var="angularRouteJS" />
+<spring:url value="/resources/ProductDetails/app.js" var="appJS" />
 <script src="${angularJS}"></script>
+<script src="${angularRouteJS}"></script>
 <script src="${appJS}"></script>
 
 <style>
@@ -33,7 +35,7 @@ body {
 
 </style>
 </head>
-<body>
+<body ng-app="ProductDetailsApp" ng-controller="ProductDetailsCtrl">
 
 	<div class="login-header">
 		<h1>SpotLightProducts</h1>
@@ -41,6 +43,14 @@ body {
 
 	<div class="row">
 		<div class="col-md-12 col-xs-12 row">
+		<div role="alert" class="alert alert-danger"
+			ng-class="{hideElement: !isAlert, showElement: isAlert}">
+			<button type="button" class="close" aria-label="Close"
+				ng-click="hideAlert()">
+				<span aria-hidden="true">&times;</span>
+			</button>
+			{{alertMessage}}
+		</div>
 			<div class="col-md-3 col-xs-3">
 				<img src="" />
 			</div>

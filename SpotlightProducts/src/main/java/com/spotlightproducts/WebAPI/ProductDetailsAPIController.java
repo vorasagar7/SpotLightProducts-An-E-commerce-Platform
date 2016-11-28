@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.spotlightproducts.businesslibrary.ProductDetails;
 import com.spotlightproducts.dao.DatabaseResponse;
 import com.spotlightproducts.dao.JSONResponse;
 import com.spotlightproducts.dao.Product;
@@ -18,9 +19,8 @@ public class ProductDetailsAPIController{
 	@RequestMapping(value = "/GetProductById", method = RequestMethod.GET)
 	public ResponseEntity<JSONResponse<Product>> GetProductById(@RequestParam(value="id", defaultValue="1") int productId){
 		JSONResponse<Product> JsonResponse = new JSONResponse<Product>();
-		Product product = new Product();
-		product.setProductId(productId);
-		DatabaseResponse<Product> dbresponse = product.getProductById();
+		ProductDetails productDetails = new ProductDetails();
+		DatabaseResponse<Product> dbresponse = productDetails.getProductById(productId);
 		JsonResponse.setStatus(dbresponse.getStatus());
 		JsonResponse.setMessage(dbresponse.getMessage());
 		JsonResponse.setData(dbresponse.getData());

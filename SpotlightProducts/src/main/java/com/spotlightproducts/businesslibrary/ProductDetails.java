@@ -60,15 +60,14 @@ public class ProductDetails {
 
 	}
 
-	public DatabaseResponse<Product> getProductById(Product product) {
+	public DatabaseResponse<Product> getProductById(int productId) {
 		DatabaseResponse response = new DatabaseResponse();
 		List<Product> productList = new ArrayList<Product>();
-		int productId = product.getProductId();
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/spotlightproducts",
 					"admin", "admin");
-			CallableStatement cStmt = (CallableStatement) con.prepareCall("{call sp_SearchedProducts_Detail_Get(?)}");
+			CallableStatement cStmt = (CallableStatement) con.prepareCall("{call sp_Product_Detail_Get(?)}");
 			cStmt.setInt(1, productId);
 			boolean hadResults = cStmt.execute();
 			System.out.println("hadResults" + hadResults);
@@ -85,8 +84,9 @@ public class ProductDetails {
 					productObj.setCategoryName(rs.getString(5));
 					productObj.setSellerName(rs.getString(6));
 					productObj.setDescription(rs.getString(7));
-					productObj.setPrice(rs.getDouble(8));
-					productObj.setQuantity(rs.getInt(9));
+					productObj.setSellerName(rs.getString(8));
+					productObj.setPrice(rs.getDouble(9));
+					productObj.setQuantity(rs.getInt(10));
 				}
 				hadResults = cStmt.getMoreResults();
 			}
