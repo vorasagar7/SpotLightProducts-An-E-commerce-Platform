@@ -166,7 +166,7 @@ public class ProductDetails {
 					}
 				}
 				hadResults = cStmt.getMoreResults();
-			}
+			} // End of While
 		
 		} 
 		catch (Exception e) {
