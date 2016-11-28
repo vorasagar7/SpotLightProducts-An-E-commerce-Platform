@@ -11,4 +11,9 @@ public class ProductDetailsController{
 	public String GetProductDetails(){
 		return "ProductViews/ProductDetails";
 	}
+	
+	@RequestMapping(value = "/ProductUserReview", method = RequestMethod.GET)
+	public String GetWriteUserReviewPage(){
+		return "ProductViews/UserReview";
+	}
 }

@@ -29,7 +29,7 @@ public class ProductDetailsAPIController{
 		return new ResponseEntity<JSONResponse<Product>>(JsonResponse, HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "/SaveUserReviews", method = RequestMethod.POST)
+	@RequestMapping(value = "/PostUserReview", method = RequestMethod.POST)
 	public ResponseEntity<JSONResponse<String>> RegisterUser(@RequestBody Product product){
 		JSONResponse<String> JsonResponse = new JSONResponse<String>();
 		ProductDetails productDetails = new ProductDetails();

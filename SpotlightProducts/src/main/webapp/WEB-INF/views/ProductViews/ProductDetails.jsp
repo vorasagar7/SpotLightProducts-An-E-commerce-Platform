@@ -21,10 +21,8 @@
 <link href="${customCSS}" rel="stylesheet" />
 
 <spring:url value="/resources/AngularJS/angular.js" var="angularJS" />
-<spring:url value="/resources/AngularJS/angular-route.min.js" var="angularRouteJS" />
 <spring:url value="/resources/ProductDetails/app.js" var="appJS" />
 <script src="${angularJS}"></script>
-<script src="${angularRouteJS}"></script>
 <script src="${appJS}"></script>
 
 <style>
@@ -68,9 +66,10 @@ body {
 			</div>
 		</div>
 		<div class="col-xs-12 col-md-12 row">
+			<div><button class="btn btn-primary" ng-click="redirectToReview()">Write a review</button></div>
 			<div>Customer Reviews</div>
 			<div class="col-md-7 col-xs-9" ng-repeat="review in productReviews">
-				<div>On {{Date}} by {{review.username}}</div>
+				<div>On {{review.modifiedOn}} by {{review.username}}</div>
 				<div>Rating: {{review.rating}}</div>
 				<div>{{review.comment}}</div>
 				<br>
