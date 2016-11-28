@@ -1,11 +1,15 @@
 package com.spotlightproducts.dao;
 
+import java.sql.Date;
 import java.util.List;
+
+import javax.print.attribute.standard.DateTimeAtCompleted;
 
 import com.spotlightproducts.businesslibrary.ProductDetails;
 
 public class Product {
 	private int productId;
+	private int selledId;
 	private String productName;
 	private String modelId;
 	private int brandId;
@@ -21,6 +25,7 @@ public class Product {
 	private double price;
 	private int quantity;
 	private List<Review> productReviews;
+	private Date modifiedOn;
 
 	public int getProductId() {
 		return productId;
@@ -28,6 +33,14 @@ public class Product {
 
 	public void setProductId(int productId) {
 		this.productId = productId;
+	}
+
+	public int getSelledId() {
+		return selledId;
+	}
+
+	public void setSelledId(int selledId) {
+		this.selledId = selledId;
 	}
 
 	public String getProductName() {
@@ -136,6 +149,14 @@ public class Product {
 
 	public int getQuantity() {
 		return quantity;
+	}
+
+	public Date getModifiedOn() {
+		return modifiedOn;
+	}
+
+	public void setModifiedOn(Date modifiedOn) {
+		this.modifiedOn = modifiedOn;
 	}
 
 	public void setQuantity(int quantity) {

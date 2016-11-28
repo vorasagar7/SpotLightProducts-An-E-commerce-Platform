@@ -1,11 +1,14 @@
 package com.spotlightproducts.dao;
 
+import java.sql.Date;
+
 public class Review {
 
 	private int reviewId;
 	private String username;
 	private String comment;
 	private int Rating;
+	private Date modifiedOn;
 	public int getReviewId() {
 		return reviewId;
 	}
@@ -29,6 +32,12 @@ public class Review {
 	}
 	public void setRating(int rating) {
 		Rating = rating;
+	}
+	public Date getModifiedOn() {
+		return modifiedOn;
+	}
+	public void setModifiedOn(Date modifiedOn) {
+		this.modifiedOn = modifiedOn;
 	}
 	
 }
