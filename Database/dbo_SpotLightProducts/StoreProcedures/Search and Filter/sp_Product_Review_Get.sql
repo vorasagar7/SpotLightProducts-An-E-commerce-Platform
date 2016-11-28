@@ -15,6 +15,7 @@ SELECT review.Id,
 	ON user.Id = review.User_Id
 	WHERE review.Is_Deleted = 0
 	AND products.Is_Deleted = 0
-	AND user.Is_Deleted = 0;
+	AND user.Is_Deleted = 0
+	ORDER BY review.Modified_On DESC;
 END;
 $$
