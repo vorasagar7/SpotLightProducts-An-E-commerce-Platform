@@ -7,9 +7,8 @@ productDetailsApp.controller("ProductDetailsCtrl", function($scope, $location, $
 	$scope.showAlert = function(){
 		$scope.isAlert = true;
 	}
-	var idParam = parseInt(location.search.split("=")[1]);
-	console.log(idParam);
-	var url = $location.absUrl().replace(window.location.pathname + window.location.hash+window.location.search,'/GetProductById?id=')+idParam ;
+	$scope.productId = parseInt(location.search.split("=")[1]);
+	var url = $location.absUrl().replace(window.location.pathname + window.location.hash+window.location.search,'/GetProductById?id=')+$scope.productId;
 	$http.get(url)
 				.success(function(data, status, headers, config){
 					if(data.status == "Success"){
@@ -38,4 +37,8 @@ productDetailsApp.controller("ProductDetailsCtrl", function($scope, $location, $
 					$scope.alertMessage = "Technical Error. Please contact the customer service.";
 					$scope.showAlert();
 				})
+				
+	$scope.redirectToReview = function(){
+		window.location.href = $location.absUrl().replace(window.location.pathname + window.location.hash+window.location.search,'/ProductUserReview?productId='+$scope.productId);
+	}
 })

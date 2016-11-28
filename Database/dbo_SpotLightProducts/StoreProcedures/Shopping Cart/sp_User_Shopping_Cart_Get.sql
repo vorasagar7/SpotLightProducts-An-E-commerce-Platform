@@ -25,9 +25,9 @@ BEGIN
 	INNER JOIN tb_ProductSeller ps
 	ON ps.Product_Id = product.Id AND ps.Seller_Id = cart.Seller_Id
 	WHERE cart.Buyer_Id = p_userId
-	AND cart.IsDeleted = 0
-	AND product.IsDeleted = 0
-	AND ps.IsDeleted = 0
-	ORDER BY product.Product_Name
+	AND cart.Is_Deleted = 0
+	AND product.Is_Deleted = 0
+	AND ps.Is_Deleted = 0
+	ORDER BY product.Product_Name;
 END;
 $$

@@ -130,4 +130,52 @@ public class ProductDetails {
 
 	}
 
+	/* 
+	 * To save the User Review
+	 * 
+	 * */
+	public DatabaseResponse storeUserReview(Product prodObj) {
+		DatabaseResponse response = new DatabaseResponse();
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/spotlightproducts",
+					"admin", "admin");
+			CallableStatement cStmt = (CallableStatement) con.prepareCall("{call sp_User_Review_Store(?,?,?,?,?)}");
+			int productId = prodObj.getProductId();
+			Review review = prodObj.getProductReviews().get(0);
+			String comments = review.getComment();
+			int rating = review.getRating();
+			String email = "vorasagar7@gmail.com";
+			cStmt.setInt(1, productId);
+			cStmt.setInt(2, 1);
+			cStmt.setString(3, comments);
+			cStmt.setInt(4, rating);
+			cStmt.setString(5, email);
+			boolean hadResults = cStmt.execute();
+			System.out.println("hadResults" + hadResults);
+			while (hadResults) {
+				ResultSet rs = (ResultSet) cStmt.getResultSet();
+				while (rs.next()) {
+					int resultType = rs.getInt(1);
+					if(resultType == 1)
+					{
+						con.close();
+						response.setStatus("Success");
+						response.setMessage("User Review Successfully Saved");
+						return response;
+					}
+				}
+				hadResults = cStmt.getMoreResults();
+			}
+		
+		} 
+		catch (Exception e) {
+			System.out.println(e);
+		}
+		response.setStatus("Failure");
+		response.setMessage("Technical Error");
+		return response;
+
+	}
+
 }
