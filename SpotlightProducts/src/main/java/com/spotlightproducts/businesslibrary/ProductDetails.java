@@ -78,15 +78,16 @@ public class ProductDetails {
 				ResultSet rs = (ResultSet) cStmt.getResultSet();
 				while (rs.next()) {
 					productObj.setProductId(rs.getInt(1));
-					productObj.setProductName(rs.getString(2));
-					productObj.setModelId(rs.getString(3));
-					productObj.setBrandName(rs.getString(4));
-					productObj.setCategoryName(rs.getString(5));
-					productObj.setSellerName(rs.getString(6));
+					productObj.setSelledId(rs.getInt(2));
+					productObj.setProductName(rs.getString(3));
+					productObj.setModelId(rs.getString(4));
+					productObj.setBrandName(rs.getString(5));
+					productObj.setCategoryName(rs.getString(6));
 					productObj.setDescription(rs.getString(7));
-					productObj.setSellerName(rs.getString(8));
-					productObj.setPrice(rs.getDouble(9));
-					productObj.setQuantity(rs.getInt(10));
+					productObj.setIsSpotlight(rs.getInt(8));
+					productObj.setSellerName(rs.getString(9));
+					productObj.setPrice(rs.getDouble(10));
+					productObj.setQuantity(rs.getInt(11));
 				}
 				hadResults = cStmt.getMoreResults();
 			}
@@ -104,6 +105,7 @@ public class ProductDetails {
 					productReview.setUsername(rs.getString(2));
 					productReview.setComment(rs.getString(3));
 					productReview.setRating(rs.getInt(4));
+					productReview.setModifiedOn(rs.getDate(5));
 					reviewList.add(productReview);
 
 				}
