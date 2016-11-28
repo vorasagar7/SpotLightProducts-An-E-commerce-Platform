@@ -1,5 +1,5 @@
 /*Controller for ChangePassword page*/
-ChangePasswordApp.controller("ChangeUserPassword", function($scope, $location, $http){ alert("controller");
+ChangePasswordApp.controller("ChangeUserPassword", function($scope, $location, $http){ 
 	$scope.isInvalidCredentials = false;
 	
 	$scope.showAlert = function(){
@@ -15,15 +15,14 @@ ChangePasswordApp.controller("ChangeUserPassword", function($scope, $location, $
 		$scope.hideAlert();
 		var url = $location.absUrl().replace(window.location.pathname + window.location.hash,'/PostChangePassword');
 		var data = $scope.User;
-		alert(url);
-		alert(data);
+		
 		$http.post(url, data)
 					.success(function(data, status, headers, config){
 						if(data.status == "Success"){
 							window.location.href = $location.absUrl().replace(window.location.pathname + window.location.hash, '/homepage');
 						}
 						else{
-							$scope.alertMessage = "Invalid Credentials. Please try again.";
+							$scope.alertMessage = "Current Password doesn't match";
 							$scope.showAlert();
 						}
 					})

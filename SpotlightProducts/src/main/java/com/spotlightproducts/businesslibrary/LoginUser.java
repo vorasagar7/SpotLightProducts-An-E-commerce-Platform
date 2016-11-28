@@ -207,5 +207,57 @@ public class LoginUser {
 		transport.sendMessage(generateMailMessage, generateMailMessage.getAllRecipients());
 		transport.close();
 	}
+	
+	// business library to change user password
+		public DatabaseResponse changeUserPassword(User user) {
+			DatabaseResponse response = new DatabaseResponse();
+			String password = user.getPassword();
+			System.out.println(password);
+			System.out.println("UserID" + user.getUserId());
+			try {
+				String message = null;
+				int success = 0;
+				
+				Class.forName("com.mysql.jdbc.Driver");
+				Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/spotlightproducts",
+						"admin", "admin");
+				// ResultSet rs=stmt.executeQuery("call
+				// sp_Check_For_Authentication("+userName+","+password+")");
+				CallableStatement cStmt = (CallableStatement) con.prepareCall("{call sp_update_User_Password(?,?,?)}");
+				cStmt.setString(1, user.getEmail());
+				cStmt.setString(2, user.getPassword());
+				cStmt.setString(3, user.getNewPassword());
+				// ResultSet rs = cStmt.execute();
+				boolean hadResults = cStmt.execute();
+				System.out.println("hadResults" + hadResults);
+				while (hadResults) {
+					ResultSet rs = (ResultSet) cStmt.getResultSet();
+					while (rs.next()) {
+						
+						 success = rs.getInt(1);
+						 message = rs.getString(2);
+						 
+						if(success == 1){
+						response.setMessage(message);
+						response.setStatus("Success");
+						con.close();
+						return response;
+						}
+
+					}
+					hadResults = cStmt.getMoreResults();
+				}
+				response.setMessage(message);
+				response.setStatus("Failure");
+				con.close();
+				return response;
+			} catch (Exception e) {
+				System.out.println(e);
+			}
+
+			response.setStatus("Failure");
+			response.setMessage("Technical Error");
+			return response;
+		}
 
 }

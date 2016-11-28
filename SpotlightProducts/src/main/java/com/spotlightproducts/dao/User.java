@@ -13,9 +13,10 @@ public class User {
 	private String password;
 	private boolean isDeleted;
 	private String userType;
-	
-	
+	private String reTypePassword;
+	private String newPassword;
 	private int userId;
+	
 	public int getUserId() {
 		return userId;
 	}
@@ -59,6 +60,18 @@ public class User {
 		this.userType = userType;
 	}
 	
+	public String getReTypePassword() {
+		return reTypePassword;
+	}
+	public void setReTypePassword(String reTypePassword) {
+		this.reTypePassword = reTypePassword;
+	}
+	public String getNewPassword() {
+		return newPassword;
+	}
+	public void setNewPassword(String newPassword) {
+		this.newPassword = newPassword;
+	}
 	public DatabaseResponse registerUserDao(){
 		
 		LoginUser newUser = new LoginUser();
@@ -74,6 +87,11 @@ public class User {
 	public DatabaseResponse forgotPasswordDao(){
 		LoginUser user  = new LoginUser();
 		return user.forgotPassword(this);
+	}
+	
+	public DatabaseResponse changeUserPasswordDao(){
+		LoginUser user = new LoginUser();
+		return user.changeUserPassword(this);
 	}
 	
 }

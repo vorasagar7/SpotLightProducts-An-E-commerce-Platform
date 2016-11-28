@@ -108,7 +108,7 @@
 				aria-expanded="false">User Dropdown <span class="caret"></span></a>
 				<ul class="dropdown-menu">
 					<li><a href="#">Dashboard</a></li>
-					<li><a href="#">Setting</a></li>
+					<li><a href="/ChangePassword">Change Password</a></li>
 					<li role="separator" class="divider"></li>
 					<li><a href="#">Logout</a></li>
 				</ul></li>
