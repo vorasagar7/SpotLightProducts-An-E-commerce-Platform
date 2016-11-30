@@ -15,10 +15,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.spotlightproducts.businesslibrary.SellerDashboard;
 import com.spotlightproducts.businesslibrary.UserDashboard;
 import com.spotlightproducts.dao.DatabaseResponse;
 import com.spotlightproducts.dao.JSONResponse;
 import com.spotlightproducts.dao.Order;
+import com.spotlightproducts.dao.Product;
 import com.spotlightproducts.dao.Review;
 import com.spotlightproducts.dao.User;
 
@@ -26,28 +28,28 @@ import com.spotlightproducts.dao.User;
 public class SellerDashBoardAPIController{
 	
 	@RequestMapping(value = "/SellerStatisticsGet", method = RequestMethod.GET)
-	public ResponseEntity<JSONResponse<Order>> getSellerStatistics(@RequestBody User user, HttpServletRequest request){
-		JSONResponse<Order> JsonResponse = new JSONResponse<Order>();
+	public ResponseEntity<JSONResponse<Double>> getSellerStatistics(@RequestBody User user, HttpServletRequest request){
+		JSONResponse<Double> JsonResponse = new JSONResponse<Double>();
 		HttpSession session = request.getSession();
 		user.setEmail((String)session.getAttribute("email"));
-		UserDashboard dashboad = new UserDashboard();
-		DatabaseResponse<Order> dbresponse = dashboad.getUserOrders(user);
+		SellerDashboard sdashboad = new SellerDashboard();
+		DatabaseResponse<Double> dbresponse = sdashboad.getSellerRevenue(user);
 		JsonResponse.setStatus(dbresponse.getStatus());
 		JsonResponse.setMessage(dbresponse.getMessage());
 		JsonResponse.setData(dbresponse.getData());
-		return new ResponseEntity<JSONResponse<Order>>(JsonResponse, HttpStatus.OK);
+		return new ResponseEntity<JSONResponse<Double>>(JsonResponse, HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "/SellerLowStockIndicator", method = RequestMethod.GET)
-	public ResponseEntity<JSONResponse<Review>> getSellerLowStockIndicator(@RequestBody User user, HttpServletRequest request){
-		JSONResponse<Review> JsonResponse = new JSONResponse<Review>();
+	@RequestMapping(value = "/SellerLowStockIndicatorGet", method = RequestMethod.GET)
+	public ResponseEntity<JSONResponse<Product>> getSellerLowStockIndicator(@RequestBody User user, HttpServletRequest request){
+		JSONResponse<Product> JsonResponse = new JSONResponse<Product>();
 		HttpSession session = request.getSession();
 		user.setEmail((String)session.getAttribute("email"));
-		UserDashboard dashboad = new UserDashboard();
-		DatabaseResponse<Review> dbresponse = dashboad.getUserReviews(user);
+		SellerDashboard dashboad = new SellerDashboard();
+		DatabaseResponse<Product> dbresponse = dashboad.getSellerLowStocks(user);
 		JsonResponse.setStatus(dbresponse.getStatus());
 		JsonResponse.setMessage(dbresponse.getMessage());
 		JsonResponse.setData(dbresponse.getData());
-		return new ResponseEntity<JSONResponse<Review>>(JsonResponse, HttpStatus.OK);
+		return new ResponseEntity<JSONResponse<Product>>(JsonResponse, HttpStatus.OK);
 	}
 }
