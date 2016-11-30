@@ -31,4 +31,18 @@ public class SearchController {
 		return "/SearchPageViews/search-result";
 		
 	}	
+	
+	@RequestMapping(value = "/filterByElectronics", method=RequestMethod.GET)
+	public String filterByElectronics(ModelMap model){
+		
+		ArrayList<Product> productList = searchService.getProductList("Mobile");
+		
+		model.addAttribute(productList);
+		
+		model.put("productList",productList);
+		return "/CategoryViews/Electronics";
+		
+	}	
+	
+	
 }
