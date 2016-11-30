@@ -38,9 +38,9 @@ BEGIN
 				AND IS_DELETED = 0)
 			) 
 			THEN
-				UPDATE tb_ProductSeller
+				UPDATE tb_ShoppingCart
 				SET Quantity = Quantity + p_Quantity,
-				Modified_By = CURRENT_USER,
+				Modified_By = @UserEmail,
 				Modified_On = CURRENT_TIMESTAMP,
 				VERSION = VERSION + 1
 			WHERE Product_Id = p_Product_Id
