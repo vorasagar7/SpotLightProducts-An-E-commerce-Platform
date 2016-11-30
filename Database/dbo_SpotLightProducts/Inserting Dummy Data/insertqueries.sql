@@ -16,6 +16,13 @@ INSERT INTO `tb_AppUser` (`First_Name`, `Last_Name`, `Email`, `Pwd`, `Created_On
 
 INSERT INTO `tb_AppUser` (`First_Name`, `Last_Name`, `Email`, `Pwd`, `Created_On`, `Created_By`, `Modified_On`, `Modified_By`) VALUES ('Admin1', 'AdminSurname', 'admin@gmail.com', 'qwert12345', CURRENT_TIMESTAMP, CURRENT_USER, CURRENT_TIMESTAMP, CURRENT_USER);
 
+/* Newly Added id is from */
+INSERT INTO `tb_AppUser` (`First_Name`, `Last_Name`, `Email`, `Pwd`, `Created_On`, `Created_By`, `Modified_On`, `Modified_By`) VALUES ('Knife', 'Co', 'john.cena@knifeco.com', 'qwert12345', CURRENT_TIMESTAMP, CURRENT_USER, CURRENT_TIMESTAMP, CURRENT_USER);
+INSERT INTO `tb_AppUser` (`First_Name`, `Last_Name`, `Email`, `Pwd`, `Created_On`, `Created_By`, `Modified_On`, `Modified_By`) VALUES ('Sports','24 x 7', 'sports24by7@yahoo.com', 'qwert12345', CURRENT_TIMESTAMP, CURRENT_USER, CURRENT_TIMESTAMP, CURRENT_USER);
+INSERT INTO `tb_AppUser` (`First_Name`, `Last_Name`, `Email`, `Pwd`, `Created_On`, `Created_By`, `Modified_On`, `Modified_By`) VALUES ('All about Knifes', 'Comp', 'peter@knifeinc.com', 'qwert12345', CURRENT_TIMESTAMP, CURRENT_USER, CURRENT_TIMESTAMP, CURRENT_USER);
+INSERT INTO `tb_AppUser` (`First_Name`, `Last_Name`, `Email`, `Pwd`, `Created_On`, `Created_By`, `Modified_On`, `Modified_By`) VALUES ('Laser', 'Tech', 'lasertech@gmail.com', 'qwert12345', CURRENT_TIMESTAMP, CURRENT_USER, CURRENT_TIMESTAMP, CURRENT_USER);
+INSERT INTO `tb_AppUser` (`First_Name`, `Last_Name`, `Email`, `Pwd`, `Created_On`, `Created_By`, `Modified_On`, `Modified_By`) VALUES ('Unique', 'World', 'uniqueworld@gmail.com', 'qwert12345', CURRENT_TIMESTAMP, CURRENT_USER, CURRENT_TIMESTAMP, CURRENT_USER);
+/* end */
 
 
 INSERT INTO `tb_UserRole` (`User_Id`, `Role_Id`, `Is_Deleted`, `Created_On`, `Created_By`, `Modified_On`, `Modified_By`) VALUES ('1', '1', '0', CURRENT_TIMESTAMP, CURRENT_USER, CURRENT_TIMESTAMP, CURRENT_USER);
@@ -32,6 +39,17 @@ INSERT INTO `tb_UserRole` (`User_Id`, `Role_Id`, `Is_Deleted`, `Created_On`, `Cr
 
 INSERT INTO `tb_UserRole` (`User_Id`, `Role_Id`, `Is_Deleted`, `Created_On`, `Created_By`, `Modified_On`, `Modified_By`) VALUES ('7', '3', '0', CURRENT_TIMESTAMP, CURRENT_USER, CURRENT_TIMESTAMP, CURRENT_USER);
 
+/* Newly added */
+INSERT INTO `tb_UserRole` (`User_Id`, `Role_Id`, `Is_Deleted`, `Created_On`, `Created_By`, `Modified_On`, `Modified_By`) VALUES ('8', '2', '0', CURRENT_TIMESTAMP, CURRENT_USER, CURRENT_TIMESTAMP, CURRENT_USER);
+
+INSERT INTO `tb_UserRole` (`User_Id`, `Role_Id`, `Is_Deleted`, `Created_On`, `Created_By`, `Modified_On`, `Modified_By`) VALUES ('9', '2', '0', CURRENT_TIMESTAMP, CURRENT_USER, CURRENT_TIMESTAMP, CURRENT_USER);
+
+INSERT INTO `tb_UserRole` (`User_Id`, `Role_Id`, `Is_Deleted`, `Created_On`, `Created_By`, `Modified_On`, `Modified_By`) VALUES ('10', '2', '0', CURRENT_TIMESTAMP, CURRENT_USER, CURRENT_TIMESTAMP, CURRENT_USER);
+
+INSERT INTO `tb_UserRole` (`User_Id`, `Role_Id`, `Is_Deleted`, `Created_On`, `Created_By`, `Modified_On`, `Modified_By`) VALUES ('11', '2', '0', CURRENT_TIMESTAMP, CURRENT_USER, CURRENT_TIMESTAMP, CURRENT_USER);
+
+INSERT INTO `tb_UserRole` (`User_Id`, `Role_Id`, `Is_Deleted`, `Created_On`, `Created_By`, `Modified_On`, `Modified_By`) VALUES ('12', '2', '0', CURRENT_TIMESTAMP, CURRENT_USER, CURRENT_TIMESTAMP, CURRENT_USER);
+/* end */
 
 insert into tb_ReferenceList(Name,Created_By,Modified_On,Modified_By) values("Brand",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
 insert into tb_ReferenceList(Name,Created_By,Modified_On,Modified_By) values("Categories",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
@@ -51,20 +69,49 @@ insert into tb_ReferenceListItem (Name,List_Id, Sort_Order,Created_By,Modified_O
 insert into tb_ReferenceListItem (Name,List_Id, Sort_Order,Created_By,Modified_On,Modified_By) values("Cash On Delivery",3,1,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
 insert into tb_ReferenceListItem (Name,List_Id, Sort_Order,Created_By,Modified_On,Modified_By) values("Card Payment",3,2,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
 
+/* Newly Added   id is from 66 - 72
+71 - spotlight category
+72 - spotlight brand
+*/
+insert into tb_ReferenceListItem (Name,List_Id, Sort_Order,Created_By,Modified_On,Modified_By) values("7 for All Mankind",1,1,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_ReferenceListItem (Name,List_Id, Sort_Order,Created_By,Modified_On,Modified_By) values("Tommy Hilfiger‎",1,2,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_ReferenceListItem (Name,List_Id, Sort_Order,Created_By,Modified_On,Modified_By) values("Lee Cooper",1,3,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_ReferenceListItem (Name,List_Id, Sort_Order,Created_By,Modified_On,Modified_By) values("Peter England",1,3,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_ReferenceListItem (Name,List_Id, Sort_Order,Created_By,Modified_On,Modified_By) values("H & M",1,3,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_ReferenceListItem (Name,List_Id, Sort_Order,Created_By,Modified_On,Modified_By) values("SpotlightProducts",2,6,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_ReferenceListItem (Name,List_Id, Sort_Order,Created_By,Modified_On,Modified_By) values("SpotlightProducts",1,6,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+/* end */
+
+
 insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Description,Created_By,Modified_On,Modified_By) values ("RBKshoes","RBKS1",1,11,"Reebok Shoes Size 9",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
 insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Description,Created_By,Modified_On,Modified_By) values ("NikeShoes","NIKES1",3,11,"Nike Sports shoes size 10",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
 insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Description,Created_By,Modified_On,Modified_By) values ("OnePlus 1","OP1",6,8,"One Plus 1 phone",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
 insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Description,Created_By,Modified_On,Modified_By) values ("One Plus 2","Op2",6,8,"One plus 2",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
 insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Description,Created_By,Modified_On,Modified_By) values ("Nokia 6630","NOKIA6630",4,8,"Nokia 6630",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Description,Created_By,Modified_On,Modified_By) values ("Nokia 6630","NOKIA6630",4,8,"Nokia 6630",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Description,Created_By,Modified_On,Modified_By) values ("Nokia 6630","NOKIA6630",4,8,"Nokia 6630",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Description,Created_By,Modified_On,Modified_By) values ("Nokia 6630","NOKIA6630",4,8,"Nokia 6630",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+
+/* Newly Added - SpotlightProducts  id = 7 to 11 */
+insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Description,Created_By,Modified_On,Modified_By) values ("Heated Butter Knife","HButterKnife1",72,71,"Butter Knife which can be used to heat the butter as well",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Description,Created_By,Modified_On,Modified_By) values ("Ping Pong Door","PPDoor1",72,71,"Door which can also be used to play ping poor",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Description,Created_By,Modified_On,Modified_By) values ("Laser keyboard","LS1",72,71,"No need for physical keyboard",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Description,Created_By,Modified_On,Modified_By) values ("Self Stirrer Mug","SSMug1",72,71,"Mug which can stir itself",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Description,Created_By,Modified_On,Modified_By) values ("Cold Drink Dispenser","CCDispenser1",72,71,"Cold Drink Dispenser which saves fizz and manual work to put the cold drinks in the glasses",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Description,Created_By,Modified_On,Modified_By) values ("Storage Switches","SSwitches1",72,71,"Switches which can save valueable stuffs",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+/* end */
+insert into tb_ProductSeller (Product_Id,Seller_Id,Price,Quantity,Created_By,Modified_On,Modified_By) values (,5,60,100,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
 
 
 
-  insert into tb_ProductSeller (Product_Id,Seller_Id,Price,Quantity,Created_By,Modified_On,Modified_By) values (1,5,60,100,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
-  insert into tb_ProductSeller (Product_Id,Seller_Id,Price,Quantity,Created_By,Modified_On,Modified_By) values (2,5,55,100,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
-  insert into tb_ProductSeller (Product_Id,Seller_Id,Price,Quantity,Created_By,Modified_On,Modified_By) values (3,5,2020,110,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
-  insert into tb_ProductSeller (Product_Id,Seller_Id,Price,Quantity,Created_By,Modified_On,Modified_By) values (3,6,50,100,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
-  insert into tb_ProductSeller (Product_Id,Seller_Id,Price,Quantity,Created_By,Modified_On,Modified_By) values (4,6,2020,110,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
-  insert into tb_ProductSeller (Product_Id,Seller_Id,Price,Quantity,Created_By,Modified_On,Modified_By) values (5,6,2020,110,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+
+
+insert into tb_ProductSeller (Product_Id,Seller_Id,Price,Quantity,Created_By,Modified_On,Modified_By) values (1,5,60,100,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_ProductSeller (Product_Id,Seller_Id,Price,Quantity,Created_By,Modified_On,Modified_By) values (2,5,55,100,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_ProductSeller (Product_Id,Seller_Id,Price,Quantity,Created_By,Modified_On,Modified_By) values (3,5,2020,110,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_ProductSeller (Product_Id,Seller_Id,Price,Quantity,Created_By,Modified_On,Modified_By) values (3,6,50,100,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_ProductSeller (Product_Id,Seller_Id,Price,Quantity,Created_By,Modified_On,Modified_By) values (4,6,2020,110,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_ProductSeller (Product_Id,Seller_Id,Price,Quantity,Created_By,Modified_On,Modified_By) values (5,6,2020,110,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
   
   
   

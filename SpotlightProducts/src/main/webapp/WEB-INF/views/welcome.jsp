@@ -110,7 +110,7 @@
 					<li><a href="#">Dashboard</a></li>
 					<li><a href="/ChangePassword">Change Password</a></li>
 					<li role="separator" class="divider"></li>
-					<li><a href="http://localhost:8080/Login">Logout</a></li>
+					<li><a href="/Logout">Logout</a></li>
 				</ul></li>
 		</ul>
 	</div>
