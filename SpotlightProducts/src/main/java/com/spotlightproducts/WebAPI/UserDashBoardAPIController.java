@@ -25,7 +25,7 @@ import com.spotlightproducts.dao.User;
 @RestController
 public class UserDashBoardAPIController{
 	
-	@RequestMapping(value = "/PostChangePassword", method = RequestMethod.POST)
+	@RequestMapping(value = "/PostChangePassword", method = RequestMethod.GET)
 	public ResponseEntity<JSONResponse<String>> ChangeUserPassword(@RequestBody User user, ModelMap model, HttpServletRequest request){
 		JSONResponse<String> JsonResponse = new JSONResponse<String>();
 		HttpSession session = request.getSession();

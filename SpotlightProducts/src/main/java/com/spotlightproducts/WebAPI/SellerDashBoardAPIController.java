@@ -25,19 +25,8 @@ import com.spotlightproducts.dao.User;
 @RestController
 public class SellerDashBoardAPIController{
 	
-	@RequestMapping(value = "/PostChangePassword", method = RequestMethod.POST)
-	public ResponseEntity<JSONResponse<String>> ChangeUserPassword(@RequestBody User user, ModelMap model, HttpServletRequest request){
-		JSONResponse<String> JsonResponse = new JSONResponse<String>();
-		HttpSession session = request.getSession();
-		user.setEmail((String)session.getAttribute("email"));
-		DatabaseResponse dbresponse = user.changeUserPasswordDao();
-		JsonResponse.setStatus(dbresponse.getStatus());
-		JsonResponse.setMessage(dbresponse.getMessage());
-		return new ResponseEntity<JSONResponse<String>>(JsonResponse, HttpStatus.OK);
-	}
-	
-	@RequestMapping(value = "/UserOrderGET", method = RequestMethod.GET)
-	public ResponseEntity<JSONResponse<Order>> userOrdersGet(@RequestBody User user, HttpServletRequest request){
+	@RequestMapping(value = "/SellerStatisticsGet", method = RequestMethod.GET)
+	public ResponseEntity<JSONResponse<Order>> getSellerStatistics(@RequestBody User user, HttpServletRequest request){
 		JSONResponse<Order> JsonResponse = new JSONResponse<Order>();
 		HttpSession session = request.getSession();
 		user.setEmail((String)session.getAttribute("email"));
@@ -49,8 +38,8 @@ public class SellerDashBoardAPIController{
 		return new ResponseEntity<JSONResponse<Order>>(JsonResponse, HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "/UserReviewsGET", method = RequestMethod.GET)
-	public ResponseEntity<JSONResponse<Review>> userReviewsGet(@RequestBody User user, HttpServletRequest request){
+	@RequestMapping(value = "/SellerLowStockIndicator", method = RequestMethod.GET)
+	public ResponseEntity<JSONResponse<Review>> getSellerLowStockIndicator(@RequestBody User user, HttpServletRequest request){
 		JSONResponse<Review> JsonResponse = new JSONResponse<Review>();
 		HttpSession session = request.getSession();
 		user.setEmail((String)session.getAttribute("email"));
