@@ -34,14 +34,16 @@ public class ShoppingCartDetails {
 							ShoppingCart shoppingCartObj = new ShoppingCart();
 							shoppingCartObj.setCartId(rs.getInt(1));
 							shoppingCartObj.setProductId(rs.getInt(2));
-							shoppingCartObj.setProductName(rs.getString(3));
-							shoppingCartObj.setModelId(rs.getString(4));
-							shoppingCartObj.setBrandName(rs.getString(5));
-							shoppingCartObj.setCategoryName(rs.getString(6));
-							shoppingCartObj.setDescription(rs.getString(7));
-							shoppingCartObj.setSellerName(rs.getString(8));
+							shoppingCartObj.setBuyerId(rs.getInt(3));
+							shoppingCartObj.setSellerId(rs.getInt(4));
+							shoppingCartObj.setProductName(rs.getString(5));
+							shoppingCartObj.setModelId(rs.getString(6));
+							shoppingCartObj.setBrandName(rs.getString(7));
+							shoppingCartObj.setCategoryName(rs.getString(8));
 							shoppingCartObj.setDescription(rs.getString(9));
-							shoppingCartObj.setPrice(rs.getDouble(10));
+							shoppingCartObj.setSellerName(rs.getString(10));
+							shoppingCartObj.setQuantity(rs.getInt(11));
+							shoppingCartObj.setPrice(rs.getDouble(12));
 							shoppingCartList.add(shoppingCartObj);
 						}
 
