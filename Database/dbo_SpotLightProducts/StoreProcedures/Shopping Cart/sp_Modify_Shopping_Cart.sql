@@ -28,7 +28,6 @@ BEGIN
 		WHERE Product_Id = p_Product_Id
 			AND Seller_Id = p_Seller_Id;
 	ELSE
-		IF p_shopping_Cart_Id = -9999 THEN
 			IF (EXISTS(
 				SELECT * 
 					FROM tb_ShoppingCart 
@@ -78,7 +77,6 @@ BEGIN
 				WHERE Product_Id = p_Product_Id
 					AND Seller_Id = p_Seller_Id;
 			END IF;
-		END IF;
 	END IF;
 	SELECT 1 AS SUCCESS, "" AS ErrMessage, @shoppingCartID AS ShoppingCartID;
 END;
