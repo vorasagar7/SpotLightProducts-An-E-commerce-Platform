@@ -35,12 +35,73 @@ public class SearchController {
 	@RequestMapping(value = "/filterByElectronics", method=RequestMethod.GET)
 	public String filterByElectronics(ModelMap model){
 		
-		ArrayList<Product> productList = searchService.getProductList("Mobile");
+		ArrayList<Product> productList = searchService.getProductList("Electronic");
 		
 		model.addAttribute(productList);
 		
 		model.put("productList",productList);
 		return "/CategoryViews/Electronics";
+		
+	}	
+	
+	@RequestMapping(value = "/filterByMobiles", method=RequestMethod.GET)
+	public String filterByMobiles(ModelMap model){
+		
+		ArrayList<Product> productList = searchService.getProductList("Mobile");
+		
+		model.addAttribute(productList);
+		
+		model.put("productList",productList);
+		return "/CategoryViews/Mobiles";
+		
+	}	
+	
+	@RequestMapping(value = "/filterByShoes", method=RequestMethod.GET)
+	public String filterByFashion(ModelMap model){
+		
+		ArrayList<Product> productList = searchService.getProductList("Shoes");
+			
+		model.addAttribute(productList);
+		
+		model.put("productList",productList);
+		return "/CategoryViews/Shoes";
+		
+	}	
+	
+	
+	@RequestMapping(value = "/filterByWatches", method=RequestMethod.GET)
+	public String filterByWatches(ModelMap model){
+		
+		ArrayList<Product> productList = searchService.getProductList("watch");
+			
+		model.addAttribute(productList);
+		
+		model.put("productList",productList);
+		return "/CategoryViews/Watches";
+		
+	}	
+	
+	@RequestMapping(value = "/filterByBooks", method=RequestMethod.GET)
+	public String filterByBooks(ModelMap model){
+		
+		ArrayList<Product> productList = searchService.getProductList("Books");
+		
+		model.addAttribute(productList);
+		
+		model.put("productList",productList);
+		return "/CategoryViews/Books";
+		
+	}	
+	
+	@RequestMapping(value = "/filterBySpotlightProducts", method=RequestMethod.GET)
+	public String filterBySpotlightProducts(ModelMap model){
+		
+		ArrayList<Product> productList = searchService.getProductList("Spotlight");
+		
+		model.addAttribute(productList);
+		
+		model.put("productList",productList);
+		return "/CategoryViews/SpotlightProducts";
 		
 	}	
 	

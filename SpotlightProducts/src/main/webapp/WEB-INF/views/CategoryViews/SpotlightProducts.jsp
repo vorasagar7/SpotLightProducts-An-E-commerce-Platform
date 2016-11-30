@@ -133,6 +133,7 @@
 	<li role="presentation"><a href="/filterByBooks">Books</a></li>
 	<li role="presentation"><a href="/filterBySpotlightProducts">SpotLightProducts</a></li>
 </ul>
+
 <ol class="breadcrumb">
 	<li><a href="#">Home</a></li>
 </ol>
