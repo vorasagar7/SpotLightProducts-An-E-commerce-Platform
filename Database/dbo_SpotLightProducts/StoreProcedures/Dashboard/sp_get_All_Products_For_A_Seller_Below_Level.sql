@@ -4,6 +4,7 @@ IN p_seller_Id integer
 )
 BEGIN
 SELECT
+  p.product_id,
   p.Product_Name,
   p.Model_Id,
   p.Description,
