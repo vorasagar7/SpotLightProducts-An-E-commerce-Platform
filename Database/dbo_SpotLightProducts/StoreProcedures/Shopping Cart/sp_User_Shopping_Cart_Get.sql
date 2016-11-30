@@ -1,10 +1,12 @@
 DELIMITER $$
-CREATE PROCUEDURE sp_User_Shopping_Cart_Get(
+CREATE PROCEDURE sp_User_Shopping_Cart_Get(
 	IN p_userId INTEGER
 )
 BEGIN
 	SELECT cart.Id,
 		product.Id,
+		cart.Buyer_Id,
+		cart.Seller_Id,
 		product.Product_Name,
 		product.Model_Id,
 		brand.Name AS Brand,

@@ -1,5 +1,8 @@
 package com.spotlightproducts.WebAPI;
 
+import java.util.Arrays;
+import java.util.List;
+
 import javax.mail.MessagingException;
 import javax.mail.internet.AddressException;
 import javax.servlet.http.HttpServletRequest;
@@ -34,6 +37,28 @@ public class ShoppingCartAPIController{
 		//DatabaseResponse dbresponse = new DatabaseResponse();
 		JsonResponse.setStatus(dbresponse.getStatus());
 		JsonResponse.setMessage(dbresponse.getMessage());
+		JsonResponse.setData(dbresponse.getData());
 		return new ResponseEntity<JSONResponse<ShoppingCart>>(JsonResponse, HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/GetUserId", method = RequestMethod.GET)
+	public ResponseEntity<JSONResponse<String>> getUserId(HttpServletRequest request){
+		HttpSession session = request.getSession();
+		String email = (String)session.getAttribute("email");
+		JSONResponse<String> JsonResponse = new JSONResponse<String>();
+		JsonResponse.setStatus("Success");
+		List<String> emailData = Arrays.asList(email);
+		JsonResponse.setData(emailData);
+		return new ResponseEntity<JSONResponse<String>>(JsonResponse, HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/DeleteCartItem", method = RequestMethod.POST)
+	public ResponseEntity<JSONResponse<String>> deleteUserCartItem(@RequestBody ShoppingCart cart){
+		JSONResponse<String> JsonResponse = new JSONResponse<String>();
+		ShoppingCartDetails shoppingCartDetails = new ShoppingCartDetails();
+		DatabaseResponse dbresponse =	shoppingCartDetails.deleteFromShoppingCart(cart);
+		JsonResponse.setStatus(dbresponse.getStatus());
+		JsonResponse.setMessage(dbresponse.getMessage());
+		return new ResponseEntity<JSONResponse<String>>(JsonResponse, HttpStatus.OK);
 	}
 }
