@@ -12,6 +12,14 @@ public class Review {
 	private String comment;
 	private int rating;
 	private Date modifiedOn;
+	private String productName;
+	private int productId;
+	public String getProductName() {
+		return productName;
+	}
+	public void setProductName(String productName) {
+		this.productName = productName;
+	}
 	public int getReviewId() {
 		return reviewId;
 	}
@@ -41,6 +49,12 @@ public class Review {
 	}
 	public void setModifiedOn(Date modifiedOn) {
 		this.modifiedOn = modifiedOn;
+	}
+	public int getProductId() {
+		return productId;
+	}
+	public void setProductId(int productId) {
+		this.productId = productId;
 	}
 	
 }

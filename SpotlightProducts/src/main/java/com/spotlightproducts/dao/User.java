@@ -4,6 +4,7 @@ import javax.mail.MessagingException;
 import javax.mail.internet.AddressException;
 
 import com.spotlightproducts.businesslibrary.LoginUser;
+import com.spotlightproducts.businesslibrary.UserDashboard;
 
 public class User {
 
@@ -93,5 +94,6 @@ public class User {
 		LoginUser user = new LoginUser();
 		return user.changeUserPassword(this);
 	}
+	
 	
 }

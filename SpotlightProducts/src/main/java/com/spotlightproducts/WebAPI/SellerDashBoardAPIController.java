@@ -23,7 +23,7 @@ import com.spotlightproducts.dao.Review;
 import com.spotlightproducts.dao.User;
 
 @RestController
-public class UserDashBoardAPIController{
+public class SellerDashBoardAPIController{
 	
 	@RequestMapping(value = "/PostChangePassword", method = RequestMethod.POST)
 	public ResponseEntity<JSONResponse<String>> ChangeUserPassword(@RequestBody User user, ModelMap model, HttpServletRequest request){
