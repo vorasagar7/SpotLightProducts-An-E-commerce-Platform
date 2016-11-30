@@ -28,34 +28,57 @@ BEGIN
 		WHERE Product_Id = p_Product_Id
 			AND Seller_Id = p_Seller_Id;
 	ELSE
-		INSERT INTO tb_ShoppingCart(
-			Buyer_Id,
-			Product_Id,
-			Seller_Id,
-			Quantity,
-			Price,
-			Created_By,
-			Modified_On,
-			Modified_By
-		)
-		VALUES(
-			p_User_Id,
-			p_Product_Id,
-			p_Seller_Id,
-			p_Quantity,
-			p_Price,
-			@UserEmail,
-			CURRENT_TIMESTAMP,
-			@UserEmail
-		);
-		set @shoppingCartID = (select LAST_INSERT_ID());
-		UPDATE tb_ProductSeller
-		SET Quantity = Quantity - p_Quantity,
-			Modified_By = CURRENT_USER,
-			Modified_On = CURRENT_TIMESTAMP,
-			VERSION = VERSION + 1
-		WHERE Product_Id = p_Product_Id
-			AND Seller_Id = p_Seller_Id;
+		IF p_shopping_Cart_Id = -9999 THEN
+			IF (EXISTS(
+				SELECT * 
+					FROM tb_ShoppingCart 
+				WHERE Buyer_Id = p_User_Id
+				AND Product_Id = p_Product_Id
+				AND Seller_Id = p_Seller_Id
+				AND IS_DELETED = 0)
+			) 
+			THEN
+				UPDATE tb_ProductSeller
+				SET Quantity = Quantity + p_Quantity,
+				Modified_By = CURRENT_USER,
+				Modified_On = CURRENT_TIMESTAMP,
+				VERSION = VERSION + 1
+			WHERE Product_Id = p_Product_Id
+				AND Seller_Id = p_Seller_Id
+				AND Buyer_Id = p_User_Id
+				AND IS_DELETED = 0; 
+			
+			ELSE
+				INSERT INTO tb_ShoppingCart(
+					Buyer_Id,
+					Product_Id,
+					Seller_Id,
+					Quantity,
+					Price,
+					Created_By,
+					Modified_On,
+					Modified_By
+				)
+				VALUES(
+					p_User_Id,
+					p_Product_Id,
+					p_Seller_Id,
+					p_Quantity,
+					p_Price,
+					@UserEmail,
+					CURRENT_TIMESTAMP,
+					@UserEmail
+				);
+				set @shoppingCartID = (select LAST_INSERT_ID());
+				UPDATE tb_ProductSeller
+				SET Quantity = Quantity - p_Quantity,
+					Modified_By = CURRENT_USER,
+					Modified_On = CURRENT_TIMESTAMP,
+					VERSION = VERSION + 1
+				WHERE Product_Id = p_Product_Id
+					AND Seller_Id = p_Seller_Id;
+			END IF;
+		END IF;
 	END IF;
 	SELECT 1 AS SUCCESS, "" AS ErrMessage, @shoppingCartID AS ShoppingCartID;
 END;
