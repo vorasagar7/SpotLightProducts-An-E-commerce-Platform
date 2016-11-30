@@ -13,8 +13,8 @@ BEGIN
 		UPDATE tb_ShoppingCart
 		SET Quantity = p_Quantity,
 			Price = p_Price,
-			ModifiedBy = @UserEmail,
-			ModifiedOn = CURRENT_TIMESTAMP,
+			Modified_By = @UserEmail,
+			Modified_On = CURRENT_TIMESTAMP,
 			VERSION = VERSION + 1
 		WHERE Id = p_shopping_Cart_Id;
 
@@ -22,8 +22,8 @@ BEGIN
 
 		UPDATE tb_ProductSeller
 		SET Quantity = Quantity - p_Quantity,
-			ModifiedBy = CURRENT_USER,
-			ModifiedOn = CURRENT_TIMESTAMP,
+			Modified_By = CURRENT_USER,
+			Modified_On = CURRENT_TIMESTAMP,
 			VERSION = VERSION + 1
 		WHERE Product_Id = p_Product_Id
 			AND Seller_Id = p_Seller_Id;
@@ -34,9 +34,9 @@ BEGIN
 			Seller_Id,
 			Quantity,
 			Price,
-			CreatedBy,
-			ModifiedOn,
-			ModifiedBy
+			Created_By,
+			Modified_On,
+			Modified_By
 		)
 		VALUES(
 			p_User_Id,
@@ -51,12 +51,12 @@ BEGIN
 		set @shoppingCartID = (select LAST_INSERT_ID());
 		UPDATE tb_ProductSeller
 		SET Quantity = Quantity - p_Quantity,
-			ModifiedBy = CURRENT_USER,
-			ModifiedOn = CURRENT_TIMESTAMP,
+			Modified_By = CURRENT_USER,
+			Modified_On = CURRENT_TIMESTAMP,
 			VERSION = VERSION + 1
 		WHERE Product_Id = p_Product_Id
 			AND Seller_Id = p_Seller_Id;
 	END IF;
-	SELECT 1 AS SUCCESS, "" AS Err Message, @shoppingCartID AS ShoppingCartID
+	SELECT 1 AS SUCCESS, "" AS ErrMessage, @shoppingCartID AS ShoppingCartID;
 END;
 $$

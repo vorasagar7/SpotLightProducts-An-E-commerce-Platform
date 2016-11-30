@@ -133,7 +133,7 @@
 									<h6 class="text-right">Added items?</h6>
 								</div>
 								<div class="col-xs-3">
-									<button type="button" class="btn btn-default btn-sm btn-block">
+									<button type="button" class="btn btn-default btn-sm btn-block" ng-click="updateUserCart()">
 										Update cart</button>
 								</div>
 							</div>
@@ -147,7 +147,7 @@
 								</h4>
 							</div>
 							<div class="col-xs-3">
-								<button type="button" class="btn btn-success btn-block">
+								<button type="button" class="btn btn-success btn-block" ng-click="checkOut()">
 									Checkout</button>
 							</div>
 						</div>

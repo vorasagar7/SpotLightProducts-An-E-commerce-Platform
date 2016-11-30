@@ -61,7 +61,7 @@ body {
 				<div>Sellers</div>
 				<div ng-repeat="seller in productSellers">
 					<span>{{seller.sellerName}}:</span> <span>Price: {{seller.price}}</span>
-					<button class="btn btn-primary">Add to Cart</button>
+					<button class="btn btn-primary" ng-click="addToCart(seller.sellerId, seller.price)">Add to Cart</button>
 				</div>
 			</div>
 		</div>

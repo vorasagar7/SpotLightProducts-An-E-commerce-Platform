@@ -63,26 +63,27 @@ public class ShoppingCartDetails {
 
 	}
 
-	public DatabaseResponse modifyUserShoppingCart(ShoppingCart shoppingCart) {
-		int success = 0;
-		String errorMessage = null;
+	public DatabaseResponse modifyUserShoppingCart(List<ShoppingCart> shoppingCart) {
 		DatabaseResponse response = new DatabaseResponse();
-		int shoppingCartId = shoppingCart.getCartId();
-		int userId = shoppingCart.getBuyerId();
-		int productId = shoppingCart.getProductId();
-		int sellerId = shoppingCart.getSellerId();
-		int quantity = shoppingCart.getQuantity();
-		double price = shoppingCart.getPrice();
-		int listSize = 10; // size of the list
-
 		try {
-
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/spotlightproducts",
-					"admin", "admin");
-			// ResultSet rs=stmt.executeQuery("call
-			// sp_Check_For_Authentication("+userName+","+password+")");
-			for (int i = 0; i < listSize; i++) {
+			Connection con = (Connection) DriverManager
+					.getConnection("jdbc:mysql://localhost:3306/spotlightproducts", "admin", "admin");
+			for (int i = 0; i < shoppingCart.size(); i++) {
+				int success = 0;
+				String errorMessage = null;
+				
+				int shoppingCartId = shoppingCart.get(i).getCartId();
+				//int userId = shoppingCart.get(i).getBuyerId();
+				int userId = 1;
+				int productId = shoppingCart.get(i).getProductId();
+				int sellerId = shoppingCart.get(i).getSellerId();
+				int quantity = shoppingCart.get(i).getQuantity();
+				double price = shoppingCart.get(i).getPrice();
+				
+				// ResultSet rs=stmt.executeQuery("call
+				// sp_Check_For_Authentication("+userName+","+password+")");
+
 				CallableStatement cStmt = (CallableStatement) con
 						.prepareCall("{call sp_Modify_Shopping_Cart(?,?,?,?,?,?)}");
 				cStmt.setInt(1, shoppingCartId);
@@ -105,19 +106,18 @@ public class ShoppingCartDetails {
 
 					hadResults = cStmt.getMoreResults();
 				}
-				if (success == 1 && i==10) {
-					response.setStatus("Success");
-					response.setMessage("Shopping Cart Data fetched successfully.....");
-					con.close();
-					return response;
-				}
 			}
+			response.setStatus("Success");
+			con.close();
+			return response;
 
-		} catch (Exception e) {
+		}
+
+		catch (Exception e) {
 			System.out.println(e);
 		}
 		response.setStatus("Failure");
-		response.setMessage(errorMessage);
+		//response.setMessage(errorMessage);
 		return response;
 
 	}
