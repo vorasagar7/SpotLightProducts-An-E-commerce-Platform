@@ -133,7 +133,6 @@
 	<li role="presentation"><a href="/filterByBooks">Books</a></li>
 	<li role="presentation"><a href="/filterBySpotlightProducts">SpotLightProducts</a></li>
 </ul>
-
 <ol class="breadcrumb">
 	<li><a href="#">Home</a></li>
 </ol>
@@ -228,7 +227,8 @@
 							<h4 class="pull-right">$${product.price}</h4>
 							<h4>
 								<%-- 							<a href="#">${productList[0].productName}</a> --%>
-								<a href="http://localhost:8080/ProductDetails?id=${product.productId}">${product.productName}</a>
+								<a
+									href="http://localhost:8080/ProductDetails?id=${product.productId}">${product.productName}</a>
 
 							</h4>
 							<p>

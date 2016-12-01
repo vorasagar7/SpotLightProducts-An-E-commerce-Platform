@@ -15,30 +15,50 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.spotlightproducts.businesslibrary.UserDashboard;
 import com.spotlightproducts.dao.DatabaseResponse;
 import com.spotlightproducts.dao.JSONResponse;
+import com.spotlightproducts.dao.Order;
+import com.spotlightproducts.dao.Review;
 import com.spotlightproducts.dao.User;
 
 @RestController
 public class UserDashBoardAPIController{
 	
-	@RequestMapping(value = "/PostChangePassword", method = RequestMethod.POST)
+	@RequestMapping(value = "/PostChangePassword", method = RequestMethod.GET)
 	public ResponseEntity<JSONResponse<String>> ChangeUserPassword(@RequestBody User user, ModelMap model, HttpServletRequest request){
 		JSONResponse<String> JsonResponse = new JSONResponse<String>();
 		HttpSession session = request.getSession();
-//		System.out.println("Reached Here************************************");
-////		System.out.println("RequestEntity.getBody():"+requestEntity.getBody());
-//		System.out.println("Email: " + session.getAttribute("email"));
-//		System.out.println("Password: " + user.getPassword());
-//		System.out.println("Retypepassword: " + user.getReTypePassword());
-//		System.out.println("New Password:" + user.getNewPassword());
-		
 		user.setEmail((String)session.getAttribute("email"));
-		
 		DatabaseResponse dbresponse = user.changeUserPasswordDao();
-		//DatabaseResponse dbresponse = new DatabaseResponse();
 		JsonResponse.setStatus(dbresponse.getStatus());
 		JsonResponse.setMessage(dbresponse.getMessage());
 		return new ResponseEntity<JSONResponse<String>>(JsonResponse, HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/UserOrderGET", method = RequestMethod.GET)
+	public ResponseEntity<JSONResponse<Order>> userOrdersGet(@RequestBody User user, HttpServletRequest request){
+		JSONResponse<Order> JsonResponse = new JSONResponse<Order>();
+		HttpSession session = request.getSession();
+		user.setEmail((String)session.getAttribute("email"));
+		UserDashboard dashboad = new UserDashboard();
+		DatabaseResponse<Order> dbresponse = dashboad.getUserOrders(user);
+		JsonResponse.setStatus(dbresponse.getStatus());
+		JsonResponse.setMessage(dbresponse.getMessage());
+		JsonResponse.setData(dbresponse.getData());
+		return new ResponseEntity<JSONResponse<Order>>(JsonResponse, HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/UserReviewsGET", method = RequestMethod.GET)
+	public ResponseEntity<JSONResponse<Review>> userReviewsGet(@RequestBody User user, HttpServletRequest request){
+		JSONResponse<Review> JsonResponse = new JSONResponse<Review>();
+		HttpSession session = request.getSession();
+		user.setEmail((String)session.getAttribute("email"));
+		UserDashboard dashboad = new UserDashboard();
+		DatabaseResponse<Review> dbresponse = dashboad.getUserReviews(user);
+		JsonResponse.setStatus(dbresponse.getStatus());
+		JsonResponse.setMessage(dbresponse.getMessage());
+		JsonResponse.setData(dbresponse.getData());
+		return new ResponseEntity<JSONResponse<Review>>(JsonResponse, HttpStatus.OK);
 	}
 }

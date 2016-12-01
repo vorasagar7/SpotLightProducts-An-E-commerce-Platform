@@ -9,7 +9,7 @@ import com.spotlightproducts.businesslibrary.ProductDetails;
 
 public class Product {
 	private int productId;
-	private int selledId;
+	private int sellerId;
 	private String productName;
 	private String modelId;
 	private int brandId;
@@ -35,12 +35,12 @@ public class Product {
 		this.productId = productId;
 	}
 
-	public int getSelledId() {
-		return selledId;
+	public int getSellerId() {
+		return sellerId;
 	}
 
-	public void setSelledId(int selledId) {
-		this.selledId = selledId;
+	public void setSellerId(int sellerId) {
+		this.sellerId = sellerId;
 	}
 
 	public String getProductName() {

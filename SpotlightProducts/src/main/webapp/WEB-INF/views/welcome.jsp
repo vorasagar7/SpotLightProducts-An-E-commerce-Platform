@@ -110,7 +110,7 @@
 					<li><a href="#">Dashboard</a></li>
 					<li><a href="/ChangePassword">Change Password</a></li>
 					<li role="separator" class="divider"></li>
-					<li><a href="http://localhost:8080/Login">Logout</a></li>
+					<li><a href="/Logout">Logout</a></li>
 				</ul></li>
 		</ul>
 	</div>
@@ -122,12 +122,10 @@
 
 <ul class="nav nav-pills">
 	<li role="presentation" class="active"><a href="#">Home</a></li>
-	<li role="presentation"><a href="#">Electronics</a></li>
-	<li role="presentation"><a href="#">Clothes</a></li>
-	<li role="presentation"><a href="#">Movies, Music, Games</a></li>
+	<li role="presentation"><a href="/filterByElectronics">Electronics</a></li>
+	<li role="presentation"><a href="#">Mobiles</a></li>
+	<li role="presentation"><a href="#">Fashion</a></li>
 	<li role="presentation"><a href="#">Books</a></li>
-	<li role="presentation"><a href="#">Furniture</a></li>
-	<li role="presentation"><a href="#">Home and Garden</a></li>
 	<li role="presentation"><a href="#">SpotLightProducts</a></li>
 </ul>
 

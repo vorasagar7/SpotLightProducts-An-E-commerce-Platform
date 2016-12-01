@@ -34,7 +34,6 @@ public class ProductDetailsAPIController{
 	@RequestMapping(value = "/PostUserReview", method = RequestMethod.POST)
 	public ResponseEntity<JSONResponse<String>> RegisterUser(@RequestBody Product product, HttpServletRequest request){
 		JSONResponse<String> JsonResponse = new JSONResponse<String>();
-		System.out.println("Hiiii");
 		ProductDetails productDetails = new ProductDetails();
 		DatabaseResponse dbresponse = productDetails.storeUserReview(product,request);
 		JsonResponse.setStatus(dbresponse.getStatus());

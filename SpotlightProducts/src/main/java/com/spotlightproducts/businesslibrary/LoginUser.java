@@ -14,6 +14,7 @@ import javax.mail.internet.MimeMessage;
 
 import com.mysql.jdbc.CallableStatement;
 import com.mysql.jdbc.Connection;
+import com.spotlightproducts.SpotLightConstants;
 import com.spotlightproducts.dao.DatabaseResponse;
 import com.spotlightproducts.dao.User;
 
@@ -35,26 +36,21 @@ public class LoginUser {
 			isDeleted = 0;
 		}
 
-		if (userType.equalsIgnoreCase("Buyer")) {
+		if (userType.equalsIgnoreCase(SpotLightConstants.CONSTANT_BUYER)) {
 			userTypeInt = 1;
-		} else if (userType.equalsIgnoreCase("Seller")) {
+		} else if (userType.equalsIgnoreCase(SpotLightConstants.CONSTANT_SELLER)) {
 			userTypeInt = 2;
 		}
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/spotlightproducts",
-					"admin", "admin");
-			// ResultSet rs=stmt.executeQuery("call
-			// sp_Check_For_Authentication("+userName+","+password+")");
+			
+			Connection con = DatabaseConnection.getDatabaseConnection();			
 			CallableStatement cStmt = (CallableStatement) con.prepareCall("{call sp_Add_New_User(?, ?, ?, ?, ?)}");
 			cStmt.setString(1, firstName);
 			cStmt.setString(2, lastName);
 			cStmt.setString(3, email);
 			cStmt.setString(4, password);
 			cStmt.setInt(5, userTypeInt);
-			// ResultSet rs = cStmt.execute();
 			boolean hadResults = cStmt.execute();
-			System.out.println("hadResults" + hadResults);
 			while (hadResults) {
 				ResultSet rs = (ResultSet) cStmt.getResultSet();
 				while (rs.next()) {
@@ -62,13 +58,13 @@ public class LoginUser {
 					String message = rs.getString(2);
 					if (id == 1) {
 						int userId = rs.getInt(3);
-						response.setStatus("Success");
+						response.setStatus(SpotLightConstants.CONSTANT_SUCCESS);
 						response.setMessage(message);
 						con.close();
 						return response;
 					} else {
 						con.close();
-						response.setStatus("Failure");
+						response.setStatus(SpotLightConstants.CONSTANT_FAILURE);
 						response.setMessage(message);
 						return response;
 					}
@@ -80,8 +76,8 @@ public class LoginUser {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-		response.setStatus("Failure");
-		response.setMessage("Technical Error");
+		response.setStatus(SpotLightConstants.CONSTANT_FAILURE);
+		response.setMessage(SpotLightConstants.CONSTANT_TECHNICAL_FAILURE);
 		return response;
 
 	}
@@ -89,25 +85,17 @@ public class LoginUser {
 	public boolean validateUser(User user) {
 
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/spotlightproducts",
-					"admin", "admin");
-			// ResultSet rs=stmt.executeQuery("call
-			// sp_Check_For_Authentication("+userName+","+password+")");
+			Connection con = DatabaseConnection.getDatabaseConnection();
 			CallableStatement cStmt = (CallableStatement) con.prepareCall("{call sp_Check_For_Authentication(?, ?)}");
 			String email = user.getEmail();
 			String password = user.getPassword();
 			cStmt.setString(1, email);
 			cStmt.setString(2, password);
-			// ResultSet rs = cStmt.execute();
 			boolean hadResults = cStmt.execute();
-			System.out.println("hadResults" + hadResults);
 			while (hadResults) {
 				ResultSet rs = (ResultSet) cStmt.getResultSet();
 				while (rs.next()) {
 					// retrieve values of fields
-					System.out.println(
-							rs.getInt(1) + "\t" + rs.getString(2) + "\t\t" + rs.getString(3) + "\t" + rs.getString(4));
 					String Email = rs.getString(4);
 					if (email.equals(Email)) {
 						con.close();
@@ -131,40 +119,33 @@ public class LoginUser {
 		String password = null;
 		String message = null;
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/spotlightproducts",
-					"admin", "admin");
-			// ResultSet rs=stmt.executeQuery("call
-			// sp_Check_For_Authentication("+userName+","+password+")");
+			
+			Connection con = DatabaseConnection.getDatabaseConnection();
 			CallableStatement cStmt = (CallableStatement) con.prepareCall("{call sp_Forget_Password(?)}");
 			cStmt.setString(1, user.getEmail());
-			// ResultSet rs = cStmt.execute();
 			boolean hadResults = cStmt.execute();
-			System.out.println("hadResults" + hadResults);
 			while (hadResults) {
 				ResultSet rs = (ResultSet) cStmt.getResultSet();
 				while (rs.next()) {
-					// retrieve values of fields
-					// System.out.println(rs.getInt(1));
 					password = rs.getString(1);
 					sendEmail(user.getEmail(), password);
 					con.close();
-					response.setMessage("You'll receive an email which contains your password, Shortly......");
-					response.setStatus("Success");
+					response.setMessage(SpotLightConstants.RECEIVE_EMAIL_MESSAGE);
+					response.setStatus(SpotLightConstants.CONSTANT_SUCCESS);
 					return response;
 
 				}
 				hadResults = cStmt.getMoreResults();
 			}
-			response.setMessage("User not found. Please enter the correct email.");
-			response.setStatus("Failure");
+			response.setMessage(SpotLightConstants.USER_NOT_FOUND_MESSAGE);
+			response.setStatus(SpotLightConstants.CONSTANT_FAILURE);
 			con.close();
 			return response;
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-		response.setMessage("Technical Error. Please contact the customer service.");
-		response.setStatus("Failure");
+		response.setMessage(SpotLightConstants.TECHNICAL_ERROR_MESSAGE);
+		response.setStatus(SpotLightConstants.CONSTANT_FAILURE);
 		return response;
 
 	}
@@ -188,7 +169,6 @@ public class LoginUser {
 		getMailSession = Session.getDefaultInstance(mailServerProperties, null);
 		generateMailMessage = new MimeMessage(getMailSession);
 		generateMailMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(email));
-		generateMailMessage.addRecipient(Message.RecipientType.TO, new InternetAddress("savora@iu.edu"));
 		generateMailMessage.addRecipient(Message.RecipientType.CC, new InternetAddress("vorasagar7@gmail.com"));
 		generateMailMessage.addRecipient(Message.RecipientType.CC,
 				new InternetAddress("ronak.bharat.parekh@gmail.com"));
@@ -203,7 +183,7 @@ public class LoginUser {
 
 		// Enter your correct gmail UserID and Password
 		// if you have 2FA enabled then provide App Specific Password
-		transport.connect("smtp.gmail.com", "spotlightproducts2016@gmail.com", "qwert12345asdfg");
+		transport.connect("smtp.gmail.com", SpotLightConstants.SPOTLIGHTPRODUCTS_EMAIL_ID, SpotLightConstants.SPOTLIGHTPRODUCTS_EMAIL_PASSWORD);
 		transport.sendMessage(generateMailMessage, generateMailMessage.getAllRecipients());
 		transport.close();
 	}
@@ -212,24 +192,17 @@ public class LoginUser {
 		public DatabaseResponse changeUserPassword(User user) {
 			DatabaseResponse response = new DatabaseResponse();
 			String password = user.getPassword();
-			System.out.println(password);
-			System.out.println("UserID" + user.getUserId());
 			try {
 				String message = null;
 				int success = 0;
 				
-				Class.forName("com.mysql.jdbc.Driver");
-				Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/spotlightproducts",
-						"admin", "admin");
-				// ResultSet rs=stmt.executeQuery("call
-				// sp_Check_For_Authentication("+userName+","+password+")");
+				
+				Connection con = DatabaseConnection.getDatabaseConnection();
 				CallableStatement cStmt = (CallableStatement) con.prepareCall("{call sp_update_User_Password(?,?,?)}");
 				cStmt.setString(1, user.getEmail());
 				cStmt.setString(2, user.getPassword());
 				cStmt.setString(3, user.getNewPassword());
-				// ResultSet rs = cStmt.execute();
 				boolean hadResults = cStmt.execute();
-				System.out.println("hadResults" + hadResults);
 				while (hadResults) {
 					ResultSet rs = (ResultSet) cStmt.getResultSet();
 					while (rs.next()) {
@@ -239,7 +212,7 @@ public class LoginUser {
 						 
 						if(success == 1){
 						response.setMessage(message);
-						response.setStatus("Success");
+						response.setStatus(SpotLightConstants.CONSTANT_SUCCESS);
 						con.close();
 						return response;
 						}
@@ -248,15 +221,15 @@ public class LoginUser {
 					hadResults = cStmt.getMoreResults();
 				}
 				response.setMessage(message);
-				response.setStatus("Failure");
+				response.setStatus(SpotLightConstants.CONSTANT_FAILURE);
 				con.close();
 				return response;
 			} catch (Exception e) {
 				System.out.println(e);
 			}
 
-			response.setStatus("Failure");
-			response.setMessage("Technical Error");
+			response.setStatus(SpotLightConstants.CONSTANT_FAILURE);
+			response.setMessage(SpotLightConstants.CONSTANT_TECHNICAL_FAILURE);
 			return response;
 		}
 

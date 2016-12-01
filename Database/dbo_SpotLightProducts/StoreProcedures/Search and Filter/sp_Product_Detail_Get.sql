@@ -4,8 +4,8 @@ CREATE PROCEDURE sp_Product_Detail_Get(
 )
 BEGIN
 	SELECT 
-		seller.Id,
-		p.Id AS SellerID,
+		seller.Id  AS SellerID,
+		p.Id,
 		p.Product_Name,
 		p.Model_Id,
 		brand.Name AS Brand,

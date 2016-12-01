@@ -5,3 +5,4 @@ com\spotlightproducts\controllers\PaymentController.class
 com\spotlightproducts\controllers\SearchController.class
 com\spotlightproducts\WebAPI\PaymentAPIController.class
 com\spotlightproducts\controllers\SearchService.class
+com\spotlightproducts\businesslibrary\InventoryManagement.class

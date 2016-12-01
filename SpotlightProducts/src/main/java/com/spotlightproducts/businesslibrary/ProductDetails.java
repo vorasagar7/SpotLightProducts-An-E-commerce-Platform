@@ -80,8 +80,8 @@ public class ProductDetails {
 			while (hadResults) {
 				ResultSet rs = (ResultSet) cStmt.getResultSet();
 				while (rs.next()) {
-					productObj.setProductId(rs.getInt(1));
-					productObj.setSelledId(rs.getInt(2));
+					productObj.setSellerId(rs.getInt(1));
+					productObj.setProductId(rs.getInt(2));
 					productObj.setProductName(rs.getString(3));
 					productObj.setModelId(rs.getString(4));
 					productObj.setBrandName(rs.getString(5));

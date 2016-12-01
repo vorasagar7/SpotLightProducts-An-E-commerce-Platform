@@ -1,5 +1,8 @@
 package com.spotlightproducts.controllers;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -12,7 +15,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import com.spotlightproducts.login.LoginService;
 
 @Controller
-@SessionAttributes("email")	//this annotation is used for Session Handling in Spring MVC. The parameters i.e "email" will be stored in the model object till the end of the session OR till User logout OR till 30 minutes whichever happens first
+//@SessionAttributes("email")	//this annotation is used for Session Handling in Spring MVC. The parameters i.e "email" will be stored in the model object till the end of the session OR till User logout OR till 30 minutes whichever happens first
 public class LoginController {
 
 	@Autowired
@@ -42,8 +45,29 @@ public class LoginController {
 	}
 	
 	@RequestMapping(value = "/homepage", method = RequestMethod.GET)
-	public String showHomePage() {
-		return "welcome";
+	public String showHomePage(HttpServletRequest request) {
+		String SessionVar = (String)request.getSession().getAttribute("email");
+		System.out.println("Reaching here::::"+SessionVar);
+		if(SessionVar == null)
+		{
+			System.out.println("Inside IF");
+			return "LoginViews/Index";
+		}
+		else
+		{
+			System.out.println("Inside Else");
+			return "welcome";
+		}
+	}
+	
+	@RequestMapping(value = "/Logout", method = RequestMethod.GET)
+	public String showLoginPage(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		System.out.println(request.getSession().getAttribute("email"));
+		session.removeAttribute("email");
+		session.invalidate();
+		System.out.println("Logging Out:::::::::::::::::::::::::::"); 
+		return "LoginViews/Index";
 	}
 	
 
