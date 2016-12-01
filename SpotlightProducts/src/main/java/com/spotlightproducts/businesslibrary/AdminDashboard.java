@@ -18,9 +18,8 @@ public class AdminDashboard {
 		List<Integer> UserTotalCountList = new ArrayList<Integer>();
 		try {
 			int type_Of_Role = 1;
-			Class.forName("com.mysql.jdbc.Driver");
-			Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/spotlightproducts",
-					"admin", "admin");
+			
+			Connection con = DatabaseConnection.getDatabaseConnection();
 			CallableStatement cStmt = (CallableStatement) con.prepareCall("{call sp_get_Total_Count_Of_User(?)}");
 			cStmt.setInt(1, type_Of_Role);
 			boolean hadResults = cStmt.execute();

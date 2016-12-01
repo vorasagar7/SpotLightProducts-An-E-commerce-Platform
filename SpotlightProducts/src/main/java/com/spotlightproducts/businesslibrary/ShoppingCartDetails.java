@@ -20,11 +20,8 @@ public class ShoppingCartDetails {
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/spotlightproducts",
 					"admin", "admin");
-			// ResultSet rs=stmt.executeQuery("call
-			// sp_Check_For_Authentication("+userName+","+password+")");
 			CallableStatement cStmt = (CallableStatement) con.prepareCall("{call sp_User_Shopping_Cart_Get(?)}");
 			cStmt.setInt(1, 1); // this needs to be replaced with user email
-			// ResultSet rs = cStmt.execute();
 			boolean hadResults = cStmt.execute();
 			System.out.println("hadResults" + hadResults);
 			while (hadResults) {
@@ -74,16 +71,11 @@ public class ShoppingCartDetails {
 				String errorMessage = null;
 				
 				int shoppingCartId = shoppingCart.get(i).getCartId();
-				//int userId = shoppingCart.get(i).getBuyerId();
 				int userId = 1;
 				int productId = shoppingCart.get(i).getProductId();
 				int sellerId = shoppingCart.get(i).getSellerId();
 				int quantity = shoppingCart.get(i).getQuantity();
 				double price = shoppingCart.get(i).getPrice();
-				
-				// ResultSet rs=stmt.executeQuery("call
-				// sp_Check_For_Authentication("+userName+","+password+")");
-
 				CallableStatement cStmt = (CallableStatement) con
 						.prepareCall("{call sp_Modify_Shopping_Cart(?,?,?,?,?,?)}");
 				cStmt.setInt(1, shoppingCartId);
@@ -92,8 +84,6 @@ public class ShoppingCartDetails {
 				cStmt.setInt(4, sellerId);
 				cStmt.setInt(5, quantity);
 				cStmt.setDouble(6, price);
-
-				// ResultSet rs = cStmt.execute();
 				boolean hadResults = cStmt.execute();
 				System.out.println("hadResults" + hadResults);
 				while (hadResults) {
