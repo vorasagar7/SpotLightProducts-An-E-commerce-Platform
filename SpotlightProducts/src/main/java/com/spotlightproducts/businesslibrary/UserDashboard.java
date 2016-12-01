@@ -1,5 +1,6 @@
 package com.spotlightproducts.businesslibrary;
 
+import com.spotlightproducts.SpotLightConstants;
 import com.spotlightproducts.dao.*;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -24,13 +25,11 @@ public class UserDashboard {
 		DatabaseResponse response = new DatabaseResponse();
 		List<Order> userOrderList = new ArrayList<Order>();
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/spotlightproducts",
-					"admin", "admin");
-			CallableStatement cStmt = (CallableStatement) con.prepareCall("{call sp_get_User_Orders(?)}");
+			
+			Connection con = DatabaseConnection.getDatabaseConnection();
+			CallableStatement cStmt = (CallableStatement) con.prepareCall(SpotLightConstants.SP_GET_USER_ORDERS);
 			cStmt.setString(1, user.getEmail());
 			boolean hadResults = cStmt.execute();
-			System.out.println("hadResults" + hadResults);
 			while (hadResults) {
 				ResultSet rs = (ResultSet) cStmt.getResultSet();
 				while (rs.next()) {
@@ -49,16 +48,16 @@ public class UserDashboard {
 				}
 				hadResults = cStmt.getMoreResults();
 			}
-			response.setStatus("Success");
-			response.setMessage("User Orders");
+			response.setStatus(SpotLightConstants.CONSTANT_SUCCESS);
+			response.setMessage(SpotLightConstants.CONSTANT_USER_ORDER);
 			response.setData(userOrderList);
 			con.close();
 			return response;
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-		response.setStatus("Failure");
-		response.setMessage("Technical Error");
+		response.setStatus(SpotLightConstants.CONSTANT_FAILURE);
+		response.setMessage(SpotLightConstants.CONSTANT_TECHNICAL_FAILURE);
 		return response;
 
 	}
@@ -67,13 +66,11 @@ public class UserDashboard {
 		DatabaseResponse response = new DatabaseResponse();
 		List<Review> userReviewList = new ArrayList<Review>();
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/spotlightproducts",
-					"admin", "admin");
-			CallableStatement cStmt = (CallableStatement) con.prepareCall("{call sp_get_User_Orders(?)}");
+			
+			Connection con = DatabaseConnection.getDatabaseConnection();
+			CallableStatement cStmt = (CallableStatement) con.prepareCall(SpotLightConstants.SP_GET_USER_REVIEWS);
 			cStmt.setString(1, user.getEmail());
 			boolean hadResults = cStmt.execute();
-			System.out.println("hadResults" + hadResults);
 			while (hadResults) {
 				ResultSet rs = (ResultSet) cStmt.getResultSet();
 				while (rs.next()) {
@@ -88,16 +85,16 @@ public class UserDashboard {
 				}
 				hadResults = cStmt.getMoreResults();
 			}
-			response.setStatus("Success");
-			response.setMessage("User Orders");
+			response.setStatus(SpotLightConstants.CONSTANT_SUCCESS);
+			response.setMessage(SpotLightConstants.CONSTANT_USER_ORDER);
 			response.setData(userReviewList);
 			con.close();
 			return response;
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-		response.setStatus("Failure");
-		response.setMessage("Technical Error");
+		response.setStatus(SpotLightConstants.CONSTANT_FAILURE);
+		response.setMessage(SpotLightConstants.CONSTANT_TECHNICAL_FAILURE);
 		return response;
 
 	}

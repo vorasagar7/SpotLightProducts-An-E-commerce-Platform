@@ -44,7 +44,7 @@ public class LoginUser {
 		try {
 			
 			Connection con = DatabaseConnection.getDatabaseConnection();			
-			CallableStatement cStmt = (CallableStatement) con.prepareCall("{call sp_Add_New_User(?, ?, ?, ?, ?)}");
+			CallableStatement cStmt = (CallableStatement) con.prepareCall(SpotLightConstants.SP_ADD_NEW_USER);
 			cStmt.setString(1, firstName);
 			cStmt.setString(2, lastName);
 			cStmt.setString(3, email);
@@ -86,7 +86,7 @@ public class LoginUser {
 
 		try {
 			Connection con = DatabaseConnection.getDatabaseConnection();
-			CallableStatement cStmt = (CallableStatement) con.prepareCall("{call sp_Check_For_Authentication(?, ?)}");
+			CallableStatement cStmt = (CallableStatement) con.prepareCall(SpotLightConstants.SP_CHECK_AUTHORIZED_USER);
 			String email = user.getEmail();
 			String password = user.getPassword();
 			cStmt.setString(1, email);
@@ -121,14 +121,14 @@ public class LoginUser {
 		try {
 			
 			Connection con = DatabaseConnection.getDatabaseConnection();
-			CallableStatement cStmt = (CallableStatement) con.prepareCall("{call sp_Forget_Password(?)}");
+			CallableStatement cStmt = (CallableStatement) con.prepareCall(SpotLightConstants.SP_FORGET_PASSWORD);
 			cStmt.setString(1, user.getEmail());
 			boolean hadResults = cStmt.execute();
 			while (hadResults) {
 				ResultSet rs = (ResultSet) cStmt.getResultSet();
 				while (rs.next()) {
 					password = rs.getString(1);
-					sendEmail(user.getEmail(), password);
+					SpotLightConstants.sendEmail(user.getEmail(), password);
 					con.close();
 					response.setMessage(SpotLightConstants.RECEIVE_EMAIL_MESSAGE);
 					response.setStatus(SpotLightConstants.CONSTANT_SUCCESS);
@@ -150,43 +150,7 @@ public class LoginUser {
 
 	}
 
-	public void sendEmail(String email, String password) throws AddressException, MessagingException {
-
-		Properties mailServerProperties;
-		Session getMailSession;
-		MimeMessage generateMailMessage;
-
-		// Step1
-		System.out.println("\n 1st ===> setup Mail Server Properties..");
-		mailServerProperties = System.getProperties();
-		mailServerProperties.put("mail.smtp.port", "587");
-		mailServerProperties.put("mail.smtp.auth", "true");
-		mailServerProperties.put("mail.smtp.starttls.enable", "true");
-		System.out.println("Mail Server Properties have been setup successfully..");
-
-		// Step2
-		System.out.println("\n\n 2nd ===> get Mail Session..");
-		getMailSession = Session.getDefaultInstance(mailServerProperties, null);
-		generateMailMessage = new MimeMessage(getMailSession);
-		generateMailMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(email));
-		generateMailMessage.addRecipient(Message.RecipientType.CC, new InternetAddress("vorasagar7@gmail.com"));
-		generateMailMessage.addRecipient(Message.RecipientType.CC,
-				new InternetAddress("ronak.bharat.parekh@gmail.com"));
-		generateMailMessage.setSubject("Greetings from SpotLightProducts..");
-		String emailBody = "Your password is" + password + "<br>" + "<br><br> Regards, <br>Spotlight Team";
-		generateMailMessage.setContent(emailBody, "text/html");
-		System.out.println("Mail Session has been created successfully..");
-
-		// Step3
-		System.out.println("\n\n 3rd ===> Get Session and Send mail");
-		Transport transport = getMailSession.getTransport("smtp");
-
-		// Enter your correct gmail UserID and Password
-		// if you have 2FA enabled then provide App Specific Password
-		transport.connect("smtp.gmail.com", SpotLightConstants.SPOTLIGHTPRODUCTS_EMAIL_ID, SpotLightConstants.SPOTLIGHTPRODUCTS_EMAIL_PASSWORD);
-		transport.sendMessage(generateMailMessage, generateMailMessage.getAllRecipients());
-		transport.close();
-	}
+	
 	
 	// business library to change user password
 		public DatabaseResponse changeUserPassword(User user) {
@@ -198,7 +162,7 @@ public class LoginUser {
 				
 				
 				Connection con = DatabaseConnection.getDatabaseConnection();
-				CallableStatement cStmt = (CallableStatement) con.prepareCall("{call sp_update_User_Password(?,?,?)}");
+				CallableStatement cStmt = (CallableStatement) con.prepareCall(SpotLightConstants.SP_UPDATE_USER_PASSWORD);
 				cStmt.setString(1, user.getEmail());
 				cStmt.setString(2, user.getPassword());
 				cStmt.setString(3, user.getNewPassword());

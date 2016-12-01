@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 
 import com.mysql.jdbc.CallableStatement;
 import com.mysql.jdbc.Connection;
+import com.spotlightproducts.SpotLightConstants;
 import com.spotlightproducts.dao.DatabaseResponse;
 import com.spotlightproducts.dao.Product;
 import com.spotlightproducts.dao.ReferenceData;
@@ -23,13 +24,11 @@ public class ProductDetails {
 		List<Product> productList = new ArrayList<Product>();
 
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/spotlightproducts",
-					"admin", "admin");
-			CallableStatement cStmt = (CallableStatement) con.prepareCall("{call sp_SearchedProducts_Get(?)}");
+			
+			Connection con = DatabaseConnection.getDatabaseConnection();
+			CallableStatement cStmt = (CallableStatement) con.prepareCall(SpotLightConstants.SP_GET_SEARCHED_PRODUCTS);
 			cStmt.setString(1, searchQuery);
 			boolean hadResults = cStmt.execute();
-			System.out.println("hadResults" + hadResults);
 			while (hadResults) {
 				ResultSet rs = (ResultSet) cStmt.getResultSet();
 				while (rs.next()) {
@@ -49,15 +48,15 @@ public class ProductDetails {
 				hadResults = cStmt.getMoreResults();
 			}
 			con.close();
-			response.setStatus("Success");
+			response.setStatus(SpotLightConstants.CONSTANT_SUCCESS);
 			response.setMessage("");
 			response.setData(productList);
 			return response;
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-		response.setStatus("Failure");
-		response.setMessage("Technical Error");
+		response.setStatus(SpotLightConstants.CONSTANT_FAILURE);
+		response.setMessage(SpotLightConstants.CONSTANT_TECHNICAL_FAILURE);
 		response.setData(productList);
 		return response;
 
@@ -67,13 +66,11 @@ public class ProductDetails {
 		DatabaseResponse response = new DatabaseResponse();
 		List<Product> productList = new ArrayList<Product>();
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/spotlightproducts",
-					"admin", "admin");
-			CallableStatement cStmt = (CallableStatement) con.prepareCall("{call sp_Product_Detail_Get(?)}");
+			
+			Connection con = DatabaseConnection.getDatabaseConnection();
+			CallableStatement cStmt = (CallableStatement) con.prepareCall(SpotLightConstants.SP_GET_PRODUCT_DETAIL);
 			cStmt.setInt(1, productId);
 			boolean hadResults = cStmt.execute();
-			System.out.println("hadResults" + hadResults);
 			Product productObj = new Product();
 			List<Review> reviewList = new ArrayList<Review>(); //list of all the reviews for a particular product
 			
@@ -96,10 +93,9 @@ public class ProductDetails {
 			}
 			
 			
-			CallableStatement cStmt2 = (CallableStatement) con.prepareCall("{call sp_Product_Review_Get(?)}");
+			CallableStatement cStmt2 = (CallableStatement) con.prepareCall(SpotLightConstants.SP_GET_PRODUCT_REVIEW);
 			cStmt2.setInt(1, productId);
 			boolean hadResults2 = cStmt2.execute();
-			System.out.println("hadResults" + hadResults2);
 			while (hadResults2) {
 				ResultSet rs = (ResultSet) cStmt2.getResultSet();
 				while (rs.next()) {
@@ -119,15 +115,15 @@ public class ProductDetails {
 			productList.add(productObj);
 			
 			con.close();
-			response.setStatus("Success");
+			response.setStatus(SpotLightConstants.CONSTANT_SUCCESS);
 			response.setMessage("");
 			response.setData(productList);
 			return response;
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-		response.setStatus("Failure");
-		response.setMessage("Technical Error");
+		response.setStatus(SpotLightConstants.CONSTANT_FAILURE);
+		response.setMessage(SpotLightConstants.CONSTANT_TECHNICAL_FAILURE);
 		response.setData(productList);
 		return response;
 
@@ -142,22 +138,20 @@ public class ProductDetails {
 		try {
 			
 			HttpSession session = request.getSession();
-			System.out.println("This is my email"+session.getAttribute("email"));
-			Class.forName("com.mysql.jdbc.Driver");
-			Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/spotlightproducts",
-					"admin", "admin");
-			CallableStatement cStmt = (CallableStatement) con.prepareCall("{call sp_User_Review_Store(?,?,?,?)}");
+			System.out.println("This is my email"+session.getAttribute(SpotLightConstants.CONSTANT_EMAIL));
+			
+			Connection con = DatabaseConnection.getDatabaseConnection();
+			CallableStatement cStmt = (CallableStatement) con.prepareCall(SpotLightConstants.SP_SAVE_USER_REVIEW);
 			int productId = prodObj.getProductId();
 			Review review = prodObj.getProductReviews().get(0);
 			String comments = review.getComment();
 			int rating = review.getRating();
-			String email = (String)session.getAttribute("email");
+			String email = (String)session.getAttribute(SpotLightConstants.CONSTANT_EMAIL);
 			cStmt.setInt(1, productId);
 			cStmt.setString(2, comments);
 			cStmt.setInt(3, rating);
 			cStmt.setString(4, email);
 			boolean hadResults = cStmt.execute();
-			System.out.println("hadResults" + hadResults);
 			while (hadResults) {
 				ResultSet rs = (ResultSet) cStmt.getResultSet();
 				while (rs.next()) {
@@ -165,8 +159,8 @@ public class ProductDetails {
 					if(resultType == 1)
 					{
 						con.close();
-						response.setStatus("Success");
-						response.setMessage("User Review Successfully Saved");
+						response.setStatus(SpotLightConstants.CONSTANT_SUCCESS);
+						response.setMessage(SpotLightConstants.CONSTANT_USER_REVIEW_SUCCESSFULLY_SAVED);
 						return response;
 					}
 				}
@@ -177,8 +171,8 @@ public class ProductDetails {
 		catch (Exception e) {
 			System.out.println(e);
 		}
-		response.setStatus("Failure");
-		response.setMessage("Technical Error");
+		response.setStatus(SpotLightConstants.CONSTANT_FAILURE);
+		response.setMessage(SpotLightConstants.CONSTANT_TECHNICAL_FAILURE);
 		return response;
 
 	}

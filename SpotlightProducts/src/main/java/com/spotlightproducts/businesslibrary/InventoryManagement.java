@@ -1,5 +1,6 @@
 package com.spotlightproducts.businesslibrary;
 
+import com.spotlightproducts.SpotLightConstants;
 import com.spotlightproducts.dao.*;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -27,12 +28,10 @@ public class InventoryManagement {
 			List<ReferenceData> referenceList = new ArrayList<ReferenceData>();
 
 			try {
-				Class.forName("com.mysql.jdbc.Driver");
-				Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/spotlightproducts",
-						"admin", "admin");
-				CallableStatement cStmt = (CallableStatement) con.prepareCall("{call sp_Payment_ReferenceData_Get()}");
+				
+				Connection con = DatabaseConnection.getDatabaseConnection();
+				CallableStatement cStmt = (CallableStatement) con.prepareCall(SpotLightConstants.SP_GET_REFERENCE_DATA);
 				boolean hadResults = cStmt.execute();
-				System.out.println("hadResults" + hadResults);
 				while (hadResults) {
 					ResultSet rs = (ResultSet) cStmt.getResultSet();
 					while (rs.next()) {
@@ -45,15 +44,15 @@ public class InventoryManagement {
 					hadResults = cStmt.getMoreResults();
 				}
 				con.close();
-				response.setStatus("Success");
+				response.setStatus(SpotLightConstants.CONSTANT_SUCCESS);
 				response.setMessage("");
 				response.setData(referenceList);
 				return response;
 			} catch (Exception e) {
 				System.out.println(e);
 			}
-			response.setStatus("Failure");
-			response.setMessage("Technical Error");
+			response.setStatus(SpotLightConstants.CONSTANT_FAILURE);
+			response.setMessage(SpotLightConstants.CONSTANT_TECHNICAL_FAILURE);
 			response.setData(referenceList);
 			return response;
 
@@ -71,28 +70,26 @@ public class InventoryManagement {
 			int zipcode = userDetails.getZip_code();
 			String full_address = address1+" "+address2+" "+city+" "+state+" "+country+" "+zipcode;
 			try {
-				Class.forName("com.mysql.jdbc.Driver");
-				Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/spotlightproducts",
-						"admin", "admin");
-				CallableStatement cStmt = (CallableStatement) con.prepareCall("{call sp_Payment_And_Delivery(?, ?, ?)}");
+				
+				Connection con = DatabaseConnection.getDatabaseConnection();
+				CallableStatement cStmt = (CallableStatement) con.prepareCall(SpotLightConstants.SP_DO_PAYMENT_DELIVERY);
 				cStmt.setInt(1, 1);
 				cStmt.setInt(2, typeOfPayment);
 				cStmt.setString(3, full_address);
 				boolean hadResults = cStmt.execute();
-				System.out.println("hadResults" + hadResults);
 				while (hadResults) {
 					ResultSet rs = (ResultSet) cStmt.getResultSet();
 					while (rs.next()) {
 						int id = rs.getInt(1);
 						if (id == 1) {
 							con.close();
-							response.setStatus("Success");
-							response.setMessage("Order successfully placed....");
+							response.setStatus(SpotLightConstants.CONSTANT_SUCCESS);
+							response.setMessage(SpotLightConstants.CONSTANT_ORDER_SUCCESSFULLY_PLACED);
 							return response;
 						} else {
 							con.close();
-							response.setStatus("Failure");
-							response.setMessage("Sorry, Your order cannot be placed....");
+							response.setStatus(SpotLightConstants.CONSTANT_FAILURE);
+							response.setMessage(SpotLightConstants.CONSTANT_ORDER_CANNOT_PLACED);
 							return response;
 						}
 
@@ -103,8 +100,8 @@ public class InventoryManagement {
 			} catch (Exception e) {
 				System.out.println(e);
 			}
-			response.setStatus("Failure");
-			response.setMessage("Technical Error. Sorry... Try Again...");
+			response.setStatus(SpotLightConstants.CONSTANT_FAILURE);
+			response.setMessage(SpotLightConstants.CONSTANT_TECHNICAL_FAILURE);
 			return response;
 
 		}

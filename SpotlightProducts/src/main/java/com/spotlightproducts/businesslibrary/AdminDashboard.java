@@ -7,6 +7,7 @@ import java.util.List;
 
 import com.mysql.jdbc.CallableStatement;
 import com.mysql.jdbc.Connection;
+import com.spotlightproducts.SpotLightConstants;
 import com.spotlightproducts.dao.DatabaseResponse;
 import com.spotlightproducts.dao.Product;
 import com.spotlightproducts.dao.User;
@@ -20,11 +21,10 @@ public class AdminDashboard {
 			int type_Of_Role = 1;
 			
 			Connection con = DatabaseConnection.getDatabaseConnection();
-			CallableStatement cStmt = (CallableStatement) con.prepareCall("{call sp_get_Total_Count_Of_User(?)}");
+			CallableStatement cStmt = (CallableStatement) con.prepareCall(SpotLightConstants.SP_GET_TOTAL_COUNT_OF_USER);
 			cStmt.setInt(1, type_Of_Role);
 			boolean hadResults = cStmt.execute();
 			int userCount = 0;
-			System.out.println("hadResults" + hadResults);
 			while (hadResults) {
 				ResultSet rs = (ResultSet) cStmt.getResultSet();
 				while (rs.next()) {
@@ -34,11 +34,10 @@ public class AdminDashboard {
 				hadResults = cStmt.getMoreResults();
 			}
 			type_Of_Role = 2;
-			cStmt = (CallableStatement) con.prepareCall("{call sp_get_Total_Count_Of_User(?)}");
+			cStmt = (CallableStatement) con.prepareCall(SpotLightConstants.SP_GET_TOTAL_COUNT_OF_USER);
 			cStmt.setInt(1, type_Of_Role);
 			hadResults = cStmt.execute();
 			userCount = 0;
-			System.out.println("hadResults" + hadResults);
 			while (hadResults) {
 				ResultSet rs = (ResultSet) cStmt.getResultSet();
 				while (rs.next()) {
@@ -48,8 +47,8 @@ public class AdminDashboard {
 				hadResults = cStmt.getMoreResults();
 			}
 			
-			response.setStatus("Success");
-			response.setMessage("Seller's Total Revenue");
+			response.setStatus(SpotLightConstants.CONSTANT_SUCCESS);
+			response.setMessage(SpotLightConstants.CONSTANT_SELLER_TOTAL_REVENUE);
 			response.setData(UserTotalCountList);
 			con.close();
 			return response;
@@ -57,8 +56,8 @@ public class AdminDashboard {
 			System.out.println(e);
 			
 		}
-		response.setStatus("Failure");
-		response.setMessage("Technical Error");
+		response.setStatus(SpotLightConstants.CONSTANT_FAILURE);
+		response.setMessage(SpotLightConstants.CONSTANT_TECHNICAL_FAILURE);
 		
 		return response;
 
@@ -68,13 +67,11 @@ public class AdminDashboard {
 		DatabaseResponse response = new DatabaseResponse();
 		List<Product> sellerProductList = new ArrayList<Product>();
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/spotlightproducts",
-					"admin", "admin");
-			CallableStatement cStmt = (CallableStatement) con.prepareCall("{call sp_get_All_Products_For_A_Seller_Below_Level(?)}");
+			
+			Connection con = DatabaseConnection.getDatabaseConnection();
+			CallableStatement cStmt = (CallableStatement) con.prepareCall(SpotLightConstants.SP_GET_ALL_PRODUCT_FOR_A_SELLER_BELOW_LEVEL);
 			cStmt.setString(1, user.getEmail());
 			boolean hadResults = cStmt.execute();
-			System.out.println("hadResults" + hadResults);
 			while (hadResults) {
 				ResultSet rs = (ResultSet) cStmt.getResultSet();
 				while (rs.next()) {
@@ -91,16 +88,16 @@ public class AdminDashboard {
 				}
 				hadResults = cStmt.getMoreResults();
 			}
-			response.setStatus("Success");
-			response.setMessage("User Orders");
+			response.setStatus(SpotLightConstants.CONSTANT_SUCCESS);
+			response.setMessage(SpotLightConstants.CONSTANT_USER_ORDER);
 			response.setData(sellerProductList);
 			con.close();
 			return response;
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-		response.setStatus("Failure");
-		response.setMessage("Technical Error");
+		response.setStatus(SpotLightConstants.CONSTANT_FAILURE);
+		response.setMessage(SpotLightConstants.CONSTANT_TECHNICAL_FAILURE);
 		return response;
 
 	}

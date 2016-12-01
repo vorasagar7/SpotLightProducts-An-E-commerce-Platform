@@ -1,5 +1,6 @@
 package com.spotlightproducts.businesslibrary;
 
+import com.spotlightproducts.SpotLightConstants;
 import com.spotlightproducts.dao.*;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -17,13 +18,11 @@ public class ShoppingCartDetails {
 		DatabaseResponse<ShoppingCart> response = new DatabaseResponse<ShoppingCart>();
 		List<ShoppingCart> shoppingCartList = new ArrayList<ShoppingCart>();
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/spotlightproducts",
-					"admin", "admin");
-			CallableStatement cStmt = (CallableStatement) con.prepareCall("{call sp_User_Shopping_Cart_Get(?)}");
+			
+			Connection con = DatabaseConnection.getDatabaseConnection();
+			CallableStatement cStmt = (CallableStatement) con.prepareCall(SpotLightConstants.SP_GET_USER_SHOPPING_CART);
 			cStmt.setInt(1, 1); // this needs to be replaced with user email
 			boolean hadResults = cStmt.execute();
-			System.out.println("hadResults" + hadResults);
 			while (hadResults) {
 				ResultSet rs = (ResultSet) cStmt.getResultSet();
 				while (rs.next()) {
@@ -45,8 +44,8 @@ public class ShoppingCartDetails {
 
 				hadResults = cStmt.getMoreResults();
 			}
-			response.setStatus("Success");
-			response.setMessage("Shopping Cart Data fetched successfully.....");
+			response.setStatus(SpotLightConstants.CONSTANT_SUCCESS);
+			response.setMessage(SpotLightConstants.CONSTANT_SHOPPING_CART_DATA_FETCHED_SUCCESSFULLY);
 			response.setData(shoppingCartList);
 			con.close();
 			return response;
@@ -54,8 +53,8 @@ public class ShoppingCartDetails {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-		response.setStatus("Failure");
-		response.setMessage("Technical Error. Sorry... Try Again...");
+		response.setStatus(SpotLightConstants.CONSTANT_FAILURE);
+		response.setMessage(SpotLightConstants.CONSTANT_TECHNICAL_FAILURE);
 		return response;
 
 	}
@@ -63,9 +62,8 @@ public class ShoppingCartDetails {
 	public DatabaseResponse modifyUserShoppingCart(List<ShoppingCart> shoppingCart) {
 		DatabaseResponse response = new DatabaseResponse();
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			Connection con = (Connection) DriverManager
-					.getConnection("jdbc:mysql://localhost:3306/spotlightproducts", "admin", "admin");
+			
+			Connection con = DatabaseConnection.getDatabaseConnection();
 			for (int i = 0; i < shoppingCart.size(); i++) {
 				int success = 0;
 				String errorMessage = null;
@@ -77,7 +75,7 @@ public class ShoppingCartDetails {
 				int quantity = shoppingCart.get(i).getQuantity();
 				double price = shoppingCart.get(i).getPrice();
 				CallableStatement cStmt = (CallableStatement) con
-						.prepareCall("{call sp_Modify_Shopping_Cart(?,?,?,?,?,?)}");
+						.prepareCall(SpotLightConstants.SP_MODIFY_SHOPPING_CART);
 				cStmt.setInt(1, shoppingCartId);
 				cStmt.setInt(2, userId);
 				cStmt.setInt(3, productId);
@@ -85,7 +83,6 @@ public class ShoppingCartDetails {
 				cStmt.setInt(5, quantity);
 				cStmt.setDouble(6, price);
 				boolean hadResults = cStmt.execute();
-				System.out.println("hadResults" + hadResults);
 				while (hadResults) {
 					ResultSet rs = (ResultSet) cStmt.getResultSet();
 					while (rs.next()) {
@@ -97,7 +94,7 @@ public class ShoppingCartDetails {
 					hadResults = cStmt.getMoreResults();
 				}
 			}
-			response.setStatus("Success");
+			response.setStatus(SpotLightConstants.CONSTANT_SUCCESS);
 			con.close();
 			return response;
 
@@ -106,7 +103,7 @@ public class ShoppingCartDetails {
 		catch (Exception e) {
 			System.out.println(e);
 		}
-		response.setStatus("Failure");
+		response.setStatus(SpotLightConstants.CONSTANT_FAILURE);
 		//response.setMessage(errorMessage);
 		return response;
 
@@ -122,22 +119,16 @@ public class ShoppingCartDetails {
 		int sellerId = shoppingCart.getSellerId();
 		int quantity = shoppingCart.getQuantity();
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/spotlightproducts",
-					"admin", "admin");
-			// ResultSet rs=stmt.executeQuery("call
-			// sp_Check_For_Authentication("+userName+","+password+")");
-			CallableStatement cStmt = (CallableStatement) con
-					.prepareCall("{call sp_Shopping_Cart_Entry_Delete(?,?,?,?,?)}");
+			
+			Connection con = DatabaseConnection.getDatabaseConnection();
+			CallableStatement cStmt = (CallableStatement) con.prepareCall(SpotLightConstants.SP_ENTRY_DELETE_SHOPPING_CART);
 			cStmt.setInt(1, shoppingCartId);
 			cStmt.setInt(2, userId);
 			cStmt.setInt(3, productId);
 			cStmt.setInt(4, sellerId);
 			cStmt.setInt(5, quantity);
-
-			// ResultSet rs = cStmt.execute();
 			boolean hadResults = cStmt.execute();
-			System.out.println("hadResults" + hadResults);
+			
 			while (hadResults) {
 				ResultSet rs = (ResultSet) cStmt.getResultSet();
 				while (rs.next()) {
@@ -148,8 +139,8 @@ public class ShoppingCartDetails {
 				hadResults = cStmt.getMoreResults();
 			}
 			if (success == 1) {
-				response.setStatus("Success");
-				response.setMessage("Shopping Cart Data fetched successfully.....");
+				response.setStatus(SpotLightConstants.CONSTANT_SUCCESS);
+				response.setMessage(SpotLightConstants.CONSTANT_SHOPPING_CART_DATA_FETCHED_SUCCESSFULLY);
 				// response.setData(shoppingCartList);
 				con.close();
 				return response;
@@ -158,7 +149,7 @@ public class ShoppingCartDetails {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-		response.setStatus("Failure");
+		response.setStatus(SpotLightConstants.CONSTANT_FAILURE);
 		response.setMessage(errorMessage);
 		return response;
 

@@ -1,6 +1,8 @@
 package com.spotlightproducts.controllers;
 import org.springframework.stereotype.Service;
 import java.sql.*;
+
+import com.spotlightproducts.businesslibrary.DatabaseConnection;
 import com.spotlightproducts.dao.*;
 
 import java.util.ArrayList;
@@ -15,9 +17,8 @@ public class SearchService {
 		ArrayList<Product> productList = new ArrayList<Product>();
 
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/spotlightproducts", "admin",
-					"admin");
+			
+			Connection con = DatabaseConnection.getDatabaseConnection();
 			CallableStatement cStmt = con.prepareCall("{call sp_SearchedProducts_Get(?)}");
 			cStmt.setString(1, searchQuery);
 			boolean hadResults = cStmt.execute();
@@ -40,7 +41,7 @@ public class SearchService {
 						product.setQuantity(rs.getInt(9));
 						
 						productList.add(product);
-//					
+					
 				}
 				hadResults = cStmt.getMoreResults();
 			}
