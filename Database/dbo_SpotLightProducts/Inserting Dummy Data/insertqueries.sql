@@ -92,7 +92,7 @@ insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Descript
 insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Description,Created_By,Modified_On,Modified_By) values ("Nokia 6630","NOKIA6630",4,8,"Nokia 6630",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
 insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Description,Created_By,Modified_On,Modified_By) values ("Nokia 6630","NOKIA6630",4,8,"Nokia 6630",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
 
-/* Newly Added - SpotlightProducts  id = 7 to 11 */
+/* Newly Added - SpotlightProducts  id = 6 to 11 */
 insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Description,Created_By,Modified_On,Modified_By) values ("Heated Butter Knife","HButterKnife1",72,71,"Butter Knife which can be used to heat the butter as well",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
 insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Description,Created_By,Modified_On,Modified_By) values ("Ping Pong Door","PPDoor1",72,71,"Door which can also be used to play ping poor",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
 insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Description,Created_By,Modified_On,Modified_By) values ("Laser keyboard","LS1",72,71,"No need for physical keyboard",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
@@ -100,19 +100,23 @@ insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Descript
 insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Description,Created_By,Modified_On,Modified_By) values ("Cold Drink Dispenser","CCDispenser1",72,71,"Cold Drink Dispenser which saves fizz and manual work to put the cold drinks in the glasses",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
 insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Description,Created_By,Modified_On,Modified_By) values ("Storage Switches","SSwitches1",72,71,"Switches which can save valueable stuffs",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
 /* end */
-insert into tb_ProductSeller (Product_Id,Seller_Id,Price,Quantity,Created_By,Modified_On,Modified_By) values (,5,60,100,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
 
+insert into tb_ProductSeller (Product_Id,Seller_Id,Price,Quantity,Created_By,Modified_On,Modified_By) values (6,8,60,100,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_ProductSeller (Product_Id,Seller_Id,Price,Quantity,Created_By,Modified_On,Modified_By) values (6,10,200,15,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_ProductSeller (Product_Id,Seller_Id,Price,Quantity,Created_By,Modified_On,Modified_By) values (7,9,200,15,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_ProductSeller (Product_Id,Seller_Id,Price,Quantity,Created_By,Modified_On,Modified_By) values (8,11,100,50,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_ProductSeller (Product_Id,Seller_Id,Price,Quantity,Created_By,Modified_On,Modified_By) values (9,12,30,15,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_ProductSeller (Product_Id,Seller_Id,Price,Quantity,Created_By,Modified_On,Modified_By) values (10,12,30,15,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_ProductSeller (Product_Id,Seller_Id,Price,Quantity,Created_By,Modified_On,Modified_By) values (11,12,30,15,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
 
-
-
-
+/* Newly Added */
 insert into tb_ProductSeller (Product_Id,Seller_Id,Price,Quantity,Created_By,Modified_On,Modified_By) values (1,5,60,100,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
 insert into tb_ProductSeller (Product_Id,Seller_Id,Price,Quantity,Created_By,Modified_On,Modified_By) values (2,5,55,100,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
 insert into tb_ProductSeller (Product_Id,Seller_Id,Price,Quantity,Created_By,Modified_On,Modified_By) values (3,5,2020,110,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
 insert into tb_ProductSeller (Product_Id,Seller_Id,Price,Quantity,Created_By,Modified_On,Modified_By) values (3,6,50,100,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
 insert into tb_ProductSeller (Product_Id,Seller_Id,Price,Quantity,Created_By,Modified_On,Modified_By) values (4,6,2020,110,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
 insert into tb_ProductSeller (Product_Id,Seller_Id,Price,Quantity,Created_By,Modified_On,Modified_By) values (5,6,2020,110,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
-  
+/*Ends */  
   
   
 INSERT INTO `spotlightproducts`.`tb_userorder` (`Mode_Of_Payment_Id`, `Buyer_Id`, `Shipping_Address`, Created_By,Modified_On,Modified_By) VALUES ('12', '1', '524 W Hoosier Courts', CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);

@@ -26,6 +26,8 @@ public class SpotLightConstants {
 	public static final String SPOTLIGHTPRODUCTS_EMAIL_PASSWORD = "qwert12345asdfg";
 	public static final String CONSTANT_SELLER_TOTAL_REVENUE = "Seller's Total Revenue";
 	public static final String CONSTANT_USER_ORDER = "User Orders";
+	public static final String CONSTANT_PENDING_PRODUCT_LIST = "Pending Products List";
+	public static final String CONSTANT_NO_PENDING_PRODUCT_LIST = "No Products are left to approve";
 	public static final String CONSTANT_USER_REVIEW_SUCCESSFULLY_SAVED = "User Review Successfully Saved";
 	public static final String CONSTANT_SHOPPING_CART_DATA_FETCHED_SUCCESSFULLY = "Shopping Cart Data fetched successfully.....";
 	public static final String CONSTANT_ORDER_SUCCESSFULLY_PLACED = "Order successfully placed....";
@@ -51,9 +53,14 @@ public class SpotLightConstants {
 	public static final String SP_ENTRY_DELETE_SHOPPING_CART = "{call sp_Shopping_Cart_Entry_Delete(?,?,?,?,?)}";
 	public static final String SP_GET_USER_ORDERS = "{call sp_get_User_Orders(?)}";
 	public static final String SP_GET_USER_REVIEWS = "{call sp_get_User_Reviews(?)}";	
+	public static final String SP_GET_USER_COUNT_BY_MONTH = "{call sp_Get_User_Count_By_Month()}";
+	public static final String SP_GET_PENDING_PRODUCTS = "{call sp_Admin_Action_Pending_Products_Get()}";
+	public static final String SP_GET_ALL_PRODUCTS = "{call sp_Admin_Action_All_Products_Get()}";
+	public static final String SP_APPROVE_PENDING_PRODUCT = "{call sp_Admin_Action_Approve_Product(?,?)}";
+	public static final String SP_REJECT_PENDING_PRODUCT = "{call sp_Admin_Action_Reject_Pending_Product(?,?)}";
+	public static final String SP_DELETE_PRODUCT = "{call sp_Admin_Action_Delete_Product(?,?)}";
 	
-	
-	
+
 	// Constant Methods
 	
 	public static void sendEmail(String email, String password) throws AddressException, MessagingException 
