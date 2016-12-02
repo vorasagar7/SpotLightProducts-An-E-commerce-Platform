@@ -152,8 +152,8 @@
 					Low to High</button></form>
 				<form action="/sortByMobilesPriceDesc"><button type="submit" class="list-group-item list-group-item-action">Price
 					High to Low</button></form>
-				<button type="button" class="list-group-item list-group-item-action">A
-					to Z</button>
+				<form action="/sortByMobilesNameAsc"><button type="submit" class="list-group-item list-group-item-action">A
+					to Z</button></form>
 				<form action="/sortByMobilesNameDesc"><button type="submit" class="list-group-item list-group-item-action">Z
 					to A</button></form>
 				<button type="button" class="list-group-item list-group-item-action">User

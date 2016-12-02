@@ -148,14 +148,14 @@
 			<p class="lead">Filter</p>
 
 			<div class="list-group">
-				<form action="/sortByShoesPrice"><button type="submit" class="list-group-item list-group-item-action">Price
-					Low to High</button>
-				<button type="button" class="list-group-item list-group-item-action">Price
-					High to Low</button>
-				<form name="sortByAlphabets" action="/sortByShoesName"><button type="submit" class="list-group-item list-group-item-action">
-					A to Z</button>
-				<button type="button" class="list-group-item list-group-item-action">Z
-					to A</button>
+				<form action="/sortByShoesPriceAsc"><button type="submit" class="list-group-item list-group-item-action">Price
+					Low to High</button></form>
+				<form action="/sortByShoesPriceDesc"><button type="submit" class="list-group-item list-group-item-action">Price
+					High to Low</button></form>
+				<form action="/sortByShoesNameAsc"><button type="submit" class="list-group-item list-group-item-action">A
+					to Z</button></form>
+				<form action="/sortByShoesNameDesc"><button type="submit" class="list-group-item list-group-item-action">Z
+					to A</button></form>
 				<button type="button" class="list-group-item list-group-item-action">User
 					Review</button>
 			</div>
