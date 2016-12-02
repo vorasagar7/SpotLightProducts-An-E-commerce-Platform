@@ -123,10 +123,11 @@
 <ul class="nav nav-pills">
 	<li role="presentation" class="active"><a href="#">Home</a></li>
 	<li role="presentation"><a href="/filterByElectronics">Electronics</a></li>
-	<li role="presentation"><a href="#">Mobiles</a></li>
-	<li role="presentation"><a href="#">Fashion</a></li>
-	<li role="presentation"><a href="#">Books</a></li>
-	<li role="presentation"><a href="#">SpotLightProducts</a></li>
+	<li role="presentation"><a href="/filterByMobiles">Mobiles</a></li>
+	<li role="presentation"><a href="/filterByShoes">Shoes</a></li>
+	<li role="presentation"><a href="/filterByWatches">Watches</a></li>
+	<li role="presentation"><a href="/filterByBooks">Books</a></li>
+	<li role="presentation"><a href="/filterBySpotlightProducts">SpotLightProducts</a></li>
 </ul>
 
 <ol class="breadcrumb">

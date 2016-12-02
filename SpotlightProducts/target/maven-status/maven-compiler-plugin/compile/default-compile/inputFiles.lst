@@ -1,38 +1,38 @@
-C:\Semester 1\SE1\SE 1 SpotlightProject\SpotlightProducts\SpotlightProducts\src\main\java\com\spotlightproducts\businesslibrary\LoginUser.java
-C:\Semester 1\SE1\SE 1 SpotlightProject\SpotlightProducts\SpotlightProducts\src\main\java\com\spotlightproducts\WebAPI\ProductDetailsAPIController.java
-C:\Semester 1\SE1\SE 1 SpotlightProject\SpotlightProducts\SpotlightProducts\src\main\java\com\spotlightproducts\SpotLightConstants.java
-C:\Semester 1\SE1\SE 1 SpotlightProject\SpotlightProducts\SpotlightProducts\src\main\java\com\spotlightproducts\businesslibrary\ShoppingCartDetails.java
-C:\Semester 1\SE1\SE 1 SpotlightProject\SpotlightProducts\SpotlightProducts\src\main\java\com\spotlightproducts\businesslibrary\DatabaseConnection.java
-C:\Semester 1\SE1\SE 1 SpotlightProject\SpotlightProducts\SpotlightProducts\src\main\java\com\spotlightproducts\WebAPI\PaymentAPIController.java
-C:\Semester 1\SE1\SE 1 SpotlightProject\SpotlightProducts\SpotlightProducts\src\main\java\com\spotlightproducts\controllers\InventoryManagementController.java
-C:\Semester 1\SE1\SE 1 SpotlightProject\SpotlightProducts\SpotlightProducts\src\main\java\com\spotlightproducts\WebAPI\LoginAPIController.java
-C:\Semester 1\SE1\SE 1 SpotlightProject\SpotlightProducts\SpotlightProducts\src\main\java\com\spotlightproducts\businesslibrary\ProductDetails.java
-C:\Semester 1\SE1\SE 1 SpotlightProject\SpotlightProducts\SpotlightProducts\src\main\java\com\spotlightproducts\dao\Order.java
-C:\Semester 1\SE1\SE 1 SpotlightProject\SpotlightProducts\SpotlightProducts\src\main\java\com\spotlightproducts\dao\UserPaymentDetailsDao.java
-C:\Semester 1\SE1\SE 1 SpotlightProject\SpotlightProducts\SpotlightProducts\src\main\java\com\spotlightproducts\WebAPI\UserDashBoardAPIController.java
-C:\Semester 1\SE1\SE 1 SpotlightProject\SpotlightProducts\SpotlightProducts\src\main\java\com\spotlightproducts\dao\ReferenceData.java
-C:\Semester 1\SE1\SE 1 SpotlightProject\SpotlightProducts\SpotlightProducts\src\main\java\com\spotlightproducts\controllers\PaymentController.java
-C:\Semester 1\SE1\SE 1 SpotlightProject\SpotlightProducts\SpotlightProducts\src\main\java\com\spotlightproducts\controllers\SearchService.java
-C:\Semester 1\SE1\SE 1 SpotlightProject\SpotlightProducts\SpotlightProducts\src\main\java\com\spotlightproducts\controllers\ShoppingCartController.java
-C:\Semester 1\SE1\SE 1 SpotlightProject\SpotlightProducts\SpotlightProducts\src\main\java\com\spotlightproducts\WebAPI\AdminDashBoardAPIController.java
-C:\Semester 1\SE1\SE 1 SpotlightProject\SpotlightProducts\SpotlightProducts\src\main\java\com\spotlightproducts\controllers\MainPageController.java
-C:\Semester 1\SE1\SE 1 SpotlightProject\SpotlightProducts\SpotlightProducts\src\main\java\com\spotlightproducts\controllers\SearchController.java
-C:\Semester 1\SE1\SE 1 SpotlightProject\SpotlightProducts\SpotlightProducts\src\main\java\com\spotlightproducts\WebAPI\SellerDashBoardAPIController.java
-C:\Semester 1\SE1\SE 1 SpotlightProject\SpotlightProducts\SpotlightProducts\src\main\java\com\spotlightproducts\businesslibrary\InventoryManagement.java
-C:\Semester 1\SE1\SE 1 SpotlightProject\SpotlightProducts\SpotlightProducts\src\main\java\com\spotlightproducts\WebAPI\InventoryManagementAPIController.java
-C:\Semester 1\SE1\SE 1 SpotlightProject\SpotlightProducts\SpotlightProducts\src\main\java\com\spotlightproducts\businesslibrary\UserDashboard.java
-C:\Semester 1\SE1\SE 1 SpotlightProject\SpotlightProducts\SpotlightProducts\src\main\java\com\spotlightproducts\businesslibrary\AdminDashboard.java
-C:\Semester 1\SE1\SE 1 SpotlightProject\SpotlightProducts\SpotlightProducts\src\main\java\com\spotlightproducts\controllers\LoginController.java
-C:\Semester 1\SE1\SE 1 SpotlightProject\SpotlightProducts\SpotlightProducts\src\main\java\com\spotlightproducts\login\LoginService.java
-C:\Semester 1\SE1\SE 1 SpotlightProject\SpotlightProducts\SpotlightProducts\src\main\java\com\spotlightproducts\businesslibrary\SellerDashboard.java
-C:\Semester 1\SE1\SE 1 SpotlightProject\SpotlightProducts\SpotlightProducts\src\main\java\com\spotlightproducts\dao\ShoppingCart.java
-C:\Semester 1\SE1\SE 1 SpotlightProject\SpotlightProducts\SpotlightProducts\src\main\java\com\spotlightproducts\controllers\CustomerSupportController.java
-C:\Semester 1\SE1\SE 1 SpotlightProject\SpotlightProducts\SpotlightProducts\src\main\java\com\spotlightproducts\WebAPI\ShoppingCartAPIController.java
-C:\Semester 1\SE1\SE 1 SpotlightProject\SpotlightProducts\SpotlightProducts\src\main\java\com\spotlightproducts\dao\Product.java
-C:\Semester 1\SE1\SE 1 SpotlightProject\SpotlightProducts\SpotlightProducts\src\main\java\com\spotlightproducts\dao\JSONResponse.java
-C:\Semester 1\SE1\SE 1 SpotlightProject\SpotlightProducts\SpotlightProducts\src\main\java\com\spotlightproducts\dao\User.java
-C:\Semester 1\SE1\SE 1 SpotlightProject\SpotlightProducts\SpotlightProducts\src\main\java\com\spotlightproducts\dao\Review.java
-C:\Semester 1\SE1\SE 1 SpotlightProject\SpotlightProducts\SpotlightProducts\src\main\java\com\spotlightproducts\dao\DatabaseResponse.java
-C:\Semester 1\SE1\SE 1 SpotlightProject\SpotlightProducts\SpotlightProducts\src\main\java\com\spotlightproducts\businesslibrary\UserPaymentDetails.java
-C:\Semester 1\SE1\SE 1 SpotlightProject\SpotlightProducts\SpotlightProducts\src\main\java\com\spotlightproducts\login\LoginServlet.java
-C:\Semester 1\SE1\SE 1 SpotlightProject\SpotlightProducts\SpotlightProducts\src\main\java\com\spotlightproducts\controllers\ProductDetailsController.java
+C:\Users\ronak\Desktop\Semester-1\Software Engineering\Project\SpotlightProducts\SpotlightProducts\SpotlightProducts\SpotlightProducts\src\main\java\com\spotlightproducts\WebAPI\PaymentAPIController.java
+C:\Users\ronak\Desktop\Semester-1\Software Engineering\Project\SpotlightProducts\SpotlightProducts\SpotlightProducts\SpotlightProducts\src\main\java\com\spotlightproducts\SpotLightConstants.java
+C:\Users\ronak\Desktop\Semester-1\Software Engineering\Project\SpotlightProducts\SpotlightProducts\SpotlightProducts\SpotlightProducts\src\main\java\com\spotlightproducts\WebAPI\SellerDashBoardAPIController.java
+C:\Users\ronak\Desktop\Semester-1\Software Engineering\Project\SpotlightProducts\SpotlightProducts\SpotlightProducts\SpotlightProducts\src\main\java\com\spotlightproducts\dao\JSONResponse.java
+C:\Users\ronak\Desktop\Semester-1\Software Engineering\Project\SpotlightProducts\SpotlightProducts\SpotlightProducts\SpotlightProducts\src\main\java\com\spotlightproducts\controllers\PaymentController.java
+C:\Users\ronak\Desktop\Semester-1\Software Engineering\Project\SpotlightProducts\SpotlightProducts\SpotlightProducts\SpotlightProducts\src\main\java\com\spotlightproducts\controllers\SearchService.java
+C:\Users\ronak\Desktop\Semester-1\Software Engineering\Project\SpotlightProducts\SpotlightProducts\SpotlightProducts\SpotlightProducts\src\main\java\com\spotlightproducts\WebAPI\AdminDashBoardAPIController.java
+C:\Users\ronak\Desktop\Semester-1\Software Engineering\Project\SpotlightProducts\SpotlightProducts\SpotlightProducts\SpotlightProducts\src\main\java\com\spotlightproducts\WebAPI\UserDashBoardAPIController.java
+C:\Users\ronak\Desktop\Semester-1\Software Engineering\Project\SpotlightProducts\SpotlightProducts\SpotlightProducts\SpotlightProducts\src\main\java\com\spotlightproducts\controllers\SearchController.java
+C:\Users\ronak\Desktop\Semester-1\Software Engineering\Project\SpotlightProducts\SpotlightProducts\SpotlightProducts\SpotlightProducts\src\main\java\com\spotlightproducts\dao\UserPaymentDetailsDao.java
+C:\Users\ronak\Desktop\Semester-1\Software Engineering\Project\SpotlightProducts\SpotlightProducts\SpotlightProducts\SpotlightProducts\src\main\java\com\spotlightproducts\businesslibrary\UserPaymentDetails.java
+C:\Users\ronak\Desktop\Semester-1\Software Engineering\Project\SpotlightProducts\SpotlightProducts\SpotlightProducts\SpotlightProducts\src\main\java\com\spotlightproducts\dao\Product.java
+C:\Users\ronak\Desktop\Semester-1\Software Engineering\Project\SpotlightProducts\SpotlightProducts\SpotlightProducts\SpotlightProducts\src\main\java\com\spotlightproducts\businesslibrary\InventoryManagement.java
+C:\Users\ronak\Desktop\Semester-1\Software Engineering\Project\SpotlightProducts\SpotlightProducts\SpotlightProducts\SpotlightProducts\src\main\java\com\spotlightproducts\controllers\MainPageController.java
+C:\Users\ronak\Desktop\Semester-1\Software Engineering\Project\SpotlightProducts\SpotlightProducts\SpotlightProducts\SpotlightProducts\src\main\java\com\spotlightproducts\dao\Review.java
+C:\Users\ronak\Desktop\Semester-1\Software Engineering\Project\SpotlightProducts\SpotlightProducts\SpotlightProducts\SpotlightProducts\src\main\java\com\spotlightproducts\businesslibrary\UserDashboard.java
+C:\Users\ronak\Desktop\Semester-1\Software Engineering\Project\SpotlightProducts\SpotlightProducts\SpotlightProducts\SpotlightProducts\src\main\java\com\spotlightproducts\WebAPI\ProductDetailsAPIController.java
+C:\Users\ronak\Desktop\Semester-1\Software Engineering\Project\SpotlightProducts\SpotlightProducts\SpotlightProducts\SpotlightProducts\src\main\java\com\spotlightproducts\businesslibrary\LoginUser.java
+C:\Users\ronak\Desktop\Semester-1\Software Engineering\Project\SpotlightProducts\SpotlightProducts\SpotlightProducts\SpotlightProducts\src\main\java\com\spotlightproducts\controllers\CustomerSupportController.java
+C:\Users\ronak\Desktop\Semester-1\Software Engineering\Project\SpotlightProducts\SpotlightProducts\SpotlightProducts\SpotlightProducts\src\main\java\com\spotlightproducts\WebAPI\ShoppingCartAPIController.java
+C:\Users\ronak\Desktop\Semester-1\Software Engineering\Project\SpotlightProducts\SpotlightProducts\SpotlightProducts\SpotlightProducts\src\main\java\com\spotlightproducts\controllers\LoginController.java
+C:\Users\ronak\Desktop\Semester-1\Software Engineering\Project\SpotlightProducts\SpotlightProducts\SpotlightProducts\SpotlightProducts\src\main\java\com\spotlightproducts\dao\Order.java
+C:\Users\ronak\Desktop\Semester-1\Software Engineering\Project\SpotlightProducts\SpotlightProducts\SpotlightProducts\SpotlightProducts\src\main\java\com\spotlightproducts\dao\ReferenceData.java
+C:\Users\ronak\Desktop\Semester-1\Software Engineering\Project\SpotlightProducts\SpotlightProducts\SpotlightProducts\SpotlightProducts\src\main\java\com\spotlightproducts\WebAPI\LoginAPIController.java
+C:\Users\ronak\Desktop\Semester-1\Software Engineering\Project\SpotlightProducts\SpotlightProducts\SpotlightProducts\SpotlightProducts\src\main\java\com\spotlightproducts\controllers\ShoppingCartController.java
+C:\Users\ronak\Desktop\Semester-1\Software Engineering\Project\SpotlightProducts\SpotlightProducts\SpotlightProducts\SpotlightProducts\src\main\java\com\spotlightproducts\businesslibrary\SellerDashboard.java
+C:\Users\ronak\Desktop\Semester-1\Software Engineering\Project\SpotlightProducts\SpotlightProducts\SpotlightProducts\SpotlightProducts\src\main\java\com\spotlightproducts\WebAPI\InventoryManagementAPIController.java
+C:\Users\ronak\Desktop\Semester-1\Software Engineering\Project\SpotlightProducts\SpotlightProducts\SpotlightProducts\SpotlightProducts\src\main\java\com\spotlightproducts\businesslibrary\DatabaseConnection.java
+C:\Users\ronak\Desktop\Semester-1\Software Engineering\Project\SpotlightProducts\SpotlightProducts\SpotlightProducts\SpotlightProducts\src\main\java\com\spotlightproducts\dao\User.java
+C:\Users\ronak\Desktop\Semester-1\Software Engineering\Project\SpotlightProducts\SpotlightProducts\SpotlightProducts\SpotlightProducts\src\main\java\com\spotlightproducts\businesslibrary\ProductDetails.java
+C:\Users\ronak\Desktop\Semester-1\Software Engineering\Project\SpotlightProducts\SpotlightProducts\SpotlightProducts\SpotlightProducts\src\main\java\com\spotlightproducts\dao\DatabaseResponse.java
+C:\Users\ronak\Desktop\Semester-1\Software Engineering\Project\SpotlightProducts\SpotlightProducts\SpotlightProducts\SpotlightProducts\src\main\java\com\spotlightproducts\controllers\ProductDetailsController.java
+C:\Users\ronak\Desktop\Semester-1\Software Engineering\Project\SpotlightProducts\SpotlightProducts\SpotlightProducts\SpotlightProducts\src\main\java\com\spotlightproducts\controllers\InventoryManagementController.java
+C:\Users\ronak\Desktop\Semester-1\Software Engineering\Project\SpotlightProducts\SpotlightProducts\SpotlightProducts\SpotlightProducts\src\main\java\com\spotlightproducts\businesslibrary\ShoppingCartDetails.java
+C:\Users\ronak\Desktop\Semester-1\Software Engineering\Project\SpotlightProducts\SpotlightProducts\SpotlightProducts\SpotlightProducts\src\main\java\com\spotlightproducts\businesslibrary\AdminDashboard.java
+C:\Users\ronak\Desktop\Semester-1\Software Engineering\Project\SpotlightProducts\SpotlightProducts\SpotlightProducts\SpotlightProducts\src\main\java\com\spotlightproducts\login\LoginService.java
+C:\Users\ronak\Desktop\Semester-1\Software Engineering\Project\SpotlightProducts\SpotlightProducts\SpotlightProducts\SpotlightProducts\src\main\java\com\spotlightproducts\dao\ShoppingCart.java
+C:\Users\ronak\Desktop\Semester-1\Software Engineering\Project\SpotlightProducts\SpotlightProducts\SpotlightProducts\SpotlightProducts\src\main\java\com\spotlightproducts\login\LoginServlet.java
