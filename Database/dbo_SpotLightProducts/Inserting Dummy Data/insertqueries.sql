@@ -27,6 +27,14 @@ INSERT INTO `tb_AppUser` (`First_Name`, `Last_Name`, `Email`, `Pwd`, `Created_On
 INSERT INTO `tb_AppUser` (`First_Name`, `Last_Name`, `Email`, `Pwd`, `Created_On`, `Created_By`, `Modified_On`, `Modified_By`) VALUES ('Megatronics', 'Inc', 'megatronics@gmail.com', 'qwert12345', CURRENT_TIMESTAMP, CURRENT_USER, CURRENT_TIMESTAMP, CURRENT_USER);
 INSERT INTO `tb_AppUser` (`First_Name`, `Last_Name`, `Email`, `Pwd`, `Created_On`, `Created_By`, `Modified_On`, `Modified_By`) VALUES ('Amazing', 'Electronics', 'amaz@electronics.com', 'qwert12345', CURRENT_TIMESTAMP, CURRENT_USER, CURRENT_TIMESTAMP, CURRENT_USER);
 INSERT INTO `tb_AppUser` (`First_Name`, `Last_Name`, `Email`, `Pwd`, `Created_On`, `Created_By`, `Modified_On`, `Modified_By`) VALUES ('Sony', 'Corporation', 'john@sony.com', 'qwert12345', CURRENT_TIMESTAMP, CURRENT_USER, CURRENT_TIMESTAMP, CURRENT_USER);
+/* Shoes */
+INSERT INTO `tb_AppUser` (`First_Name`, `Last_Name`, `Email`, `Pwd`, `Created_On`, `Created_By`, `Modified_On`, `Modified_By`) VALUES ('Shoe', 'World', 'shoe@world.com', 'qwert12345', CURRENT_TIMESTAMP, CURRENT_USER, CURRENT_TIMESTAMP, CURRENT_USER);
+INSERT INTO `tb_AppUser` (`First_Name`, `Last_Name`, `Email`, `Pwd`, `Created_On`, `Created_By`, `Modified_On`, `Modified_By`) VALUES ('FootWear', 'Universe', 'footwearuniverse@gmail.com', 'qwert12345', CURRENT_TIMESTAMP, CURRENT_USER, CURRENT_TIMESTAMP, CURRENT_USER);
+
+/* Watches */
+INSERT INTO `tb_AppUser` (`First_Name`, `Last_Name`, `Email`, `Pwd`, `Created_On`, `Created_By`, `Modified_On`, `Modified_By`) VALUES ('Casio', 'Company', 'casio@world.com', 'qwert12345', CURRENT_TIMESTAMP, CURRENT_USER, CURRENT_TIMESTAMP, CURRENT_USER);
+INSERT INTO `tb_AppUser` (`First_Name`, `Last_Name`, `Email`, `Pwd`, `Created_On`, `Created_By`, `Modified_On`, `Modified_By`) VALUES ('Timex', 'Inc', 'timex@gmail.com', 'qwert12345', CURRENT_TIMESTAMP, CURRENT_USER, CURRENT_TIMESTAMP, CURRENT_USER);
+INSERT INTO `tb_AppUser` (`First_Name`, `Last_Name`, `Email`, `Pwd`, `Created_On`, `Created_By`, `Modified_On`, `Modified_By`) VALUES ('Invicta', 'World', 'watches@invicta.com', 'qwert12345', CURRENT_TIMESTAMP, CURRENT_USER, CURRENT_TIMESTAMP, CURRENT_USER);
 /* end */
 
 
@@ -62,6 +70,16 @@ INSERT INTO `tb_UserRole` (`User_Id`, `Role_Id`, `Is_Deleted`, `Created_On`, `Cr
 INSERT INTO `tb_UserRole` (`User_Id`, `Role_Id`, `Is_Deleted`, `Created_On`, `Created_By`, `Modified_On`, `Modified_By`) VALUES ('18', '2', '0', CURRENT_TIMESTAMP, CURRENT_USER, CURRENT_TIMESTAMP, CURRENT_USER);
 
 INSERT INTO `tb_UserRole` (`User_Id`, `Role_Id`, `Is_Deleted`, `Created_On`, `Created_By`, `Modified_On`, `Modified_By`) VALUES ('19', '2', '0', CURRENT_TIMESTAMP, CURRENT_USER, CURRENT_TIMESTAMP, CURRENT_USER);
+
+INSERT INTO `tb_UserRole` (`User_Id`, `Role_Id`, `Is_Deleted`, `Created_On`, `Created_By`, `Modified_On`, `Modified_By`) VALUES ('20', '2', '0', CURRENT_TIMESTAMP, CURRENT_USER, CURRENT_TIMESTAMP, CURRENT_USER);
+
+INSERT INTO `tb_UserRole` (`User_Id`, `Role_Id`, `Is_Deleted`, `Created_On`, `Created_By`, `Modified_On`, `Modified_By`) VALUES ('21', '2', '0', CURRENT_TIMESTAMP, CURRENT_USER, CURRENT_TIMESTAMP, CURRENT_USER);
+
+INSERT INTO `tb_UserRole` (`User_Id`, `Role_Id`, `Is_Deleted`, `Created_On`, `Created_By`, `Modified_On`, `Modified_By`) VALUES ('22', '2', '0', CURRENT_TIMESTAMP, CURRENT_USER, CURRENT_TIMESTAMP, CURRENT_USER);
+
+INSERT INTO `tb_UserRole` (`User_Id`, `Role_Id`, `Is_Deleted`, `Created_On`, `Created_By`, `Modified_On`, `Modified_By`) VALUES ('23', '2', '0', CURRENT_TIMESTAMP, CURRENT_USER, CURRENT_TIMESTAMP, CURRENT_USER);
+
+INSERT INTO `tb_UserRole` (`User_Id`, `Role_Id`, `Is_Deleted`, `Created_On`, `Created_By`, `Modified_On`, `Modified_By`) VALUES ('24', '2', '0', CURRENT_TIMESTAMP, CURRENT_USER, CURRENT_TIMESTAMP, CURRENT_USER);
 /* end */
 
 insert into tb_ReferenceList(Name,Created_By,Modified_On,Modified_By) values("Brand",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
@@ -106,11 +124,21 @@ insert into tb_ReferenceListItem (Name,List_Id, Sort_Order,Created_By,Modified_O
 insert into tb_ReferenceListItem (Name,List_Id, Sort_Order,Created_By,Modified_On,Modified_By) values("JBL",1,2,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
 insert into tb_ReferenceListItem (Name,List_Id, Sort_Order,Created_By,Modified_On,Modified_By) values("Denon HEOS",1,3,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
 insert into tb_ReferenceListItem (Name,List_Id, Sort_Order,Created_By,Modified_On,Modified_By) values("Nikon",1,1,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_ReferenceListItem (Name,List_Id, Sort_Order,Created_By,Modified_On,Modified_By) values("Watches",2,1,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_ReferenceListItem (Name,List_Id, Sort_Order,Created_By,Modified_On,Modified_By) values("Shoes",2,1,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+/* Shoes Brand */
+insert into tb_ReferenceListItem (Name,List_Id, Sort_Order,Created_By,Modified_On,Modified_By) values("Casio",1,1,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_ReferenceListItem (Name,List_Id, Sort_Order,Created_By,Modified_On,Modified_By) values("Timex",1,2,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_ReferenceListItem (Name,List_Id, Sort_Order,Created_By,Modified_On,Modified_By) values("Invicta",1,3,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
 /* end */
 
+8	Mobiles
+9	Books
+85	Watches
+86	Shoes
 
-insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Description,Created_By,Modified_On,Modified_By) values ("RBKshoes","RBKS1",1,11,"Reebok Shoes Size 9",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
-insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Description,Created_By,Modified_On,Modified_By) values ("NikeShoes","NIKES1",3,11,"Nike Sports shoes size 10",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Description,Created_By,Modified_On,Modified_By) values ("RBKshoes","RBKS1",1,86,"Reebok Shoes Size 9",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Description,Created_By,Modified_On,Modified_By) values ("NikeShoes","NIKES1",3,86,"Nike Sports shoes size 10",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
 insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Description,Created_By,Modified_On,Modified_By) values ("OnePlus 1","OP1",6,8,"One Plus 1 phone",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
 insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Description,Created_By,Modified_On,Modified_By) values ("One Plus 2","Op2",6,8,"One plus 2",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
 insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Description,Created_By,Modified_On,Modified_By) values ("Nokia 6630","NOKIA6630",4,8,"Nokia 6630",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
@@ -125,7 +153,7 @@ insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Descript
 insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Description,Created_By,Modified_On,Modified_By) values ("Self Stirrer Mug","SSMug1",72,71,"Mug which can stir itself",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
 insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Description,Created_By,Modified_On,Modified_By) values ("Cold Drink Dispenser","CCDispenser1",72,71,"Cold Drink Dispenser which saves fizz and manual work to put the cold drinks in the glasses",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
 insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Description,Created_By,Modified_On,Modified_By) values ("Storage Switches","SSwitches1",72,71,"Switches which can save valueable stuffs",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
-/* end */
+/* end 
 73	Sony
 74	B&O
 75	Bose
@@ -137,7 +165,7 @@ insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Descript
 81	Jet Black
 82	JBL
 83	Denon HEOS
-84	Nikon
+84	Nikon */
 
 insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Description,Created_By,Modified_On,Modified_By) values ("B&O PLAY Headphone","B&OBB",74,7,"Wireless On Ear Headphone",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
 insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Description,Created_By,Modified_On,Modified_By) values ("Sony Bluetooth Headphone","SonyMDR1000X",73,7,"Enjoy Bluetooth wireless connectivity and Hi-Fi quality audio",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
@@ -149,6 +177,41 @@ insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Descript
 insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Description,Created_By,Modified_On,Modified_By) values ("Denon HEOS HomeCinema","DHHT1",83,7,"Dolby Digital Plus and DTS sound decoders",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
 insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Description,Created_By,Modified_On,Modified_By) values ("Samsung Home Theatre","HT-J5500W",5,7,"5.1 Channel 1000-Watt 3D Blu-Ray Home Theater System",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
 insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Description,Created_By,Modified_On,Modified_By) values ("Nikon COOLPIX","NKS33",84,7,"Waterproof Digital Camera ",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+
+/* Shoes 
+1	Reebox
+2	Adidas
+3	Nike */
+insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Description,Created_By,Modified_On,Modified_By) values ("Nike Women's Free","NKF1",3,86,"Women Running Shoes",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Description,Created_By,Modified_On,Modified_By) values ("Nike Men Free","NKMS1",3,86,"Men's Running Shoes",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Description,Created_By,Modified_On,Modified_By) values ("Nike Women's Flex","NKF2",3,86,"Women's running shoes Flex",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Description,Created_By,Modified_On,Modified_By) values ("Reebok Men's Sneaker","RBKShoesS3",1,86,"Men's Woollen Sneakers",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Description,Created_By,Modified_On,Modified_By) values ("Reebok Women's Princess Sneaker","RBKShoes4",1,86,"Women's Sneakers",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Description,Created_By,Modified_On,Modified_By) values ("Reebok Men's Sports Wear","RBKSports1",1,86,"Sports shoes",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Description,Created_By,Modified_On,Modified_By) values ("Adidas Originals Women's Sneaker","AD1",2,86,"Sports shoes",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Description,Created_By,Modified_On,Modified_By) values ("Adidas Originals Women's Sneaker","AD2",2,86,"Sports shoes",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Description,Created_By,Modified_On,Modified_By) values ("Adidas Women's Sneaker","AD3",2,86,"Sports shoes",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+/* Shoes */
+
+22	Casio
+23	Timex
+24	Invicta
+
+87	Casio
+88	Timex
+89	Invicta
+/* Watches */
+insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Description,Created_By,Modified_On,Modified_By) values ("Casio Women's Classic Analog","CASIOWM1 ",87,85,"Classical Analog Watch",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Description,Created_By,Modified_On,Modified_By) values ("Casio Men's Analog","CASIOM1",87,85,"Classical Analog Watch",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Description,Created_By,Modified_On,Modified_By) values ("Casio Women's Digital","CASIOWM2",87,85,"Digital Watch",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Description,Created_By,Modified_On,Modified_By) values ("Casio Men's Digital","CASIOM2",87,85,"Digital Watch",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Description,Created_By,Modified_On,Modified_By) values ("Timex Women's Watch","TWW1",88,85,"Leather watch",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Description,Created_By,Modified_On,Modified_By) values ("Timex Men's Watch Wear","TMW1",88,85,"Leather watch",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Description,Created_By,Modified_On,Modified_By) values ("Timex Women's Digital Watch","TWD1",88,85,"Digital Watch",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Description,Created_By,Modified_On,Modified_By) values ("Invicta 19700 Men's Specialty","22910",89,85,"Chrono 18K Gold",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Description,Created_By,Modified_On,Modified_By) values ("Invicta Men's 'I-Force","22930",89,85,"Quartz Stainless Steel and Leather Casual Watch",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Description,Created_By,Modified_On,Modified_By) values ("Invicta 19240 Men's Specialty","22931",89,85,"Gold Plated",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+/* Ends */
 
 insert into tb_ProductSeller (Product_Id,Seller_Id,Price,Quantity,Created_By,Modified_On,Modified_By) values (6,8,60,100,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
 insert into tb_ProductSeller (Product_Id,Seller_Id,Price,Quantity,Created_By,Modified_On,Modified_By) values (6,10,200,15,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
@@ -181,6 +244,47 @@ insert into tb_ProductSeller (Product_Id,Seller_Id,Price,Quantity,Created_By,Mod
 insert into tb_ProductSeller (Product_Id,Seller_Id,Price,Quantity,Created_By,Modified_On,Modified_By) values (21,16,50,100,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
 insert into tb_ProductSeller (Product_Id,Seller_Id,Price,Quantity,Created_By,Modified_On,Modified_By) values (21,17,2020,110,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
 insert into tb_ProductSeller (Product_Id,Seller_Id,Price,Quantity,Created_By,Modified_On,Modified_By) values (21,18,2020,110,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+/*
+22	Nike Women's Free
+23	Nike Men Free
+24	Nike Women's Flex
+25	Reebok Men's Sneaker
+26	Reebok Women's Princess Sneaker
+27	Reebok Men's Sports Wear
+28	Adidas Originals Women's Sneaker
+29	Adidas Originals Women's Sneaker
+30	Adidas Women's Sneaker */
+
+insert into tb_ProductSeller (Product_Id,Seller_Id,Price,Quantity,Created_By,Modified_On,Modified_By) values (22,20,50,100,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_ProductSeller (Product_Id,Seller_Id,Price,Quantity,Created_By,Modified_On,Modified_By) values (23,20,50,50,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_ProductSeller (Product_Id,Seller_Id,Price,Quantity,Created_By,Modified_On,Modified_By) values (24,20,60,110,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_ProductSeller (Product_Id,Seller_Id,Price,Quantity,Created_By,Modified_On,Modified_By) values (25,20,30,100,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_ProductSeller (Product_Id,Seller_Id,Price,Quantity,Created_By,Modified_On,Modified_By) values (26,20,60,15,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_ProductSeller (Product_Id,Seller_Id,Price,Quantity,Created_By,Modified_On,Modified_By) values (27,21,50,110,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_ProductSeller (Product_Id,Seller_Id,Price,Quantity,Created_By,Modified_On,Modified_By) values (28,21,100,100,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_ProductSeller (Product_Id,Seller_Id,Price,Quantity,Created_By,Modified_On,Modified_By) values (29,21,150,100,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_ProductSeller (Product_Id,Seller_Id,Price,Quantity,Created_By,Modified_On,Modified_By) values (30,21,200,110,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+/*
+31	Casio Women's Classic Analog
+32	Casio Men's Analog
+33	Casio Women's Digital
+34	Casio Men's Digital
+35	Timex Women's Watch
+36	Timex Men's Watch Wear
+37	Timex Women's Digital Watch
+38	Invicta 19700 Men's Specialty
+39	Invicta Men's 'I-Force
+40	Invicta 19240 Men's Specialty */
+insert into tb_ProductSeller (Product_Id,Seller_Id,Price,Quantity,Created_By,Modified_On,Modified_By) values (31,22,150,100,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_ProductSeller (Product_Id,Seller_Id,Price,Quantity,Created_By,Modified_On,Modified_By) values (32,22,250,50,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_ProductSeller (Product_Id,Seller_Id,Price,Quantity,Created_By,Modified_On,Modified_By) values (33,22,160,110,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_ProductSeller (Product_Id,Seller_Id,Price,Quantity,Created_By,Modified_On,Modified_By) values (34,22,230,100,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_ProductSeller (Product_Id,Seller_Id,Price,Quantity,Created_By,Modified_On,Modified_By) values (35,23,360,15,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_ProductSeller (Product_Id,Seller_Id,Price,Quantity,Created_By,Modified_On,Modified_By) values (36,23,150,110,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_ProductSeller (Product_Id,Seller_Id,Price,Quantity,Created_By,Modified_On,Modified_By) values (37,23,300,100,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_ProductSeller (Product_Id,Seller_Id,Price,Quantity,Created_By,Modified_On,Modified_By) values (38,24,350,100,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_ProductSeller (Product_Id,Seller_Id,Price,Quantity,Created_By,Modified_On,Modified_By) values (39,24,200,110,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_ProductSeller (Product_Id,Seller_Id,Price,Quantity,Created_By,Modified_On,Modified_By) values (40,24,200,110,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
 /*Ends */  
   
   
