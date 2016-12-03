@@ -1,3 +1,9 @@
+/* Added Later */
+ALTER TABLE `spotlightproducts`.`tb_products` 
+CHANGE COLUMN `Product_Name` `Product_Name` VARCHAR(200) NULL DEFAULT NULL ,
+CHANGE COLUMN `Model_Id` `Model_Id` VARCHAR(200) NULL DEFAULT NULL ; 
+/* End */
+
 INSERT INTO tb_AppRole(Role_Name,Created_By,Modified_On,Modified_By) VALUES ("Buyer",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
 INSERT INTO tb_AppRole(Role_Name,Created_By,Modified_On,Modified_By) VALUES ("Seller",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
 INSERT INTO tb_AppRole(Role_Name,Created_By,Modified_On,Modified_By) VALUES ("Admin",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
@@ -35,7 +41,14 @@ INSERT INTO `tb_AppUser` (`First_Name`, `Last_Name`, `Email`, `Pwd`, `Created_On
 INSERT INTO `tb_AppUser` (`First_Name`, `Last_Name`, `Email`, `Pwd`, `Created_On`, `Created_By`, `Modified_On`, `Modified_By`) VALUES ('Casio', 'Company', 'casio@world.com', 'qwert12345', CURRENT_TIMESTAMP, CURRENT_USER, CURRENT_TIMESTAMP, CURRENT_USER);
 INSERT INTO `tb_AppUser` (`First_Name`, `Last_Name`, `Email`, `Pwd`, `Created_On`, `Created_By`, `Modified_On`, `Modified_By`) VALUES ('Timex', 'Inc', 'timex@gmail.com', 'qwert12345', CURRENT_TIMESTAMP, CURRENT_USER, CURRENT_TIMESTAMP, CURRENT_USER);
 INSERT INTO `tb_AppUser` (`First_Name`, `Last_Name`, `Email`, `Pwd`, `Created_On`, `Created_By`, `Modified_On`, `Modified_By`) VALUES ('Invicta', 'World', 'watches@invicta.com', 'qwert12345', CURRENT_TIMESTAMP, CURRENT_USER, CURRENT_TIMESTAMP, CURRENT_USER);
-/* end */
+
+/*Books */
+INSERT INTO `tb_AppUser` (`First_Name`, `Last_Name`, `Email`, `Pwd`, `Created_On`, `Created_By`, `Modified_On`, `Modified_By`) VALUES ('Tata', 'McGrawHill', 'tatamcgrawhill@gmail.com', 'qwert12345', CURRENT_TIMESTAMP, CURRENT_USER, CURRENT_TIMESTAMP, CURRENT_USER);
+INSERT INTO `tb_AppUser` (`First_Name`, `Last_Name`, `Email`, `Pwd`, `Created_On`, `Created_By`, `Modified_On`, `Modified_By`) VALUES ('Book', 'World', 'book.world@gmail.com', 'qwert12345', CURRENT_TIMESTAMP, CURRENT_USER, CURRENT_TIMESTAMP, CURRENT_USER);
+INSERT INTO `tb_AppUser` (`First_Name`, `Last_Name`, `Email`, `Pwd`, `Created_On`, `Created_By`, `Modified_On`, `Modified_By`) VALUES ('Knowledge', 'Base', 'knowledge.base@yahoo.com', 'qwert12345', CURRENT_TIMESTAMP, CURRENT_USER, CURRENT_TIMESTAMP, CURRENT_USER);
+
+
+/* End */
 
 
 INSERT INTO `tb_UserRole` (`User_Id`, `Role_Id`, `Is_Deleted`, `Created_On`, `Created_By`, `Modified_On`, `Modified_By`) VALUES ('1', '1', '0', CURRENT_TIMESTAMP, CURRENT_USER, CURRENT_TIMESTAMP, CURRENT_USER);
@@ -80,6 +93,12 @@ INSERT INTO `tb_UserRole` (`User_Id`, `Role_Id`, `Is_Deleted`, `Created_On`, `Cr
 INSERT INTO `tb_UserRole` (`User_Id`, `Role_Id`, `Is_Deleted`, `Created_On`, `Created_By`, `Modified_On`, `Modified_By`) VALUES ('23', '2', '0', CURRENT_TIMESTAMP, CURRENT_USER, CURRENT_TIMESTAMP, CURRENT_USER);
 
 INSERT INTO `tb_UserRole` (`User_Id`, `Role_Id`, `Is_Deleted`, `Created_On`, `Created_By`, `Modified_On`, `Modified_By`) VALUES ('24', '2', '0', CURRENT_TIMESTAMP, CURRENT_USER, CURRENT_TIMESTAMP, CURRENT_USER);
+
+INSERT INTO `tb_UserRole` (`User_Id`, `Role_Id`, `Is_Deleted`, `Created_On`, `Created_By`, `Modified_On`, `Modified_By`) VALUES ('25', '2', '0', CURRENT_TIMESTAMP, CURRENT_USER, CURRENT_TIMESTAMP, CURRENT_USER);
+
+INSERT INTO `tb_UserRole` (`User_Id`, `Role_Id`, `Is_Deleted`, `Created_On`, `Created_By`, `Modified_On`, `Modified_By`) VALUES ('26', '2', '0', CURRENT_TIMESTAMP, CURRENT_USER, CURRENT_TIMESTAMP, CURRENT_USER);
+
+INSERT INTO `tb_UserRole` (`User_Id`, `Role_Id`, `Is_Deleted`, `Created_On`, `Created_By`, `Modified_On`, `Modified_By`) VALUES ('27', '2', '0', CURRENT_TIMESTAMP, CURRENT_USER, CURRENT_TIMESTAMP, CURRENT_USER);
 /* end */
 
 insert into tb_ReferenceList(Name,Created_By,Modified_On,Modified_By) values("Brand",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
@@ -126,10 +145,15 @@ insert into tb_ReferenceListItem (Name,List_Id, Sort_Order,Created_By,Modified_O
 insert into tb_ReferenceListItem (Name,List_Id, Sort_Order,Created_By,Modified_On,Modified_By) values("Nikon",1,1,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
 insert into tb_ReferenceListItem (Name,List_Id, Sort_Order,Created_By,Modified_On,Modified_By) values("Watches",2,1,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
 insert into tb_ReferenceListItem (Name,List_Id, Sort_Order,Created_By,Modified_On,Modified_By) values("Shoes",2,1,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+
 /* Shoes Brand */
 insert into tb_ReferenceListItem (Name,List_Id, Sort_Order,Created_By,Modified_On,Modified_By) values("Casio",1,1,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
 insert into tb_ReferenceListItem (Name,List_Id, Sort_Order,Created_By,Modified_On,Modified_By) values("Timex",1,2,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
 insert into tb_ReferenceListItem (Name,List_Id, Sort_Order,Created_By,Modified_On,Modified_By) values("Invicta",1,3,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+/* Books */
+insert into tb_ReferenceListItem (Name,List_Id, Sort_Order,Created_By,Modified_On,Modified_By) values("Tata McGrawHill",1,1,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_ReferenceListItem (Name,List_Id, Sort_Order,Created_By,Modified_On,Modified_By) values("BookWorld",1,2,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_ReferenceListItem (Name,List_Id, Sort_Order,Created_By,Modified_On,Modified_By) values("KnowlegeBase",1,3,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
 /* end */
 
 8	Mobiles
@@ -191,7 +215,7 @@ insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Descript
 insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Description,Created_By,Modified_On,Modified_By) values ("Adidas Originals Women's Sneaker","AD1",2,86,"Sports shoes",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
 insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Description,Created_By,Modified_On,Modified_By) values ("Adidas Originals Women's Sneaker","AD2",2,86,"Sports shoes",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
 insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Description,Created_By,Modified_On,Modified_By) values ("Adidas Women's Sneaker","AD3",2,86,"Sports shoes",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
-/* Shoes */
+/* Shoes 
 
 22	Casio
 23	Timex
@@ -211,6 +235,27 @@ insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Descript
 insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Description,Created_By,Modified_On,Modified_By) values ("Invicta 19700 Men's Specialty","22910",89,85,"Chrono 18K Gold",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
 insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Description,Created_By,Modified_On,Modified_By) values ("Invicta Men's 'I-Force","22930",89,85,"Quartz Stainless Steel and Leather Casual Watch",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
 insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Description,Created_By,Modified_On,Modified_By) values ("Invicta 19240 Men's Specialty","22931",89,85,"Gold Plated",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+/* Ends */
+
+/* Books 
+90	Tata McGrawHill
+91	BookWorld
+92	KnowlegeBase
+
+*/
+insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Description,Created_By,Modified_On,Modified_By) values ("Playing It My Way","SRT",91,9,"By Sachin Tendulkar",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Description,Created_By,Modified_On,Modified_By) values ("Software Engineering: A Practitioner's Approach","SEPRM",92,9,"Book By Roger S Pressman",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Description,Created_By,Modified_On,Modified_By) values ("F-1 Student Visa Interview Package","VisaF1",92,9,"Book by Mr. Sean M. Ward",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Description,Created_By,Modified_On,Modified_By) values ("Website Development Using HTML & CSS","WD1",92,9," Book by Bunny Mehra",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Description,Created_By,Modified_On,Modified_By) values ("Cracking the Coding Interview","CTCI ",90,9,"Interview Book by  Gayle Laakmann McDowell",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Description,Created_By,Modified_On,Modified_By) values ("Elements of Programming Interviews","EPI",90,9,"Interview book by Adnan Aziz",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Description,Created_By,Modified_On,Modified_By) values ("Programming Interviews Exposed","PIEX1",90,9,"Book By John Mongan",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Description,Created_By,Modified_On,Modified_By) values ("Scrappy Little Nobody","ScrappyL",91,9," Book By Anna Kendrick ",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Description,Created_By,Modified_On,Modified_By) values ("Kapil: Autobiography of Kapil Dev","KD",91,9," Book By Kapil Dev",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_Products (Product_Name, Model_Id, Brand_Id, Category_Id, Description,Created_By,Modified_On,Modified_By) values ("Data Structure and Algorithmic in Python","DSAPY1",91,9," Book by Narasimha Karumanchi",CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+
+	
+
 /* Ends */
 
 insert into tb_ProductSeller (Product_Id,Seller_Id,Price,Quantity,Created_By,Modified_On,Modified_By) values (6,8,60,100,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
@@ -285,6 +330,11 @@ insert into tb_ProductSeller (Product_Id,Seller_Id,Price,Quantity,Created_By,Mod
 insert into tb_ProductSeller (Product_Id,Seller_Id,Price,Quantity,Created_By,Modified_On,Modified_By) values (38,24,350,100,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
 insert into tb_ProductSeller (Product_Id,Seller_Id,Price,Quantity,Created_By,Modified_On,Modified_By) values (39,24,200,110,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
 insert into tb_ProductSeller (Product_Id,Seller_Id,Price,Quantity,Created_By,Modified_On,Modified_By) values (40,24,200,110,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+
+90	Tata McGrawHill
+91	BookWorld
+92	KnowlegeBase
+
 /*Ends */  
   
   
