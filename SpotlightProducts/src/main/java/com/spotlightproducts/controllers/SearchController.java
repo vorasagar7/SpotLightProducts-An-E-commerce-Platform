@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.spotlightproducts.dao.*;
-import com.spotlightproducts.SpotlightComparatorNameAsc;
-import com.spotlightproducts.SpotlightComparatorNameDesc;
-import com.spotlightproducts.SpotlightComparatorPriceAsc;
-import com.spotlightproducts.SpotlightComparatorPriceDesc;
+import com.spotlightproducts.utilities.SpotlightComparatorNameAsc;
+import com.spotlightproducts.utilities.SpotlightComparatorNameDesc;
+import com.spotlightproducts.utilities.SpotlightComparatorPriceAsc;
+import com.spotlightproducts.utilities.SpotlightComparatorPriceDesc;
 import com.spotlightproducts.controllers.*;;
 
 @Controller
@@ -447,7 +447,7 @@ public class SearchController {
 
 	@RequestMapping(value = "/sortBySpotlightProductsPriceAsc", method = RequestMethod.GET)
 	public String sortBySpotlightProductsPriceAsc(ModelMap model) {
-		ArrayList<Product> productList = searchService.getProductList("spotlight");
+		ArrayList<Product> productList = searchService.getProductList("Spotlight");
 
 		Collections.sort(productList, new SpotlightComparatorPriceAsc());
 

@@ -26,6 +26,7 @@ public class Product {
 	private int quantity;
 	private List<Review> productReviews;
 	private Date modifiedOn;
+	private int reviewCount;
 
 	public int getProductId() {
 		return productId;
@@ -169,6 +170,14 @@ public class Product {
 
 	public void setProductReviews(List<Review> productReviews) {
 		this.productReviews = productReviews;
+	}
+
+	public int getReviewCount() {
+		return reviewCount;
+	}
+
+	public void setReviewCount(int reviewCount) {
+		this.reviewCount = reviewCount;
 	}
 
 }

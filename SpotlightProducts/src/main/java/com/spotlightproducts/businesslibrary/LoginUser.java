@@ -14,9 +14,9 @@ import javax.mail.internet.MimeMessage;
 
 import com.mysql.jdbc.CallableStatement;
 import com.mysql.jdbc.Connection;
-import com.spotlightproducts.SpotLightConstants;
 import com.spotlightproducts.dao.DatabaseResponse;
 import com.spotlightproducts.dao.User;
+import com.spotlightproducts.utilities.SpotLightConstants;
 
 public class LoginUser {
 

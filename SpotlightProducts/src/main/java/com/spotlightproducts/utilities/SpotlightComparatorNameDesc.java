@@ -1,4 +1,4 @@
-package com.spotlightproducts;
+package com.spotlightproducts.utilities;
 
 import java.util.Comparator;
 

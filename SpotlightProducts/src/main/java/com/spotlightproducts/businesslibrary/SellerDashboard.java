@@ -1,7 +1,8 @@
 package com.spotlightproducts.businesslibrary;
 
-import com.spotlightproducts.SpotLightConstants;
 import com.spotlightproducts.dao.*;
+import com.spotlightproducts.utilities.SpotLightConstants;
+
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.util.ArrayList;

@@ -39,7 +39,7 @@ public class SearchService {
 						product.setDescription(rs.getString(7));
 						product.setPrice(rs.getFloat(8));
 						product.setQuantity(rs.getInt(9));
-						
+						product.setReviewCount(getProductReviewCount(product.getProductId()));
 						productList.add(product);
 					
 				}
@@ -50,6 +50,32 @@ public class SearchService {
 			System.out.println(e);
 		}
 		return productList;
+	}
+	
+public int getProductReviewCount(int productID) {
+		
+	int reviewCount=0;	
+	try {
+			
+			Connection con = DatabaseConnection.getDatabaseConnection();
+			CallableStatement cStmt = con.prepareCall("{call sp_Product_Review_Count_Get(?)}");
+			cStmt.setInt(1, productID);
+			
+			boolean hadResults = cStmt.execute();
+			while (hadResults) {
+				ResultSet rs = cStmt.getResultSet();
+				while (rs.next()) {
+					// retrieve values of fields
+					reviewCount = rs.getInt(1);
+					
+				}
+				hadResults = cStmt.getMoreResults();
+			}
+			con.close();
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return reviewCount;
 	}
 
 }

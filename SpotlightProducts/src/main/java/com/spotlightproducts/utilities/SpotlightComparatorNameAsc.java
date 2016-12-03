@@ -1,4 +1,4 @@
-package com.spotlightproducts;
+package com.spotlightproducts.utilities;
 
 import java.util.Comparator;
 
@@ -8,7 +8,6 @@ public class SpotlightComparatorNameAsc implements Comparator{
 	
 	@Override
 	public int compare(Object obj1, Object obj2) {
-		// TODO Auto-generated method stub
 		Product p1 = (Product)obj1;
 		Product p2 = (Product)obj2;
 	String productName1=p1.getProductName();

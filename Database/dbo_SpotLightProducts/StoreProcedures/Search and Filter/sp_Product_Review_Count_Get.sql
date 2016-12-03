@@ -1,13 +1,9 @@
 DELIMITER $$
-CREATE PROCEDURE sp_Product_Review_Get(
+CREATE PROCEDURE sp_Product_Review_Count_Get(
 	IN p_productId INTEGER
 )
 BEGIN
-SELECT review.Id,
-		CONCAT(user.First_Name, user.Last_Name) AS UserName,
-		review.Comments,
-		review.Rating,
-		review.Modified_On
+SELECT count(*)
 	FROM tb_UserReviews review
 	INNER JOIN tb_Products products
 	ON review.Product_Id = products.Id
@@ -16,7 +12,6 @@ SELECT review.Id,
 	WHERE review.Is_Deleted = 0
 	AND products.Is_Deleted = 0
 	AND user.Is_Deleted = 0
-	AND products.id=p_productId
-	ORDER BY review.Modified_On DESC;
+	AND products.id=p_productId;
 END;
 $$

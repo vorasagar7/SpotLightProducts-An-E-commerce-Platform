@@ -1,6 +1,5 @@
 package com.spotlightproducts.businesslibrary;
 
-import com.spotlightproducts.SpotLightConstants;
 import com.spotlightproducts.dao.*;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -20,6 +19,7 @@ import com.mysql.jdbc.CallableStatement;
 import com.mysql.jdbc.Connection;
 import com.spotlightproducts.dao.DatabaseResponse;
 import com.spotlightproducts.dao.User;
+import com.spotlightproducts.utilities.SpotLightConstants;
 
 public class UserPaymentDetails {
 

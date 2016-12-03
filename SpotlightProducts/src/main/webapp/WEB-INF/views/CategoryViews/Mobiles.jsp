@@ -1,12 +1,3 @@
-<!-- <html> -->
-<!-- <head> -->
-<!-- <title>Yahoo!!</title> -->
-<!-- </head> -->
-<!-- <body> -->
-<%-- Welcome ${name} and Password is ${password} --%>
-<!-- </body> -->
-<!-- </html> -->
-
 <!DOCTYPE html>
 
 <%@page import="java.util.Iterator"%>
@@ -111,10 +102,10 @@
 				data-toggle="dropdown" role="button" aria-haspopup="true"
 				aria-expanded="false">User Dropdown <span class="caret"></span></a>
 				<ul class="dropdown-menu">
-					<li><a href="#">Dashboard</a></li>
-					<li><a href="#">Setting</a></li>
+					<li><a href="/Dashboard">Dashboard</a></li>
+					<li><a href="/ChangePassword">Change Password</a></li>
 					<li role="separator" class="divider"></li>
-					<li><a href="#">Logout</a></li>
+					<li><a href="/Logout">Logout</a></li>
 				</ul></li>
 		</ul>
 	</div>
@@ -125,9 +116,9 @@
 
 
 <ul class="nav nav-pills">
-	<li role="presentation" class="active"><a href="#">Home</a></li>
+	<li role="presentation"><a href="/homepage">Home</a></li>
 	<li role="presentation"><a href="/filterByElectronics">Electronics</a></li>
-	<li role="presentation"><a href="/filterByMobiles">Mobiles</a></li>
+	<li role="presentation" class="active"><a href="/filterByMobiles">Mobiles</a></li>
 	<li role="presentation"><a href="/filterByShoes">Shoes</a></li>
 	<li role="presentation"><a href="/filterByWatches">Watches</a></li>
 	<li role="presentation"><a href="/filterByBooks">Books</a></li>
@@ -220,6 +211,7 @@
 
 		<div class="row">
 			<c:forEach items="${productList}" var="product">
+				<a href="http://localhost:8080/ProductDetails?id=${product.productId}">
 				<div class="col-sm-4 col-lg-4 col-md-4">
 					<div class="thumbnail">
 						<!--  <img src="http://placehold.it/320x150" alt=""> -->
@@ -228,18 +220,15 @@
 							<h4 class="pull-right">$${product.price}</h4>
 							<h4>
 								<%-- 							<a href="#">${productList[0].productName}</a> --%>
-								<a
-									href="http://localhost:8080/ProductDetails?id=${product.productId}">${product.productName}</a>
+								${product.productName}
 
 							</h4>
 							<p>
-								${product.description} <a target="_blank"
-									href="http://www.bootsnipp.com">Bootsnipp -
-									http://bootsnipp.com</a>.
+								${product.description}
 							</p>
 						</div>
 						<div class="ratings">
-							<p class="pull-right">15 reviews</p>
+							<p class="pull-right">${product.reviewCount} reviews</p>
 							<p>
 
 								<span class="glyphicon glyphicon-star"></span> <span
@@ -252,6 +241,7 @@
 						</div>
 					</div>
 				</div>
+				</a>
 			</c:forEach>
 
 			<!-- 			<div class="col-sm-4 col-lg-4 col-md-4"> -->

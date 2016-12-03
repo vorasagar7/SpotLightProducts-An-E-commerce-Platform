@@ -12,11 +12,13 @@ BEGIN
 	ON brand.Id = p.Brand_Id
 	INNER JOIN tb_ReferenceListItem category
 	ON category.Id = p.Category_Id
-	WHERE p.Product_Name like CONCAT('%',p_searchQuery,'%')
+	WHERE (p.Product_Name like CONCAT('%',p_searchQuery,'%')
 	OR p.Model_Id like CONCAT('%',p_searchQuery,'%')
 	OR brand.Name like CONCAT('%',p_searchQuery,'%')
 	OR category.Name like CONCAT('%',p_searchQuery,'%')
 	OR p.Description like CONCAT('%',p_searchQuery,'%')
-	OR CONCAT(au.First_Name, au.Last_Name) like CONCAT('%',p_searchQuery,'%')
+	OR CONCAT(au.First_Name, au.Last_Name) like CONCAT('%',p_searchQuery,'%'))
+	AND (p.Is_Approved = 1
+	AND p.Is_Deleted = 0);
 END;
 $$

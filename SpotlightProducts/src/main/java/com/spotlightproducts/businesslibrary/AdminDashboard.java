@@ -9,11 +9,11 @@ import javax.servlet.http.HttpServletRequest;
 
 import com.mysql.jdbc.CallableStatement;
 import com.mysql.jdbc.Connection;
-import com.spotlightproducts.SpotLightConstants;
 import com.spotlightproducts.dao.DatabaseResponse;
 import com.spotlightproducts.dao.Product;
 import com.spotlightproducts.dao.SpotLightProductsGraph;
 import com.spotlightproducts.dao.User;
+import com.spotlightproducts.utilities.SpotLightConstants;
 
 public class AdminDashboard {
 	

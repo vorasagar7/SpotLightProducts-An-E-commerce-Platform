@@ -1,6 +1,5 @@
 package com.spotlightproducts.businesslibrary;
 
-import com.spotlightproducts.SpotLightConstants;
 import com.spotlightproducts.dao.*;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -11,6 +10,7 @@ import java.util.logging.ErrorManager;
 import com.mysql.jdbc.CallableStatement;
 import com.mysql.jdbc.Connection;
 import com.spotlightproducts.dao.DatabaseResponse;
+import com.spotlightproducts.utilities.SpotLightConstants;
 
 public class ShoppingCartDetails {
 

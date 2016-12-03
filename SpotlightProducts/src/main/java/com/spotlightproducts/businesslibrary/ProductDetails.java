@@ -10,11 +10,11 @@ import javax.servlet.http.HttpSession;
 
 import com.mysql.jdbc.CallableStatement;
 import com.mysql.jdbc.Connection;
-import com.spotlightproducts.SpotLightConstants;
 import com.spotlightproducts.dao.DatabaseResponse;
 import com.spotlightproducts.dao.Product;
 import com.spotlightproducts.dao.ReferenceData;
 import com.spotlightproducts.dao.Review;
+import com.spotlightproducts.utilities.SpotLightConstants;
 
 public class ProductDetails {
 

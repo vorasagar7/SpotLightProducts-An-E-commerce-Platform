@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.spotlightproducts.SpotLightConstants;
 import com.spotlightproducts.businesslibrary.AdminDashboard;
 import com.spotlightproducts.businesslibrary.SellerDashboard;
 import com.spotlightproducts.businesslibrary.UserDashboard;
@@ -27,6 +26,7 @@ import com.spotlightproducts.dao.Product;
 import com.spotlightproducts.dao.Review;
 import com.spotlightproducts.dao.SpotLightProductsGraph;
 import com.spotlightproducts.dao.User;
+import com.spotlightproducts.utilities.SpotLightConstants;
 
 @RestController
 public class AdminDashBoardAPIController{

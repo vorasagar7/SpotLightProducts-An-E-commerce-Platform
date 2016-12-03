@@ -1,10 +1,10 @@
-package com.spotlightproducts;
+package com.spotlightproducts.utilities;
 
 import java.util.Comparator;
 
 import com.spotlightproducts.dao.Product;
 
-public class SpotlightComparatorPriceDesc implements Comparator{
+public class SpotlightComparatorPriceAsc implements Comparator{
 
 	@Override
 	public int compare(Object obj1, Object obj2) {
@@ -14,13 +14,11 @@ public class SpotlightComparatorPriceDesc implements Comparator{
 	double price1=p1.getPrice();
 	double price2 = p2.getPrice();
 	if(price1<price2){
-		return 1;
+		return -1;
 	}
 	else{
-		return -1;
+		return 1;
 	}
 
 	}
-	
-	
 }
