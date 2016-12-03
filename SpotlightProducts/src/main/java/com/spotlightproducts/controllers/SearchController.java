@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -16,6 +19,7 @@ import com.spotlightproducts.utilities.SpotlightComparatorNameAsc;
 import com.spotlightproducts.utilities.SpotlightComparatorNameDesc;
 import com.spotlightproducts.utilities.SpotlightComparatorPriceAsc;
 import com.spotlightproducts.utilities.SpotlightComparatorPriceDesc;
+import com.spotlightproducts.*;
 import com.spotlightproducts.controllers.*;;
 
 @Controller
@@ -25,32 +29,86 @@ public class SearchController {
 	SearchService searchService;
 
 	@RequestMapping(value = "/search", method = RequestMethod.POST)
-	public String searchProducts(@RequestParam String searchQuery, ModelMap model) {
+	public String searchProducts(@RequestParam String searchQuery, ModelMap model, HttpServletRequest request) {
 
 		ArrayList<Product> productList = searchService.getProductList(searchQuery);
 
 		model.addAttribute(productList);
+		
+		HttpSession session = request.getSession();
+		session.setAttribute("searchQuery", searchQuery);
 
 		model.put("productList", productList);
-
 		System.out.println("Seach Query is: " + searchQuery);
 		return "/SearchPageViews/search-result";
 
 	}
 	
-//	@RequestMapping(value = "/sortByPriceAsc", method = RequestMethod.GET)
-//	public String sortByPriceAsc(ModelMap model) {
-//		System.out.println(model);
-//		ArrayList<Product> productList = (ArrayList<Product>) model.get("productList");
-//		
-//		Collections.sort(productList, new SpotlightComparatorPriceAsc());
-//
-//		model.addAttribute(productList);
-//
-//		model.put("productList", productList);
-//		return "/CategoryViews/search-result";
-//
-//	}
+	@RequestMapping(value = "/sortByPriceAsc", method = RequestMethod.GET)
+	public String sortByPriceAsc(ModelMap model, HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		String searchQuery = (String)session.getAttribute("searchQuery");
+		
+		System.out.println("SearchQuery is "+searchQuery);
+		ArrayList<Product> productList = searchService.getProductList(searchQuery);
+		
+		Collections.sort(productList, new SpotlightComparatorPriceAsc());
+		model.addAttribute(productList);
+
+		model.put("productList", productList);
+		return "/SearchPageViews/search-result";
+
+	}
+	
+	@RequestMapping(value = "/sortByPriceDesc", method = RequestMethod.GET)
+	public String sortByPriceDesc(ModelMap model, HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		String searchQuery = (String)session.getAttribute("searchQuery");
+		
+		ArrayList<Product> productList = searchService.getProductList(searchQuery);
+		
+		Collections.sort(productList, new SpotlightComparatorPriceDesc());
+		model.addAttribute(productList);
+
+		model.put("productList", productList);
+		return "/SearchPageViews/search-result";
+
+	}
+	
+	@RequestMapping(value = "/sortByNameAsc", method = RequestMethod.GET)
+	public String sortByNameAsc(ModelMap model, HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		String searchQuery = (String)session.getAttribute("searchQuery");
+		
+		ArrayList<Product> productList = searchService.getProductList(searchQuery);
+		
+		Collections.sort(productList, new SpotlightComparatorNameAsc());
+		model.addAttribute(productList);
+
+		model.put("productList", productList);
+		return "/SearchPageViews/search-result";
+
+	}
+
+	@RequestMapping(value = "/sortByNameDesc", method = RequestMethod.GET)
+	public String sortByNameDesc(ModelMap model, HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		String searchQuery = (String)session.getAttribute("searchQuery");
+		
+		ArrayList<Product> productList = searchService.getProductList(searchQuery);
+		
+		Collections.sort(productList, new SpotlightComparatorNameDesc());
+		model.addAttribute(productList);
+
+		model.put("productList", productList);
+		return "/SearchPageViews/search-result";
+
+	}
+
+	
+	
+	
+	
 
 	@RequestMapping(value = "/filterByElectronics", method = RequestMethod.GET)
 	public String filterByElectronics(ModelMap model) {
