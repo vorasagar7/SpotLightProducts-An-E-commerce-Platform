@@ -52,3 +52,13 @@
 	font-size: 17px;
 	padding-left: 10px;
 }
+
+/*Buyer Dashboard Order History*/
+.order-row{
+	height: 67px;
+}
+
+/*Buyer Dashboard Review History*/
+.review-row{
+	height: 67px;
+}

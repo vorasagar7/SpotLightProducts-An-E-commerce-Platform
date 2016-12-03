@@ -1,8 +1,16 @@
 com\spotlightproducts\businesslibrary\ProductDetails.class
+com\spotlightproducts\WebAPI\CommonDataAPIController.class
+com\spotlightproducts\SpotlightComparatorNameDesc.class
 com\spotlightproducts\dao\Product.class
 com\spotlightproducts\dao\Review.class
+com\spotlightproducts\SpotLightConstants.class
 com\spotlightproducts\controllers\PaymentController.class
 com\spotlightproducts\controllers\SearchController.class
+com\spotlightproducts\controllers\DashboardController.class
 com\spotlightproducts\WebAPI\PaymentAPIController.class
+com\spotlightproducts\businesslibrary\DatabaseConnection.class
 com\spotlightproducts\controllers\SearchService.class
+com\spotlightproducts\SpotlightComparatorPriceAsc.class
+com\spotlightproducts\SpotlightComparatorPriceDesc.class
 com\spotlightproducts\businesslibrary\InventoryManagement.class
+com\spotlightproducts\SpotlightComparatorNameAsc.class

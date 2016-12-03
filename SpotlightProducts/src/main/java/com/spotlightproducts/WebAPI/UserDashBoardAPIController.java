@@ -12,6 +12,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -37,12 +38,10 @@ public class UserDashBoardAPIController{
 	}
 	
 	@RequestMapping(value = "/UserOrderGET", method = RequestMethod.GET)
-	public ResponseEntity<JSONResponse<Order>> userOrdersGet(@RequestBody User user, HttpServletRequest request){
+	public ResponseEntity<JSONResponse<Order>> userOrdersGet(@RequestParam(value="userId", defaultValue="1") int userId){
 		JSONResponse<Order> JsonResponse = new JSONResponse<Order>();
-		HttpSession session = request.getSession();
-		user.setEmail((String)session.getAttribute("email"));
 		UserDashboard dashboad = new UserDashboard();
-		DatabaseResponse<Order> dbresponse = dashboad.getUserOrders(user);
+		DatabaseResponse<Order> dbresponse = dashboad.getUserOrders(userId);
 		JsonResponse.setStatus(dbresponse.getStatus());
 		JsonResponse.setMessage(dbresponse.getMessage());
 		JsonResponse.setData(dbresponse.getData());
@@ -50,12 +49,10 @@ public class UserDashBoardAPIController{
 	}
 	
 	@RequestMapping(value = "/UserReviewsGET", method = RequestMethod.GET)
-	public ResponseEntity<JSONResponse<Review>> userReviewsGet(@RequestBody User user, HttpServletRequest request){
+	public ResponseEntity<JSONResponse<Review>> userReviewsGet(@RequestParam(value="userId", defaultValue="1") int userId){
 		JSONResponse<Review> JsonResponse = new JSONResponse<Review>();
-		HttpSession session = request.getSession();
-		user.setEmail((String)session.getAttribute("email"));
 		UserDashboard dashboad = new UserDashboard();
-		DatabaseResponse<Review> dbresponse = dashboad.getUserReviews(user);
+		DatabaseResponse<Review> dbresponse = dashboad.getUserReviews(userId);
 		JsonResponse.setStatus(dbresponse.getStatus());
 		JsonResponse.setMessage(dbresponse.getMessage());
 		JsonResponse.setData(dbresponse.getData());

@@ -14,6 +14,8 @@ public class Review {
 	private Date modifiedOn;
 	private String productName;
 	private int productId;
+	private String modelID;
+	private String brandName;
 	public String getProductName() {
 		return productName;
 	}
@@ -56,5 +58,16 @@ public class Review {
 	public void setProductId(int productId) {
 		this.productId = productId;
 	}
-	
+	public String getModelID() {
+		return modelID;
+	}
+	public void setModelID(String modelID) {
+		this.modelID = modelID;
+	}
+	public String getBrandName() {
+		return brandName;
+	}
+	public void setBrandName(String brandName) {
+		this.brandName = brandName;
+	}
 }

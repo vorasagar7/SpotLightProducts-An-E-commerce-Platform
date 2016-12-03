@@ -11,7 +11,7 @@ BEGIN
 	  urv.modified_On,
 	  urv.Comments,
 	  urv.Rating,
-	  brand.Name AS Brand Name
+	  brand.Name AS BrandName
 	FROM tb_userreviews urv
 	INNER JOIN tb_appuser ap
 	  ON ap.id = urv.User_Id

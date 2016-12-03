@@ -11,12 +11,14 @@ SELECT
   om.Seller_Id,
   om.Quantity,
   om.Price,
-  uo.Mode_Of_Payment_Id
+  uo.Mode_Of_Payment_Id,
+  om.Modified_On
 FROM tb_UserOrder uo
 INNER JOIN tb_OrderMapping om
   ON uo.id = om.Order_Id
 WHERE uo.Buyer_Id = p_user_Id
 AND uo.Is_Deleted = 0
-AND om.Is_Deleted = 0;
+AND om.Is_Deleted = 0
+ORDER BY om.Modified_On DESC;
 End;
 $$

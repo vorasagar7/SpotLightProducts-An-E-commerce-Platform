@@ -21,14 +21,14 @@ import com.mysql.jdbc.Connection;
 
 public class UserDashboard {
 	
-	public DatabaseResponse<Order> getUserOrders(User user) {
+	public DatabaseResponse<Order> getUserOrders(int userId) {
 		DatabaseResponse response = new DatabaseResponse();
 		List<Order> userOrderList = new ArrayList<Order>();
 		try {
 			
 			Connection con = DatabaseConnection.getDatabaseConnection();
 			CallableStatement cStmt = (CallableStatement) con.prepareCall(SpotLightConstants.SP_GET_USER_ORDERS);
-			cStmt.setString(1, user.getEmail());
+			cStmt.setInt(1, userId);
 			boolean hadResults = cStmt.execute();
 			while (hadResults) {
 				ResultSet rs = (ResultSet) cStmt.getResultSet();
@@ -62,14 +62,14 @@ public class UserDashboard {
 
 	}
 	
-	public DatabaseResponse<Review> getUserReviews(User user) {
+	public DatabaseResponse<Review> getUserReviews(int userId) {
 		DatabaseResponse response = new DatabaseResponse();
 		List<Review> userReviewList = new ArrayList<Review>();
 		try {
 			
 			Connection con = DatabaseConnection.getDatabaseConnection();
 			CallableStatement cStmt = (CallableStatement) con.prepareCall(SpotLightConstants.SP_GET_USER_REVIEWS);
-			cStmt.setString(1, user.getEmail());
+			cStmt.setInt(1, userId);
 			boolean hadResults = cStmt.execute();
 			while (hadResults) {
 				ResultSet rs = (ResultSet) cStmt.getResultSet();
@@ -78,9 +78,11 @@ public class UserDashboard {
 					Review userReview = new Review();
 					userReview.setProductId(rs.getInt(2));
 					userReview.setProductName(rs.getString(3));
-					userReview.setModifiedOn(rs.getDate(4));
-					userReview.setComment(rs.getString(5));
-					userReview.setRating(rs.getInt(6));
+					userReview.setModelID(rs.getString(4));
+					userReview.setModifiedOn(rs.getDate(5));
+					userReview.setComment(rs.getString(6));
+					userReview.setRating(rs.getInt(7));
+					userReview.setBrandName(rs.getString(8));
 					userReviewList.add(userReview);	
 				}
 				hadResults = cStmt.getMoreResults();
