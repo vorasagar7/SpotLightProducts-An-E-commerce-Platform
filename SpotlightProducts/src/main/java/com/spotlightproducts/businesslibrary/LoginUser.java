@@ -163,7 +163,7 @@ public class LoginUser {
 				
 				Connection con = DatabaseConnection.getDatabaseConnection();
 				CallableStatement cStmt = (CallableStatement) con.prepareCall(SpotLightConstants.SP_UPDATE_USER_PASSWORD);
-				cStmt.setString(1, user.getEmail());
+				cStmt.setInt(1, user.getUserId());
 				cStmt.setString(2, user.getPassword());
 				cStmt.setString(3, user.getNewPassword());
 				boolean hadResults = cStmt.execute();

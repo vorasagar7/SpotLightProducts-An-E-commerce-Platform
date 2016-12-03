@@ -58,9 +58,4 @@ public class LoginAPIController{
 		return JsonResponse;
 	}
 	
-	@RequestMapping(value="/Test", method = RequestMethod.GET)
-	public String TestData(){
-		return "Test";
-	}
-	
 }
