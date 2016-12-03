@@ -50,7 +50,7 @@
 </head>
 <body ng-app="SellerDashboardApp">
 	<div class="row">
-		<div class="col-xs-8 col-md-offset-4 col-md-4">
+		<div class="col-xs-offset-4 col-xs-4 col-md-offset-4 col-md-4 login-header">
 			<h1>SpotLightProducts</h1>
 		</div>
 	</div>

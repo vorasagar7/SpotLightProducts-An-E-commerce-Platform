@@ -1,15 +1,15 @@
 <div class="container">
 	<div class="row-height">
 		<div role="alert" class="alert alert-danger"
-				ng-class="{hideElement: !isAlert, showElement: isAlert}">
-				<button type="button" class="close" aria-label="Close"
-					ng-click="hideAlert()">
-					<span aria-hidden="true">&times;</span>
-				</button>
-				{{alertMessage}}
-			</div>
+			ng-class="{hideElement: !isAlert, showElement: isAlert}">
+			<button type="button" class="close" aria-label="Close"
+				ng-click="hideAlert()">
+				<span aria-hidden="true">&times;</span>
+			</button>
+			{{alertMessage}}
+		</div>
 		<div class="row" ng-show="showCards">
-			<div class="col-xs-4 col-md-4">
+			<div class="col-xs-offset-4 col-xs-4 col-md-offset-0 col-md-4">
 				<div class="col-xs-12 text-center">
 					<div class="card">
 						<div class="card-block">
@@ -21,7 +21,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-xs-4 col-md-4">
+			<div class="col-xs-offset-4 col-xs-4 col-md-offset-0 col-md-4">
 				<div class="col-xs-12 text-center">
 					<div class="card">
 						<div class="card-block">
@@ -33,7 +33,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-xs-4 col-md-4">
+			<div class="col-xs-offset-4 col-xs-4 col-md-offset-0 col-md-4">
 				<div class="col-xs-12 text-center">
 					<div class="card">
 						<div class="card-block">

@@ -17,7 +17,7 @@ public class DashboardController{
 		User user = new User();
 		HttpSession session = request.getSession();
 		user.setEmail((String)session.getAttribute("email"));
-		user.setUserId(1);
+		user.setUserId(3);
 		if(user.getUserId() == 1){
 			System.out.println(user.getUserId());
 			return "DashboardViews/BuyerDashboard/Index";
