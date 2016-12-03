@@ -427,7 +427,7 @@ public class SearchController {
 
 	@RequestMapping(value = "/sortByBooksPriceAsc", method = RequestMethod.GET)
 	public String sortByBooksPriceAsc(ModelMap model) {
-		ArrayList<Product> productList = searchService.getProductList("Book");
+		ArrayList<Product> productList = searchService.getProductList("Books");
 
 		Collections.sort(productList, new SpotlightComparatorPriceAsc());
 
@@ -443,7 +443,7 @@ public class SearchController {
 
 	@RequestMapping(value = "/sortByBooksPriceDesc", method = RequestMethod.GET)
 	public String sortByBooksPriceDesc(ModelMap model) {
-		ArrayList<Product> productList = searchService.getProductList("Book");
+		ArrayList<Product> productList = searchService.getProductList("Books");
 
 		Collections.sort(productList, new SpotlightComparatorPriceDesc());
 
