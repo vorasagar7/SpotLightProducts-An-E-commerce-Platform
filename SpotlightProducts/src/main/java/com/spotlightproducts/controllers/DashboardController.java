@@ -18,12 +18,15 @@ public class DashboardController{
 		HttpSession session = request.getSession();
 		user.setEmail((String)session.getAttribute("email"));
 		user.setUserId(1);
-		if(user.getUserId() == 2){
+		if(user.getUserId() == 1){
 			System.out.println(user.getUserId());
 			return "DashboardViews/BuyerDashboard/Index";
 		}
-		else{
+		else if (user.getUserId() == 3){
 			return "DashboardViews/SellerDashboard/Index";
+		}
+		else {
+			return "DashboardViews/AdminDashboard/Index";
 		}
 	}
 	
@@ -45,5 +48,10 @@ public class DashboardController{
 	@RequestMapping(value = "SellerHomePage", method = RequestMethod.GET)
 	public String GetSellerDashboardHomePage(){
 		return "DashboardViews/SellerDashboard/SellerHomePage";
+	}
+	
+	@RequestMapping(value = "AdminHomePage", method = RequestMethod.GET)
+	public String GetAdminDashboardHomePage(){
+		return "DashboardViews/AdminDashboard/AdminHomePage";
 	}
 }

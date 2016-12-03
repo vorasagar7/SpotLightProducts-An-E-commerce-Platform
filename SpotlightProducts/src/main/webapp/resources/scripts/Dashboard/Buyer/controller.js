@@ -78,6 +78,9 @@ buyerDashboardApp.controller("OrderHistoryCtrl", function($scope, $location, $ht
 		$scope.getUserOrder();
 	}
 	
+	$scope.viewProduct = function(productId){
+		window.location.href = $location.absUrl().replace(window.location.pathname + window.location.hash,'/ProductDetails?id=')+productId;
+	}
 	
 	
 })
@@ -138,4 +141,5 @@ buyerDashboardApp.controller("UserReviewHistoryCtrl", function($scope, $location
 	else{
 		$scope.getUserReview();
 	}
+	
 })
