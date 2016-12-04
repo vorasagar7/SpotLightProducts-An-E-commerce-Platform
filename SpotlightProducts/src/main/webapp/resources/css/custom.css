@@ -62,3 +62,21 @@
 .review-row{
 	height: 67px;
 }
+
+/*Product Details*/
+.product-image{
+	width: 100%
+}
+
+/*Seacrh Bar*/
+#navBarSearchForm input[type=text] {
+	width: 500px !important;
+}
+
+.navbar {
+	margin-bottom: 0;
+}
+
+.borderless li {
+	border-top: none;
+}

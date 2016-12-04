@@ -13,6 +13,7 @@ productDetailsApp.controller("ProductDetailsCtrl", function($scope, $location, $
 				.success(function(data, status, headers, config){
 					if(data.status == "Success"){
 						$scope.productDetails = data.data[0];
+						$scope.productImage = $scope.productDetails.modelId + ".jpg";
 						$scope.productReviews = $scope.productDetails.productReviews;
 						$scope.productSellers = []
 						$scope.productQuantity = 0;
