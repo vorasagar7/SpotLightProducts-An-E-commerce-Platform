@@ -1,12 +1,3 @@
-<!-- <html> -->
-<!-- <head> -->
-<!-- <title>Yahoo!!</title> -->
-<!-- </head> -->
-<!-- <body> -->
-<%-- Welcome ${name} and Password is ${password} --%>
-<!-- </body> -->
-<!-- </html> -->
-
 <!DOCTYPE html>
 
 <%@page import="java.util.Iterator"%>
@@ -224,7 +215,7 @@
 				<a href="http://localhost:8080/ProductDetails?id=${product.productId}">
 				<div class="col-sm-4 col-lg-4 col-md-4">
 					<div class="thumbnail">
-						<img src="/resources/${product.productName}.jpg" alt="">
+						<img src="/resources/${product.modelId}.jpg" alt="">
 						<div class="caption">
 							<h4 class="pull-right">$${product.price}</h4>
 							<h4>
