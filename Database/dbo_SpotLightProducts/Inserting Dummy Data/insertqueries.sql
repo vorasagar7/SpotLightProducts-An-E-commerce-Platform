@@ -335,6 +335,26 @@ insert into tb_ProductSeller (Product_Id,Seller_Id,Price,Quantity,Created_By,Mod
 91	BookWorld
 92	KnowlegeBase
 
+41	Playing It My Way
+42	Software Engineering: A Practitioners Approach
+43	F-1 Student Visa Interview Package
+44	Website Development Using HTML & CSS
+45	Cracking the Coding Interview
+46	Elements of Programming Interviews
+47	Programming Interviews Exposed
+48	Scrappy Little Nobody
+49	Data Structure and Algorithmic in Python
+
+insert into tb_ProductSeller (Product_Id,Seller_Id,Price,Quantity,Created_By,Modified_On,Modified_By) values (41,25,50,100,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_ProductSeller (Product_Id,Seller_Id,Price,Quantity,Created_By,Modified_On,Modified_By) values (42,26,50,50,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_ProductSeller (Product_Id,Seller_Id,Price,Quantity,Created_By,Modified_On,Modified_By) values (43,27,60,110,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_ProductSeller (Product_Id,Seller_Id,Price,Quantity,Created_By,Modified_On,Modified_By) values (44,25,30,100,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_ProductSeller (Product_Id,Seller_Id,Price,Quantity,Created_By,Modified_On,Modified_By) values (45,26,60,15,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_ProductSeller (Product_Id,Seller_Id,Price,Quantity,Created_By,Modified_On,Modified_By) values (46,27,50,110,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_ProductSeller (Product_Id,Seller_Id,Price,Quantity,Created_By,Modified_On,Modified_By) values (47,25,30,100,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_ProductSeller (Product_Id,Seller_Id,Price,Quantity,Created_By,Modified_On,Modified_By) values (48,26,30,100,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+insert into tb_ProductSeller (Product_Id,Seller_Id,Price,Quantity,Created_By,Modified_On,Modified_By) values (49,27,20,110,CURRENT_USER,CURRENT_TIMESTAMP,CURRENT_USER);
+
 /*Ends */  
   
   
