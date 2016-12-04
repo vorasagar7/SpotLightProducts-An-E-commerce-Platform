@@ -6,7 +6,7 @@ CREATE PROCEDURE sp_Inventory_Management_Add_Product(
 	IN p_Category_Id INTEGER,
 	IN p_Seller_Id INTEGER,
 	IN p_Description VARCHAR(1000),
-	IN p_Is_Spotlight BOOLEAN,
+	IN p_Is_Spotlight INTEGER,
 	IN p_Quantity INTEGER,
 	IN p_Price FLOAT(10,2)
 )

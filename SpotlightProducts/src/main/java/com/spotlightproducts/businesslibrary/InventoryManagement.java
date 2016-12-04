@@ -36,12 +36,20 @@ public class InventoryManagement {
 			int sellerId = CommonUtilities.getUserId((String)request.getSession().getAttribute(SpotLightConstants.CONSTANT_EMAIL));
 			String description = product.getDescription();
 			int SpotlightProduct = product.getIsSpotlight();
-			boolean isSpotlightProduct = (SpotlightProduct == 1) ? true : false;
 			int quantity = product.getQuantity();
 			double price = product.getPrice();
 			Connection con = DatabaseConnection.getDatabaseConnection();
 			CallableStatement cStmt = (CallableStatement) con.prepareCall(SpotLightConstants.SP_ADD_SELLER_PRODUCT);
-				boolean hadResults = cStmt.execute();
+			cStmt.setString(1, productName);
+			cStmt.setString(2, modelId);
+			cStmt.setInt(3, brandId);
+			cStmt.setInt(4, categoryId);
+			cStmt.setInt(5, sellerId);
+			cStmt.setString(6, description);
+			cStmt.setInt(7, SpotlightProduct);
+			cStmt.setInt(8, quantity);
+			cStmt.setDouble(9, price);
+			boolean hadResults = cStmt.execute();
 				while (hadResults) {
 					ResultSet rs = (ResultSet) cStmt.getResultSet();
 					while (rs.next()) {
