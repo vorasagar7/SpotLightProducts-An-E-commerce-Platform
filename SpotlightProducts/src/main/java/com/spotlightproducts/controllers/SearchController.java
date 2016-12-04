@@ -414,7 +414,7 @@ public class SearchController {
 	@RequestMapping(value = "/filterByBooks", method = RequestMethod.GET)
 	public String filterByBooks(ModelMap model) {
 
-		ArrayList<Product> productList = searchService.getProductList("Books");
+		ArrayList<Product> productList = searchService.getProductList("Book");
 
 		model.addAttribute(productList);
 
