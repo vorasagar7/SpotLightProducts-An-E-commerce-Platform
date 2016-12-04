@@ -17,13 +17,11 @@ import javax.mail.internet.MimeMessage;
 
 import com.mysql.jdbc.CallableStatement;
 import com.mysql.jdbc.Connection;
-import com.spotlightproducts.dao.DatabaseResponse;
-import com.spotlightproducts.dao.User;
 import com.spotlightproducts.utilities.SpotLightConstants;
 
 public class InventoryManagement {
 
-		public DatabaseResponse<ReferenceData> getReferenceListItems() {
+		public DatabaseResponse<Product> addSellerProducts() {
 			DatabaseResponse response = new DatabaseResponse();
 			List<ReferenceData> referenceList = new ArrayList<ReferenceData>();
 
@@ -58,52 +56,115 @@ public class InventoryManagement {
 
 		}
 		
-		public DatabaseResponse savePaymentDetails(UserPaymentDetailsDao userDetails) {
+		public DatabaseResponse<Product> editSellerProducts() {
 			DatabaseResponse response = new DatabaseResponse();
-			String fullName = userDetails.getFullName();
-			int typeOfPayment = userDetails.getTypeOfPayment();
-			String address1 = userDetails.getAddress1();
-			String address2 = userDetails.getAddress2();
-			String city = userDetails.getCity();
-			String state = userDetails.getState();
-			String country = userDetails.getCountry();
-			int zipcode = userDetails.getZip_code();
-			String full_address = address1+" "+address2+" "+city+" "+state+" "+country+" "+zipcode;
+			List<ReferenceData> referenceList = new ArrayList<ReferenceData>();
+
 			try {
 				
 				Connection con = DatabaseConnection.getDatabaseConnection();
-				CallableStatement cStmt = (CallableStatement) con.prepareCall(SpotLightConstants.SP_DO_PAYMENT_DELIVERY);
-				cStmt.setInt(1, 1);
-				cStmt.setInt(2, typeOfPayment);
-				cStmt.setString(3, full_address);
+				CallableStatement cStmt = (CallableStatement) con.prepareCall(SpotLightConstants.SP_GET_REFERENCE_DATA);
 				boolean hadResults = cStmt.execute();
 				while (hadResults) {
 					ResultSet rs = (ResultSet) cStmt.getResultSet();
 					while (rs.next()) {
-						int id = rs.getInt(1);
-						if (id == 1) {
-							con.close();
-							response.setStatus(SpotLightConstants.CONSTANT_SUCCESS);
-							response.setMessage(SpotLightConstants.CONSTANT_ORDER_SUCCESSFULLY_PLACED);
-							return response;
-						} else {
-							con.close();
-							response.setStatus(SpotLightConstants.CONSTANT_FAILURE);
-							response.setMessage(SpotLightConstants.CONSTANT_ORDER_CANNOT_PLACED);
-							return response;
-						}
-
+							ReferenceData refData = new ReferenceData();
+							refData.setId(rs.getInt(1));
+							refData.setObjectId(rs.getInt(2));
+							refData.setName(rs.getString(3));
+							referenceList.add(refData);						
 					}
 					hadResults = cStmt.getMoreResults();
 				}
 				con.close();
+				response.setStatus(SpotLightConstants.CONSTANT_SUCCESS);
+				response.setMessage("");
+				response.setData(referenceList);
+				return response;
+			} catch (Exception e) {
+				System.out.println(e);
+			}
+			response.setStatus(SpotLightConstants.CONSTANT_FAILURE);
+			response.setMessage(SpotLightConstants.CONSTANT_TECHNICAL_FAILURE);
+			response.setData(referenceList);
+			return response;
+
+		}
+		
+		
+		public DatabaseResponse<Product> removeSellerProducts() {
+			DatabaseResponse response = new DatabaseResponse();
+			List<ReferenceData> referenceList = new ArrayList<ReferenceData>();
+
+			try {
+				
+				Connection con = DatabaseConnection.getDatabaseConnection();
+				CallableStatement cStmt = (CallableStatement) con.prepareCall(SpotLightConstants.SP_GET_REFERENCE_DATA);
+				boolean hadResults = cStmt.execute();
+				while (hadResults) {
+					ResultSet rs = (ResultSet) cStmt.getResultSet();
+					while (rs.next()) {
+							ReferenceData refData = new ReferenceData();
+							refData.setId(rs.getInt(1));
+							refData.setObjectId(rs.getInt(2));
+							refData.setName(rs.getString(3));
+							referenceList.add(refData);						
+					}
+					hadResults = cStmt.getMoreResults();
+				}
+				con.close();
+				response.setStatus(SpotLightConstants.CONSTANT_SUCCESS);
+				response.setMessage("");
+				response.setData(referenceList);
+				return response;
+			} catch (Exception e) {
+				System.out.println(e);
+			}
+			response.setStatus(SpotLightConstants.CONSTANT_FAILURE);
+			response.setMessage(SpotLightConstants.CONSTANT_TECHNICAL_FAILURE);
+			response.setData(referenceList);
+			return response;
+
+		}
+		
+		public DatabaseResponse<Product> getApprovedSellerProducts(int id) {
+			DatabaseResponse response = new DatabaseResponse();
+			List<Product> sellerProductList = new ArrayList<Product>();
+			try {
+				
+				Connection con = DatabaseConnection.getDatabaseConnection();
+				CallableStatement cStmt = (CallableStatement) con.prepareCall(SpotLightConstants.SP_GET_SELLER_APPROVED_PRODUCT);
+				cStmt.setInt(1, id);
+				boolean hadResults = cStmt.execute();
+				while (hadResults) {
+					ResultSet rs = (ResultSet) cStmt.getResultSet();
+					while (rs.next()) {
+						
+						Product product = new Product();
+						product.setProductId(rs.getInt(1));
+						product.setProductName(rs.getString(2));
+						product.setModelId(rs.getString(3));
+						product.setDescription(rs.getString(4));
+						product.setPrice(rs.getDouble(5));
+						product.setQuantity(rs.getInt(6));
+						product.setBrandName(rs.getString(7));
+						product.setCategoryName(rs.getString(8));
+						sellerProductList.add(product);	
+					}
+					hadResults = cStmt.getMoreResults();
+				}
+				response.setStatus(SpotLightConstants.CONSTANT_SUCCESS);
+				response.setData(sellerProductList);
+				con.close();
+				return response;
 			} catch (Exception e) {
 				System.out.println(e);
 			}
 			response.setStatus(SpotLightConstants.CONSTANT_FAILURE);
 			response.setMessage(SpotLightConstants.CONSTANT_TECHNICAL_FAILURE);
 			return response;
-
 		}
+		
+		
 	
 }
