@@ -7,6 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.ErrorManager;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import com.mysql.jdbc.CallableStatement;
 import com.mysql.jdbc.Connection;
 import com.spotlightproducts.dao.DatabaseResponse;
@@ -21,7 +24,9 @@ public class ShoppingCartDetails {
 			
 			Connection con = DatabaseConnection.getDatabaseConnection();
 			CallableStatement cStmt = (CallableStatement) con.prepareCall(SpotLightConstants.SP_GET_USER_SHOPPING_CART);
-			cStmt.setInt(1, 1); // this needs to be replaced with user email
+			CommonUtilities user = new CommonUtilities();
+			int userId = user.getUserId(email);
+			cStmt.setInt(1, userId); // this was set 1 previously
 			boolean hadResults = cStmt.execute();
 			while (hadResults) {
 				ResultSet rs = (ResultSet) cStmt.getResultSet();
@@ -59,17 +64,20 @@ public class ShoppingCartDetails {
 
 	}
 
-	public DatabaseResponse modifyUserShoppingCart(List<ShoppingCart> shoppingCart) {
+	public DatabaseResponse modifyUserShoppingCart(List<ShoppingCart> shoppingCart, HttpServletRequest request) {
 		DatabaseResponse response = new DatabaseResponse();
 		try {
-			
+			HttpSession session = request.getSession();
+			String email = (String)session.getAttribute("email");
+			CommonUtilities user = new CommonUtilities();
+			int uniqueUserId = user.getUserId(email);
 			Connection con = DatabaseConnection.getDatabaseConnection();
 			for (int i = 0; i < shoppingCart.size(); i++) {
 				int success = 0;
 				String errorMessage = null;
 				
 				int shoppingCartId = shoppingCart.get(i).getCartId();
-				int userId = 1;
+				int userId = uniqueUserId;	//this field was set to 1 previously
 				int productId = shoppingCart.get(i).getProductId();
 				int sellerId = shoppingCart.get(i).getSellerId();
 				int quantity = shoppingCart.get(i).getQuantity();
