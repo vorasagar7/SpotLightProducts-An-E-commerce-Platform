@@ -49,7 +49,7 @@ public class InventoryManagementAPIController {
 	return new ResponseEntity<JSONResponse<Product>>(JsonResponse, HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "/POSTEditProduct", method = RequestMethod.POST)
+	@RequestMapping(value = "/ProductSellerModify", method = RequestMethod.POST)
 	public ResponseEntity<JSONResponse<Product>> editProductDetails(List<Product> product){
 		JSONResponse<Product> JsonResponse = new JSONResponse<Product>(); 
 		InventoryManagement sellerInvManagement = new InventoryManagement();
@@ -61,10 +61,10 @@ public class InventoryManagementAPIController {
 	}
 	
 	@RequestMapping(value = "/POSTRemoveProduct", method = RequestMethod.POST)
-	public ResponseEntity<JSONResponse<Product>> removeProduct(Product product){
+	public ResponseEntity<JSONResponse<Product>> removeProduct(Product product, HttpServletRequest request){
 		JSONResponse<Product> JsonResponse = new JSONResponse<Product>(); 
 		InventoryManagement sellerInvManagement = new InventoryManagement();
-		DatabaseResponse<Product> dbresponse = sellerInvManagement.removeSellerProducts();
+		DatabaseResponse<Product> dbresponse = sellerInvManagement.removeSellerProducts(product,request);
 		JsonResponse.setStatus(dbresponse.getStatus());
 		JsonResponse.setMessage(dbresponse.getMessage());
 		JsonResponse.setData(dbresponse.getData());

@@ -14,6 +14,8 @@ import javax.mail.Transport;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import com.mysql.jdbc.CallableStatement;
 import com.mysql.jdbc.Connection;
@@ -92,37 +94,35 @@ public class InventoryManagement {
 		}
 		
 		
-		public DatabaseResponse<Product> removeSellerProducts() {
+		public DatabaseResponse<Product> removeSellerProducts(Product product, HttpServletRequest request) {
 			DatabaseResponse response = new DatabaseResponse();
-			List<ReferenceData> referenceList = new ArrayList<ReferenceData>();
-
+			HttpSession session = request.getSession();
+			String email = (String)session.getAttribute("email");
+			int id = CommonUtilities.getUserId(email);
+			
 			try {
 				
 				Connection con = DatabaseConnection.getDatabaseConnection();
-				CallableStatement cStmt = (CallableStatement) con.prepareCall(SpotLightConstants.SP_GET_REFERENCE_DATA);
+				CallableStatement cStmt = (CallableStatement) con.prepareCall(SpotLightConstants.SP_SELLER_DELETE_PRODUCT);
+				cStmt.setInt(1, product.getProductId());
+				cStmt.setInt(2, id);
 				boolean hadResults = cStmt.execute();
 				while (hadResults) {
 					ResultSet rs = (ResultSet) cStmt.getResultSet();
 					while (rs.next()) {
-							ReferenceData refData = new ReferenceData();
-							refData.setId(rs.getInt(1));
-							refData.setObjectId(rs.getInt(2));
-							refData.setName(rs.getString(3));
-							referenceList.add(refData);						
+						response.setStatus(SpotLightConstants.CONSTANT_SUCCESS);
+						response.setMessage(rs.getString(2));
 					}
 					hadResults = cStmt.getMoreResults();
 				}
 				con.close();
-				response.setStatus(SpotLightConstants.CONSTANT_SUCCESS);
-				response.setMessage("");
-				response.setData(referenceList);
+				
 				return response;
 			} catch (Exception e) {
 				System.out.println(e);
 			}
 			response.setStatus(SpotLightConstants.CONSTANT_FAILURE);
 			response.setMessage(SpotLightConstants.CONSTANT_TECHNICAL_FAILURE);
-			response.setData(referenceList);
 			return response;
 
 		}
