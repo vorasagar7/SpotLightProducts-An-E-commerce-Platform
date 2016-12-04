@@ -27,7 +27,7 @@
 						<div class="card-block">
 							<h2 class="card-title">Low Stock Items</h2>
 						</div>
-						<a href="#" class="card-link"> <img
+						<a href="/InventoryManagement" class="card-link"> <img
 							src="http://www.clker.com/cliparts/U/D/B/J/j/R/red-square-md.png"
 							class="rounded float-xs-left"></a>
 					</div>
