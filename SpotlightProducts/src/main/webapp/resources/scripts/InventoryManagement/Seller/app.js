@@ -94,6 +94,7 @@ inventoryManagementApp.controller("InventoryManagementCtrl", function($scope,$lo
 	}
 	
 	$scope.updateChanges = function(){
+		$scope.hideAlert();
 		var url = $location.absUrl().replace(window.location.pathname + window.location.hash+window.location.search,'/ProductSellerModify');
 		var data = [];
 		for (i = 0; i < $scope.sellerProducts.length; i++){

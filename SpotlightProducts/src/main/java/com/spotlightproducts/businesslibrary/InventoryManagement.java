@@ -65,7 +65,7 @@ public class InventoryManagement {
 			String errorMessage = null;
 			HttpSession session = request.getSession();
 			String email = (String)session.getAttribute("email");
-			int id = CommonUtilities.getUserId(email);
+			int sellerId = CommonUtilities.getUserId(email);
 			try {
 				
 				Connection con = DatabaseConnection.getDatabaseConnection();
@@ -74,7 +74,6 @@ public class InventoryManagement {
 					
 					
 					int productId = products.get(i).getProductId();
-					int sellerId = products.get(i).getSellerId();
 					int quantity = products.get(i).getQuantity();
 					double price = products.get(i).getPrice();
 					

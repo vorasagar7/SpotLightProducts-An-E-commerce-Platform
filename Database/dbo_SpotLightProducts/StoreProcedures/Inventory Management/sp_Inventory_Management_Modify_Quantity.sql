@@ -11,7 +11,7 @@ BEGIN
 	SET Quantity = p_Quantity,
 	Price = p_Price,
 	Version = Version + 1,
-	CreatedBy = @SellerEmail,
+	Created_By = @SellerEmail,
 	Modified_On = CURRENT_TIMESTAMP,
 	Modified_By = @SellerEmail
 	WHERE Product_Id = p_Product_Id
