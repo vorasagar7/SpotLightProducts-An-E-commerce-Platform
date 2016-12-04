@@ -127,8 +127,8 @@
 							<td>{{product.modelId}}</td>
 							<td>{{product.brandName}}</td>
 							<td>{{product.categoryName}}</td>
-							<td>{{product.price}}</td>
-							<td>{{product.quantity}}</td>
+							<td class=" inventory-cell"><input class="form-control" ng-model="product.quantity"></td>
+							<td class=" inventory-cell"><input class="form-control" ng-model="product.price"></td>
 							<td><div>
 									<button type="button" class="btn btn-primary navbar-btn"
 										ng-click="viewProduct(product.productId)">View
@@ -146,6 +146,8 @@
 			<div>
 				<button type="button" class="btn btn-primary navbar-btn">
 					Add Product</button>
+				<button type="button" class="btn btn-primary navbar-btn" ng-click="updateChanges()">
+					Update Changes</button>
 			</div>
 
 

@@ -19,6 +19,7 @@ BEGIN
 	OR p.Description like CONCAT('%',p_searchQuery,'%')
 	OR CONCAT(au.First_Name, au.Last_Name) like CONCAT('%',p_searchQuery,'%'))
 	AND (p.Is_Approved = 1
+	AND ps.Is_Deleted = 0
 	AND p.Is_Deleted = 0);
 END;
 $$

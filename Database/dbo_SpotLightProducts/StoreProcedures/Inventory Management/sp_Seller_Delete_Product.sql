@@ -10,7 +10,7 @@ BEGIN
 			Version = Version + 1,
 			Modified_On = CURRENT_TIMESTAMP,
 			Modified_By = @SellerEmail
-		WHERE Id = p_Product_Id
+		WHERE Product_Id = p_Product_Id
 		AND Seller_Id = p_Seller_Id;
 		SELECT 
 			1 AS SUCCESS,

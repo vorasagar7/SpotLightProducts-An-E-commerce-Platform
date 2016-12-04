@@ -92,4 +92,33 @@ inventoryManagementApp.controller("InventoryManagementCtrl", function($scope,$lo
 							});
 	
 	}
+	
+	$scope.updateChanges = function(){
+		var url = $location.absUrl().replace(window.location.pathname + window.location.hash+window.location.search,'/ProductSellerModify');
+		var data = [];
+		for (i = 0; i < $scope.sellerProducts.length; i++){
+			if(!$scope.sellerProducts[i].isDeleted){
+				data.push($scope.sellerProducts[i]);
+			}
+		}
+		$http.post(url, data)
+						.success(function(data, status, headers, config){
+								if(data.status == "Success"){
+									$scope.alertMessage = "Changes successfully modified.";
+									$scope.showAlert();
+									$timeout(function(){
+										$scope.hideAlert();
+									}, 3000)
+								}
+								else{
+									$scope.alertMessage = "Technical Error. Please contact the customer service.";
+									$scope.showAlert();
+								}
+							})
+							.error(function(data, status, headers, config){
+								$scope.alertMessage = "Technical Error. Please contact the customer service.";
+								$scope.showAlert();
+							})
+	}
+	
 })

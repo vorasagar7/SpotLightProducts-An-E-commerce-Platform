@@ -80,3 +80,9 @@
 .borderless li {
 	border-top: none;
 }
+
+/*Admin Inventory*/
+.inventory-cell{
+	width: 10%;
+	min-width: 100px
+}

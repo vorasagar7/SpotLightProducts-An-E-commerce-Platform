@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -50,10 +51,10 @@ public class InventoryManagementAPIController {
 	}
 	
 	@RequestMapping(value = "/ProductSellerModify", method = RequestMethod.POST)
-	public ResponseEntity<JSONResponse<Product>> editProductDetails(List<Product> product){
+	public ResponseEntity<JSONResponse<Product>> editProductDetails(@RequestBody List<Product> products, HttpServletRequest request){
 		JSONResponse<Product> JsonResponse = new JSONResponse<Product>(); 
 		InventoryManagement sellerInvManagement = new InventoryManagement();
-		DatabaseResponse<Product> dbresponse = sellerInvManagement.editSellerProducts();
+		DatabaseResponse<Product> dbresponse = sellerInvManagement.editSellerProducts(products, request);
 		JsonResponse.setStatus(dbresponse.getStatus());
 		JsonResponse.setMessage(dbresponse.getMessage());
 		JsonResponse.setData(dbresponse.getData());
@@ -61,14 +62,13 @@ public class InventoryManagementAPIController {
 	}
 	
 	@RequestMapping(value = "/POSTRemoveProduct", method = RequestMethod.POST)
-	public ResponseEntity<JSONResponse<Product>> removeProduct(Product product, HttpServletRequest request){
-		JSONResponse<Product> JsonResponse = new JSONResponse<Product>(); 
+	public ResponseEntity<JSONResponse<String>> removeProduct(@RequestBody Product product, HttpServletRequest request){
+		JSONResponse<String> JsonResponse = new JSONResponse<String>(); 
 		InventoryManagement sellerInvManagement = new InventoryManagement();
-		DatabaseResponse<Product> dbresponse = sellerInvManagement.removeSellerProducts(product,request);
+		DatabaseResponse<String> dbresponse = sellerInvManagement.removeSellerProducts(product,request);
 		JsonResponse.setStatus(dbresponse.getStatus());
 		JsonResponse.setMessage(dbresponse.getMessage());
-		JsonResponse.setData(dbresponse.getData());
-		return new ResponseEntity<JSONResponse<Product>>(JsonResponse, HttpStatus.OK);
+		return new ResponseEntity<JSONResponse<String>>(JsonResponse, HttpStatus.OK);
 	}
 
 }
