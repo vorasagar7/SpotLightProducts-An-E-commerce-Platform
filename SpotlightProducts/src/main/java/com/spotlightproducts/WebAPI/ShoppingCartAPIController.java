@@ -62,10 +62,10 @@ public class ShoppingCartAPIController{
 	}
 	
 	@RequestMapping(value = "/ModifyUserCart", method = RequestMethod.POST)
-	public ResponseEntity<JSONResponse<String>> modifyUserCartItem(@RequestBody List<ShoppingCart> cart){
+	public ResponseEntity<JSONResponse<String>> modifyUserCartItem(@RequestBody List<ShoppingCart> cart, HttpServletRequest request){
 		JSONResponse<String> JsonResponse = new JSONResponse<String>();
 		ShoppingCartDetails shoppingCartDetails = new ShoppingCartDetails();
-		DatabaseResponse dbresponse =	shoppingCartDetails.modifyUserShoppingCart(cart);
+		DatabaseResponse dbresponse =	shoppingCartDetails.modifyUserShoppingCart(cart,request);
 		JsonResponse.setStatus(dbresponse.getStatus());
 		return new ResponseEntity<JSONResponse<String>>(JsonResponse, HttpStatus.OK);
 	}
