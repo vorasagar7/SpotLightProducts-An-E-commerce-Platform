@@ -23,30 +23,36 @@ import com.spotlightproducts.utilities.SpotLightConstants;
 
 public class InventoryManagement {
 
-		public DatabaseResponse<Product> addSellerProducts() {
+		public DatabaseResponse<Product> addSellerProducts(Product product, HttpServletRequest request) {
+			
 			DatabaseResponse response = new DatabaseResponse();
-			List<ReferenceData> referenceList = new ArrayList<ReferenceData>();
-
+			
 			try {
 				
-				Connection con = DatabaseConnection.getDatabaseConnection();
-				CallableStatement cStmt = (CallableStatement) con.prepareCall(SpotLightConstants.SP_GET_REFERENCE_DATA);
+			String productName = product.getProductName();
+			String modelId = product.getModelId();
+			int brandId = product.getBrandId();
+			int categoryId = product.getCategoryId();
+			int sellerId = CommonUtilities.getUserId((String)request.getSession().getAttribute(SpotLightConstants.CONSTANT_EMAIL));
+			String description = product.getDescription();
+			int SpotlightProduct = product.getIsSpotlight();
+			boolean isSpotlightProduct = (SpotlightProduct == 1) ? true : false;
+			int quantity = product.getQuantity();
+			double price = product.getPrice();
+			Connection con = DatabaseConnection.getDatabaseConnection();
+			CallableStatement cStmt = (CallableStatement) con.prepareCall(SpotLightConstants.SP_ADD_SELLER_PRODUCT);
 				boolean hadResults = cStmt.execute();
 				while (hadResults) {
 					ResultSet rs = (ResultSet) cStmt.getResultSet();
 					while (rs.next()) {
-							ReferenceData refData = new ReferenceData();
-							refData.setId(rs.getInt(1));
-							refData.setObjectId(rs.getInt(2));
-							refData.setName(rs.getString(3));
-							referenceList.add(refData);						
+						response.setStatus(SpotLightConstants.CONSTANT_SUCCESS);
+						response.setMessage("");		
 					}
 					hadResults = cStmt.getMoreResults();
 				}
 				con.close();
 				response.setStatus(SpotLightConstants.CONSTANT_SUCCESS);
 				response.setMessage("");
-				response.setData(referenceList);
 				return response;
 			} catch (Exception e) {
 				System.out.println(e);
