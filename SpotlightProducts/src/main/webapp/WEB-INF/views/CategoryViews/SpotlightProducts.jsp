@@ -92,9 +92,9 @@
 
 		<ul class="nav navbar-nav navbar-right">
 
-			<li><button type="button" class="btn btn-primary navbar-btn">
+			<li><form action="/ShoppingCart"><button type="submit" class="btn btn-primary navbar-btn">
 					<i class="fa fa-shopping-cart"></i> Shopping Cart
-				</button></li>
+				</button></form></li>
 
 
 
