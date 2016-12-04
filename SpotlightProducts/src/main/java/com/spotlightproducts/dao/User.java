@@ -17,6 +17,7 @@ public class User {
 	private String reTypePassword;
 	private String newPassword;
 	private int userId;
+	private int roleId;
 	
 	public int getUserId() {
 		return userId;
@@ -72,6 +73,12 @@ public class User {
 	}
 	public void setNewPassword(String newPassword) {
 		this.newPassword = newPassword;
+	}
+	public int getRoleId() {
+		return roleId;
+	}
+	public void setRoleId(int roleId) {
+		this.roleId = roleId;
 	}
 	public DatabaseResponse registerUserDao(){
 		
