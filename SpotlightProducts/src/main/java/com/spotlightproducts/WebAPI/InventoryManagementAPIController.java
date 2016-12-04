@@ -31,7 +31,6 @@ public class InventoryManagementAPIController {
 	int id = CommonUtilities.getUserId(email);
 	JSONResponse<Product> JsonResponse = new JSONResponse<Product>(); 
 	InventoryManagement sellerInvManagement = new InventoryManagement();
-	System.out.println(id);
 	DatabaseResponse<Product> dbresponse = sellerInvManagement.getApprovedSellerProducts(id);
 	JsonResponse.setStatus(dbresponse.getStatus());
 	JsonResponse.setMessage(dbresponse.getMessage());
@@ -40,9 +39,10 @@ public class InventoryManagementAPIController {
 	}
 	
 	@RequestMapping(value = "/PostAddProduct", method = RequestMethod.POST)
-	public ResponseEntity<JSONResponse<Product>> AddProductDetails(Product product, HttpServletRequest request){
+	public ResponseEntity<JSONResponse<Product>> AddProductDetails(@RequestBody Product product, HttpServletRequest request){
 	JSONResponse<Product> JsonResponse = new JSONResponse<Product>(); 
 	InventoryManagement sellerInvManagement = new InventoryManagement();
+	System.out.println(product.getBrandId());
 	DatabaseResponse<Product> dbresponse = sellerInvManagement.addSellerProducts(product, request);
 	JsonResponse.setStatus(dbresponse.getStatus());
 	JsonResponse.setMessage(dbresponse.getMessage());

@@ -20,7 +20,6 @@ INNER JOIN tb_ReferenceListItem brand
 INNER JOIN tb_ReferenceListItem category
 	ON p.Category_Id = category.Id
 WHERE ps.Seller_Id = p_seller_Id
-AND p.Is_Approved = 1
 AND p.Is_Deleted = 0
 AND ps.Is_Deleted = 0;
 End;

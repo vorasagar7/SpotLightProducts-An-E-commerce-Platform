@@ -164,44 +164,79 @@
 							<h4 class="modal-title" id="myModalLabel">Add Product</h4>
 						</div>
 						<div class="modal-body">
-							<form class="form-horizontal">
-								<div class="form-group">
+							<form class="form-horizontal css-form" name="addProductForm"
+								novalidate>
+								<div class="form-group"
+									ng-class="{ 'has-error' : addProductForm.modelId.$invalid && !addProductForm.modelId.$pristine }">
 									<label for="productModelId"
 										class="col-xs-2 col-md-2 control-label">Model Id</label>
 									<div class="col-xs-8 col-md-8">
-										<input type="text" class="form-control" id="productModelId"
-											placeholder="Model Id">
+										<input name="modelId" type="text" class="form-control"
+											id="productModelId" placeholder="Model Id"
+											ng-model="product.modelId" required>
+										<p
+											ng-show="addProductForm.modelId.$invalid && !addProductForm.modelId.$pristine"
+											class="help-block">Model Id is required.</p>
 									</div>
 
 								</div>
 
-								<div class="form-group">
+								<div class="form-group"
+									ng-class="{ 'has-error' : addProductForm.productName.$invalid && !addProductForm.productName.$pristine }">
 									<label for="productName"
 										class="col-xs-2 col-md-2 control-label">Name</label>
 									<div class="col-xs-8 col-md-8">
-										<input type="text" class="form-control" id="productName"
-											placeholder="Product Name">
+										<input name="productName" ng-model="product.productName"
+											type="text" class="form-control" id="productName"
+											placeholder="Product Name" required>
+										<p
+											ng-show="addProductForm.productName.$invalid && !addProductForm.productName.$pristine"
+											class="help-block">Product Name is required.</p>
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="brand" class="col-xs-2 col-md-2 control-label">Brand</label>
-									<div class="col-xs-4 col-md-4">
-										<select class="form-control" id="productBrand"></select>
+									<label for="brand" class="col-xs-2 col-md-2 control-label" ng-class="{ 'has-error' : !product.brandId && !addProductForm.brand.$pristine }">Brand</label>
+									<div class="col-xs-4 col-md-4" ng-class="{ 'has-error' : !product.brandId && !addProductForm.brand.$pristine }">
+										<select class="form-control" id="productBrand" name="brand" ng-model="product.brandId">
+											<option value="">Select Brand</option>
+											<option ng-repeat="brand in referenceList | filter:{id:10}"
+												value="{{brand.objectId}}">{{brand.name}}</option>
+										</select>
+										<p ng-show="!product.brandId && !addProductForm.brand.$pristine" class="help-block">Brand is required.</p>
 									</div>
-									<label for="category" class="col-xs-2 col-md-2 control-label">Category</label>
-									<div class="col-xs-4 col-md-4">
-										<select class="form-control" id="productCategory"></select>
+									<label for="category" class="col-xs-2 col-md-2 control-label" ng-class="{ 'has-error' : !product.categoryId && !addProductForm.category.$pristine }">Category</label>
+									<div class="col-xs-4 col-md-4" ng-class="{ 'has-error' : !product.categoryId && !addProductForm.category.$pristine }">
+										<select class="form-control" id="productCategory" name="category" ng-model="product.categoryId">
+											<option value="">Select Category</option>
+											<option
+												ng-repeat="category in referenceList | filter:{id:20}"
+												value="{{category.objectId}}">{{category.name}}</option>
+										</select>
+										<p ng-show="!product.categoryId && !addProductForm.category.$pristine" class="help-block">Category is required.</p>
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="price" class="col-xs-2 col-md-2 control-label">Price
+									<label for="price" class="col-xs-2 col-md-2 control-label"
+										ng-class="{ 'has-error' : (addProductForm.price.$invalid && !addProductForm.price.$pristine)}">Price
 										($)</label>
-									<div class="col-xs-4 col-md-4">
-										<input type="number" class="form-control" id="productPrice">
+									<div class="col-xs-4 col-md-4"
+										ng-class="{ 'has-error' : (addProductForm.price.$invalid && !addProductForm.price.$pristine)}">
+										<input name="price" ng-model="product.price" type="number"
+											class="form-control" id="productPrice" required>
+										<p
+											ng-show="addProductForm.price.$invalid && !addProductForm.price.$pristine"
+											class="help-block">Price is required.</p>
 									</div>
-									<label for="quantity" class="col-xs-2 col-md-2 control-label">Quantity</label>
-									<div class="col-xs-4 col-md-4">
-										<input type="number" class="form-control" id="productQuantity">
+									<label for="quantity" class="col-xs-2 col-md-2 control-label"
+										ng-class="{ 'has-error' : (addProductForm.quantity.$invalid && !addProductForm.quantity.$pristine)}">Quantity</label>
+									<div class="col-xs-4 col-md-4"
+										ng-class="{ 'has-error' : (addProductForm.quantity.$invalid && !addProductForm.quantity.$pristine)}">
+										<input name="quantity" ng-model="product.quantity"
+											type="number" class="form-control" id="productQuantity"
+											required>
+										<p
+											ng-show="addProductForm.quantity.$invalid && !addProductForm.quantity.$pristine"
+											class="help-block">Quantity is required.</p>
 									</div>
 								</div>
 								<div class="form-group">
@@ -212,12 +247,25 @@
 											class="product-image-input">
 									</div>
 								</div>
+								<div class="form-group product-image-input">
+									<label for="spotlightCheckbox"
+										class="col-xs-2 col-md-2 control-label">Spotlight?</label>
+									<div class="col-xs-8 col-md-8">
+										<input type="checkbox" id="productSpotlight"
+											ng-model="product.isSpotlight">
+									</div>
+								</div>
 
-								<div class="form-group">
+								<div class="form-group"
+									ng-class="{ 'has-error' : (addProductForm.description.$invalid && !addProductForm.description.$pristine)}">
 									<label for="productDescription"
 										class="control-label col-xs-2 col-md-2">Description</label>
 									<div class="col-xs-10 col-md-10">
-										<textarea class="form-control product-description-input" id="productDescription" placeholder="Description"></textarea>
+										<textarea name="description" ng-model="product.description"
+											class="form-control product-description-input"
+											id="productDescription" placeholder="Description" required></textarea>
+										<p ng-show="addProductForm.description.$invalid && !addProductForm.description.$pristine"
+											class="help-block">Description is required.</p>
 									</div>
 
 								</div>
@@ -227,7 +275,7 @@
 						<div class="modal-footer">
 							<button type="button" class="btn btn-default"
 								data-dismiss="modal">Close</button>
-							<button type="button" class="btn btn-primary">Save
+							<button type="button" class="btn btn-primary" ng-disabled="addProductForm.$invalid || !product.brandId || !product.categoryId" ng-click="saveProduct()">Save
 								changes</button>
 						</div>
 					</div>
