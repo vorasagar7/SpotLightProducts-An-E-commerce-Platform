@@ -139,14 +139,24 @@
 			<p class="lead">Filter</p>
 
 			<div class="list-group">
-				<form action="/sortByMobilesPriceAsc"><button type="submit" class="list-group-item list-group-item-action">Price
-					Low to High</button></form>
-				<form action="/sortByMobilesPriceDesc"><button type="submit" class="list-group-item list-group-item-action">Price
-					High to Low</button></form>
-				<form action="/sortByMobilesNameAsc"><button type="submit" class="list-group-item list-group-item-action">A
-					to Z</button></form>
-				<form action="/sortByMobilesNameDesc"><button type="submit" class="list-group-item list-group-item-action">Z
-					to A</button></form>
+				<form action="/sortByMobilesPriceAsc">
+					<button type="submit"
+						class="list-group-item list-group-item-action">Price Low
+						to High</button>
+				</form>
+				<form action="/sortByMobilesPriceDesc">
+					<button type="submit"
+						class="list-group-item list-group-item-action">Price High
+						to Low</button>
+				</form>
+				<form action="/sortByMobilesNameAsc">
+					<button type="submit"
+						class="list-group-item list-group-item-action">A to Z</button>
+				</form>
+				<form action="/sortByMobilesNameDesc">
+					<button type="submit"
+						class="list-group-item list-group-item-action">Z to A</button>
+				</form>
 				<button type="button" class="list-group-item list-group-item-action">User
 					Review</button>
 			</div>
@@ -205,123 +215,52 @@
 		</div>
 
 
+		<div class="col-md-9">
 
 
-		<%-- 		<% Iterator itr = {productList}.iterator  %> --%>
+			<%-- 		<% Iterator itr = {productList}.iterator  %> --%>
 
-		<div class="row">
-			<c:forEach items="${productList}" var="product">
-				<a href="http://localhost:8080/ProductDetails?id=${product.productId}">
-				<div class="col-sm-4 col-lg-4 col-md-4">
-					<div class="thumbnail">
-						<!--  <img src="http://placehold.it/320x150" alt=""> -->
-						<img src="/resources/${product.productName}.jpg" alt="">
-						<div class="caption">
-							<h4 class="pull-right">$${product.price}</h4>
-							<h4>
-								<%-- 							<a href="#">${productList[0].productName}</a> --%>
-								${product.productName}
+			<div class="row">
+				<c:forEach items="${productList}" var="product">
+					<a
+						href="http://localhost:8080/ProductDetails?id=${product.productId}">
+						<div class="col-sm-4 col-lg-4 col-md-4">
+							<div class="thumbnail">
+								<!--  <img src="http://placehold.it/320x150" alt=""> -->
+								<img src="/resources/${product.productName}.jpg" alt="">
+								<div class="caption">
+									<h4 class="pull-right">$${product.price}</h4>
+									<h4>
+										<%-- 							<a href="#">${productList[0].productName}</a> --%>
+										${product.productName}
 
-							</h4>
-							<p>
-								${product.description}
-							</p>
+									</h4>
+									<p>${product.description}</p>
+								</div>
+								<div class="ratings">
+									<p class="pull-right">${product.reviewCount}reviews</p>
+									<p>
+
+										<span class="glyphicon glyphicon-star"></span> <span
+											class="glyphicon glyphicon-star"></span> <span
+											class="glyphicon glyphicon-star"></span> <span
+											class="glyphicon glyphicon-star"></span> <span
+											class="glyphicon glyphicon-star"></span>
+
+									</p>
+								</div>
+							</div>
 						</div>
-						<div class="ratings">
-							<p class="pull-right">${product.reviewCount} reviews</p>
-							<p>
+					</a>
+				</c:forEach>
 
-								<span class="glyphicon glyphicon-star"></span> <span
-									class="glyphicon glyphicon-star"></span> <span
-									class="glyphicon glyphicon-star"></span> <span
-									class="glyphicon glyphicon-star"></span> <span
-									class="glyphicon glyphicon-star"></span>
 
-							</p>
-						</div>
-					</div>
-				</div>
-				</a>
-			</c:forEach>
 
-			<!-- 			<div class="col-sm-4 col-lg-4 col-md-4"> -->
-			<!-- 				<div class="thumbnail"> -->
-			<!-- 					<img src="http://placehold.it/320x150" alt=""> -->
-			<!-- 					<div class="caption"> -->
-			<%-- 						<h4 class="pull-right">${email}</h4> --%>
-			<!-- 						<h4> -->
-			<%-- 							<a href="#">${productList[1].productName}</a> --%>
-			<!-- 						</h4> -->
-			<!-- 						<p>This is a short description. Lorem ipsum dolor sit amet, -->
-			<!-- 							consectetur adipiscing elit.</p> -->
-			<!-- 					</div> -->
-			<!-- 					<div class="ratings"> -->
-			<!-- 						<p class="pull-right">12 reviews</p> -->
-			<!-- 						<p> -->
-			<!-- 							<span class="glyphicon glyphicon-star"></span> <span -->
-			<!-- 								class="glyphicon glyphicon-star"></span> <span -->
-			<!-- 								class="glyphicon glyphicon-star"></span> <span -->
-			<!-- 								class="glyphicon glyphicon-star"></span> <span -->
-			<!-- 								class="glyphicon glyphicon-star-empty"></span> -->
-			<!-- 						</p> -->
-			<!-- 					</div> -->
-			<!-- 				</div> -->
-			<!-- 			</div> -->
-
-			<!-- 			<div class="col-sm-4 col-lg-4 col-md-4"> -->
-			<!-- 				<div class="thumbnail"> -->
-			<!-- 					<img src="http://placehold.it/320x150" alt=""> -->
-			<!-- 					<div class="caption"> -->
-			<!-- 						<h4 class="pull-right">$74.99</h4> -->
-			<!-- 						<h4> -->
-			<!-- 							<a href="#">Third Product</a> -->
-			<!-- 						</h4> -->
-			<!-- 						<p>This is a short description. Lorem ipsum dolor sit amet, -->
-			<!-- 							consectetur adipiscing elit.</p> -->
-			<!-- 					</div> -->
-			<!-- 					<div class="ratings"> -->
-			<!-- 						<p class="pull-right">31 reviews</p> -->
-			<!-- 						<p> -->
-			<!-- 							<span class="glyphicon glyphicon-star"></span> <span -->
-			<!-- 								class="glyphicon glyphicon-star"></span> <span -->
-			<!-- 								class="glyphicon glyphicon-star"></span> <span -->
-			<!-- 								class="glyphicon glyphicon-star"></span> <span -->
-			<!-- 								class="glyphicon glyphicon-star-empty"></span> -->
-			<!-- 						</p> -->
-			<!-- 					</div> -->
-			<!-- 				</div> -->
-			<!-- 			</div> -->
-
-			<!-- 			<div class="col-sm-4 col-lg-4 col-md-4"> -->
-			<!-- 				<div class="thumbnail"> -->
-			<!-- 					<img src="http://placehold.it/320x150" alt=""> -->
-			<!-- 					<div class="caption"> -->
-			<!-- 						<h4 class="pull-right">$84.99</h4> -->
-			<!-- 						<h4> -->
-			<!-- 							<a href="#">Fourth Product</a> -->
-			<!-- 						</h4> -->
-			<!-- 						<p>This is a short description. Lorem ipsum dolor sit amet, -->
-			<!-- 							consectetur adipiscing elit.</p> -->
-			<!-- 					</div> -->
-			<!-- 					<div class="ratings"> -->
-			<!-- 						<p class="pull-right">6 reviews</p> -->
-			<!-- 						<p> -->
-			<!-- 							<span class="glyphicon glyphicon-star"></span> <span -->
-			<!-- 								class="glyphicon glyphicon-star"></span> <span -->
-			<!-- 								class="glyphicon glyphicon-star"></span> <span -->
-			<!-- 								class="glyphicon glyphicon-star-empty"></span> <span -->
-			<!-- 								class="glyphicon glyphicon-star-empty"></span> -->
-			<!-- 						</p> -->
-			<!-- 					</div> -->
-			<!-- 				</div> -->
-			<!-- 			</div> -->
-
+			</div>
 
 		</div>
 
 	</div>
-
-</div>
 
 </div>
 <!-- /.container -->

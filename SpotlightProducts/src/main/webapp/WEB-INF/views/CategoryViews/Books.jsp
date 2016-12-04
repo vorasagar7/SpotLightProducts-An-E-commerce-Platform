@@ -138,14 +138,24 @@
 			<p class="lead">Filter</p>
 
 			<div class="list-group">
-				<form action="/sortByBooksPriceAsc"><button type="submit" class="list-group-item list-group-item-action">Price
-					Low to High</button></form>
-				<form action="/sortByBooksPriceDesc"><button type="submit" class="list-group-item list-group-item-action">Price
-					High to Low</button></form>
-				<form action="/sortByBooksNameAsc"><button type="submit" class="list-group-item list-group-item-action">A
-					to Z</button></form>
-				<form action="/sortByBooksNameDesc"><button type="submit" class="list-group-item list-group-item-action">Z
-					to A</button></form>
+				<form action="/sortByBooksPriceAsc">
+					<button type="submit"
+						class="list-group-item list-group-item-action">Price Low
+						to High</button>
+				</form>
+				<form action="/sortByBooksPriceDesc">
+					<button type="submit"
+						class="list-group-item list-group-item-action">Price High
+						to Low</button>
+				</form>
+				<form action="/sortByBooksNameAsc">
+					<button type="submit"
+						class="list-group-item list-group-item-action">A to Z</button>
+				</form>
+				<form action="/sortByBooksNameDesc">
+					<button type="submit"
+						class="list-group-item list-group-item-action">Z to A</button>
+				</form>
 				<button type="button" class="list-group-item list-group-item-action">User
 					Review</button>
 			</div>
@@ -205,46 +215,42 @@
 
 
 
+		<div class="col-md-9">
 
-		<%-- 		<% Iterator itr = {productList}.iterator  %> --%>
+			<%-- 		<% Iterator itr = {productList}.iterator  %> --%>
 
-		<div class="row">
-			<c:forEach items="${productList}" var="product">
-				<a href="http://localhost:8080/ProductDetails?id=${product.productId}">
-				<div class="col-sm-4 col-lg-4 col-md-4">
-					<div class="thumbnail">
-						<!--  <img src="http://placehold.it/320x150" alt=""> -->
-						<img src="/resources/${product.productName}.jpg" alt="">
-						<div class="caption">
-							<h4 class="pull-right">$${product.price}</h4>
-							<h4>
-							
-								${product.productName}
+			<div class="row">
+				<c:forEach items="${productList}" var="product">
+					<a
+						href="http://localhost:8080/ProductDetails?id=${product.productId}">
+						<div class="col-sm-4 col-lg-4 col-md-4">
+							<div class="thumbnail">
+								<!--  <img src="http://placehold.it/320x150" alt=""> -->
+								<img src="/resources/${product.productName}.jpg" alt="">
+								<div class="caption">
+									<h4 class="pull-right">$${product.price}</h4>
+									<h4>${product.productName}</h4>
+									<p>${product.description}</p>
+								</div>
+								<div class="ratings">
+									<p class="pull-right">${product.reviewCount}reviews</p>
+									<p>
 
-							</h4>
-							<p>
-								${product.description}
-							</p>
+										<span class="glyphicon glyphicon-star"></span> <span
+											class="glyphicon glyphicon-star"></span> <span
+											class="glyphicon glyphicon-star"></span> <span
+											class="glyphicon glyphicon-star"></span> <span
+											class="glyphicon glyphicon-star"></span>
+
+									</p>
+								</div>
+							</div>
 						</div>
-						<div class="ratings">
-							<p class="pull-right">${product.reviewCount} reviews</p>
-							<p>
+					</a>
+				</c:forEach>
 
-								<span class="glyphicon glyphicon-star"></span> <span
-									class="glyphicon glyphicon-star"></span> <span
-									class="glyphicon glyphicon-star"></span> <span
-									class="glyphicon glyphicon-star"></span> <span
-									class="glyphicon glyphicon-star"></span>
-
-							</p>
-						</div>
-					</div>
-				</div>
-			</a>
-			</c:forEach>
-
+			</div>
 		</div>
-
 	</div>
 
 </div>

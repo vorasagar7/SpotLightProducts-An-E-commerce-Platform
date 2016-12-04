@@ -205,6 +205,7 @@
 		</div>
 
 
+		<div class="col-md-9">
 
 
 		<%-- 		<% Iterator itr = {productList}.iterator  %> --%>

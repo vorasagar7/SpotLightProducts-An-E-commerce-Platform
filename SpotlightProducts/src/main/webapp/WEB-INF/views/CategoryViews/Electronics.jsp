@@ -195,6 +195,8 @@
 			</div>
 
 		</div>
+				<div class="col-md-9">
+		
 		<div class="row">
 			<c:forEach items="${productList}" var="product">
 				<a href="http://localhost:8080/ProductDetails?id=${product.productId}">
@@ -230,7 +232,7 @@
 				</a>
 			</c:forEach>
 
-			
+</div>			
 		</div>
 <!-- /.container -->
 
