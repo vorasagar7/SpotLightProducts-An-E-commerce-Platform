@@ -65,6 +65,7 @@ public class SpotLightConstants {
 	public static final String SP_INVENTORY_MANAGEMENT_MODIFY_QUANTITY = "{call sp_Inventory_Management_Modify_Quantity(?,?,?,?)}";
 	public static final String SP_BRAND_CATEGORY_REFERENCE_DATA = "{call sp_Brand_Category_ReferenceData_Get()}"; 
 	public static final String SP_ADD_SELLER_PRODUCT = "{call sp_Inventory_Management_Add_Product(?,?,?,?,?,?,?,?,?)}"; 
+	public static final String SP_GET_USER_DETAILS_FOR_LOGIN = "{call sp_User_ID_ROLE_ID_Get(?)}";
 	// Constant Methods
 	
 	public static void sendEmail(String email, String password) throws AddressException, MessagingException 
