@@ -16,6 +16,8 @@
 
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script
@@ -56,7 +58,7 @@
 
 <div class="row">
 	<div class="col-xs-8 col-md-offset-4 col-md-4">
-		<h1>${productList[0].categoryName}</h1>
+		<h1 align="center">Mobiles</h1>
 	</div>
 </div>
 
@@ -80,7 +82,7 @@
 				<input type="text" name="searchQuery" class="form-control"
 					placeholder="Search">
 			</div>
-			<button type="button" class="btn btn-primary btn">
+			<button type="submit" class="btn btn-primary btn">
 				<i class="fa fa-search"></i>
 			</button>
 		</form>
@@ -157,8 +159,7 @@
 					<button type="submit"
 						class="list-group-item list-group-item-action">Z to A</button>
 				</form>
-				<button type="button" class="list-group-item list-group-item-action">User
-					Review</button>
+				
 			</div>
 
 
