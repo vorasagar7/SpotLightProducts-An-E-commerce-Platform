@@ -99,7 +99,7 @@
 			</div>
 			<div ng-show="showTable">
 				<h2>Inventory</h2>
-				<table class="table table-striped">
+				<table class="table">
 
 					<thead>
 						<tr>
@@ -121,7 +121,7 @@
 								</div>
 							</div>
 						</div>
-						<tr ng-repeat="product in sellerProducts"
+						<tr ng-repeat="product in sellerProducts" ng-class="{ 'danger': (product.quantity <= 10) }"
 							ng-hide="product.isDeleted">
 							<th scope="row">{{product.productName}}</th>
 							<td>{{product.modelId}}</td>

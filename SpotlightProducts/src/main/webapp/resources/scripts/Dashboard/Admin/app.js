@@ -10,5 +10,9 @@ var adminDashboardApp = angular.module("AdminDashboardApp", ['ngRoute'])
 	        templateUrl: '/AdminActionsPage.do',
 	        controller: "AdminActionsCtrl"
 	      })
+	      .when('/AdminStatistics', {
+	        templateUrl: '/AdminStatisticsPage.do',
+	        controller: "AdminStatisticsCtrl"
+	      })
 	      .otherwise({redirectTo: '/'});
 	}]);
