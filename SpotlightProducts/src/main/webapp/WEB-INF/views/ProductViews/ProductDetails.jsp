@@ -50,7 +50,7 @@ body {
 			{{alertMessage}}
 		</div>
 			<div class="col-md-3 col-xs-3">
-				<img src="" />
+				<img ng-src="/resources/{{productImage}}" class="product-image" />
 			</div>
 			<div class="col-md-9 col-xs-9">
 				<div>{{productDetails.productName}}</div>

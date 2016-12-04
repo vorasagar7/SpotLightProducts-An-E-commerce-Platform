@@ -133,7 +133,7 @@ public class InventoryManagement {
 			try {
 				
 				Connection con = DatabaseConnection.getDatabaseConnection();
-				CallableStatement cStmt = (CallableStatement) con.prepareCall(SpotLightConstants.SP_GET_SELLER_APPROVED_PRODUCT);
+				CallableStatement cStmt = (CallableStatement) con.prepareCall(SpotLightConstants.SP_GET_SELLERAPPROVED_PRODUCT);
 				cStmt.setInt(1, id);
 				boolean hadResults = cStmt.execute();
 				while (hadResults) {

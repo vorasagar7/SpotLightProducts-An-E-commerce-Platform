@@ -22,14 +22,15 @@ import com.spotlightproducts.dao.ReferenceData;
 @RestController
 public class InventoryManagementAPIController {
 	
-	@RequestMapping(value = "/GetSellerInventoryProducts", method = RequestMethod.POST)
+	@RequestMapping(value = "/GetSellerInventoryProducts", method = RequestMethod.GET)
 	public ResponseEntity<JSONResponse<Product>> getAllSellerProducts(HttpServletRequest request){
 	HttpSession session = request.getSession();
 	String email = (String)session.getAttribute("email");
-	System.out.println("hi");
+	System.out.println(email);
 	int id = CommonUtilities.getUserId(email);
 	JSONResponse<Product> JsonResponse = new JSONResponse<Product>(); 
 	InventoryManagement sellerInvManagement = new InventoryManagement();
+	System.out.println(id);
 	DatabaseResponse<Product> dbresponse = sellerInvManagement.getApprovedSellerProducts(id);
 	JsonResponse.setStatus(dbresponse.getStatus());
 	JsonResponse.setMessage(dbresponse.getMessage());

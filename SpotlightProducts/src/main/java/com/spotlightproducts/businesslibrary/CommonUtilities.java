@@ -25,7 +25,7 @@ public class CommonUtilities {
 				ResultSet rs = (ResultSet) cStmt.getResultSet();
 				while (rs.next()) {
 					
-					userId = rs.getInt(0);
+					userId = rs.getInt(1);
 					return userId;
 				}
 				hadResults = cStmt.getMoreResults();

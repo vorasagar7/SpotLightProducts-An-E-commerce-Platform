@@ -1,8 +1,11 @@
 package com.spotlightproducts.WebAPI;
 
+import java.awt.PageAttributes.MediaType;
+import java.io.InputStream;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -28,4 +31,5 @@ public class CommonDataAPIController{
 		JsonResponse.setData(userId);
 		return new ResponseEntity<JSONResponse<Integer>>(JsonResponse, HttpStatus.OK);
 	}
+
 }
