@@ -26,8 +26,11 @@
 							ng-class="{ 'has-error' : paymentDetailsForm.fullName.$invalid && !paymentDetailsForm.fullName.$pristine }">
 							<label for="Full Name" class="control-label">Full Name</label> <input
 								name="fullName" type="text" class="form-control" id="Full Name"
-								placeholder="Full Name" ng-model="paymentDetails.fullName" required>
-							<p ng-show="paymentDetailsForm.fullName.$invalid && !paymentDetailsForm.fullName.$pristine" class="help-block">Your Full Name is required.</p>
+								placeholder="Full Name" ng-model="paymentDetails.fullName"
+								required>
+							<p
+								ng-show="paymentDetailsForm.fullName.$invalid && !paymentDetailsForm.fullName.$pristine"
+								class="help-block">Your Full Name is required.</p>
 						</div>
 
 						<div class="form-group"
@@ -36,7 +39,9 @@
 								Line 1</label> <input type="text" class="form-control" name="address1"
 								id="Address line 1" placeholder="Address line 1"
 								ng-model="paymentDetails.address1" required>
-								<p ng-show="paymentDetailsForm.address1.$invalid && !paymentDetailsForm.address1.$pristine" class="help-block">Your Address1 is required.</p>
+							<p
+								ng-show="paymentDetailsForm.address1.$invalid && !paymentDetailsForm.address1.$pristine"
+								class="help-block">Your Address1 is required.</p>
 						</div>
 
 						<div class="form-group">
@@ -51,7 +56,9 @@
 							<label for="City" class="control-label">City</label> <input
 								name="city" type="text" class="form-control" id="city"
 								placeholder="City" ng-model="paymentDetails.city" required>
-							<p ng-show="paymentDetailsForm.city.$invalid && !paymentDetailsForm.city.$pristine" class="help-block">Your City is required.</p>
+							<p
+								ng-show="paymentDetailsForm.city.$invalid && !paymentDetailsForm.city.$pristine"
+								class="help-block">Your City is required.</p>
 						</div>
 
 						<div class="form-group"
@@ -63,7 +70,9 @@
 								<option ng-repeat="state in referenceData | filter:{id:10}"
 									value="{{state.objectId}}">{{state.name}}</option>
 							</select>
-							<p ng-show="!paymentDetails.state && !paymentDetailsForm.state.$pristine" class="help-block">Your State is required.</p>
+							<p
+								ng-show="!paymentDetails.state && !paymentDetailsForm.state.$pristine"
+								class="help-block">Your State is required.</p>
 						</div>
 
 						<div class="form-group"
@@ -72,7 +81,9 @@
 								name="country" type="text" class="form-control" id="Country"
 								placeholder="City" ng-disabled="true"
 								ng-model="paymentDetails.country" required>
-								<p ng-show="paymentDetailsForm.country.$invalid && !paymentDetailsForm.country.$pristine" class="help-block">Your Country is required.</p>
+							<p
+								ng-show="paymentDetailsForm.country.$invalid && !paymentDetailsForm.country.$pristine"
+								class="help-block">Your Country is required.</p>
 						</div>
 
 						<div class="form-group"
@@ -80,23 +91,30 @@
 							<label for="ZIP" class="control-label">Zip Code</label> <input
 								type="text" class="form-control" id="ZIP" name="zipcode"
 								placeholder="ZIP" ng-model="paymentDetails.zip_code" required>
-								<p ng-show="paymentDetailsForm.zipcode.$invalid && !paymentDetailsForm.zipcode.$pristine" class="help-block">Your Zip Code is required.</p>
+							<p
+								ng-show="paymentDetailsForm.zipcode.$invalid && !paymentDetailsForm.zipcode.$pristine"
+								class="help-block">Your Zip Code is required.</p>
 						</div>
 
 						<div class="form-group">
-							<label for="Type Of Payment" class="control-label">Type of Payment Option</label>
-							</br>
-							<label class="radio-inline" ng-repeat="typeOfPayment in referenceData | filter:{id:20}">
+							<label for="Type Of Payment" class="control-label">Type
+								of Payment Option</label> </br> <label class="radio-inline"
+								ng-repeat="typeOfPayment in referenceData | filter:{id:20}">
 								<input type="radio" name="inlineRadioOptions"
-								value="{{typeOfPayment.objectId}}" ng-model="paymentDetails.typeOfPayment" />{{typeOfPayment.name}}
+								value="{{typeOfPayment.objectId}}"
+								ng-model="paymentDetails.typeOfPayment" />{{typeOfPayment.name}}
 							</label>
-							<p ng-show="!paymentDetails.typeOfPayment" class="help-block" ng-class="{ 'invalid-input': !paymentDetails.typeOfPayment }">Please select a payment type.</p>
+							<p ng-show="!paymentDetails.typeOfPayment" class="help-block"
+								ng-class="{ 'invalid-input': !paymentDetails.typeOfPayment }">Please
+								select a payment type.</p>
 						</div>
 						<br> <br>
 
 						<div class="form-group">
-							<button type="Submit" class="btn btn-primary" ng-disabled="paymentDetailsForm.$invalid || !paymentDetails.typeOfPayment || !paymentDetails.state" ng-click="submitPayment()">Continue
-								to Payment</button>
+							<button type="Submit" class="btn btn-primary"
+								ng-disabled="paymentDetailsForm.$invalid || !paymentDetails.typeOfPayment || !paymentDetails.state"
+								ng-click="submitPayment()">Continue to Payment</button>
+							
 						</div>
 					</form>
 

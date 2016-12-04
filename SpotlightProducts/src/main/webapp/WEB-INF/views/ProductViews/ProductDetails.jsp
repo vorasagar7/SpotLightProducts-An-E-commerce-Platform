@@ -30,25 +30,30 @@ body {
 	font-size: 20px;
 	padding: 50px;
 }
-
 </style>
 </head>
 <body ng-app="ProductDetailsApp" ng-controller="ProductDetailsCtrl">
 
-	<div class="login-header">
+	<div class="login-header col-md-9">
 		<h1>SpotLightProducts</h1>
 	</div>
-
-	<div class="row">
+	<div class="col-md-3">
+	<form action="/homepage">
+	<button type="submit" class="btn btn-info">
+		<span class="glyphicon glyphicon-share-alt"></span> Continue shopping
+	</button>
+	</form>
+	</div>
+		<div class="row">
 		<div class="col-md-12 col-xs-12 row">
-		<div role="alert" class="alert alert-danger"
-			ng-class="{hideElement: !isAlert, showElement: isAlert}">
-			<button type="button" class="close" aria-label="Close"
-				ng-click="hideAlert()">
-				<span aria-hidden="true">&times;</span>
-			</button>
-			{{alertMessage}}
-		</div>
+			<div role="alert" class="alert alert-danger"
+				ng-class="{hideElement: !isAlert, showElement: isAlert}">
+				<button type="button" class="close" aria-label="Close"
+					ng-click="hideAlert()">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				{{alertMessage}}
+			</div>
 			<div class="col-md-3 col-xs-3">
 				<img ng-src="/resources/{{productImage}}" class="product-image" />
 			</div>
@@ -60,13 +65,19 @@ body {
 				<div>{{productDetails.description}}</div>
 				<div>Sellers</div>
 				<div ng-repeat="seller in productSellers">
-					<span>{{seller.sellerName}}:</span> <span>Price: {{seller.price}}</span>
-					<button class="btn btn-primary" ng-click="addToCart(seller.sellerId, seller.price)">Add to Cart</button>
+					<span>{{seller.sellerName}}:</span> <span>Price:
+						{{seller.price}}</span>
+					<button class="btn btn-primary"
+						ng-click="addToCart(seller.sellerId, seller.price)">Add
+						to Cart</button>
 				</div>
 			</div>
 		</div>
 		<div class="col-xs-12 col-md-12 row">
-			<div><button class="btn btn-primary" ng-click="redirectToReview()">Write a review</button></div>
+			<div>
+				<button class="btn btn-primary" ng-click="redirectToReview()">Write
+					a review</button>
+			</div>
 			<div>Customer Reviews</div>
 			<div class="col-md-7 col-xs-9" ng-repeat="review in productReviews">
 				<div>On {{review.modifiedOn}} by {{review.username}}</div>
