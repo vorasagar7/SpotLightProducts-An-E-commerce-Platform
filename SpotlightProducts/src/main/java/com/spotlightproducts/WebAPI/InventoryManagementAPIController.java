@@ -60,7 +60,7 @@ public class InventoryManagementAPIController {
 		return new ResponseEntity<JSONResponse<Product>>(JsonResponse, HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "/POSTRemoveProduct", method = RequestMethod.GET)
+	@RequestMapping(value = "/POSTRemoveProduct", method = RequestMethod.POST)
 	public ResponseEntity<JSONResponse<Product>> removeProduct(Product product){
 		JSONResponse<Product> JsonResponse = new JSONResponse<Product>(); 
 		InventoryManagement sellerInvManagement = new InventoryManagement();

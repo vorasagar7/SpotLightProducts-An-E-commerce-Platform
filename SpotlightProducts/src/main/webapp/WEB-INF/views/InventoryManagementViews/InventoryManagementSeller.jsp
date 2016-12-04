@@ -26,7 +26,7 @@
 
 </head>
 <body ng-app="InventoryManagementApp"
-		ng-controller="InventoryManagementCtrl">
+	ng-controller="InventoryManagementCtrl">
 	<div class="row">
 		<div
 			class="col-xs-offset-4 col-xs-4 col-md-offset-4 col-md-4 login-header">
@@ -114,7 +114,15 @@
 					</thead>
 					<!-- These are the seller's product -->
 					<tbody>
-						<tr ng-repeat="product in sellerProducts">
+						<div class="row" ng-show="isEmpty">
+							<div class="text-center">
+								<div class="col-xs-9">
+									<h6 class="text-right">No Products.</h6>
+								</div>
+							</div>
+						</div>
+						<tr ng-repeat="product in sellerProducts"
+							ng-hide="product.isDeleted">
 							<th scope="row">{{product.productName}}</th>
 							<td>{{product.modelId}}</td>
 							<td>{{product.brandName}}</td>
@@ -122,10 +130,11 @@
 							<td>{{product.price}}</td>
 							<td>{{product.quantity}}</td>
 							<td><div>
-									<button type="button" class="btn btn-primary navbar-btn" ng-click="viewProduct(product.productId)">
-										View Product</button>
-									<button type="button" class="btn btn-primary navbar-btn">
-										Delete</button>
+									<button type="button" class="btn btn-primary navbar-btn"
+										ng-click="viewProduct(product.productId)">View
+										Product</button>
+									<button type="button" class="btn btn-primary navbar-btn"
+										ng-click="deleteProduct(product.productId)">Delete</button>
 								</div></td>
 						</tr>
 					</tbody>

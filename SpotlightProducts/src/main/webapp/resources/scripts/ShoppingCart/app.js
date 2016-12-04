@@ -70,7 +70,6 @@ shoppingCart.controller("shoppingCartCtrl", function($scope, $location, $http, $
 									$scope.showAlert();
 									$timeout(function(){
 										$scope.hideAlert();
-										console.log(cartId);
 									}, 3000)
 								}
 								else{
