@@ -58,7 +58,7 @@ public class InventoryManagement {
 
 		}
 		
-		public DatabaseResponse<Product> editSellerProducts() {
+		public DatabaseResponse<Product> editSellerProducts(List<Product> products, HttpServletRequest request) {
 			DatabaseResponse response = new DatabaseResponse();
 			List<ReferenceData> referenceList = new ArrayList<ReferenceData>();
 
@@ -94,7 +94,7 @@ public class InventoryManagement {
 		}
 		
 		
-		public DatabaseResponse<Product> removeSellerProducts(Product product, HttpServletRequest request) {
+		public DatabaseResponse<String> removeSellerProducts(Product product, HttpServletRequest request) {
 			DatabaseResponse response = new DatabaseResponse();
 			HttpSession session = request.getSession();
 			String email = (String)session.getAttribute("email");
@@ -104,6 +104,8 @@ public class InventoryManagement {
 				
 				Connection con = DatabaseConnection.getDatabaseConnection();
 				CallableStatement cStmt = (CallableStatement) con.prepareCall(SpotLightConstants.SP_SELLER_DELETE_PRODUCT);
+				System.out.println(product.getProductId());
+				System.out.println(id);
 				cStmt.setInt(1, product.getProductId());
 				cStmt.setInt(2, id);
 				boolean hadResults = cStmt.execute();
