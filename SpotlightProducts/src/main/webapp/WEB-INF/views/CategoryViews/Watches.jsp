@@ -16,7 +16,7 @@
 
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<link rel="stylesheet"
+<link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -92,7 +92,6 @@
 
 		<ul class="nav navbar-nav navbar-right">
 
-			<li><p class="welcomeMessage">Welcome, ${email}</p></li>
 
 			<li><button type="button" class="btn btn-primary navbar-btn">
 					<i class="fa fa-shopping-cart"></i> Shopping Cart
@@ -102,7 +101,7 @@
 
 			<li class="dropdown"><a href="#" class="dropdown-toggle"
 				data-toggle="dropdown" role="button" aria-haspopup="true"
-				aria-expanded="false">User Dropdown <span class="caret"></span></a>
+				aria-expanded="false">${email}<span class="caret"></span></a>
 				<ul class="dropdown-menu">
 					<li><a href="/Dashboard">Dashboard</a></li>
 					<li><a href="/ChangePassword">Change Password</a></li>
@@ -122,14 +121,10 @@
 	<li role="presentation"><a href="/filterByElectronics">Electronics</a></li>
 	<li role="presentation"><a href="/filterByMobiles">Mobiles</a></li>
 	<li role="presentation"><a href="/filterByShoes">Shoes</a></li>
-	<li role="presentation" class ="active"><a href="/filterByWatches">Watches</a></li>
+	<li role="presentation" class="active"><a href="/filterByWatches">Watches</a></li>
 	<li role="presentation"><a href="/filterByBooks">Books</a></li>
 	<li role="presentation"><a href="/filterBySpotlightProducts">SpotLightProducts</a></li>
 </ul>
-
-<ol class="breadcrumb">
-	<li><a href="#">Home</a></li>
-</ol>
 
 
 <!-- Page Content -->
@@ -138,116 +133,75 @@
 	<div class="row">
 
 		<div class="col-md-3">
-			<p class="lead">Filter</p>
+			<p class="lead">Filter Watches</p>
 
 			<div class="list-group">
-				<form action="/sortByWatchesPriceAsc"><button type="submit" class="list-group-item list-group-item-action">Price
-					Low to High</button></form>
-				<form action="/sortByWatchesPriceDesc"><button type="submit" class="list-group-item list-group-item-action">Price
-					High to Low</button></form>
-				<form action="/sortByWatchesNameAsc"><button type="submit" class="list-group-item list-group-item-action">A
-					to Z</button></form>
-				<form action="/sortByWatchesNameDesc"><button type="submit" class="list-group-item list-group-item-action">Z
-					to A</button></form>
+				<form action="/sortByWatchesPriceAsc">
+					<button type="submit"
+						class="list-group-item list-group-item-action">Price Low
+						to High</button>
+				</form>
+				<form action="/sortByWatchesPriceDesc">
+					<button type="submit"
+						class="list-group-item list-group-item-action">Price High
+						to Low</button>
+				</form>
+				<form action="/sortByWatchesNameAsc">
+					<button type="submit"
+						class="list-group-item list-group-item-action">A to Z</button>
+				</form>
+				<form action="/sortByWatchesNameDesc">
+					<button type="submit"
+						class="list-group-item list-group-item-action">Z to A</button>
+				</form>
 			</div>
 
 
-			<p class="lead">User Review</p>
-
-			<div class="list-group">
-				<button type="button" class="list-group-item list-group-item-action">
-					<p>
-						<span class="glyphicon glyphicon-star"></span> <span
-							class="glyphicon glyphicon-star"></span> <span
-							class="glyphicon glyphicon-star"></span> <span
-							class="glyphicon glyphicon-star"></span> <span
-							class="glyphicon glyphicon-star"></span>
-					</p>
-				</button>
-				<button type="button" class="list-group-item list-group-item-action">
-					<p>
-						<span class="glyphicon glyphicon-star"></span> <span
-							class="glyphicon glyphicon-star"></span> <span
-							class="glyphicon glyphicon-star"></span> <span
-							class="glyphicon glyphicon-star"></span> <span
-							class="glyphicon glyphicon-star-empty"></span> & up
-					</p>
-				</button>
-				<button type="button" class="list-group-item list-group-item-action">
-					<p>
-						<span class="glyphicon glyphicon-star"></span> <span
-							class="glyphicon glyphicon-star"></span> <span
-							class="glyphicon glyphicon-star"></span> <span
-							class="glyphicon glyphicon-star-empty"></span> <span
-							class="glyphicon glyphicon-star-empty"></span> & up
-					</p>
-				</button>
-				<button type="button" class="list-group-item list-group-item-action">
-					<p>
-						<span class="glyphicon glyphicon-star"></span> <span
-							class="glyphicon glyphicon-star"></span> <span
-							class="glyphicon glyphicon-star-empty"></span> <span
-							class="glyphicon glyphicon-star-empty"></span> <span
-							class="glyphicon glyphicon-star-empty"></span> & up
-					</p>
-				</button>
-				<button type="button" class="list-group-item list-group-item-action">
-					<p>
-						<span class="glyphicon glyphicon-star"></span> <span
-							class="glyphicon glyphicon-star-empty"></span> <span
-							class="glyphicon glyphicon-star-empty"></span> <span
-							class="glyphicon glyphicon-star-empty"></span> <span
-							class="glyphicon glyphicon-star-empty"></span> & up
-					</p>
-				</button>
-			</div>
-
+			
 		</div>
 
 
 
 		<div class="col-md-9">
 
-		<%-- 		<% Iterator itr = {productList}.iterator  %> --%>
+			<%-- 		<% Iterator itr = {productList}.iterator  %> --%>
 
-		<div class="row">
-			<c:forEach items="${productList}" var="product">
-				<a href="http://localhost:8080/ProductDetails?id=${product.productId}">
-				<div class="col-sm-4 col-lg-4 col-md-4">
-					<div class="thumbnail">
-						<!--  <img src="http://placehold.it/320x150" alt=""> -->
-						<img src="/resources/${product.modelId}.jpg" alt="">
-						<div class="caption">
-							<h4 class="pull-right">$${product.price}</h4>
-							<h4>
-								
-								${product.productName}</a>
+			<div class="row">
+				<c:forEach items="${productList}" var="product">
+					<a
+						href="http://localhost:8080/ProductDetails?id=${product.productId}">
+						<div class="col-sm-4 col-lg-4 col-md-4">
+							<div class="thumbnail">
+								<!--  <img src="http://placehold.it/320x150" alt=""> -->
+								<img src="/resources/${product.modelId}.jpg" alt="">
+								<div class="caption">
+									<h4 class="pull-right">$${product.price}</h4>
+									<h4>${product.productName}
+					</a>
 
-							</h4>
-							<p>
-								${product.description}
-							</p>
-						</div>
-						<div class="ratings">
-							<p class="pull-right">${product.reviewCount} reviews</p>
-							<p>
-
-								<span class="glyphicon glyphicon-star"></span> <span
-									class="glyphicon glyphicon-star"></span> <span
-									class="glyphicon glyphicon-star"></span> <span
-									class="glyphicon glyphicon-star"></span> <span
-									class="glyphicon glyphicon-star"></span>
-
-							</p>
-						</div>
-					</div>
-				</div>
-				</a>
-			</c:forEach>
-
+					</h4>
+					<p>${product.description}</p>
 			</div>
+			<div class="ratings">
+				<p class="pull-right">${product.reviewCount}reviews</p>
+				<p>
 
-	
+					<span class="glyphicon glyphicon-star"></span> <span
+						class="glyphicon glyphicon-star"></span> <span
+						class="glyphicon glyphicon-star"></span> <span
+						class="glyphicon glyphicon-star"></span> <span
+						class="glyphicon glyphicon-star"></span>
+
+				</p>
+			</div>
+		</div>
+	</div>
+	</a>
+	</c:forEach>
+
+</div>
+</div>
+
 <!-- /.container -->
 
 <div class="container">
@@ -259,6 +213,8 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<p>Copyright &copy; SpotlightProducts.com 2016</p>
+				<a href="/CustomerSupport">Customer Support </a>
+
 			</div>
 		</div>
 	</footer>
