@@ -50,7 +50,7 @@ public class InventoryManagementAPIController {
 	return new ResponseEntity<JSONResponse<Product>>(JsonResponse, HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "/ProductSellerModify", method = RequestMethod.POST)
+	@RequestMapping(value = "/ProductSellerModify", method = RequestMethod.GET)
 	public ResponseEntity<JSONResponse<Product>> editProductDetails(@RequestBody List<Product> products, HttpServletRequest request){
 		JSONResponse<Product> JsonResponse = new JSONResponse<Product>(); 
 		InventoryManagement sellerInvManagement = new InventoryManagement();

@@ -60,40 +60,58 @@ public class InventoryManagement {
 		
 		public DatabaseResponse<Product> editSellerProducts(List<Product> products, HttpServletRequest request) {
 			DatabaseResponse response = new DatabaseResponse();
-			List<ReferenceData> referenceList = new ArrayList<ReferenceData>();
-
+			
+			int success = 0;
+			String errorMessage = null;
+			HttpSession session = request.getSession();
+			String email = (String)session.getAttribute("email");
+			int id = CommonUtilities.getUserId(email);
 			try {
 				
 				Connection con = DatabaseConnection.getDatabaseConnection();
-				CallableStatement cStmt = (CallableStatement) con.prepareCall(SpotLightConstants.SP_GET_REFERENCE_DATA);
-				boolean hadResults = cStmt.execute();
-				while (hadResults) {
-					ResultSet rs = (ResultSet) cStmt.getResultSet();
-					while (rs.next()) {
-							ReferenceData refData = new ReferenceData();
-							refData.setId(rs.getInt(1));
-							refData.setObjectId(rs.getInt(2));
-							refData.setName(rs.getString(3));
-							referenceList.add(refData);						
+				for(int i=0;i < products.size();i++)
+				{
+					
+					
+					int productId = products.get(i).getProductId();
+					int sellerId = products.get(i).getSellerId();
+					int quantity = products.get(i).getQuantity();
+					double price = products.get(i).getPrice();
+					
+					CallableStatement cStmt = (CallableStatement) con.prepareCall(SpotLightConstants.SP_INVENTORY_MANAGEMENT_MODIFY_QUANTITY);
+					cStmt.setInt(1, productId);
+					cStmt.setInt(2, sellerId);
+					cStmt.setInt(3, quantity);
+					cStmt.setDouble(4, price);
+					boolean hadResults = cStmt.execute();
+					while (hadResults) 
+					{
+						ResultSet rs = (ResultSet) cStmt.getResultSet();
+						while (rs.next()) 
+						{
+							success = rs.getInt(1);
+							errorMessage = rs.getString(2);
+						}
+
+						hadResults = cStmt.getMoreResults();
 					}
-					hadResults = cStmt.getMoreResults();
-				}
-				con.close();
+				} // End of for
 				response.setStatus(SpotLightConstants.CONSTANT_SUCCESS);
-				response.setMessage("");
-				response.setData(referenceList);
+				response.setMessage(errorMessage);
+				con.close();
 				return response;
-			} catch (Exception e) {
+
+			}
+
+			catch (Exception e) {
 				System.out.println(e);
 			}
 			response.setStatus(SpotLightConstants.CONSTANT_FAILURE);
-			response.setMessage(SpotLightConstants.CONSTANT_TECHNICAL_FAILURE);
-			response.setData(referenceList);
+			response.setMessage(errorMessage);
 			return response;
 
 		}
-		
-		
+			
 		public DatabaseResponse<String> removeSellerProducts(Product product, HttpServletRequest request) {
 			DatabaseResponse response = new DatabaseResponse();
 			HttpSession session = request.getSession();
