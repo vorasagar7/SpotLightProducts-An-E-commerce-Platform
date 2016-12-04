@@ -1,12 +1,26 @@
 var inventoryManagementApp = angular.module("InventoryManagementApp",[])
 inventoryManagementApp.controller("InventoryManagementCtrl", function($scope,$location,$http, $rootScope, $timeout){
-	$scope.isAlert = false;
-	$scope.showAlert = function(){
-		$scope.isAlert = true;
-	}
+	$scope.hideElement = true;
+	$scope.showSuccessAlert = false;
+	$scope.showDangerAlert = false;
 	
 	$scope.hideAlert = function(){
-		$scope.isAlert = false;
+		$scope.hideElement = true;
+		$scope.showSuccessAlert = false;
+		$scope.showDangerAlert = false;
+	}
+	
+	$scope.showAlert = function(status){
+		if(status == "Success"){
+			$scope.hideElement = false;
+			$scope.showSuccessAlert = true;
+			$scope.showDangerAlert = false;
+		}
+		else{
+			$scope.hideElement = false;
+			$scope.showSuccessAlert = false;
+			$scope.showDangerAlert = true;
+		}
 	}
 	
 	$scope.showTable = false;
@@ -76,7 +90,7 @@ inventoryManagementApp.controller("InventoryManagementCtrl", function($scope,$lo
 										}
 									}
 									$scope.alertMessage = "The Item was successfully deleted";
-									$scope.showAlert();
+									$scope.showAlert("Success");
 									$timeout(function(){
 										$scope.hideAlert();
 									}, 3000)
@@ -106,7 +120,7 @@ inventoryManagementApp.controller("InventoryManagementCtrl", function($scope,$lo
 						.success(function(data, status, headers, config){
 								if(data.status == "Success"){
 									$scope.alertMessage = "Changes successfully modified.";
-									$scope.showAlert();
+									$scope.showAlert("Success");
 									$timeout(function(){
 										$scope.hideAlert();
 									}, 3000)

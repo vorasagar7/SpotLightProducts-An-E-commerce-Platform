@@ -89,8 +89,8 @@
 
 	<div class="row">
 		<div class="col-md-offset-1 col-md-8 col-xs-offset-1 col-xs-8">
-			<div role="alert" class="alert alert-danger"
-				ng-class="{hideElement: !isAlert, showElement: isAlert}">
+			<div role="alert" class="alert"
+				ng-class="{hideElement: hideElement, 'alert-success showElement': showSuccessAlert, 'alert-danger showElement': showDangerAlert}">
 				<button type="button" class="close" aria-label="Close"
 					ng-click="hideAlert()">
 					<span aria-hidden="true">&times;</span>
