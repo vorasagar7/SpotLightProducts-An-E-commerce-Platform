@@ -345,7 +345,7 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<p>Copyright &copy; SpotlightProducts.com 2016</p>
-				 <a href="">Customer Support </a>
+				 <a href="/CustomerSupport">Customer Support </a>
 			</div>
 			
 			
