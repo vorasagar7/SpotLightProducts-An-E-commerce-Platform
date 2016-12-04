@@ -61,7 +61,7 @@ public class SpotLightConstants {
 	public static final String SP_DELETE_PRODUCT = "{call sp_Admin_Action_Delete_Product(?,?)}";
 	public static final String SP_GET_USER_ID = "{call sp_User_ID_Get(?)}";
 	public static final String SP_GET_SELLERAPPROVED_PRODUCT = "{call sp_Seller_ApprovedProducts_Get(?)}";
-	
+	public static final String SP_SELLER_DELETE_PRODUCT = "{call sp_Seller_Delete_Product(?,?)}"; 
 
 	// Constant Methods
 	
