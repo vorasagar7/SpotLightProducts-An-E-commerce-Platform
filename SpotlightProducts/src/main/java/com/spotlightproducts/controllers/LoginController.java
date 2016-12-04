@@ -47,15 +47,13 @@ public class LoginController {
 	@RequestMapping(value = "/homepage", method = RequestMethod.GET)
 	public String showHomePage(HttpServletRequest request) {
 		String SessionVar = (String)request.getSession().getAttribute("email");
-		System.out.println("Reaching here::::"+SessionVar);
 		if(SessionVar == null)
 		{
-			System.out.println("Inside IF");
+			
 			return "LoginViews/Index";
 		}
 		else
 		{
-			System.out.println("Inside Else");
 			return "welcome";
 		}
 	}
@@ -63,10 +61,8 @@ public class LoginController {
 	@RequestMapping(value = "/Logout", method = RequestMethod.GET)
 	public String showLoginPage(HttpServletRequest request) {
 		HttpSession session = request.getSession();
-		System.out.println(request.getSession().getAttribute("email"));
 		session.removeAttribute("email");
 		session.invalidate();
-		System.out.println("Logging Out:::::::::::::::::::::::::::"); 
 		return "LoginViews/Index";
 	}
 	
