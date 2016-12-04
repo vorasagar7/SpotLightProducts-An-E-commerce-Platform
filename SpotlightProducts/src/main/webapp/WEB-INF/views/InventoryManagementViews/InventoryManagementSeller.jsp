@@ -127,8 +127,10 @@
 							<td>{{product.modelId}}</td>
 							<td>{{product.brandName}}</td>
 							<td>{{product.categoryName}}</td>
-							<td class=" inventory-cell"><input class="form-control" ng-model="product.quantity"></td>
-							<td class=" inventory-cell"><input class="form-control" ng-model="product.price"></td>
+							<td class=" inventory-cell"><input class="form-control"
+								ng-model="product.quantity"></td>
+							<td class=" inventory-cell"><input class="form-control"
+								ng-model="product.price"></td>
 							<td><div>
 									<button type="button" class="btn btn-primary navbar-btn"
 										ng-click="viewProduct(product.productId)">View
@@ -144,12 +146,93 @@
 
 
 			<div>
-				<button type="button" class="btn btn-primary navbar-btn">
-					Add Product</button>
-				<button type="button" class="btn btn-primary navbar-btn" ng-click="updateChanges()">
-					Update Changes</button>
+				<button type="button" class="btn btn-primary" data-toggle="modal"
+					data-target="#addProductModal">Add Product</button>
+				<button type="button" class="btn btn-primary"
+					ng-click="updateChanges()">Update Changes</button>
 			</div>
+			<!-- Add Product Modal -->
+			<div class="modal fade" id="addProductModal" tabindex="-1"
+				role="dialog" aria-labelledby="myModalLabel">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal"
+								aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+							<h4 class="modal-title" id="myModalLabel">Add Product</h4>
+						</div>
+						<div class="modal-body">
+							<form class="form-horizontal">
+								<div class="form-group">
+									<label for="productModelId"
+										class="col-xs-2 col-md-2 control-label">Model Id</label>
+									<div class="col-xs-8 col-md-8">
+										<input type="text" class="form-control" id="productModelId"
+											placeholder="Model Id">
+									</div>
 
+								</div>
+
+								<div class="form-group">
+									<label for="productName"
+										class="col-xs-2 col-md-2 control-label">Name</label>
+									<div class="col-xs-8 col-md-8">
+										<input type="text" class="form-control" id="productName"
+											placeholder="Product Name">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="brand" class="col-xs-2 col-md-2 control-label">Brand</label>
+									<div class="col-xs-4 col-md-4">
+										<select class="form-control" id="productBrand"></select>
+									</div>
+									<label for="category" class="col-xs-2 col-md-2 control-label">Category</label>
+									<div class="col-xs-4 col-md-4">
+										<select class="form-control" id="productCategory"></select>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="price" class="col-xs-2 col-md-2 control-label">Price
+										($)</label>
+									<div class="col-xs-4 col-md-4">
+										<input type="number" class="form-control" id="productPrice">
+									</div>
+									<label for="quantity" class="col-xs-2 col-md-2 control-label">Quantity</label>
+									<div class="col-xs-4 col-md-4">
+										<input type="number" class="form-control" id="productQuantity">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="imageUpload"
+										class="col-xs-2 col-md-2 control-label">Image</label>
+									<div class="col-xs-8 col-md-8">
+										<input type="file" id="productImageFile"
+											class="product-image-input">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="productDescription"
+										class="control-label col-xs-2 col-md-2">Description</label>
+									<div class="col-xs-10 col-md-10">
+										<textarea class="form-control product-description-input" id="productDescription" placeholder="Description"></textarea>
+									</div>
+
+								</div>
+
+							</form>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default"
+								data-dismiss="modal">Close</button>
+							<button type="button" class="btn btn-primary">Save
+								changes</button>
+						</div>
+					</div>
+				</div>
+			</div>
 
 
 		</div>
