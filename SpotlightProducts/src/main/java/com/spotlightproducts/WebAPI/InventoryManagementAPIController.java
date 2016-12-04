@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.spotlightproducts.businesslibrary.CommonUtilities;
 import com.spotlightproducts.businesslibrary.InventoryManagement;
 import com.spotlightproducts.businesslibrary.UserPaymentDetails;
 import com.spotlightproducts.dao.DatabaseResponse;
@@ -25,9 +26,11 @@ public class InventoryManagementAPIController {
 	public ResponseEntity<JSONResponse<Product>> getAllSellerProducts(HttpServletRequest request){
 	HttpSession session = request.getSession();
 	String email = (String)session.getAttribute("email");
+	System.out.println("hi");
+	int id = CommonUtilities.getUserId(email);
 	JSONResponse<Product> JsonResponse = new JSONResponse<Product>(); 
 	InventoryManagement sellerInvManagement = new InventoryManagement();
-	DatabaseResponse<Product> dbresponse = sellerInvManagement.addSellerProducts();
+	DatabaseResponse<Product> dbresponse = sellerInvManagement.getApprovedSellerProducts(id);
 	JsonResponse.setStatus(dbresponse.getStatus());
 	JsonResponse.setMessage(dbresponse.getMessage());
 	JsonResponse.setData(dbresponse.getData());
