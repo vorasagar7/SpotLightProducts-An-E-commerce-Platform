@@ -17,7 +17,7 @@ public class DashboardController{
 		User user = new User();
 		HttpSession session = request.getSession();
 		user.setEmail((String)session.getAttribute("email"));
-		user.setUserId(3);
+		user.setUserId(2);
 		if(user.getUserId() == 1){
 			System.out.println(user.getUserId());
 			return "DashboardViews/BuyerDashboard/Index";
@@ -53,5 +53,10 @@ public class DashboardController{
 	@RequestMapping(value = "AdminHomePage", method = RequestMethod.GET)
 	public String GetAdminDashboardHomePage(){
 		return "DashboardViews/AdminDashboard/AdminHomePage";
+	}
+	
+	@RequestMapping(value = "AdminStatisticsPage", method = RequestMethod.GET)
+	public String GetAdminStatisticsPage(){
+		return "DashboardViews/AdminDashboard/AdminStatisticsPage";
 	}
 }

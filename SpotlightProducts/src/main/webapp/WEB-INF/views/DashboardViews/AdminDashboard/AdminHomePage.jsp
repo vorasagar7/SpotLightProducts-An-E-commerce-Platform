@@ -15,7 +15,7 @@
 				<div class="card-block">
 					<h2 class="card-title">SpotLightProducts Statistics</h2>
 				</div>
-				<a href="#" class="card-link"> <img
+				<a href="#/AdminStatistics" class="card-link"> <img
 					src="http://www.clker.com/cliparts/d/F/Q/R/g/d/maroon-square-md.png"
 					class="rounded float-xs-left"></a>
 				<div class="card-block"></div>

@@ -45,10 +45,9 @@ public class AdminDashBoardAPIController{
 	}
 	
 	@RequestMapping(value = "/AdminStatisticsUsersGraphGet", method = RequestMethod.GET)
-	public ResponseEntity<JSONResponse<SpotLightProductsGraph>> getAdminStatisticsForUsersGraph(@RequestBody User user, HttpServletRequest request){
+	public ResponseEntity<JSONResponse<SpotLightProductsGraph>> getAdminStatisticsForUsersGraph(HttpServletRequest request){
 		JSONResponse<SpotLightProductsGraph> JsonResponse = new JSONResponse<SpotLightProductsGraph>();
 		HttpSession session = request.getSession();
-		user.setEmail((String)session.getAttribute(SpotLightConstants.CONSTANT_EMAIL));
 		AdminDashboard admDashboad = new AdminDashboard();
 		DatabaseResponse<SpotLightProductsGraph> dbresponse = admDashboad.getUsersGraph();
 		JsonResponse.setStatus(dbresponse.getStatus());

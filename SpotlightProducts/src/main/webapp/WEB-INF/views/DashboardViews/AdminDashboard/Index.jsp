@@ -28,7 +28,7 @@
 <script src="${angularRouteJS}"></script>
 <script src="${appJS}"></script>
 <script src="${controllerJS}"></script>
-
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
 
 <!-- <style>
