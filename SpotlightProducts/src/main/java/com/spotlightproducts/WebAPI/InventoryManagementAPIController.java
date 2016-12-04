@@ -40,10 +40,10 @@ public class InventoryManagementAPIController {
 	}
 	
 	@RequestMapping(value = "/PostAddProduct", method = RequestMethod.POST)
-	public ResponseEntity<JSONResponse<Product>> AddProductDetails(List<Product> product){
+	public ResponseEntity<JSONResponse<Product>> AddProductDetails(Product product, HttpServletRequest request){
 	JSONResponse<Product> JsonResponse = new JSONResponse<Product>(); 
 	InventoryManagement sellerInvManagement = new InventoryManagement();
-	DatabaseResponse<Product> dbresponse = sellerInvManagement.addSellerProducts();
+	DatabaseResponse<Product> dbresponse = sellerInvManagement.addSellerProducts(product, request);
 	JsonResponse.setStatus(dbresponse.getStatus());
 	JsonResponse.setMessage(dbresponse.getMessage());
 	JsonResponse.setData(dbresponse.getData());

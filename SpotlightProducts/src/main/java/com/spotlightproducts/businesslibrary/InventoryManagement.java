@@ -51,8 +51,6 @@ public class InventoryManagement {
 					hadResults = cStmt.getMoreResults();
 				}
 				con.close();
-				response.setStatus(SpotLightConstants.CONSTANT_SUCCESS);
-				response.setMessage("");
 				return response;
 			} catch (Exception e) {
 				System.out.println(e);
@@ -60,7 +58,6 @@ public class InventoryManagement {
 			response.setStatus(SpotLightConstants.CONSTANT_FAILURE);
 			response.setMessage(SpotLightConstants.CONSTANT_TECHNICAL_FAILURE);
 			return response;
-
 		}
 		
 		public DatabaseResponse<Product> editSellerProducts(List<Product> products, HttpServletRequest request) {

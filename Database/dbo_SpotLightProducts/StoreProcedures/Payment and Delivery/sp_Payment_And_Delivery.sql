@@ -53,6 +53,6 @@ BEGIN
 		VERSION = VERSION + 1
 		WHERE IS_DELETED = 0 
 		AND Buyer_Id = p_user_Id;
-	SELECT 1 AS SUCCESS, "" AS ErrMessage;
+	SELECT 1 AS SUCCESS, "" AS ErrMessage, @OrderID AS User_Order_ID;
 End;
 $$
