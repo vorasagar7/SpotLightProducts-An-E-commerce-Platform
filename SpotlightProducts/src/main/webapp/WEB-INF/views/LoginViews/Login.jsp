@@ -1,6 +1,7 @@
 	<style>
 	body{
-	background-image: url("/resources/spotlightbg.jpg");
+	background-image: url("/resources/SpotlightImage.gif");
+	background-size: 100% auto;
 	}
 	
 	</style>
