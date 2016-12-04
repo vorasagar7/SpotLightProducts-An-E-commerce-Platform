@@ -1,5 +1,7 @@
 package com.spotlightproducts.WebAPI;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -30,9 +32,9 @@ public class PaymentAPIController{
 	
 	
 	@RequestMapping(value = "/SaveUserOrder", method = RequestMethod.POST)
-	public ResponseEntity<JSONResponse<String>> RegisterUser(@RequestBody UserPaymentDetailsDao userPaymentDetails){
+	public ResponseEntity<JSONResponse<String>> RegisterUser(@RequestBody UserPaymentDetailsDao userPaymentDetails, HttpServletRequest request){
 		JSONResponse<String> JsonResponse = new JSONResponse<String>();
-		DatabaseResponse dbresponse = userPaymentDetails.saveUserPaymentDetailsDao();
+		DatabaseResponse dbresponse = userPaymentDetails.saveUserPaymentDetailsDao(request);
 		JsonResponse.setStatus(dbresponse.getStatus());
 		JsonResponse.setMessage(dbresponse.getMessage());
 		return new ResponseEntity<JSONResponse<String>>(JsonResponse, HttpStatus.OK);

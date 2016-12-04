@@ -14,6 +14,8 @@ import javax.mail.Transport;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import com.mysql.jdbc.CallableStatement;
 import com.mysql.jdbc.Connection;
@@ -58,7 +60,7 @@ public class UserPaymentDetails {
 
 		}
 		
-		public DatabaseResponse savePaymentDetails(UserPaymentDetailsDao userDetails) {
+		public DatabaseResponse savePaymentDetails(UserPaymentDetailsDao userDetails, HttpServletRequest request) {
 			DatabaseResponse response = new DatabaseResponse();
 			String fullName = userDetails.getFullName();
 			int typeOfPayment = userDetails.getTypeOfPayment();
@@ -73,6 +75,11 @@ public class UserPaymentDetails {
 				
 				Connection con = DatabaseConnection.getDatabaseConnection();
 				CallableStatement cStmt = (CallableStatement) con.prepareCall(SpotLightConstants.SP_DO_PAYMENT_DELIVERY);
+				HttpSession session = request.getSession();
+				String email = (String)session.getAttribute("email");
+				CommonUtilities user = new CommonUtilities();
+				int userId = user.getUserId(email);
+				System.out.println("Inside User payment details : "+userId);
 				cStmt.setInt(1, 1);
 				cStmt.setInt(2, typeOfPayment);
 				cStmt.setString(3, full_address);

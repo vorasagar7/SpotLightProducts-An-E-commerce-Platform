@@ -1,5 +1,7 @@
 package com.spotlightproducts.dao;
 
+import javax.servlet.http.HttpServletRequest;
+
 import com.spotlightproducts.businesslibrary.LoginUser;
 import com.spotlightproducts.businesslibrary.UserPaymentDetails;
 
@@ -120,10 +122,10 @@ public class UserPaymentDetailsDao {
 	// return newUser.saveUserOrderDetails(this);
 	// }
 
-	public DatabaseResponse saveUserPaymentDetailsDao(){
+	public DatabaseResponse saveUserPaymentDetailsDao(HttpServletRequest request){
 
 		UserPaymentDetails userPayment = new UserPaymentDetails();
-		return userPayment.savePaymentDetails(this);
+		return userPayment.savePaymentDetails(this,request);
 	}
 
 }
