@@ -59,7 +59,6 @@ public class InventoryManagement {
 			}
 			response.setStatus(SpotLightConstants.CONSTANT_FAILURE);
 			response.setMessage(SpotLightConstants.CONSTANT_TECHNICAL_FAILURE);
-			response.setData(referenceList);
 			return response;
 
 		}
