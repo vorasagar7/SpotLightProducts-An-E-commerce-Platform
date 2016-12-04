@@ -1,3 +1,9 @@
+	<style>
+	body{
+	background-image: url("/resources/spotlightbg.jpg");
+	}
+	
+	</style>
 	<div class="row">
 		<div class="col-xs-offset-2 col-xs-8 col-md-offset-2 col-md-8 login-header">
 			<h1>SpotLightProducts</h1>
