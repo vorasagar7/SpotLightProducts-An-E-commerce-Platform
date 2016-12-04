@@ -68,6 +68,23 @@ inventoryManagementApp.controller("InventoryManagementCtrl", function($scope,$lo
 					$scope.showTable = false;
 				});
 	
+	var url = $location.absUrl().replace(window.location.pathname + window.location.hash,'/GetInventoryManagementReferenceList');
+	$http.get(url)
+			.success(function(data, status, headers, config){
+				if(data.status = "Success"){
+					$cope.referenceList = data.data;
+				}
+				else{
+					$scope.alertMessage = data.message;
+					$scope.showAlert();
+				}
+				
+			})
+			.error(function(data, status, headers, config){
+				$scope.alertMessage = "Technical Error. Please contact the customer service.";
+				$scope.showAlert();
+			});
+	
 	$scope.viewProduct = function(productId){
 		window.location.href = $location.absUrl().replace(window.location.pathname + window.location.hash,'/ProductDetails?id=')+productId;
 	}

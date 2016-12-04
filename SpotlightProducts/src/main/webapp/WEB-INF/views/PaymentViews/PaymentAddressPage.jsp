@@ -58,7 +58,7 @@
 							ng-class="{ 'has-error' : !paymentDetails.state && !paymentDetailsForm.state.$pristine }">
 							<label for="state" class="control-label">State</label> <select
 								class="form-control" id="state" name="state"
-								ng-model="paymentDetails.state" ng-cloak name="state">
+								ng-model="paymentDetails.state" ng-cloak>
 								<option value="">Select State</option>
 								<option ng-repeat="state in referenceData | filter:{id:10}"
 									value="{{state.objectId}}">{{state.name}}</option>

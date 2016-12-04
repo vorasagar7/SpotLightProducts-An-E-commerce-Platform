@@ -86,3 +86,11 @@
 	width: 10%;
 	min-width: 100px
 }
+
+.product-image-input{
+	padding-top: 7px
+}
+
+.product-description-input{
+	height: 100px	!important
+}
