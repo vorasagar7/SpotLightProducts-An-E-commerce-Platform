@@ -184,6 +184,40 @@ public class InventoryManagement {
 			return response;
 		}
 		
+		public DatabaseResponse<ReferenceData> getBrandCategoryItems() {
+			DatabaseResponse response = new DatabaseResponse();
+			List<ReferenceData> referenceList = new ArrayList<ReferenceData>();
+
+			try {
+				
+				Connection con = DatabaseConnection.getDatabaseConnection();
+				CallableStatement cStmt = (CallableStatement) con.prepareCall(SpotLightConstants.SP_BRAND_CATEGORY_REFERENCE_DATA);
+				boolean hadResults = cStmt.execute();
+				while (hadResults) {
+					ResultSet rs = (ResultSet) cStmt.getResultSet();
+					while (rs.next()) {
+							ReferenceData refData = new ReferenceData();
+							refData.setId(rs.getInt(1));
+							refData.setObjectId(rs.getInt(2));
+							refData.setName(rs.getString(3));
+							referenceList.add(refData);						
+					}
+					hadResults = cStmt.getMoreResults();
+				}
+				con.close();
+				response.setStatus(SpotLightConstants.CONSTANT_SUCCESS);
+				response.setMessage("");
+				response.setData(referenceList);
+				return response;
+			} catch (Exception e) {
+				System.out.println(e);
+			}
+			response.setStatus(SpotLightConstants.CONSTANT_FAILURE);
+			response.setMessage(SpotLightConstants.CONSTANT_TECHNICAL_FAILURE);
+			response.setData(referenceList);
+			return response;
+
+		}
 		
 	
 }

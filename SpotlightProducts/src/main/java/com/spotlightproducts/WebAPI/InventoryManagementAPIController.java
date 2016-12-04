@@ -71,4 +71,14 @@ public class InventoryManagementAPIController {
 		return new ResponseEntity<JSONResponse<String>>(JsonResponse, HttpStatus.OK);
 	}
 
+	@RequestMapping(value = "/GetInventoryManagementReferenceList", method = RequestMethod.GET)
+	public ResponseEntity<JSONResponse<ReferenceData>> GetBrandCategoryReferenceData(){
+		JSONResponse<ReferenceData> JsonResponse = new JSONResponse<ReferenceData>(); 
+		InventoryManagement sellerInvManagement = new InventoryManagement();
+		DatabaseResponse<ReferenceData> dbresponse = sellerInvManagement.getBrandCategoryItems();
+		JsonResponse.setStatus(dbresponse.getStatus());
+		JsonResponse.setMessage(dbresponse.getMessage());
+		JsonResponse.setData(dbresponse.getData());
+		return new ResponseEntity<JSONResponse<ReferenceData>>(JsonResponse, HttpStatus.OK);
+	}
 }
