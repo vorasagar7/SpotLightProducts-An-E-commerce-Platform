@@ -26,8 +26,7 @@ public class SearchService {
 				ResultSet rs = cStmt.getResultSet();
 				while (rs.next()) {
 					// retrieve values of fields
-					System.out.println(
-							rs.getInt(1) + "\t" + rs.getString(2) + "\t\t" + rs.getString(3) + "\t" + rs.getString(4) + "\t" + rs.getString(5) + "\t" + rs.getString(6) + "\t" + rs.getString(7) + "\t" + rs.getFloat(8) + "\t" + rs.getInt(9));
+					
 						Product product = new Product();
 						
 						product.setProductId(rs.getInt(1));

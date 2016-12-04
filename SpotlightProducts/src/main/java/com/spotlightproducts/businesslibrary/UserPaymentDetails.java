@@ -79,8 +79,7 @@ public class UserPaymentDetails {
 				String email = (String)session.getAttribute("email");
 				CommonUtilities user = new CommonUtilities();
 				int userId = user.getUserId(email);
-				System.out.println("Inside User payment details : "+userId);
-				cStmt.setInt(1, 1);
+				cStmt.setInt(1, userId);
 				cStmt.setInt(2, typeOfPayment);
 				cStmt.setString(3, full_address);
 				boolean hadResults = cStmt.execute();
@@ -88,7 +87,7 @@ public class UserPaymentDetails {
 					ResultSet rs = (ResultSet) cStmt.getResultSet();
 					while (rs.next()) {
 						int id = rs.getInt(1);
-						if (id == 1) {
+						if (id == userId) {	//id was 1 previously
 							con.close();
 							response.setStatus(SpotLightConstants.CONSTANT_SUCCESS);
 							response.setMessage(SpotLightConstants.CONSTANT_ORDER_SUCCESSFULLY_PLACED);
