@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.spotlightproducts.businesslibrary.CommonUtilities;
 import com.spotlightproducts.businesslibrary.UserDashboard;
 import com.spotlightproducts.dao.DatabaseResponse;
 import com.spotlightproducts.dao.JSONResponse;
@@ -31,7 +32,10 @@ public class UserDashBoardAPIController{
 		JSONResponse<String> JsonResponse = new JSONResponse<String>();
 		HttpSession session = request.getSession();
 		user.setEmail((String)session.getAttribute("email"));
-		user.setUserId(5);
+		String email =(String) session.getAttribute("email");
+		CommonUtilities uniqueUser = new CommonUtilities();
+		int userId = uniqueUser.getUserId(email);
+		user.setUserId(userId);
 		DatabaseResponse dbresponse = user.changeUserPasswordDao();
 		JsonResponse.setStatus(dbresponse.getStatus());
 		JsonResponse.setMessage(dbresponse.getMessage());

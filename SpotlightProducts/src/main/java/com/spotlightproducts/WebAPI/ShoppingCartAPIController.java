@@ -29,7 +29,6 @@ public class ShoppingCartAPIController{
 	
 	@RequestMapping(value = "/ViewShoppingCart", method = RequestMethod.GET)
 	public ResponseEntity<JSONResponse<ShoppingCart>> viewShoppingCart(HttpServletRequest request){
-		System.out.println("In View SC");
 		JSONResponse<ShoppingCart> JsonResponse = new JSONResponse<ShoppingCart>();
 		HttpSession session = request.getSession();
 		ShoppingCartDetails shoppingCartDetails = new ShoppingCartDetails();

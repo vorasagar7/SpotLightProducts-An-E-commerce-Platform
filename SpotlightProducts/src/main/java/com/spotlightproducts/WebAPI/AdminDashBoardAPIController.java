@@ -70,7 +70,7 @@ public class AdminDashBoardAPIController{
 		return new ResponseEntity<JSONResponse<Product>>(JsonResponse, HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "/AllProductlGet", method = RequestMethod.GET)
+	@RequestMapping(value = "/AllProductGet", method = RequestMethod.GET)
 	public ResponseEntity<JSONResponse<Product>> getAllProducts(@RequestBody User user, HttpServletRequest request){
 		JSONResponse<Product> JsonResponse = new JSONResponse<Product>();
 		HttpSession session = request.getSession();
