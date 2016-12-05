@@ -67,7 +67,15 @@
 .product-image{
 	width: 100%
 }
-
+.review-header{
+	font-weight: bold
+}
+.custom-has-error{
+	color: #a94442;
+}
+.custom-has-success{
+	color: #3c763d;
+}
 /*Seacrh Bar*/
 #navBarSearchForm input[type=text] {
 	width: 500px !important;
@@ -98,6 +106,9 @@
 .no-product-font{
 	font-weight: bold;
 	font-size: 20px
+}
+.inventory-table-cell{
+	vertical-align: middle	!important
 }
 
 /*Statistics Page*/

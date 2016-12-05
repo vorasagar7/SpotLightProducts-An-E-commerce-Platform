@@ -118,13 +118,13 @@
 						<tr ng-repeat="product in sellerProducts"
 							ng-class="{ 'danger': (product.quantity <= 10) }"
 							ng-hide="product.isDeleted">
-							<th scope="row">{{product.productName}}</th>
-							<td>{{product.modelId}}</td>
-							<td>{{product.brandName}}</td>
-							<td>{{product.categoryName}}</td>
-							<td class=" inventory-cell"><input class="form-control"
+							<th scope="row" class="inventory-table-cell">{{product.productName}}</th>
+							<td class="inventory-table-cell">{{product.modelId}}</td>
+							<td class="inventory-table-cell">{{product.brandName}}</td>
+							<td class="inventory-table-cell">{{product.categoryName}}</td>
+							<td class=" inventory-cell inventory-table-cell"><input class="form-control"
 								ng-model="product.quantity"></td>
-							<td class=" inventory-cell"><input class="form-control"
+							<td class=" inventory-cell inventory-table-cell"><input class="form-control"
 								ng-model="product.price"></td>
 							<td><div>
 									<button type="button" class="btn btn-primary navbar-btn"

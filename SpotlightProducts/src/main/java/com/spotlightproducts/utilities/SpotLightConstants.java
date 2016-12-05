@@ -110,4 +110,48 @@ public class SpotLightConstants {
 		transport.sendMessage(generateMailMessage, generateMailMessage.getAllRecipients());
 		transport.close();
 	}
+	
+	public static void sendEmailAfterPayment(String email) throws AddressException, MessagingException 
+	{
+
+		Properties mailServerProperties;
+		Session getMailSession;
+		MimeMessage generateMailMessage;
+
+		// Step1
+		System.out.println("\n 1st ===> setup Mail Server Properties..");
+		mailServerProperties = System.getProperties();
+		mailServerProperties.put("mail.smtp.port", "587");
+		mailServerProperties.put("mail.smtp.auth", "true");
+		mailServerProperties.put("mail.smtp.starttls.enable", "true");
+		System.out.println("Mail Server Properties have been setup successfully..");
+
+		// Step2
+		System.out.println("\n\n 2nd ===> get Mail Session..");
+		getMailSession = Session.getDefaultInstance(mailServerProperties, null);
+		generateMailMessage = new MimeMessage(getMailSession);
+		generateMailMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(email));
+		generateMailMessage.addRecipient(Message.RecipientType.CC, new InternetAddress("vorasagar7@gmail.com"));
+		generateMailMessage.addRecipient(Message.RecipientType.CC,
+				new InternetAddress("ronak.bharat.parekh@gmail.com"));
+		generateMailMessage.addRecipient(Message.RecipientType.CC,
+				new InternetAddress("mananpapdiwala92@gmail.com "));
+		generateMailMessage.addRecipient(Message.RecipientType.CC,
+				new InternetAddress("ethanferminhuang@gmail.com"));
+		generateMailMessage.setSubject("Greetings from SpotLightProducts..");
+		String emailBody = "Username: "+email+"<br>Your order has been confirmed :) Thank You for shopping with us" + "<br>" + "<br><br> Regards, <br>Spotlight Team";
+		generateMailMessage.setContent(emailBody, "text/html");
+		System.out.println("Mail Session has been created successfully..");
+
+		// Step3
+		System.out.println("\n\n 3rd ===> Get Session and Send mail");
+		Transport transport = getMailSession.getTransport("smtp");
+
+		// Enter your correct gmail UserID and Password
+		// if you have 2FA enabled then provide App Specific Password
+		transport.connect("smtp.gmail.com", SpotLightConstants.SPOTLIGHTPRODUCTS_EMAIL_ID, SpotLightConstants.SPOTLIGHTPRODUCTS_EMAIL_PASSWORD);
+		transport.sendMessage(generateMailMessage, generateMailMessage.getAllRecipients());
+		transport.close();
+	}
+
 }
