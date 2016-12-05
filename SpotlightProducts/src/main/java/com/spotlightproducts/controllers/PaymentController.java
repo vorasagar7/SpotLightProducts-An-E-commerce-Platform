@@ -29,7 +29,7 @@ public class PaymentController {
 		return "PaymentViews/CardDetails";
 	}
 	
-	@RequestMapping(value = "/Confirmation", method = RequestMethod.GET)
+	@RequestMapping(value = "/ConfirmationPage", method = RequestMethod.GET)
 	// @ResponseBody
 	public String showConfirmationPage() {
 		return "PaymentViews/ThankYouPage";

@@ -122,25 +122,12 @@
 
 	<div class="row">
 
-		<div class="col-md-3">
-			<p class="lead">Filter Products</p>
-
-			<div class="list-group">
-				<button type="button" class="list-group-item list-group-item-action">Price
-					Low to High</button>
-				<button type="button" class="list-group-item list-group-item-action">Price
-					High to Low</button>
-				<button type="button" class="list-group-item list-group-item-action">A
-					to Z</button>
-				<button type="button" class="list-group-item list-group-item-action">Z
-					to A</button>
-			</div>
-		</div>
+		
 
 
 
 
-		<div class="col-md-9">
+		<div class="col-md-12">
 
 			<div class="row carousel-holder">
 

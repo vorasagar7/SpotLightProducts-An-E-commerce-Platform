@@ -46,7 +46,7 @@
 							class="icon-bar"></span> <span class="icon-bar"></span> <span
 							class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="#">SP</a>
+					<a class="navbar-brand" href="/homepage">SP</a>
 				</div>
 
 				<form class="navbar-form navbar-left" role="search"
@@ -64,21 +64,14 @@
 
 
 				<ul class="nav navbar-nav navbar-right">
-
-					<li><button type="button" class="btn btn-primary navbar-btn">
-							<i class="fa fa-shopping-cart"></i> Shopping Cart
-						</button></li>
-
-
-
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
 						data-toggle="dropdown" role="button" aria-haspopup="true"
-						aria-expanded="false">User Dropdown <span class="caret"></span></a>
+						aria-expanded="false">${email} <span class="caret"></span></a>
 						<ul class="dropdown-menu">
-							<li><a href="#">Dashboard</a></li>
-							<li><a href="#">Setting</a></li>
+							<li><a href="/Dashboard">Dashboard</a></li>
+							<li><a href="/ChangePassword">Change Password</a></li>
 							<li role="separator" class="divider"></li>
-							<li><a href="#">Logout</a></li>
+							<li><a href="/Logout">Logout</a></li>
 						</ul></li>
 				</ul>
 			</div>
