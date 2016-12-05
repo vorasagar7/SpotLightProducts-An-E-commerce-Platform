@@ -22,6 +22,7 @@ productDetailsApp.controller("ProductDetailsCtrl", function($scope, $location, $
 							$scope.productQuantity += data.data[i].quantity;
 						}
 						$scope.inStock = !$scope.productQuantity ? "Sold Out" : "In Stock";
+						$scope.isSoldOut = !$scope.productQuantity;
 						$scope.productRating = 0;
 						for(i = 0; i < $scope.productReviews.length; i++){
 							$scope.productRating+=$scope.productReviews[i].rating;

@@ -34,17 +34,18 @@ body {
 </head>
 <body ng-app="ProductDetailsApp" ng-controller="ProductDetailsCtrl">
 
-	<div class="login-header col-md-9">
+	<div class="login-header col-xs-9 col-md-9">
 		<h1>SpotLightProducts</h1>
 	</div>
-	<div class="col-md-3">
-	<form action="/homepage">
-	<button type="submit" class="btn btn-info">
-		<span class="glyphicon glyphicon-share-alt"></span> Continue shopping
-	</button>
-	</form>
+	<div class="col-xs-3 col-md-3">
+		<form action="/homepage">
+			<button type="submit" class="btn btn-info">
+				<span class="glyphicon glyphicon-share-alt"></span> Continue
+				shopping
+			</button>
+		</form>
 	</div>
-		<div class="row">
+	<div class="row">
 		<div class="col-md-12 col-xs-12 row">
 			<div role="alert" class="alert alert-danger"
 				ng-class="{hideElement: !isAlert, showElement: isAlert}">
@@ -61,15 +62,19 @@ body {
 				<div>{{productDetails.productName}}</div>
 				<div>Product Rating: {{productRating}}</div>
 				<hr>
-				<div>{{inStock}}</div>
+				<div
+					ng-class="{'custom-has-error' : isSoldOut, 'custom-has-success' : !isSoldOut}">{{inStock}}</div>
 				<div>{{productDetails.description}}</div>
-				<div>Sellers</div>
-				<div ng-repeat="seller in productSellers">
-					<span>{{seller.sellerName}}:</span> <span>Price:
-						{{seller.price}}</span>
-					<button class="btn btn-primary"
-						ng-click="addToCart(seller.sellerId, seller.price)">Add
-						to Cart</button>
+				<hr>
+				<h3>Sellers</h3>
+				<div ng-repeat="seller in productSellers" class="row">
+					<div class="col-md-3">{{seller.sellerName}}</div>
+					<div class="col-md-offset-1 col-md-2">Price: {{seller.price | currency:"USD$":0 }}</div>
+					<div class="col-md-offset-1 col-md-2">
+						<button class="btn btn-primary"
+							ng-click="addToCart(seller.sellerId, seller.price)">Add
+							to Cart</button>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -78,12 +83,16 @@ body {
 				<button class="btn btn-primary" ng-click="redirectToReview()">Write
 					a review</button>
 			</div>
-			<div>Customer Reviews</div>
-			<div class="col-md-7 col-xs-9" ng-repeat="review in productReviews">
-				<div>On {{review.modifiedOn}} by {{review.username}}</div>
+			<h2>Customer Reviews</h2>
+			<hr>
+			<div ng-repeat="review in productReviews" class="col-xs-6 col-md-5">
+				<div>
+					On <span class="review-header">{{review.modifiedOn}}</span> by <span
+						class="review-header">{{review.username}}</span>
+				</div>
 				<div>Rating: {{review.rating}}</div>
 				<div>{{review.comment}}</div>
-				<br>
+				<hr>
 			</div>
 		</div>
 	</div>
