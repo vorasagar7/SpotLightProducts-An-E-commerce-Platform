@@ -89,5 +89,8 @@ paymentApp.controller("PaymentCardCtrl", function($scope, $location, $http, $roo
 });
 
 paymentApp.controller("ThankYouCtrl", function($scope, $location, $http){
-
+	$scope.continueShopping = function(){
+		window.location.href = $location.absUrl().replace(window.location.pathname + window.location.hash,'/homepage');
+	}
+	
 });
