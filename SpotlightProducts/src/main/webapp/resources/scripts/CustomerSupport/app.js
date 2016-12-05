@@ -4,7 +4,7 @@ customerSupportApp.controller("customerSupportCtrl", function($scope, $location,
 	$scope.submitQuery = function(){
 		$scope.alertDisplay = true;
 		$timeout(function(){
-			var url = $location.absUrl().replace('/CustomerSupport','/Login');
+			var url = $location.absUrl().replace('/CustomerSupport','/homepage');
 			window.location.href = url;
 		},3000);
 	}

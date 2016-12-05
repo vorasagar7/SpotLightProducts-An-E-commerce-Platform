@@ -68,7 +68,7 @@
 						data-toggle="dropdown" role="button" aria-haspopup="true"
 						aria-expanded="false">${email} <span class="caret"></span></a>
 						<ul class="dropdown-menu">
-							<li><a href="/Dashboard">Dashboard</a></li>
+							<li><a href="#/">Dashboard</a></li>
 							<li><a href="/ChangePassword">Change Password</a></li>
 							<li role="separator" class="divider"></li>
 							<li><a href="/Logout">Logout</a></li>

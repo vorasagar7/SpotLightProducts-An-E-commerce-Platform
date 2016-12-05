@@ -28,7 +28,8 @@
 <script src="${angularRouteJS}"></script>
 <script src="${appJS}"></script>
 <script src="${controllerJS}"></script>
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript"
+	src="https://www.gstatic.com/charts/loader.js"></script>
 
 
 <!-- <style>
@@ -50,13 +51,58 @@
 </head>
 <body ng-app="AdminDashboardApp">
 	<div class="row">
-		<div class="col-xs-offset-4 col-xs-4 col-md-offset-4 col-md-4 login-header">
+		<div
+			class="col-xs-offset-4 col-xs-4 col-md-offset-4 col-md-4 login-header">
 			<h1>SpotLightProducts</h1>
 		</div>
 	</div>
+	<div>
+		<nav class="navbar navbar-inverse">
+			<div class="container-fluid">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed"
+						data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+						aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span> <span
+							class="icon-bar"></span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="/homepage">SP</a>
+				</div>
+
+				<form class="navbar-form navbar-left" role="search"
+					id="navBarSearchForm" action="/search" method="POST">
+					<div class="form-group">
+						<input type="text" name="searchQuery" class="form-control"
+							placeholder="Search">
+					</div>
+					<button type="submit" class="btn btn-primary btn">
+						<i class="fa fa-search"></i>
+					</button>
+				</form>
+
+
+
+
+				<ul class="nav navbar-nav navbar-right">
+					<li class="dropdown"><a class="dropdown-toggle"
+						data-toggle="dropdown" role="button" aria-haspopup="true"
+						aria-expanded="false">${email} <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#/">Dashboard</a></li>
+							<li><a href="/ChangePassword">Change Password</a></li>
+							<li role="separator" class="divider"></li>
+							<li><a href="/Logout">Logout</a></li>
+						</ul></li>
+				</ul>
+			</div>
+		</nav>
+		<!-- /.navbar-collapse -->
+	</div>
 	<div ng-view></div>
 
-	
+
 </body>
 
 
