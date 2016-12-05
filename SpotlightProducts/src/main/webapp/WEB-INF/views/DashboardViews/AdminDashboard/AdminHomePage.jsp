@@ -30,7 +30,7 @@
 				<div class="card-block">
 					<h2 class="card-title">Administrator Actions</h2>
 				</div>
-				<a href="#" class="card-link"> <img
+				<a href="/InventoryManagement" class="card-link"> <img
 					src="http://www.clker.com/cliparts/4/u/l/C/i/P/lime-square-md.png"
 					class="rounded float-xs-left"></a>
 				<div class="card-block"></div>
