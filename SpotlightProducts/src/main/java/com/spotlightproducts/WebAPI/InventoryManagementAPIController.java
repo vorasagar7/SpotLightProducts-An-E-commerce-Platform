@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.spotlightproducts.businesslibrary.AdminDashboard;
 import com.spotlightproducts.businesslibrary.CommonUtilities;
 import com.spotlightproducts.businesslibrary.InventoryManagement;
 import com.spotlightproducts.businesslibrary.UserPaymentDetails;
@@ -19,6 +20,8 @@ import com.spotlightproducts.dao.DatabaseResponse;
 import com.spotlightproducts.dao.JSONResponse;
 import com.spotlightproducts.dao.Product;
 import com.spotlightproducts.dao.ReferenceData;
+import com.spotlightproducts.dao.User;
+import com.spotlightproducts.utilities.SpotLightConstants;
 
 @RestController
 public class InventoryManagementAPIController {
@@ -80,5 +83,38 @@ public class InventoryManagementAPIController {
 		JsonResponse.setMessage(dbresponse.getMessage());
 		JsonResponse.setData(dbresponse.getData());
 		return new ResponseEntity<JSONResponse<ReferenceData>>(JsonResponse, HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/PendingProductsForApprovalGet", method = RequestMethod.GET)
+	public ResponseEntity<JSONResponse<Product>> getPendingProductsForApproval(HttpServletRequest request){
+		JSONResponse<Product> JsonResponse = new JSONResponse<Product>();
+		AdminDashboard admDashboad = new AdminDashboard();
+		DatabaseResponse<Product> dbresponse = admDashboad.getPendingProductsList();
+		JsonResponse.setStatus(dbresponse.getStatus());
+		JsonResponse.setMessage(dbresponse.getMessage());
+		JsonResponse.setData(dbresponse.getData());
+		return new ResponseEntity<JSONResponse<Product>>(JsonResponse, HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/ApproveProduct", method = RequestMethod.POST)
+	public ResponseEntity<JSONResponse<Product>> approveProducts(@RequestBody Product product, HttpServletRequest request){
+		JSONResponse<Product> JsonResponse = new JSONResponse<Product>();
+		AdminDashboard admDashboad = new AdminDashboard();
+		DatabaseResponse<Product> dbresponse = admDashboad.approvePendingProducts(product,request);
+		JsonResponse.setStatus(dbresponse.getStatus());
+		JsonResponse.setMessage(dbresponse.getMessage());
+		JsonResponse.setData(dbresponse.getData());
+		return new ResponseEntity<JSONResponse<Product>>(JsonResponse, HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/RejectPendingProduct", method = RequestMethod.POST)
+	public ResponseEntity<JSONResponse<Product>> rejectProduct(@RequestBody Product product, HttpServletRequest request){
+		JSONResponse<Product> JsonResponse = new JSONResponse<Product>();
+		AdminDashboard admDashboad = new AdminDashboard();
+		DatabaseResponse<Product> dbresponse = admDashboad.rejectPendingProduct(product,request);
+		JsonResponse.setStatus(dbresponse.getStatus());
+		JsonResponse.setMessage(dbresponse.getMessage());
+		JsonResponse.setData(dbresponse.getData());
+		return new ResponseEntity<JSONResponse<Product>>(JsonResponse, HttpStatus.OK);
 	}
 }

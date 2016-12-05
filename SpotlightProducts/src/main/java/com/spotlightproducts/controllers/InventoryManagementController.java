@@ -20,28 +20,18 @@ public class InventoryManagementController{
 		String SessionVar = (String)session.getAttribute("email");
 		user.setEmail(SessionVar);
 		user = CommonUtilities.getUserDataForLogin(user.getEmail());
-		if(user.getUserId() == 2){
-			
-			if(SessionVar == null)
-			{
-				return "LoginViews/Index";
-			}
-			else
-			{
-				return "InventoryManagementViews/InventoryManagementSeller";
-			}
-			
+		if(SessionVar == null)
+		{
+			return "LoginViews/Index";
+		}
+		else if (user.getRoleId() == 2){
+			return "InventoryManagementViews/Seller/InventoryManagementSeller";
+		}
+		else if (user.getRoleId() == 3){
+			return "InventoryManagementViews/Admin/InventoryManagementAdmin";
 		}
 		else{
-			if(SessionVar == null)
-			{
-				return "LoginViews/Index";
-			}
-			else
-			{
-				return "InventoryManagementViews/InventoryManagementAdmin";
-			}
-			
+			return "welcome";
 		}
 		
 	}
