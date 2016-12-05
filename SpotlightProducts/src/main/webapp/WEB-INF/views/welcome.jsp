@@ -160,7 +160,7 @@
 									alt="">
 							</div>
 							<div class="item">
-								<img class="slide-image" src="http://placehold.it/800x300"
+								<img class="slide-image" src="/resources/image3.jpg"
 									alt="">
 							</div>
 						</div>
@@ -175,21 +175,19 @@
 				</div>
 
 			</div>
-
+			<br>
 			<div class="row">
 
 				<div class="col-sm-4 col-lg-4 col-md-4">
 					<div class="thumbnail">
-						<img src="http://placehold.it/320x150" alt="">
+						<img src="/resources/mainpage1.jpg" alt="">
 						<div class="caption">
-							<h4 class="pull-right">$24.99</h4>
+							<h4 class="pull-right">$300.00</h4>
 							<h4>
-								<a href="#">First Product</a>
+								<a href="#">Adidas Sneakers</a>
 							</h4>
-							<p>
-								See more snippets like this online store item at <a
-									target="_blank" href="http://www.bootsnipp.com">Bootsnipp -
-									http://bootsnipp.com</a>.
+							<p>Comfortable Shoes by Adidas<a
+									target="_blank" href="#"></a>.
 							</p>
 						</div>
 						<div class="ratings">
@@ -255,14 +253,13 @@
 
 				<div class="col-sm-4 col-lg-4 col-md-4">
 					<div class="thumbnail">
-						<img src="http://placehold.it/320x150" alt="">
+						<img src="/resources/mainpage4.jpg" alt="">
 						<div class="caption">
 							<h4 class="pull-right">$84.99</h4>
 							<h4>
-								<a href="#">Fourth Product</a>
+								<a href="#">Casio Analog Men's Watch</a>
 							</h4>
-							<p>This is a short description. Lorem ipsum dolor sit amet,
-								consectetur adipiscing elit.</p>
+							<p>Metal Watch with Classic Finishing By Casio</p>
 						</div>
 						<div class="ratings">
 							<p class="pull-right">6 reviews</p>
@@ -279,14 +276,13 @@
 
 				<div class="col-sm-4 col-lg-4 col-md-4">
 					<div class="thumbnail">
-						<img src="http://placehold.it/320x150" alt="">
+						<img src="/resources/mainpage5.jpg" alt="">
 						<div class="caption">
-							<h4 class="pull-right">$94.99</h4>
+							<h4 class="pull-right">$200.00</h4>
 							<h4>
-								<a href="#">Fifth Product</a>
+								<a href="#">OnePlus Two Smartphone</a>
 							</h4>
-							<p>This is a short description. Lorem ipsum dolor sit amet,
-								consectetur adipiscing elit.</p>
+							<p>A cutting edge smartphone by OnePlus</p>
 						</div>
 						<div class="ratings">
 							<p class="pull-right">18 reviews</p>
@@ -303,14 +299,13 @@
 
 				<div class="col-sm-4 col-lg-4 col-md-4">
 					<div class="thumbnail">
-						<img src="http://placehold.it/320x150" alt="">
+						<img src="/resources/mainpage6.jpg" alt="">
 						<div class="caption">
-							<h4 class="pull-right">$94.99</h4>
+							<h4 class="pull-right">$50.00</h4>
 							<h4>
-								<a href="#">Fifth Product</a>
+								<a href="#">Data Structures & Algorithms</a>
 							</h4>
-							<p>This is a short description. Lorem ipsum dolor sit amet,
-								consectetur adipiscing elit.</p>
+							<p>This is a book on Data Structures and Algorithms in Python</p>
 						</div>
 						<div class="ratings">
 							<p class="pull-right">18 reviews</p>
