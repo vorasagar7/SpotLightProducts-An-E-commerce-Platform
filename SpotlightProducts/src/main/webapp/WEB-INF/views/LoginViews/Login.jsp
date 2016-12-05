@@ -3,7 +3,10 @@
 	background-image: url("/resources/SpotlightImage.gif");
 	background-size: 100% auto;
 	}
-	
+	h1{
+		color: white;
+		text-align: center;
+	}
 	</style>
 	<div class="row">
 		<div class="col-xs-offset-2 col-xs-8 col-md-offset-2 col-md-8 login-header">

@@ -205,14 +205,13 @@
 
 				<div class="col-sm-4 col-lg-4 col-md-4">
 					<div class="thumbnail">
-						<img src="http://placehold.it/320x150" alt="">
+						<img src="/resources/mainpage2.jpg" alt="">
 						<div class="caption">
 							<h4 class="pull-right">$64.99</h4>
 							<h4>
-								<a href="#">Second Product</a>
+								<a href="http://localhost:8080/ProductDetails?id=6">Heated Butter Knife</a>
 							</h4>
-							<p>This is a short description. Lorem ipsum dolor sit amet,
-								consectetur adipiscing elit.</p>
+							<p>Butter Knife which can be used to heat the butter as well</p>
 						</div>
 						<div class="ratings">
 							<p class="pull-right">12 reviews</p>
