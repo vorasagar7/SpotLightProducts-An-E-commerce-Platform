@@ -71,22 +71,22 @@ public class DashboardController{
 		return "DashboardViews/BuyerDashboard/ReviewHistoryPage";
 	}
 	
-	@RequestMapping(value = "SellerHomePage", method = RequestMethod.GET)
+	@RequestMapping(value = "/SellerHomePage", method = RequestMethod.GET)
 	public String GetSellerDashboardHomePage(){
 		return "DashboardViews/SellerDashboard/SellerHomePage";
 	}
 	
-	@RequestMapping(value = "SellerStatisticsPage", method = RequestMethod.GET)
+	@RequestMapping(value = "/SellerStatisticsPage", method = RequestMethod.GET)
 	public String GetSellerStatisticsPage(){
 		return "DashboardViews/SellerDashboard/SellerStatisticsPage";
 	}
 	
-	@RequestMapping(value = "AdminHomePage", method = RequestMethod.GET)
+	@RequestMapping(value = "/AdminHomePage", method = RequestMethod.GET)
 	public String GetAdminDashboardHomePage(){
 		return "DashboardViews/AdminDashboard/AdminHomePage";
 	}
 	
-	@RequestMapping(value = "AdminStatisticsPage", method = RequestMethod.GET)
+	@RequestMapping(value = "/AdminStatisticsPage", method = RequestMethod.GET)
 	public String GetAdminStatisticsPage(){
 		return "DashboardViews/AdminDashboard/AdminStatisticsPage";
 	}
