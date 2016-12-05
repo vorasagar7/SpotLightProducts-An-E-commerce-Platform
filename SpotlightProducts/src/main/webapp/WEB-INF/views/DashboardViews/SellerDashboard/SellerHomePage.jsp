@@ -15,7 +15,7 @@
 						<div class="card-block">
 							<h2 class="card-title">Seller Statistics</h2>
 						</div>
-						<a href="#" class="card-link"> <img
+						<a href="#/SellerStatistics" class="card-link"> <img
 							src="http://www.clker.com/cliparts/k/4/Z/I/m/T/light-green-square-md.png"
 							class="rounded float-xs-left"></a>
 					</div>

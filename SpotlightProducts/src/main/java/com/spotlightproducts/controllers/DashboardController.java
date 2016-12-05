@@ -76,6 +76,11 @@ public class DashboardController{
 		return "DashboardViews/SellerDashboard/SellerHomePage";
 	}
 	
+	@RequestMapping(value = "SellerStatisticsPage", method = RequestMethod.GET)
+	public String GetSellerStatisticsPage(){
+		return "DashboardViews/SellerDashboard/SellerStatisticsPage";
+	}
+	
 	@RequestMapping(value = "AdminHomePage", method = RequestMethod.GET)
 	public String GetAdminDashboardHomePage(){
 		return "DashboardViews/AdminDashboard/AdminHomePage";

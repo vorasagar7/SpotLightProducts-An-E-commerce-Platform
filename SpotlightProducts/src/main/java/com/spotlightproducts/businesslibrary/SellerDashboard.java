@@ -22,14 +22,14 @@ import com.mysql.jdbc.Connection;
 
 public class SellerDashboard {
 	
-	public DatabaseResponse<Double> getSellerRevenue(User user) {
+	public DatabaseResponse<Double> getSellerRevenue(int sellerId) {
 		DatabaseResponse response = new DatabaseResponse();
 		List<Double> sellerRevenueList = new ArrayList<Double>();
 		try {
 			
 			Connection con = DatabaseConnection.getDatabaseConnection();
 			CallableStatement cStmt = (CallableStatement) con.prepareCall(SpotLightConstants.SP_GET_SELLER_REVENUE);
-			cStmt.setString(1, user.getEmail());
+			cStmt.setInt(1, sellerId);
 			boolean hadResults = cStmt.execute();
 			double totalRevenue = 0.0;
 			while (hadResults) {
