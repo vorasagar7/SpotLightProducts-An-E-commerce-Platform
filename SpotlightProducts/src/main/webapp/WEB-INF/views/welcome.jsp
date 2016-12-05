@@ -2,12 +2,13 @@
 <html>
 
 <head>
-
+<style>
+</style>
 <title>SpotLightProduct's Main Page</title>
 
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<link rel="stylesheet"
+<link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -68,10 +69,11 @@
 		<form class="navbar-form navbar-left" role="search"
 			id="navBarSearchForm" method="POST" action="/search">
 			<div class="form-group">
-				<input type="text" name="searchQuery" class="form-control" placeholder="Search">
+				<input type="text" name="searchQuery" class="form-control"
+					placeholder="Search">
 			</div>
 			<button type="submit" class="btn btn-primary btn">
-			<i class="fa fa-search"></i>
+				<i class="fa fa-search"></i>
 			</button>
 		</form>
 
@@ -80,9 +82,11 @@
 
 		<ul class="nav navbar-nav navbar-right">
 
-			<li><form action="/ShoppingCart"><button type="submit" class="btn btn-primary navbar-btn">
-					<i class="fa fa-shopping-cart"></i> Shopping Cart
-				</button></form></li>
+			<li><form action="/ShoppingCart">
+					<button type="submit" class="btn btn-primary navbar-btn">
+						<i class="fa fa-shopping-cart"></i> Shopping Cart
+					</button>
+				</form></li>
 
 
 
@@ -151,17 +155,14 @@
 						</ol>
 						<div class="carousel-inner">
 							<div class="item active">
-								<img class="slide-image"
-									src="/resources/nikon-1.png" />
+								<img class="slide-image" src="/resources/nikon-1.png" />
 
 							</div>
 							<div class="item">
-								<img class="slide-image" src="/resources/macbook-1.jpg"
-									alt="">
+								<img class="slide-image" src="/resources/macbook-1.jpg" alt="">
 							</div>
 							<div class="item">
-								<img class="slide-image" src="/resources/image3.jpg"
-									alt="">
+								<img class="slide-image" src="/resources/image3.jpg" alt="">
 							</div>
 						</div>
 						<a class="left carousel-control" href="#carousel-example-generic"
@@ -179,19 +180,20 @@
 			<div class="row">
 
 				<div class="col-sm-4 col-lg-4 col-md-4">
-					<div class="thumbnail">
+					<a href="http://localhost:8080/ProductDetails?id=29">
+					<div class = "thumbnail">
 						<img src="/resources/mainpage1.jpg" alt="">
 						<div class="caption">
 							<h4 class="pull-right">$300.00</h4>
 							<h4>
-								<a href="#">Adidas Sneakers</a>
+								Adidas Originals Women's Sneaker</a>
 							</h4>
-							<p>Comfortable Shoes by Adidas<a
-									target="_blank" href="#"></a>.
+							<p>
+								Sports shoes<a target="_blank" href="#"></a>.
 							</p>
 						</div>
 						<div class="ratings">
-							<p class="pull-right">15 reviews</p>
+							<p class="pull-right">2 reviews</p>
 							<p>
 								<span class="glyphicon glyphicon-star"></span> <span
 									class="glyphicon glyphicon-star"></span> <span
@@ -201,131 +203,150 @@
 							</p>
 						</div>
 					</div>
+					</a>
 				</div>
 
 				<div class="col-sm-4 col-lg-4 col-md-4">
-					<div class="thumbnail">
-						<img src="/resources/mainpage2.jpg" alt="">
-						<div class="caption">
-							<h4 class="pull-right">$64.99</h4>
-							<h4>
-								<a href="http://localhost:8080/ProductDetails?id=6">Heated Butter Knife</a>
-							</h4>
-							<p>Butter Knife which can be used to heat the butter as well</p>
-						</div>
-						<div class="ratings">
-							<p class="pull-right">12 reviews</p>
-							<p>
-								<span class="glyphicon glyphicon-star"></span> <span
-									class="glyphicon glyphicon-star"></span> <span
-									class="glyphicon glyphicon-star"></span> <span
-									class="glyphicon glyphicon-star"></span> <span
-									class="glyphicon glyphicon-star-empty"></span>
-							</p>
-						</div>
-					</div>
+					<a href="http://localhost:8080/ProductDetails?id=6">
+						<div class="thumbnail">
+							<img src="/resources/mainpage2.jpg" alt="">
+							<div class="caption">
+								<h4 class="pull-right"></h4>
+								<h4>Heated Butter Knife
+					
+					</h4>
+					<p>Butter Knife which can be used to heat the butter as well</p>
 				</div>
-
-				<div class="col-sm-4 col-lg-4 col-md-4">
-					<div class="thumbnail">
-						<img src="http://placehold.it/320x150" alt="">
-						<div class="caption">
-							<h4 class="pull-right">$74.99</h4>
-							<h4>
-								<a href="#">Third Product</a>
-							</h4>
-							<p>This is a short description. Lorem ipsum dolor sit amet,
-								consectetur adipiscing elit.</p>
-						</div>
-						<div class="ratings">
-							<p class="pull-right">31 reviews</p>
-							<p>
-								<span class="glyphicon glyphicon-star"></span> <span
-									class="glyphicon glyphicon-star"></span> <span
-									class="glyphicon glyphicon-star"></span> <span
-									class="glyphicon glyphicon-star"></span> <span
-									class="glyphicon glyphicon-star-empty"></span>
-							</p>
-						</div>
-					</div>
+				
+				<div class="ratings">
+					<p class="pull-right">12 reviews</p>
+					<p>
+						<span class="glyphicon glyphicon-star"></span> <span
+							class="glyphicon glyphicon-star"></span> <span
+							class="glyphicon glyphicon-star"></span> <span
+							class="glyphicon glyphicon-star"></span> <span
+							class="glyphicon glyphicon-star-empty"></span>
+					</p>
+				</div>				
 				</div>
-
-				<div class="col-sm-4 col-lg-4 col-md-4">
-					<div class="thumbnail">
-						<img src="/resources/mainpage4.jpg" alt="">
-						<div class="caption">
-							<h4 class="pull-right">$84.99</h4>
-							<h4>
-								<a href="#">Casio Analog Men's Watch</a>
-							</h4>
-							<p>Metal Watch with Classic Finishing By Casio</p>
-						</div>
-						<div class="ratings">
-							<p class="pull-right">6 reviews</p>
-							<p>
-								<span class="glyphicon glyphicon-star"></span> <span
-									class="glyphicon glyphicon-star"></span> <span
-									class="glyphicon glyphicon-star"></span> <span
-									class="glyphicon glyphicon-star-empty"></span> <span
-									class="glyphicon glyphicon-star-empty"></span>
-							</p>
-						</div>
-					</div>
+				</a>
+			</div>	
+			
+			<div class="col-sm-4 col-lg-4 col-md-4">
+					<a href="http://localhost:8080/ProductDetails?id=49">
+						<div class="thumbnail">
+							<img src="/resources/mainpage6.jpg" alt="">
+							<div class="caption">
+								<h4 class="pull-right"></h4>
+								<h4>Data Structure and Algorithms in Python
+					
+					</h4>
+					<p>This is a book on Data Structures and Algorithms in Python</p>
 				</div>
-
-				<div class="col-sm-4 col-lg-4 col-md-4">
-					<div class="thumbnail">
-						<img src="/resources/mainpage5.jpg" alt="">
-						<div class="caption">
-							<h4 class="pull-right">$200.00</h4>
-							<h4>
-								<a href="#">OnePlus Two Smartphone</a>
-							</h4>
-							<p>A cutting edge smartphone by OnePlus</p>
-						</div>
-						<div class="ratings">
-							<p class="pull-right">18 reviews</p>
-							<p>
-								<span class="glyphicon glyphicon-star"></span> <span
-									class="glyphicon glyphicon-star"></span> <span
-									class="glyphicon glyphicon-star"></span> <span
-									class="glyphicon glyphicon-star"></span> <span
-									class="glyphicon glyphicon-star-empty"></span>
-							</p>
-						</div>
-					</div>
+				
+				<div class="ratings">
+					<p class="pull-right">12 reviews</p>
+					<p>
+						<span class="glyphicon glyphicon-star"></span> <span
+							class="glyphicon glyphicon-star"></span> <span
+							class="glyphicon glyphicon-star"></span> <span
+							class="glyphicon glyphicon-star"></span> <span
+							class="glyphicon glyphicon-star-empty"></span>
+					</p>
+				</div>				
 				</div>
-
-				<div class="col-sm-4 col-lg-4 col-md-4">
-					<div class="thumbnail">
-						<img src="/resources/mainpage6.jpg" alt="">
-						<div class="caption">
-							<h4 class="pull-right">$50.00</h4>
-							<h4>
-								<a href="#">Data Structures & Algorithms</a>
-							</h4>
-							<p>This is a book on Data Structures and Algorithms in Python</p>
-						</div>
-						<div class="ratings">
-							<p class="pull-right">18 reviews</p>
-							<p>
-								<span class="glyphicon glyphicon-star"></span> <span
-									class="glyphicon glyphicon-star"></span> <span
-									class="glyphicon glyphicon-star"></span> <span
-									class="glyphicon glyphicon-star"></span> <span
-									class="glyphicon glyphicon-star-empty"></span>
-							</p>
-						</div>
-					</div>
+				</a>
+			</div>	
+			
+			
+			
+		<div class="col-sm-4 col-lg-4 col-md-4">
+			<a href="http://localhost:8080/ProductDetails?id=8">
+			<div class="thumbnail">
+				<img src="/resources/mainpage3.jpg" alt="">
+				<div class="caption">
+					<h4 class="pull-right">$120</h4>
+					<h4> Laser keyboard
+						</a>
+					</h4>
+					<p>No need for physical keyboard</p>
 				</div>
-
-
-
+				<div class="ratings">
+					<p class="pull-right">10 reviews</p>
+					<p>
+						<span class="glyphicon glyphicon-star"></span> <span
+							class="glyphicon glyphicon-star"></span> <span
+							class="glyphicon glyphicon-star"></span> <span
+							class="glyphicon glyphicon-star"></span> <span
+							class="glyphicon glyphicon-star-empty"></span>
+					</p>
+				</div>
 			</div>
-
+			</a>
 		</div>
 
+		<div class="col-sm-4 col-lg-4 col-md-4">
+			<a href="http://localhost:8080/ProductDetails?id=32">
+			<div class="thumbnail">
+				<img src="/resources/mainpage4.jpg" alt="">
+				<div class="caption">
+					<h4 class="pull-right">$150</h4>
+					<h4>
+						Casio Men's Analog
+					</h4>
+					<p>Classical Analog Watch</p>
+				</div>
+				<div class="ratings">
+					<p class="pull-right">6 reviews</p>
+					<p>
+						<span class="glyphicon glyphicon-star"></span> <span
+							class="glyphicon glyphicon-star"></span> <span
+							class="glyphicon glyphicon-star"></span> <span
+							class="glyphicon glyphicon-star-empty"></span> <span
+							class="glyphicon glyphicon-star-empty"></span>
+					</p>
+				</div>
+			</div>
+			</a>
+		</div>
+
+		<div class="col-sm-4 col-lg-4 col-md-4">
+			<a href="http://localhost:8080/ProductDetails?id=4">
+			<div class="thumbnail">
+				<img src="/resources/mainpage5.jpg" alt="">
+				<div class="caption">
+					<h4 class="pull-right">$200.00</h4>
+					<h4>
+						<a href="#">One Plus 2</a>
+					</h4>
+					<p>A cutting edge smartphone by OnePlus</p>
+				</div>
+				<div class="ratings">
+					<p class="pull-right">18 reviews</p>
+					<p>
+						<span class="glyphicon glyphicon-star"></span> <span
+							class="glyphicon glyphicon-star"></span> <span
+							class="glyphicon glyphicon-star"></span> <span
+							class="glyphicon glyphicon-star"></span> <span
+							class="glyphicon glyphicon-star-empty"></span>
+					</p>
+				</div>
+			</div>
+		</div>
+
+		
+				
+			</div>
+		
+		</div>
+
+
+
 	</div>
+
+</div>
+
+</div>
 
 </div>
 <!-- /.container -->
@@ -339,12 +360,12 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<p>Copyright &copy; SpotlightProducts.com 2016</p>
-				 <a href="/CustomerSupport">Customer Support </a>
+				<a href="/CustomerSupport">Customer Support </a>
 			</div>
-			
-			
-				
-			
+
+
+
+
 		</div>
 	</footer>
 

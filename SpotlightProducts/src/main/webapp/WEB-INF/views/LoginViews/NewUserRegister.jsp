@@ -1,3 +1,13 @@
+	<style>
+	body{
+	background-image: url("/resources/SpotlightImage.gif");
+	background-size: 100% auto;
+	}
+	h1{
+		color: white;
+		text-align: center;
+	}
+	</style>
 <div class="row">
 	<div class="col-xs-8 col-md-offset-4 col-md-4">
 		<h1>SpotLightProducts.com</h1>
