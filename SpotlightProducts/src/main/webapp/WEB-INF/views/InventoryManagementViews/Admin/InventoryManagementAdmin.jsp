@@ -117,12 +117,12 @@
 
 						<tr ng-repeat="product in adminAllSellerProducts"
 							ng-hide="product.isDeleted || product.isApproved">
-							<th scope="row">{{product.productName}}</th>
-							<td>{{product.modelId}}</td>
-							<td>{{product.brandName}}</td>
-							<td>{{product.categoryName}}</td>
-							<td>{{product.quantity}}</td>
-							<td>{{product.price}}</td>
+							<th scope="row" class="inventory-table-cell">{{product.productName}}</th>
+							<td class="inventory-table-cell">{{product.modelId}}</td>
+							<td class="inventory-table-cell">{{product.brandName}}</td>
+							<td class="inventory-table-cell">{{product.categoryName}}</td>
+							<td class="inventory-table-cell">{{product.quantity}}</td>
+							<td class="inventory-table-cell">{{product.price}}</td>
 							<td><div>
 									<button type="button" class="btn btn-primary navbar-btn"
 										ng-click="approveProduct(product.productId)">Approve

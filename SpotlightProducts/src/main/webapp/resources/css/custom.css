@@ -99,6 +99,9 @@
 	font-weight: bold;
 	font-size: 20px
 }
+.inventory-table-cell{
+	vertical-align: middle	!important
+}
 
 /*Statistics Page*/
 .chart-element{
