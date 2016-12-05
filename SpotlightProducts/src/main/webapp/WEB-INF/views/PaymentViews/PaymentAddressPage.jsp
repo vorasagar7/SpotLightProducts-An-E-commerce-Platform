@@ -114,6 +114,8 @@
 							<button type="Submit" class="btn btn-primary"
 								ng-disabled="paymentDetailsForm.$invalid || !paymentDetails.typeOfPayment || !paymentDetails.state"
 								ng-click="submitPayment()">Continue to Payment</button>
+								<button type="Submit" class="btn btn-primary"
+								ng-click="continueShopping()">Continue Shopping</button>
 							
 						</div>
 					</form>
