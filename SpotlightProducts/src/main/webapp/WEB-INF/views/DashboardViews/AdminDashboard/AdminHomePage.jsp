@@ -13,7 +13,7 @@
 
 			<div class="card">
 				<div class="card-block">
-					<h2 class="card-title">SpotLightProducts Statistics</h2>
+					<h2 class="card-title">Statistics</h2>
 				</div>
 				<a href="#/AdminStatistics" class="card-link"> <img
 					src="http://www.clker.com/cliparts/d/F/Q/R/g/d/maroon-square-md.png"

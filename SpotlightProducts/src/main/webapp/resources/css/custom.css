@@ -81,7 +81,7 @@
 	border-top: none;
 }
 
-/*Admin Inventory*/
+/*Seller Inventory*/
 .inventory-cell{
 	width: 10%;
 	min-width: 100px
@@ -93,4 +93,15 @@
 
 .product-description-input{
 	height: 100px	!important
+}
+
+.no-product-font{
+	font-weight: bold;
+	font-size: 20px
+}
+
+/*Statistics Page*/
+.chart-element{
+	padding-left: 70px;
+	padding-top: 20px;
 }

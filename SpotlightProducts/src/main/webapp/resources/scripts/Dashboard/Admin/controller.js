@@ -20,7 +20,7 @@ adminDashboardApp.controller("AdminHomeCtrl", function($scope, $rootScope, $http
 					$scope.showCards = false;
 				});
 })
-adminDashboardApp.controller("AdminStatisticsCtrl", function($scope, $rootScope, $http, $location){
+adminDashboardApp.controller("AdminStatisticsCtrl", function($scope, $http, $location){
 	$scope.isAlert = false;
 	$scope.showAlert = function(){
 		$scope.isAlert = true;
@@ -71,4 +71,8 @@ adminDashboardApp.controller("AdminStatisticsCtrl", function($scope, $rootScope,
 	      var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
 	      chart.draw(data, options);
 	    }
+	
+	$scope.redirectToDashboardHome = function(){
+		$location.path('/');
+	}
 })

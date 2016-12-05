@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.spotlightproducts.businesslibrary.CommonUtilities;
 import com.spotlightproducts.dao.User;
 
 @Controller
@@ -17,12 +18,12 @@ public class DashboardController{
 		User user = new User();
 		HttpSession session = request.getSession();
 		user.setEmail((String)session.getAttribute("email"));
-		user.setUserId(2);
-		if(user.getUserId() == 1){
+		user = CommonUtilities.getUserDataForLogin(user.getEmail());
+		if(user.getRoleId() == 1){
 			System.out.println(user.getUserId());
 			return "DashboardViews/BuyerDashboard/Index";
 		}
-		else if (user.getUserId() == 3){
+		else if (user.getRoleId() == 2){
 			return "DashboardViews/SellerDashboard/Index";
 		}
 		else {

@@ -97,7 +97,7 @@
 				</button>
 				{{alertMessage}}
 			</div>
-			<div ng-show="showTable">
+			<div ng-hide="!showTable || isEmpty">
 				<h2>Inventory</h2>
 				<table class="table">
 
@@ -114,14 +114,9 @@
 					</thead>
 					<!-- These are the seller's product -->
 					<tbody>
-						<div class="row" ng-show="isEmpty">
-							<div class="text-center">
-								<div class="col-xs-9">
-									<h6 class="text-right">No Products.</h6>
-								</div>
-							</div>
-						</div>
-						<tr ng-repeat="product in sellerProducts" ng-class="{ 'danger': (product.quantity <= 10) }"
+
+						<tr ng-repeat="product in sellerProducts"
+							ng-class="{ 'danger': (product.quantity <= 10) }"
 							ng-hide="product.isDeleted">
 							<th scope="row">{{product.productName}}</th>
 							<td>{{product.modelId}}</td>
@@ -142,14 +137,20 @@
 					</tbody>
 				</table>
 			</div>
-
+			<div class="row" ng-show="isEmpty">
+					<div class="text-center">
+						<div class="col-xs-9">
+							<h6 class="text-left no-product-font">No Products.</h6>
+						</div>
+					</div>
+				</div>
 
 
 			<div>
 				<button type="button" class="btn btn-primary" data-toggle="modal"
 					data-target="#addProductModal">Add Product</button>
 				<button type="button" class="btn btn-primary"
-					ng-click="updateChanges()">Update Changes</button>
+					ng-click="updateChanges()" ng-disabled="isEmpty">Update Changes</button>
 			</div>
 			<!-- Add Product Modal -->
 			<div class="modal fade" id="addProductModal" tabindex="-1"
@@ -195,24 +196,34 @@
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="brand" class="col-xs-2 col-md-2 control-label" ng-class="{ 'has-error' : !product.brandId && !addProductForm.brand.$pristine }">Brand</label>
-									<div class="col-xs-4 col-md-4" ng-class="{ 'has-error' : !product.brandId && !addProductForm.brand.$pristine }">
-										<select class="form-control" id="productBrand" name="brand" ng-model="product.brandId">
+									<label for="brand" class="col-xs-2 col-md-2 control-label"
+										ng-class="{ 'has-error' : !product.brandId && !addProductForm.brand.$pristine }">Brand</label>
+									<div class="col-xs-4 col-md-4"
+										ng-class="{ 'has-error' : !product.brandId && !addProductForm.brand.$pristine }">
+										<select class="form-control" id="productBrand" name="brand"
+											ng-model="product.brandId">
 											<option value="">Select Brand</option>
 											<option ng-repeat="brand in referenceList | filter:{id:10}"
 												value="{{brand.objectId}}">{{brand.name}}</option>
 										</select>
-										<p ng-show="!product.brandId && !addProductForm.brand.$pristine" class="help-block">Brand is required.</p>
+										<p
+											ng-show="!product.brandId && !addProductForm.brand.$pristine"
+											class="help-block">Brand is required.</p>
 									</div>
-									<label for="category" class="col-xs-2 col-md-2 control-label" ng-class="{ 'has-error' : !product.categoryId && !addProductForm.category.$pristine }">Category</label>
-									<div class="col-xs-4 col-md-4" ng-class="{ 'has-error' : !product.categoryId && !addProductForm.category.$pristine }">
-										<select class="form-control" id="productCategory" name="category" ng-model="product.categoryId">
+									<label for="category" class="col-xs-2 col-md-2 control-label"
+										ng-class="{ 'has-error' : !product.categoryId && !addProductForm.category.$pristine }">Category</label>
+									<div class="col-xs-4 col-md-4"
+										ng-class="{ 'has-error' : !product.categoryId && !addProductForm.category.$pristine }">
+										<select class="form-control" id="productCategory"
+											name="category" ng-model="product.categoryId">
 											<option value="">Select Category</option>
 											<option
 												ng-repeat="category in referenceList | filter:{id:20}"
 												value="{{category.objectId}}">{{category.name}}</option>
 										</select>
-										<p ng-show="!product.categoryId && !addProductForm.category.$pristine" class="help-block">Category is required.</p>
+										<p
+											ng-show="!product.categoryId && !addProductForm.category.$pristine"
+											class="help-block">Category is required.</p>
 									</div>
 								</div>
 								<div class="form-group">
@@ -264,7 +275,8 @@
 										<textarea name="description" ng-model="product.description"
 											class="form-control product-description-input"
 											id="productDescription" placeholder="Description" required></textarea>
-										<p ng-show="addProductForm.description.$invalid && !addProductForm.description.$pristine"
+										<p
+											ng-show="addProductForm.description.$invalid && !addProductForm.description.$pristine"
 											class="help-block">Description is required.</p>
 									</div>
 
@@ -275,8 +287,9 @@
 						<div class="modal-footer">
 							<button type="button" class="btn btn-default"
 								data-dismiss="modal">Close</button>
-							<button type="button" class="btn btn-primary" ng-disabled="addProductForm.$invalid || !product.brandId || !product.categoryId" ng-click="saveProduct()">Save
-								changes</button>
+							<button type="button" class="btn btn-primary"
+								ng-disabled="addProductForm.$invalid || !product.brandId || !product.categoryId"
+								ng-click="saveProduct()">Save changes</button>
 						</div>
 					</div>
 				</div>
