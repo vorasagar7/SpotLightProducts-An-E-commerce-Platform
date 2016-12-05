@@ -12,6 +12,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -29,12 +30,10 @@ import com.spotlightproducts.utilities.SpotLightConstants;
 public class SellerDashBoardAPIController{
 	
 	@RequestMapping(value = "/SellerStatisticsGet", method = RequestMethod.GET)
-	public ResponseEntity<JSONResponse<Double>> getSellerStatistics(@RequestBody User user, HttpServletRequest request){
+	public ResponseEntity<JSONResponse<Double>> getSellerStatistics(@RequestParam(value="sellerId", defaultValue="1") int sellerId){
 		JSONResponse<Double> JsonResponse = new JSONResponse<Double>();
-		HttpSession session = request.getSession();
-		user.setEmail((String)session.getAttribute(SpotLightConstants.CONSTANT_EMAIL));
 		SellerDashboard sdashboad = new SellerDashboard();
-		DatabaseResponse<Double> dbresponse = sdashboad.getSellerRevenue(user);
+		DatabaseResponse<Double> dbresponse = sdashboad.getSellerRevenue(sellerId);
 		JsonResponse.setStatus(dbresponse.getStatus());
 		JsonResponse.setMessage(dbresponse.getMessage());
 		JsonResponse.setData(dbresponse.getData());

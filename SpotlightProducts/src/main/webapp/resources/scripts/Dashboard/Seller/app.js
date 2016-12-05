@@ -10,5 +10,9 @@ var sellerDashboardApp = angular.module("SellerDashboardApp",['ngRoute'])
 	        templateUrl: '/SellerLowStockPage.do',
 	        controller: "SellerLowStockPageCtrl"
 	      })
+	      .when('/SellerStatistics', {
+	        templateUrl: '/SellerStatisticsPage.do',
+	        controller: "SellerStatisticsCtrl"
+	      })
 	      .otherwise({redirectTo: '/'});
 	}]);
