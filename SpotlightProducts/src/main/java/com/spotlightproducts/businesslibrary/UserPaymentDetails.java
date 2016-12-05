@@ -91,6 +91,7 @@ public class UserPaymentDetails {
 							con.close();
 							response.setStatus(SpotLightConstants.CONSTANT_SUCCESS);
 							response.setMessage(SpotLightConstants.CONSTANT_ORDER_SUCCESSFULLY_PLACED);
+							SpotLightConstants.sendEmailAfterPayment(email);
 							return response;
 						} else {
 							con.close();
