@@ -20,6 +20,7 @@ import com.spotlightproducts.utilities.SpotLightConstants;
 
 public class LoginUser {
 
+	//method to register a new user in the system
 	public DatabaseResponse registerUser(User user) {
 		DatabaseResponse response = new DatabaseResponse();
 		String firstName = user.getFirstName();
@@ -82,6 +83,7 @@ public class LoginUser {
 
 	}
 
+	//method to validate a User into the system
 	public boolean validateUser(User user) {
 
 		try {
@@ -114,6 +116,7 @@ public class LoginUser {
 		return false;
 	}
 
+	//method to handle forgot password request for the user
 	public DatabaseResponse forgotPassword(User user){
 		DatabaseResponse response = new DatabaseResponse();
 		String password = null;
@@ -152,7 +155,7 @@ public class LoginUser {
 
 	
 	
-	// business library to change user password
+	// method to change user password
 		public DatabaseResponse changeUserPassword(User user) {
 			DatabaseResponse response = new DatabaseResponse();
 			String password = user.getPassword();

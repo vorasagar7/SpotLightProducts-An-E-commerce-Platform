@@ -23,6 +23,7 @@ import com.spotlightproducts.utilities.SpotLightConstants;
 
 public class InventoryManagement {
 
+		//method to add Seller product in the inventory
 		public DatabaseResponse<Product> addSellerProducts(Product product, HttpServletRequest request) {
 			
 			DatabaseResponse response = new DatabaseResponse();
@@ -68,6 +69,7 @@ public class InventoryManagement {
 			return response;
 		}
 		
+		//method to edit Seller Products by the Seller
 		public DatabaseResponse<Product> editSellerProducts(List<Product> products, HttpServletRequest request) {
 			DatabaseResponse response = new DatabaseResponse();
 			
@@ -121,6 +123,7 @@ public class InventoryManagement {
 
 		}
 			
+		//method to remove products from the inventory by the Seller
 		public DatabaseResponse<String> removeSellerProducts(Product product, HttpServletRequest request) {
 			DatabaseResponse response = new DatabaseResponse();
 			HttpSession session = request.getSession();
@@ -156,6 +159,7 @@ public class InventoryManagement {
 
 		}
 		
+		//method to get the approved products for the Seller
 		public DatabaseResponse<Product> getApprovedSellerProducts(int id) {
 			DatabaseResponse response = new DatabaseResponse();
 			List<Product> sellerProductList = new ArrayList<Product>();
@@ -194,6 +198,7 @@ public class InventoryManagement {
 			return response;
 		}
 		
+		//method to get the Items from Brand and Category
 		public DatabaseResponse<ReferenceData> getBrandCategoryItems() {
 			DatabaseResponse response = new DatabaseResponse();
 			List<ReferenceData> referenceList = new ArrayList<ReferenceData>();

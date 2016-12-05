@@ -17,6 +17,7 @@ import com.spotlightproducts.utilities.SpotLightConstants;
 
 public class AdminDashboard {
 	
+	//Method to get all the Users that are registered with SpotlightProducts
 	public DatabaseResponse<Integer> getTotalUsers() {
 		DatabaseResponse<Integer> response = new DatabaseResponse<Integer>();
 		List<Integer> UserTotalCountList = new ArrayList<Integer>();
@@ -66,6 +67,7 @@ public class AdminDashboard {
 
 	}
 	
+	//Method which retrieves the User Graph for the Admin Dashboard
 	public DatabaseResponse<SpotLightProductsGraph> getUsersGraph() {
 		DatabaseResponse<SpotLightProductsGraph> response = new DatabaseResponse<SpotLightProductsGraph>();
 		List<SpotLightProductsGraph> userRegisterListByMonth = new ArrayList<SpotLightProductsGraph>();
@@ -99,6 +101,7 @@ public class AdminDashboard {
 		return response;
 	}
 
+	//method to get the Pending product list for the Admin
 	public DatabaseResponse<Product> getPendingProductsList() {
 		DatabaseResponse response = new DatabaseResponse();
 		List<Product> productList = new ArrayList<Product>();
@@ -138,6 +141,7 @@ public class AdminDashboard {
 		return response;
 	}
 	
+	//method to get the list of all the products from the database
 	public DatabaseResponse<Product> getAllProductsList() {
 		DatabaseResponse response = new DatabaseResponse();
 		List<Product> productList = new ArrayList<Product>();
@@ -177,6 +181,7 @@ public class AdminDashboard {
 		return response;
 	}
 
+	//method to approve pending products from the Dashboard
 	public DatabaseResponse<Product> approvePendingProducts(Product product, HttpServletRequest request) {
 		DatabaseResponse<Product> response = new DatabaseResponse<Product>();
 		List<Product> productList = new ArrayList<Product>();
@@ -222,6 +227,7 @@ public class AdminDashboard {
 		return response;
 	}
 
+	//method to reject pending products from the Dashboard
 	public DatabaseResponse<Product> rejectPendingProduct(Product product, HttpServletRequest request) {
 		DatabaseResponse<Product> response = new DatabaseResponse<Product>();
 		List<Product> productList = new ArrayList<Product>();
@@ -267,6 +273,7 @@ public class AdminDashboard {
 		return response;
 	}
 
+	//method to remove any product from the database
 	public DatabaseResponse<Product> removeAnyProduct(Product product, HttpServletRequest request) {
 		DatabaseResponse<Product> response = new DatabaseResponse<Product>();
 		List<Product> productList = new ArrayList<Product>();

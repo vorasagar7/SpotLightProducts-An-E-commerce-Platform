@@ -21,6 +21,7 @@ import com.spotlightproducts.dao.JSONResponse;
 @RestController
 public class CommonDataAPIController{
 	
+	//RESTful API to get Unique User Id for each user
 	@RequestMapping(value = "/GetUniqueUserId", method = RequestMethod.GET)
 	public ResponseEntity<JSONResponse<Integer>> getUserId(HttpServletRequest request){
 		HttpSession session = request.getSession();

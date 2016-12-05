@@ -20,6 +20,7 @@ import com.spotlightproducts.dao.User;
 @RestController
 public class ProductDetailsAPIController{
 	
+	//RESTful API to get products by id
 	@RequestMapping(value = "/GetProductById", method = RequestMethod.GET)
 	public ResponseEntity<JSONResponse<Product>> GetProductById(@RequestParam(value="id", defaultValue="1") int productId){
 		JSONResponse<Product> JsonResponse = new JSONResponse<Product>();
@@ -31,6 +32,7 @@ public class ProductDetailsAPIController{
 		return new ResponseEntity<JSONResponse<Product>>(JsonResponse, HttpStatus.OK);
 	}
 	
+	//RESTful API to store the user review
 	@RequestMapping(value = "/PostUserReview", method = RequestMethod.POST)
 	public ResponseEntity<JSONResponse<String>> RegisterUser(@RequestBody Product product, HttpServletRequest request){
 		JSONResponse<String> JsonResponse = new JSONResponse<String>();

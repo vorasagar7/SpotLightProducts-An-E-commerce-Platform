@@ -31,6 +31,7 @@ import com.spotlightproducts.utilities.SpotLightConstants;
 @RestController
 public class AdminDashBoardAPIController{
 	
+	//RESTful API to get admin statistics to for total number of users
 	@RequestMapping(value = "/AdminStatisticsTotalUserCountGet", method = RequestMethod.GET)
 	public ResponseEntity<JSONResponse<Integer>> getAdminStatisticsForTotalCount(@RequestBody User user, HttpServletRequest request){
 		JSONResponse<Integer> JsonResponse = new JSONResponse<Integer>();
@@ -44,6 +45,7 @@ public class AdminDashBoardAPIController{
 		return new ResponseEntity<JSONResponse<Integer>>(JsonResponse, HttpStatus.OK);
 	}
 	
+	//RESTful API to get User Graph Statistics
 	@RequestMapping(value = "/AdminStatisticsUsersGraphGet", method = RequestMethod.GET)
 	public ResponseEntity<JSONResponse<SpotLightProductsGraph>> getAdminStatisticsForUsersGraph(HttpServletRequest request){
 		JSONResponse<SpotLightProductsGraph> JsonResponse = new JSONResponse<SpotLightProductsGraph>();
@@ -56,6 +58,7 @@ public class AdminDashBoardAPIController{
 		return new ResponseEntity<JSONResponse<SpotLightProductsGraph>>(JsonResponse, HttpStatus.OK);
 	}
 	
+	//RESTful API to get all the products
 	@RequestMapping(value = "/AllProductGet", method = RequestMethod.GET)
 	public ResponseEntity<JSONResponse<Product>> getAllProducts(@RequestBody User user, HttpServletRequest request){
 		JSONResponse<Product> JsonResponse = new JSONResponse<Product>();
@@ -69,6 +72,7 @@ public class AdminDashBoardAPIController{
 		return new ResponseEntity<JSONResponse<Product>>(JsonResponse, HttpStatus.OK);
 	}
 	
+	//RESTful API to delete any product
 	@RequestMapping(value = "/DeleteAnyProduct", method = RequestMethod.POST)
 	public ResponseEntity<JSONResponse<Product>> removeProduct(@RequestBody Product product, HttpServletRequest request){
 		JSONResponse<Product> JsonResponse = new JSONResponse<Product>();

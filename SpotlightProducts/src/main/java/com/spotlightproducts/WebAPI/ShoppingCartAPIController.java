@@ -27,6 +27,7 @@ import com.spotlightproducts.dao.User;
 @RestController
 public class ShoppingCartAPIController{
 	
+	//RESTful API to view the User shopping cart
 	@RequestMapping(value = "/ViewShoppingCart", method = RequestMethod.GET)
 	public ResponseEntity<JSONResponse<ShoppingCart>> viewShoppingCart(HttpServletRequest request){
 		JSONResponse<ShoppingCart> JsonResponse = new JSONResponse<ShoppingCart>();
@@ -40,6 +41,7 @@ public class ShoppingCartAPIController{
 		return new ResponseEntity<JSONResponse<ShoppingCart>>(JsonResponse, HttpStatus.OK);
 	}
 	
+	//RESTful API to get the user id
 	@RequestMapping(value = "/GetUserId", method = RequestMethod.GET)
 	public ResponseEntity<JSONResponse<String>> getUserId(HttpServletRequest request){
 		HttpSession session = request.getSession();
@@ -51,6 +53,7 @@ public class ShoppingCartAPIController{
 		return new ResponseEntity<JSONResponse<String>>(JsonResponse, HttpStatus.OK);
 	}
 	
+	//RESTful API to delete the item from Shopping Cart
 	@RequestMapping(value = "/DeleteCartItem", method = RequestMethod.POST)
 	public ResponseEntity<JSONResponse<String>> deleteUserCartItem(@RequestBody ShoppingCart cart){
 		JSONResponse<String> JsonResponse = new JSONResponse<String>();
@@ -61,6 +64,7 @@ public class ShoppingCartAPIController{
 		return new ResponseEntity<JSONResponse<String>>(JsonResponse, HttpStatus.OK);
 	}
 	
+	//RESTful API to modify User Shopping cart
 	@RequestMapping(value = "/ModifyUserCart", method = RequestMethod.POST)
 	public ResponseEntity<JSONResponse<String>> modifyUserCartItem(@RequestBody List<ShoppingCart> cart, HttpServletRequest request){
 		JSONResponse<String> JsonResponse = new JSONResponse<String>();

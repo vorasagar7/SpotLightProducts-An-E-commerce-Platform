@@ -29,6 +29,7 @@ import com.spotlightproducts.utilities.SpotLightConstants;
 @RestController
 public class SellerDashBoardAPIController{
 	
+	//RESTful API to get the seller's statistics
 	@RequestMapping(value = "/SellerStatisticsGet", method = RequestMethod.GET)
 	public ResponseEntity<JSONResponse<Double>> getSellerStatistics(@RequestParam(value="sellerId", defaultValue="1") int sellerId){
 		JSONResponse<Double> JsonResponse = new JSONResponse<Double>();
@@ -40,6 +41,7 @@ public class SellerDashBoardAPIController{
 		return new ResponseEntity<JSONResponse<Double>>(JsonResponse, HttpStatus.OK);
 	}
 	
+	//RESTful API to get the products with low stocks
 	@RequestMapping(value = "/SellerLowStockIndicatorGet", method = RequestMethod.GET)
 	public ResponseEntity<JSONResponse<Product>> getSellerLowStockIndicator(@RequestBody User user, HttpServletRequest request){
 		JSONResponse<Product> JsonResponse = new JSONResponse<Product>();

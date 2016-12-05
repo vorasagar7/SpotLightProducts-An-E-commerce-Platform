@@ -17,6 +17,7 @@ import com.spotlightproducts.utilities.SpotLightConstants;
 
 public class ShoppingCartDetails {
 
+	//method to get the User's Shopping Cart
 	public DatabaseResponse<ShoppingCart> getUserShoppingCart(String email) {
 		DatabaseResponse<ShoppingCart> response = new DatabaseResponse<ShoppingCart>();
 		List<ShoppingCart> shoppingCartList = new ArrayList<ShoppingCart>();
@@ -64,6 +65,7 @@ public class ShoppingCartDetails {
 
 	}
 
+	//method to edit and modify User Shopping Cart
 	public DatabaseResponse modifyUserShoppingCart(List<ShoppingCart> shoppingCart, HttpServletRequest request) {
 		DatabaseResponse response = new DatabaseResponse();
 		try {
@@ -117,6 +119,7 @@ public class ShoppingCartDetails {
 
 	}
 
+	//method to delete a product from the Shopping Cart
 	public DatabaseResponse deleteFromShoppingCart(ShoppingCart shoppingCart) {
 		int success = 0;
 		String errorMessage = null;

@@ -22,6 +22,7 @@ import com.mysql.jdbc.Connection;
 
 public class SellerDashboard {
 	
+	//method to get the seller revenue
 	public DatabaseResponse<Double> getSellerRevenue(int sellerId) {
 		DatabaseResponse response = new DatabaseResponse();
 		List<Double> sellerRevenueList = new ArrayList<Double>();
@@ -56,6 +57,7 @@ public class SellerDashboard {
 
 	}
 	
+	//method to get Low Stock Products for the Seller
 	public DatabaseResponse<Product> getSellerLowStocks(User user) {
 		DatabaseResponse response = new DatabaseResponse();
 		List<Product> sellerProductList = new ArrayList<Product>();

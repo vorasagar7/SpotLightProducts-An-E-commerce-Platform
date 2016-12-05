@@ -19,6 +19,7 @@ import com.spotlightproducts.dao.UserPaymentDetailsDao;
 @RestController
 public class PaymentAPIController{
 	
+	//RESTful API to get the reference data for payment
 	@RequestMapping(value = "/GetPaymentReferenceData", method = RequestMethod.GET)
 	public ResponseEntity<JSONResponse<ReferenceData>> GetPaymentReferenceData(){
 		JSONResponse<ReferenceData> JsonResponse = new JSONResponse<ReferenceData>(); 
@@ -30,7 +31,7 @@ public class PaymentAPIController{
 		return new ResponseEntity<JSONResponse<ReferenceData>>(JsonResponse, HttpStatus.OK);
 	}
 	
-	
+	//RESTful API to save the user order
 	@RequestMapping(value = "/SaveUserOrder", method = RequestMethod.POST)
 	public ResponseEntity<JSONResponse<String>> RegisterUser(@RequestBody UserPaymentDetailsDao userPaymentDetails, HttpServletRequest request){
 		JSONResponse<String> JsonResponse = new JSONResponse<String>();

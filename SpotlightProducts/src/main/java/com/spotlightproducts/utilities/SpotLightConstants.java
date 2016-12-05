@@ -68,6 +68,7 @@ public class SpotLightConstants {
 	public static final String SP_GET_USER_DETAILS_FOR_LOGIN = "{call sp_User_ID_ROLE_ID_Get(?)}";
 	// Constant Methods
 	
+	//method to send email to user on forget password
 	public static void sendEmail(String email, String password) throws AddressException, MessagingException 
 	{
 
@@ -111,6 +112,7 @@ public class SpotLightConstants {
 		transport.close();
 	}
 	
+	//method to send email to the User upon successful payment
 	public static void sendEmailAfterPayment(String email) throws AddressException, MessagingException 
 	{
 

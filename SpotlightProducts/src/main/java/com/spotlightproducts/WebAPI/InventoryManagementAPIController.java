@@ -26,6 +26,7 @@ import com.spotlightproducts.utilities.SpotLightConstants;
 @RestController
 public class InventoryManagementAPIController {
 	
+	//RESTful API to get all the seller products from the inventory
 	@RequestMapping(value = "/GetSellerInventoryProducts", method = RequestMethod.GET)
 	public ResponseEntity<JSONResponse<Product>> getAllSellerProducts(HttpServletRequest request){
 	HttpSession session = request.getSession();
@@ -41,6 +42,7 @@ public class InventoryManagementAPIController {
 	return new ResponseEntity<JSONResponse<Product>>(JsonResponse, HttpStatus.OK);
 	}
 	
+	//RESTful API to add product
 	@RequestMapping(value = "/PostAddProduct", method = RequestMethod.POST)
 	public ResponseEntity<JSONResponse<Product>> AddProductDetails(@RequestBody Product product, HttpServletRequest request){
 	JSONResponse<Product> JsonResponse = new JSONResponse<Product>(); 
@@ -53,6 +55,7 @@ public class InventoryManagementAPIController {
 	return new ResponseEntity<JSONResponse<Product>>(JsonResponse, HttpStatus.OK);
 	}
 	
+	//RESTful API to modify a product by a seller
 	@RequestMapping(value = "/ProductSellerModify", method = RequestMethod.POST)
 	public ResponseEntity<JSONResponse<Product>> editProductDetails(@RequestBody List<Product> products, HttpServletRequest request){
 		JSONResponse<Product> JsonResponse = new JSONResponse<Product>(); 
@@ -64,6 +67,7 @@ public class InventoryManagementAPIController {
 		return new ResponseEntity<JSONResponse<Product>>(JsonResponse, HttpStatus.OK);
 	}
 	
+	//RESTful API to remove a product
 	@RequestMapping(value = "/POSTRemoveProduct", method = RequestMethod.POST)
 	public ResponseEntity<JSONResponse<String>> removeProduct(@RequestBody Product product, HttpServletRequest request){
 		JSONResponse<String> JsonResponse = new JSONResponse<String>(); 
@@ -85,6 +89,7 @@ public class InventoryManagementAPIController {
 		return new ResponseEntity<JSONResponse<ReferenceData>>(JsonResponse, HttpStatus.OK);
 	}
 	
+	//RESTful API for Pending products for Approval
 	@RequestMapping(value = "/PendingProductsForApprovalGet", method = RequestMethod.GET)
 	public ResponseEntity<JSONResponse<Product>> getPendingProductsForApproval(HttpServletRequest request){
 		JSONResponse<Product> JsonResponse = new JSONResponse<Product>();
@@ -96,6 +101,7 @@ public class InventoryManagementAPIController {
 		return new ResponseEntity<JSONResponse<Product>>(JsonResponse, HttpStatus.OK);
 	}
 	
+	//RESTful API to approve product
 	@RequestMapping(value = "/ApproveProduct", method = RequestMethod.POST)
 	public ResponseEntity<JSONResponse<Product>> approveProducts(@RequestBody Product product, HttpServletRequest request){
 		JSONResponse<Product> JsonResponse = new JSONResponse<Product>();
@@ -107,6 +113,7 @@ public class InventoryManagementAPIController {
 		return new ResponseEntity<JSONResponse<Product>>(JsonResponse, HttpStatus.OK);
 	}
 	
+	//RESTful API to reject a pending product
 	@RequestMapping(value = "/RejectPendingProduct", method = RequestMethod.POST)
 	public ResponseEntity<JSONResponse<Product>> rejectProduct(@RequestBody Product product, HttpServletRequest request){
 		JSONResponse<Product> JsonResponse = new JSONResponse<Product>();

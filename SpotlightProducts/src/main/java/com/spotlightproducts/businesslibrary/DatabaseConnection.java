@@ -13,6 +13,7 @@ import com.spotlightproducts.dao.User;
 
 public class DatabaseConnection {
 	
+	//method to get the Database Connection
 	public static Connection getDatabaseConnection() {
 		Connection con = null;
 		try {

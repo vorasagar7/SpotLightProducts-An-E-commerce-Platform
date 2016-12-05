@@ -25,6 +25,7 @@ import com.spotlightproducts.utilities.SpotLightConstants;
 
 public class UserPaymentDetails {
 
+		//method to get the items from the reference list
 		public DatabaseResponse<ReferenceData> getReferenceListItems() {
 			DatabaseResponse response = new DatabaseResponse();
 			List<ReferenceData> referenceList = new ArrayList<ReferenceData>();
@@ -60,6 +61,7 @@ public class UserPaymentDetails {
 
 		}
 		
+		//method to save the user information upon payment
 		public DatabaseResponse savePaymentDetails(UserPaymentDetailsDao userDetails, HttpServletRequest request) {
 			DatabaseResponse response = new DatabaseResponse();
 			String fullName = userDetails.getFullName();

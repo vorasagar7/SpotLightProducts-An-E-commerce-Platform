@@ -42,6 +42,7 @@ public class UserDashBoardAPIController{
 		return new ResponseEntity<JSONResponse<String>>(JsonResponse, HttpStatus.OK);
 	}
 	
+	//RESTful API to get the User order
 	@RequestMapping(value = "/UserOrderGET", method = RequestMethod.GET)
 	public ResponseEntity<JSONResponse<Order>> userOrdersGet(@RequestParam(value="userId", defaultValue="1") int userId){
 		JSONResponse<Order> JsonResponse = new JSONResponse<Order>();
@@ -53,6 +54,7 @@ public class UserDashBoardAPIController{
 		return new ResponseEntity<JSONResponse<Order>>(JsonResponse, HttpStatus.OK);
 	}
 	
+	//RESTful API to get the list of user reviews
 	@RequestMapping(value = "/UserReviewsGET", method = RequestMethod.GET)
 	public ResponseEntity<JSONResponse<Review>> userReviewsGet(@RequestParam(value="userId", defaultValue="1") int userId){
 		JSONResponse<Review> JsonResponse = new JSONResponse<Review>();

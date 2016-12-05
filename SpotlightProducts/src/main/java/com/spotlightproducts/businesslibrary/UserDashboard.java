@@ -22,6 +22,7 @@ import com.mysql.jdbc.Connection;
 
 public class UserDashboard {
 	
+	//method to get the User Order for the User's Dashboard
 	public DatabaseResponse<Order> getUserOrders(int userId) {
 		DatabaseResponse response = new DatabaseResponse();
 		List<Order> userOrderList = new ArrayList<Order>();
@@ -63,6 +64,7 @@ public class UserDashboard {
 
 	}
 	
+	//method to get the user reviews for the User Dashboard
 	public DatabaseResponse<Review> getUserReviews(int userId) {
 		DatabaseResponse response = new DatabaseResponse();
 		List<Review> userReviewList = new ArrayList<Review>();

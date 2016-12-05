@@ -23,6 +23,7 @@ import com.spotlightproducts.dao.User;
 @RestController
 public class LoginAPIController{
 	
+	//RESTful API to authenticate user
 	@RequestMapping(value = "/AuthenticateUser", method = RequestMethod.POST)
 	public ResponseEntity<JSONResponse<String>> AuthenticateUser(@RequestBody User user, ModelMap model, HttpServletRequest request){
 		boolean isValidUser = user.validateUserDao();
@@ -39,6 +40,7 @@ public class LoginAPIController{
 		return new ResponseEntity<JSONResponse<String>>(JsonResponse, HttpStatus.OK);
 	}
 	
+	//RESTful API to post user details
 	@RequestMapping(value = "/PostUserDetails", method = RequestMethod.POST)
 	public ResponseEntity<JSONResponse<String>> RegisterUser(@RequestBody User user){
 		JSONResponse<String> JsonResponse = new JSONResponse<String>();
@@ -48,6 +50,7 @@ public class LoginAPIController{
 		return new ResponseEntity<JSONResponse<String>>(JsonResponse, HttpStatus.OK);
 	}
 	
+	//RESTful API to get user password
 	@RequestMapping(value = "/GetUserPassword", method = RequestMethod.POST)
 	public JSONResponse<String> SendUserPassword(@RequestBody User user){
 		JSONResponse<String> JsonResponse = new JSONResponse<String>();

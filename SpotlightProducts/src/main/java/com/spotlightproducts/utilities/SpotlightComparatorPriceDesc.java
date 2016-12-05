@@ -6,6 +6,7 @@ import com.spotlightproducts.dao.Product;
 
 public class SpotlightComparatorPriceDesc implements Comparator{
 
+	//method to sort the product price from high to low
 	@Override
 	public int compare(Object obj1, Object obj2) {
 		// TODO Auto-generated method stub

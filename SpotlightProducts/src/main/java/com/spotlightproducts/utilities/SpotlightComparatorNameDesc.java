@@ -6,6 +6,7 @@ import com.spotlightproducts.dao.Product;
 
 public class SpotlightComparatorNameDesc implements Comparator{
 	
+	//method to sort the product based on product names from Z-A
 	@Override
 	public int compare(Object obj1, Object obj2) {
 		// TODO Auto-generated method stub

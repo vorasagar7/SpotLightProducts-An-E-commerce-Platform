@@ -18,6 +18,7 @@ import com.spotlightproducts.utilities.SpotLightConstants;
 
 public class ProductDetails {
 
+	//method to get a searched product based on user search query
 	public DatabaseResponse<Product> getSearchedProduct(Product product) {
 		DatabaseResponse response = new DatabaseResponse();
 		String searchQuery = product.getSearchQuery();
@@ -62,6 +63,7 @@ public class ProductDetails {
 
 	}
 
+	//method to get a product by its product id
 	public DatabaseResponse<Product> getProductById(int productId) {
 		DatabaseResponse response = new DatabaseResponse();
 		List<Product> productList = new ArrayList<Product>();
@@ -130,7 +132,7 @@ public class ProductDetails {
 	}
 
 	/* 
-	 * To save the User Review
+	 * method to save the User Review
 	 * 
 	 * */
 	public DatabaseResponse storeUserReview(Product prodObj, HttpServletRequest request) {

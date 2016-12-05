@@ -13,6 +13,7 @@ import com.spotlightproducts.utilities.SpotLightConstants;
 
 public class CommonUtilities {
 	
+	//method to get the userId of a user from his email
 	public static int getUserId(String email) {
 		
 		int userId = 0;
@@ -41,6 +42,7 @@ public class CommonUtilities {
 
 	}
 	
+//method to get the User data for login
 public static User getUserDataForLogin(String email) {
 		
 		int userId = 0;
