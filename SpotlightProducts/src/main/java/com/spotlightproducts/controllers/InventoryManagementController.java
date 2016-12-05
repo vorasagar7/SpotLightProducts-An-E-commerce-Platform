@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.spotlightproducts.businesslibrary.CommonUtilities;
 import com.spotlightproducts.dao.User;
 
 @Controller
@@ -16,13 +17,31 @@ public class InventoryManagementController{
 	public String ShowInventoryManagementPage(HttpServletRequest request){
 		User user = new User();
 		HttpSession session = request.getSession();
-		user.setEmail((String)session.getAttribute("email"));
-		user.setUserId(3);
-		if(user.getUserId() == 3){
-			return "InventoryManagementViews/InventoryManagementSeller";
+		String SessionVar = (String)session.getAttribute("email");
+		user.setEmail(SessionVar);
+		user = CommonUtilities.getUserDataForLogin(user.getEmail());
+		if(user.getUserId() == 2){
+			
+			if(SessionVar == null)
+			{
+				return "LoginViews/Index";
+			}
+			else
+			{
+				return "InventoryManagementViews/InventoryManagementSeller";
+			}
+			
 		}
 		else{
-			return "InventoryManagementViews/InventoryManagementAdmin";
+			if(SessionVar == null)
+			{
+				return "LoginViews/Index";
+			}
+			else
+			{
+				return "InventoryManagementViews/InventoryManagementAdmin";
+			}
+			
 		}
 		
 	}

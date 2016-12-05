@@ -21,7 +21,6 @@ import com.spotlightproducts.dao.JSONResponse;
 import com.spotlightproducts.dao.User;
 
 @RestController
-//@SessionAttributes("email")	//this annotation is used for Session Handling in Spring MVC. The parameters i.e "email" will be stored in the model object till the end of the session OR till User logout OR till 30 minutes whichever happens first
 public class LoginAPIController{
 	
 	@RequestMapping(value = "/AuthenticateUser", method = RequestMethod.POST)

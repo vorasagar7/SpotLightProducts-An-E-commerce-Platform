@@ -19,15 +19,40 @@ public class DashboardController{
 		HttpSession session = request.getSession();
 		user.setEmail((String)session.getAttribute("email"));
 		user = CommonUtilities.getUserDataForLogin(user.getEmail());
+		String SessionVar = (String)request.getSession().getAttribute("email");
 		if(user.getRoleId() == 1){
-			System.out.println(user.getUserId());
-			return "DashboardViews/BuyerDashboard/Index";
+			
+			if(SessionVar == null)
+			{
+				return "LoginViews/Index";
+			}
+			else
+			{
+				return "DashboardViews/BuyerDashboard/Index";
+			}
+			
 		}
 		else if (user.getRoleId() == 2){
-			return "DashboardViews/SellerDashboard/Index";
+			if(SessionVar == null)
+			{
+				return "LoginViews/Index";
+			}
+			else
+			{
+				return "DashboardViews/SellerDashboard/Index";
+			}
+			
 		}
 		else {
-			return "DashboardViews/AdminDashboard/Index";
+			
+			if(SessionVar == null)
+			{
+				return "LoginViews/Index";
+			}
+			else
+			{
+				return "DashboardViews/AdminDashboard/Index";
+			}
 		}
 	}
 	
