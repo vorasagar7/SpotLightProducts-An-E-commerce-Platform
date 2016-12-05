@@ -23,6 +23,7 @@ import com.spotlightproducts.dao.Order;
 import com.spotlightproducts.dao.Product;
 import com.spotlightproducts.dao.Review;
 import com.spotlightproducts.dao.User;
+import com.spotlightproducts.utilities.SpotLightConstants;
 
 @RestController
 public class SellerDashBoardAPIController{
@@ -31,7 +32,7 @@ public class SellerDashBoardAPIController{
 	public ResponseEntity<JSONResponse<Double>> getSellerStatistics(@RequestBody User user, HttpServletRequest request){
 		JSONResponse<Double> JsonResponse = new JSONResponse<Double>();
 		HttpSession session = request.getSession();
-		user.setEmail((String)session.getAttribute("email"));
+		user.setEmail((String)session.getAttribute(SpotLightConstants.CONSTANT_EMAIL));
 		SellerDashboard sdashboad = new SellerDashboard();
 		DatabaseResponse<Double> dbresponse = sdashboad.getSellerRevenue(user);
 		JsonResponse.setStatus(dbresponse.getStatus());
