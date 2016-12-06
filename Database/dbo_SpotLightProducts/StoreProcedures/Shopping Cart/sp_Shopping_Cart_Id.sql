@@ -9,16 +9,16 @@ CREATE PROCEDURE sp_Shopping_Cart_Entry_Delete(
 BEGIN
 	SET @UserEmail = (SELECT Email from tb_AppUser WHERE Id = p_User_Id);
 	UPDATE tb_ShoppingCart
-	SET IsDeleted = 1,
-		ModifiedBy = @UserEmail,
-		ModifiedOn = CURRENT_TIMESTAMP,
+	SET Is_Deleted = 1,
+		Modified_By = @UserEmail,
+		Modified_On = CURRENT_TIMESTAMP,
 		VERSION = VERSION + 1
 	WHERE Id = p_Shopping_Cart_Id;
 
 	UPDATE tb_ProductSeller
 	SET Quantity = Quantity + p_Quantity,
-		ModifiedBy = CURRENT_USER,
-		ModifiedOn = CURRENT_TIMESTAMP,
+		Modified_By = CURRENT_USER,
+		Modified_On = CURRENT_TIMESTAMP,
 		VERSION = VERSION + 1
 	WHERE Product_Id = p_Product_Id
 	AND Seller_Id = p_Seller_Id;
