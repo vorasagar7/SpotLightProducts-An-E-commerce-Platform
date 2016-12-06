@@ -40,6 +40,16 @@
 <script src="${angularRouteJS}"></script>
 <script src="${appJS}"></script>
 <script src="${controllerJS}"></script>
+	<style>
+	body{
+	background-image: url("/resources/spotlightbg1.jpg");
+	background-size: 100%;
+	}
+	h1{
+		color: white;
+		text-align: center;
+	}
+	</style>
 </head>
 
 

@@ -21,6 +21,16 @@
 <spring:url value="/resources/ChangePassword/app.js" var="appJS" />
 <script src="${angularJS}"></script>
 <script src="${appJS}"></script>
+	<style>
+	body{
+	background-image: url("/resources/spotlightbg1.jpg");
+	background-size: 100%;
+	}
+	h1{
+		color: white;
+		text-align: center;
+	}
+	</style>
 </head>
 
 

@@ -5,7 +5,14 @@
 <html>
 
 <head>
-
+<style>
+	body{
+	
+	background-image: url("/resources/texture5.jpg"); 
+	background-size: 100%;
+	}
+	
+	</style>
 <title>SpotLightProducts_Main_Page.html</title>
 <!-- <link rel="stylesheet" type="text/css" -->
 <!-- 	href="bootstrap-3.3.7-dist/css/bootstrap.min.css" /> -->
@@ -58,7 +65,7 @@
 
 <div class="row">
 	<div class="col-xs-8 col-md-offset-4 col-md-4">
-		<h1 align="center">Shoes</h1>
+		<h1 align="center">SpotlightProducts</h1>
 	</div>
 </div>
 
@@ -116,13 +123,13 @@
 
 
 <ul class="nav nav-pills">
-	<li role="presentation"><a href="/homepage">Home</a></li>
-	<li role="presentation"><a href="/filterByElectronics">Electronics</a></li>
-	<li role="presentation"><a href="/filterByMobiles">Mobiles</a></li>
-	<li role="presentation" class="active"><a href="/filterByShoes">Shoes</a></li>
-	<li role="presentation"><a href="/filterByWatches">Watches</a></li>
-	<li role="presentation"><a href="/filterByBooks">Books</a></li>
-	<li role="presentation"><a href="/filterBySpotlightProducts">SpotLightProducts</a></li>
+	<li role="presentation"><a href="/homepage"><b>Home</b></a></li>
+	<li role="presentation"><a href="/filterByElectronics"><b>Electronics</b></a></li>
+	<li role="presentation"><a href="/filterByMobiles"><b>Mobiles</b></a></li>
+	<li role="presentation" class="active"><a href="/filterByShoes"><b>Shoes</b></a></li>
+	<li role="presentation"><a href="/filterByWatches"><b>Watches</b></a></li>
+	<li role="presentation"><a href="/filterByBooks"><b>Books</b></a></li>
+	<li role="presentation"><a href="/filterBySpotlightProducts"><b>SpotLightProducts</b></a></li>
 </ul>
 
 
@@ -160,7 +167,7 @@
 			
 		</div>
 
-
+		<h1 align="center">Shoes</h1>
 		<div class="col-md-9">
 
 

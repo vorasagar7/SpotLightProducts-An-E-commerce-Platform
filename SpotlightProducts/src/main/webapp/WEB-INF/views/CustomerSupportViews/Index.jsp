@@ -3,6 +3,16 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+	body{
+	background-image: url("/resources/texture5.jpg");
+	background-size: 100%;
+	}
+	h1{
+		color: white;
+		text-align: center;
+	}
+</style>
 <title>Customer Support</title>
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>

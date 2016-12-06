@@ -3,7 +3,14 @@
 <html>
 
 <head>
-
+<style>
+	body{
+	
+	background-image: url("/resources/texture5.jpg"); 
+	background-size: 100%;
+	}
+	
+	</style>
 <title>Seller Dashboard</title>
 <link rel="stylesheet" type="text/css"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
