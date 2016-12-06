@@ -39,7 +39,7 @@ public class SearchController {
 		session.setAttribute("searchQuery", searchQuery);
 
 		model.put("productList", productList);
-		System.out.println("Seach Query is: " + searchQuery);
+		
 		return "/SearchPageViews/search-result";
 
 	}
