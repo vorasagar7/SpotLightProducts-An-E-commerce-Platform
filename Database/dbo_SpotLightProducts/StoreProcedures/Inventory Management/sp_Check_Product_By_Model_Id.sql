@@ -7,7 +7,7 @@ BEGIN
 		product.Product_Name,
 		product.Model_Id,
 		brand.Name AS Brand,
-		category.Name AS Category
+		category.Name AS Category,
 		product.Description,
 		product.IsSpotlight,
 		product.IsApproved

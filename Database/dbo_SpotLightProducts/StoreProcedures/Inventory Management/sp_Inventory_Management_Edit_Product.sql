@@ -24,7 +24,7 @@ BEGIN
 	ModifiedBy = @SellerEmail,
 	Version = Version + 1
 	WHERE Id = p_Product_Id
-	AND Is_Deleted = 0
+	AND Is_Deleted = 0;
 
 	UPDATE tb_ProductSeller
 	SET Price = p_Price,
@@ -34,6 +34,6 @@ BEGIN
 	Version = Version + 1
 	WHERE Product_Id = p_Product_Id
 	AND Seller_Id = p_Seller_Id
-	AND Is_Deleted = 0
+	AND Is_Deleted = 0;
 END;
 $$

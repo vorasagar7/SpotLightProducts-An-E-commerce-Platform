@@ -23,6 +23,6 @@ BEGIN
 	WHERE Product_Id = p_Product_Id
 	AND Seller_Id = p_Seller_Id;
 
-	SELECT 1 AS SUCCESS, "" AS ErrMessage
+	SELECT 1 AS SUCCESS, "" AS ErrMessage;
 END;
 $$

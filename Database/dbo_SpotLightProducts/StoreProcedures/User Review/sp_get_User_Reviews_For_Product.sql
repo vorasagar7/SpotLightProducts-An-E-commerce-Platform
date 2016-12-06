@@ -12,7 +12,7 @@ BEGIN
 	  urv.modified_On,
 	  urv.Comments,
 	  urv.Rating,
-	  brand.Name AS Brand Name
+	  brand.Name AS BrandName
 	FROM tb_userreviews urv
 	INNER JOIN tb_appuser ap
 	 ON ap.id = urv.User_Id
@@ -22,7 +22,7 @@ BEGIN
 	  ON brand.Id = p.Brand_Id
 	WHERE urv.User_Id = p_user_Id
 	AND ap.Is_DELETED = 0
-	AND urv.Product_Id = p_product_Id;
+	AND urv.Product_Id = p_product_Id
 	ORDER BY urv.modified_On DESC;
 End;
 $$
