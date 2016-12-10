@@ -145,7 +145,7 @@
 	</div>
 	<!-- </div> -->
 
-<div class="chart-element"><button class="btn btn-primary" ng-click="redirectToMyDashboardHome()">Back to Dashboard</button></div>
+<!--  <div class="chart-element"><button class="btn btn-primary" ng-click="redirectToMyDashboardHome()">Back to Dashboard</button></div> -->
 
 
 

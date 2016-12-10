@@ -5,7 +5,14 @@
 <html>
 
 <head>
-
+<style>
+	body{
+	
+	background-image: url("/resources/texture5.jpg"); 
+	background-size: 100%;
+	}
+	
+	</style>
 <title>SpotLightProducts_Main_Page.html</title>
 <!-- <link rel="stylesheet" type="text/css" -->
 <!-- 	href="bootstrap-3.3.7-dist/css/bootstrap.min.css" /> -->

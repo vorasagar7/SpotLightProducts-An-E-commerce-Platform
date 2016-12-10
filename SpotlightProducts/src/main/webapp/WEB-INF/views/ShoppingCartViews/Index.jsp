@@ -4,7 +4,14 @@
 <html>
 
 <head>
-
+<style>
+	body{
+	
+	background-image: url("/resources/texture5.jpg"); 
+	background-size: 100%;
+	}
+	
+	</style>
 <title>Shopping Cart</title>
 <link rel="stylesheet" type="text/css"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
@@ -70,7 +77,7 @@
 						<div ng-repeat="shoppingCartItem in userShoppingCart" ng-hide="shoppingCartItem.isDeleted">
 							<div class="row">
 								<div class="col-xs-2">
-									<img class="img-responsive" src="http://placehold.it/100x70">
+								<!--  	<img class="img-responsive" src="http://placehold.it/100x70"> -->
 								</div>
 								<div class="col-xs-4">
 									<h4 class="product-name">

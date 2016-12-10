@@ -25,7 +25,7 @@
 				<div class="col-xs-12 text-center">
 					<div class="card">
 						<div class="card-block">
-							<h2 class="card-title">Low Stock Items</h2>
+							<h2 class="card-title">Inventory Management</h2>
 						</div>
 						<a href="/InventoryManagement" class="card-link"> <img
 							src="http://www.clker.com/cliparts/U/D/B/J/j/R/red-square-md.png"
