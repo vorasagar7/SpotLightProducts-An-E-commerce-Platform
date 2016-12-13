@@ -19,4 +19,3 @@ BEGIN
 	WHERE product.Model_Id = p_Model_Id
 	AND product.IsDeleted = 0;
 END;
-$$

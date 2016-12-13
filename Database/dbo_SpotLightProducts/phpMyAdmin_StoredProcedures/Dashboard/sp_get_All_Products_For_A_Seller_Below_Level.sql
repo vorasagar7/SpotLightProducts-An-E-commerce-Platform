@@ -18,4 +18,3 @@ AND ps.quantity <= 5
 AND p.Is_Deleted = 0
 AND ps.Is_Deleted = 0;
 End;
-$$

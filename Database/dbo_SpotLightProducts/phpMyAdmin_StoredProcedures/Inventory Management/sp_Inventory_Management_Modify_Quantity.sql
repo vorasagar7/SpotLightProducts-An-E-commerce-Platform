@@ -19,4 +19,3 @@ BEGIN
 	AND Is_Deleted = 0;
 	SELECT 1 AS SUCCESS, "" AS ErrMessage;
 END;
-$$

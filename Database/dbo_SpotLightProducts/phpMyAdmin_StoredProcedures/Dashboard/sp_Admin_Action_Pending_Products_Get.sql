@@ -23,4 +23,3 @@ BEGIN
 	WHERE product.Is_Deleted = 0
 	AND product.Is_Approved = 0;
 END;
-$$

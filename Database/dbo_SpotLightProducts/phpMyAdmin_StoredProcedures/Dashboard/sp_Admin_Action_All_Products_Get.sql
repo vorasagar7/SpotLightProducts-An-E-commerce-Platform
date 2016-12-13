@@ -22,4 +22,3 @@ BEGIN
 	ON productseller.Seller_Id = appuser.id
 	WHERE product.Is_Deleted = 0;
 END;
-$$

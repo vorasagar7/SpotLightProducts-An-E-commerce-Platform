@@ -36,4 +36,3 @@ BEGIN
 	AND Seller_Id = p_Seller_Id
 	AND Is_Deleted = 0;
 END;
-$$

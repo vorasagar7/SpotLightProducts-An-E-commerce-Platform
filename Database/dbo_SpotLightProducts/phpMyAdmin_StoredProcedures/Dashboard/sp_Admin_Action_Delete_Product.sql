@@ -28,4 +28,3 @@ BEGIN
 			"Product Successfully Deleted" AS Message;
 	END IF;
 END;
-$$

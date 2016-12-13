@@ -16,4 +16,3 @@ BEGIN
 			1 AS SUCCESS,
 			"Product Successfully Deleted" AS Message;
 END;
-$$
