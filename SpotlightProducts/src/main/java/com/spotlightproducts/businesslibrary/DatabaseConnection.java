@@ -18,8 +18,7 @@ public class DatabaseConnection {
 		Connection con = null;
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/spotlightproducts",
-				"admin", "admin");
+			con = (Connection) DriverManager.getConnection("jdbc:mysql://db.soic.indiana.edu:3306/p565f16_efhuang","p565f16_efhuang","qwert12345");
 		}
 		catch(Exception e)
 		{
