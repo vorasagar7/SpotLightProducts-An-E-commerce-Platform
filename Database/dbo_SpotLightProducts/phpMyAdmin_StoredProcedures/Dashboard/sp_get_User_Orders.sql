@@ -21,4 +21,3 @@ AND uo.Is_Deleted = 0
 AND om.Is_Deleted = 0
 ORDER BY om.Modified_On DESC;
 End;
-$$

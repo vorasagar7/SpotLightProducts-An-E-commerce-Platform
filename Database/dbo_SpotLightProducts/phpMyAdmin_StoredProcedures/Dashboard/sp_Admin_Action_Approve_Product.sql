@@ -29,4 +29,3 @@ BEGIN
 			"Product Successfully Approved" AS Message;
 	END IF;
 END;
-$$

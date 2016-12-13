@@ -30,4 +30,3 @@ BEGIN
 			"Product Successfully Rejected" AS Message;
 	END IF;
 END;
-$$

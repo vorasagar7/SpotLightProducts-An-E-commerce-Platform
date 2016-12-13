@@ -11,4 +11,3 @@ BEGIN
 	WHERE seller_id = p_seller_Id
 	AND om.Is_Deleted = 0;
 End;
-$$

@@ -21,4 +21,3 @@ ELSE
 	Select -1 as Success, "Current Password Doesn't match with the entered one" as Message;
 END IF;
 End;
-$$

@@ -24,4 +24,3 @@ AND p.Is_Deleted = 0
 AND ps.Is_Deleted = 0
 ORDER BY ps.quantity;
 End;
-$$

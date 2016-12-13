@@ -14,4 +14,3 @@ WHERE ur.role_id = p_role_Type
 AND ap.Is_DELETED = 0
 AND ur.Is_DELETED = 0;
 End;
-$$

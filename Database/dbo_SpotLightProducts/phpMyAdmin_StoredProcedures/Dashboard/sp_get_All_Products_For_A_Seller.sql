@@ -16,4 +16,4 @@ WHERE ps.Seller_Id = p_seller_Id
 AND p.Is_Deleted = 0 
 AND ps.Is_Deleted = 0;
 End;
-$$
+
