@@ -47,4 +47,3 @@ BEGIN
 	
 	DROP TABLE tb_ReferenceData;
 END;
-$$

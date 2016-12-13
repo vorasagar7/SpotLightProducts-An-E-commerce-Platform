@@ -9,4 +9,3 @@ BEGIN
     WHERE email = p_Email
 	AND Is_DELETED = 0;
 End;
-$$

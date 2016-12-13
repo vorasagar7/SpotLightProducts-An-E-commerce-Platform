@@ -30,4 +30,3 @@ BEGIN
 	AND ps.Is_Deleted = 0
 	ORDER BY SellerName;
 END;
-$$

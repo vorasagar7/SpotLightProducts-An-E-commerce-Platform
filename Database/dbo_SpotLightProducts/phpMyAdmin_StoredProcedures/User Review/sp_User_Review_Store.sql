@@ -36,4 +36,3 @@ BEGIN
 			"" as Message, 
 			@reviewID As UserReview_Id;
 End;
-$$

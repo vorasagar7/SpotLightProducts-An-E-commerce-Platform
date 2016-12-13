@@ -23,4 +23,3 @@ BEGIN
 	AND ap.Is_Deleted = 0
 	ORDER BY urv.modified_On DESC;
 End;
-$$

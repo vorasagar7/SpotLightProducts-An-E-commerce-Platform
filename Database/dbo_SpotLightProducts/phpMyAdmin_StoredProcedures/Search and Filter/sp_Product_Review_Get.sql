@@ -19,4 +19,3 @@ SELECT review.Id,
 	AND products.id=p_productId
 	ORDER BY review.Modified_On DESC;
 END;
-$$

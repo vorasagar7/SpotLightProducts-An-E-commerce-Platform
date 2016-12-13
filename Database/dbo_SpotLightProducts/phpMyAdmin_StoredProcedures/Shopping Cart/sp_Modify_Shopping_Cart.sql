@@ -80,4 +80,3 @@ BEGIN
 	END IF;
 	SELECT 1 AS SUCCESS, "" AS ErrMessage, @shoppingCartID AS ShoppingCartID;
 END;
-$$

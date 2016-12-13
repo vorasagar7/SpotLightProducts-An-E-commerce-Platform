@@ -44,4 +44,3 @@ BEGIN
 
 	DROP TABLE UserTable;
 END;
-$$

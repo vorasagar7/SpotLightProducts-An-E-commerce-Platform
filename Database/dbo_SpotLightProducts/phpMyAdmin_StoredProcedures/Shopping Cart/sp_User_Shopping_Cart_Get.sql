@@ -32,4 +32,3 @@ BEGIN
 	AND ps.Is_Deleted = 0
 	ORDER BY product.Product_Name;
 END;
-$$

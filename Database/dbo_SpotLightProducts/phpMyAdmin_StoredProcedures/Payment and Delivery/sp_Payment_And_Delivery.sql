@@ -55,4 +55,3 @@ BEGIN
 		AND Buyer_Id = p_user_Id;
 	SELECT 1 AS SUCCESS, "" AS ErrMessage, @OrderID AS User_Order_ID;
 End;
-$$

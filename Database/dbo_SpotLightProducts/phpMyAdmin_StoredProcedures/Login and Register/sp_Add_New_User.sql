@@ -58,4 +58,3 @@ BEGIN
 			@user_id As User_Id;
 	END IF;
 End;
-$$

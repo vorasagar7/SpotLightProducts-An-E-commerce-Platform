@@ -18,4 +18,3 @@ BEGIN
 		SELECT 0 AS User_id;
 	END IF;
 END;
-$$

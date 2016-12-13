@@ -41,4 +41,3 @@ BEGIN
 	AND products.Is_Deleted = 0
 	AND user.Is_Active = 1;
 END;
-$$

@@ -27,4 +27,4 @@ BEGIN
 		GROUP BY m.merge_date
 		ORDER BY 1+1;
 End;
-$$
+

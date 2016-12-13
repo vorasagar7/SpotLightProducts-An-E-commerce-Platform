@@ -14,4 +14,3 @@ SELECT count(*)
 	AND user.Is_Deleted = 0
 	AND products.id=p_productId;
 END;
-$$

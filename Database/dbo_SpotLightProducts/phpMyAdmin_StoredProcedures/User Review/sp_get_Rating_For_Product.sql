@@ -10,4 +10,3 @@ BEGIN
 		Select 0;
 	END IF;
 End;
-$$

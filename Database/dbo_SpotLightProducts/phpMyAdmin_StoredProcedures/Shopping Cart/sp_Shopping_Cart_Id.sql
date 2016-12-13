@@ -25,4 +25,3 @@ BEGIN
 
 	SELECT 1 AS SUCCESS, "" AS ErrMessage;
 END;
-$$

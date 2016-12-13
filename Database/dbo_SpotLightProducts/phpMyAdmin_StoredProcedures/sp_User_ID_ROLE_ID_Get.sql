@@ -27,4 +27,3 @@ BEGIN
 		0 AS Role_id;
 	END IF;
 END;
-$$

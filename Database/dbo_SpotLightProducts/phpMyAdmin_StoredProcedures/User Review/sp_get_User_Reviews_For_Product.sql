@@ -25,4 +25,3 @@ BEGIN
 	AND urv.Product_Id = p_product_Id
 	ORDER BY urv.modified_On DESC;
 End;
-$$

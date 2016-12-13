@@ -22,4 +22,3 @@ BEGIN
 	AND ps.Is_Deleted = 0
 	AND p.Is_Deleted = 0);
 END;
-$$
